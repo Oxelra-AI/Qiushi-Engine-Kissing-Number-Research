@@ -29,13 +29,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "5b566024d1daf36f3a935a2c59a220f634d0063e85db5285576d8841c147b839",
-      "bytes": 6662
+      "sha256": "0d881c3cbfb4970bb6c32b1f0474b296c709b4be5d67d3bce451d9f872cec1f7",
+      "bytes": 6690
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "2cdccbd186a8c428dacd484f52a0f6e917fce2e823f0c05b96fab9f2c7f15c58",
-      "bytes": 5983
+      "sha256": "1f4eac8baee648bd67d7befbf5d4379056c748bed07f0779c8e307f9fbcc1d02",
+      "bytes": 6011
     },
     {
       "path": "RIGHTS.md",
@@ -79,8 +79,8 @@
     },
     {
       "path": "constructions/codes/README.md",
-      "sha256": "27e4edc15008df81b34e92bd2c4cef425ad9d3a69c11875a7354642a19177081",
-      "bytes": 2021
+      "sha256": "840610c7aec082182c2a20c99a38c10a3190b7efc6d00a97a6298cb39a516b0f",
+      "bytes": 2061
     },
     {
       "path": "constructions/codes/check_code_lineage.py",
@@ -349,8 +349,8 @@
     },
     {
       "path": "constructions/sections/README.md",
-      "sha256": "12b56b73bda9ccf99eb4128dad18e29e0b601d4ed244530073af1c21a4e41f53",
-      "bytes": 1963
+      "sha256": "1ff497b091011043be9556f48d46e37df8baa1bf515c12eb44862e18ef1a3237",
+      "bytes": 2001
     },
     {
       "path": "constructions/sections/d43/data/CQ48a.html",
@@ -444,8 +444,8 @@
     },
     {
       "path": "constructions/third-party.md",
-      "sha256": "a1abb20f9a2189a9ab70873d47a27fd718a7d845a4c40ad8bdf5dbc78b036dc3",
-      "bytes": 2093
+      "sha256": "d4038e5eca5b3e88f4b26c8ce935deb7a12abbbc4ff35244e2fc5eb22817b4d7",
+      "bytes": 2091
     },
     {
       "path": "evidence/README.md",
@@ -459,8 +459,8 @@
     },
     {
       "path": "evidence/verification.json",
-      "sha256": "9031598a31cd1dc0472f0c0b41ef279f81507a6e75c794b276e0f2a2a57ecac4",
-      "bytes": 14561
+      "sha256": "504d64715720dcce0dc53687b70bc4fb97216c1c584bd4390fb0699e245f9712",
+      "bytes": 14562
     },
     {
       "path": "reports/README.md",
@@ -469,8 +469,8 @@
     },
     {
       "path": "reports/en/certificates.zip",
-      "sha256": "d625bc38791810129a94a8fe9aefc2c0406dd70ac820ef1f578b9366060746fa",
-      "bytes": 545691
+      "sha256": "76964782db911163940845e42d99353869f1490a87b4ed2ae242d85ed6baaab9",
+      "bytes": 545743
     },
     {
       "path": "reports/en/figures/qiushi-engine-logo.png",
@@ -499,8 +499,8 @@
     },
     {
       "path": "reports/en/main.pdf",
-      "sha256": "9c08e3ced66a1e2b0f2e8edf420ffe4a54640e3acab15c557264fef25f3087b2",
-      "bytes": 1110577
+      "sha256": "005097567142b8cd7e407db7da574b5e48b089be24c1407a747c89aa4cbc855b",
+      "bytes": 1110606
     },
     {
       "path": "reports/en/main.tex",
@@ -574,8 +574,8 @@
     },
     {
       "path": "reports/zh/certificates.zip",
-      "sha256": "d625bc38791810129a94a8fe9aefc2c0406dd70ac820ef1f578b9366060746fa",
-      "bytes": 545691
+      "sha256": "76964782db911163940845e42d99353869f1490a87b4ed2ae242d85ed6baaab9",
+      "bytes": 545743
     },
     {
       "path": "reports/zh/figures/qiushi-engine-logo.png",
@@ -604,8 +604,8 @@
     },
     {
       "path": "reports/zh/main.pdf",
-      "sha256": "605e6c30d9c2eabd6fefa003e29e851c6563905341ec7b7b1e7cc2e60db651c7",
-      "bytes": 1283075
+      "sha256": "591a497f38a292a12db0fc215b34a227ad2a92c44bec2bbb26c0d2fa10afd4f5",
+      "bytes": 1283123
     },
     {
       "path": "reports/zh/main.tex",
@@ -694,13 +694,13 @@
     },
     {
       "path": "research/livestream.md",
-      "sha256": "0da07b16f2a0b4ddab4ef03149b12659be2bb367d05b84838469aaa09e18166a",
-      "bytes": 1748
+      "sha256": "ce8bbfcfa61eb1eb125c1d1724e5d523568679a07e8c293d0c323f0090910ff7",
+      "bytes": 1790
     },
     {
       "path": "research/provenance.md",
-      "sha256": "e96a875802471efa7d6788b83bca3daccb3b9c087029a81a95960165653062e0",
-      "bytes": 3898
+      "sha256": "882f69f8ea031db2a21b7252fe7d7599ee66555c75cc197ddfceb4c1409bca0f",
+      "bytes": 3909
     },
     {
       "path": "research/results.md",
@@ -724,8 +724,8 @@
     },
     {
       "path": "tests/test_documents.py",
-      "sha256": "f5416c0debdd0bb8272fec33063198d6e43617fe38e3afdf939f6d05a8492445",
-      "bytes": 8203
+      "sha256": "dd7cf4041b8404d973ea71d183319acaeb52eb8750e2550f5ea9370e6315443c",
+      "bytes": 8509
     },
     {
       "path": "tests/test_replay_binding.py",

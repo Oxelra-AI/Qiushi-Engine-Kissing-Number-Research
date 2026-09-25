@@ -11,6 +11,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class Documents(unittest.TestCase):
+    def test_livestream_citation_uses_original_article(self):
+        source = "https://hznews.hangzhou.com.cn/kejiao/content/2026-09/23/content_9314105.htm"
+        for name in ("README.md", "README.zh-CN.md", "research/livestream.md"):
+            self.assertIn(source, (ROOT / name).read_text(), name)
+
     def test_report_tables_match_catalogue(self):
         catalog = json.loads((ROOT / "constructions/catalog/results.json").read_text())
         expected = [(r["dimension"], r["lower_bound"], r["comparison"]["lower_bound"],

@@ -11,8 +11,6 @@ The [source account](../research/provenance.md) explains the mathematical
 role of each input. Third-party materials retain their existing rights and
 notices. The project license applies to the original contributions.
 
-
-
 ## KissingNumbers license
 
 MIT License

@@ -5,7 +5,6 @@ This account identifies the mathematical inputs and the new finite objects.
 
 ## Construction families
 
-
 **Supports and signs.** The initial representation attaches all even-parity
 sign patterns to each weight-eight support. Replacing conflicting supports
 improves the support code. Later work changes the sign sets themselves:
@@ -22,7 +21,6 @@ maps and place the resulting signed codes in explicit ERS coordinate regions;
 the boundary checks establish net gains of 128, 192 and 128 in dimensions
 35, 36 and 37 respectively.
 
-
 **Equatorial augmentation.** The latest 38-dimensional construction starts
 from a public layered configuration with no equatorial points. Its
 24-dimensional equatorial subspace admits compatible norm-48 directions.
@@ -30,8 +28,6 @@ Searching a compatibility graph produces an antipodal line set; the explicit 144
 witness gives the additional 288 points. Both layers use the Golay basis
 supplied with the base construction, so their cross-products are checked
 in a common coordinate system.
-
-
 
 **Lattice sections and moments.** A section is governed by the geometry of
 its embedding, not just by its abstract Gram type. Dimension 43 exploits
@@ -46,11 +42,9 @@ The new $D_5$ count uses its specified embedding and a target-preserving
 43-orbit moment system. Historical numerical comparisons cite the earlier
 Sun–Wang v3, which explicitly reports the two comparison counts.
 
-
-
 ## Discovery, construction and proof
 
-Search programs propose supports, owners, line families or sections. The
+Search programs propose supports, signed vectors, line families or embedded sections. The
 mathematical argument explains why the accepted finite object produces a
 kissing configuration. Verification programs check the object and its
 required identities. Fixed certificates therefore give short, reproducible

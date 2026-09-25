@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-09-25T17:23:21.935585+00:00",
+  "started_at_utc": "2026-09-25T17:37:23.728439+00:00",
   "suite": "all",
   "versions": {
     "python": "3.12.14",
@@ -328,7 +328,7 @@
       "id": "codes-primary",
       "exit_code": 0,
       "passed": true,
-      "seconds": 4.022
+      "seconds": 3.971
     },
     {
       "id": "dimension32",
@@ -352,25 +352,25 @@
       "id": "support-exchanges",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.218
+      "seconds": 2.168
     },
     {
       "id": "supports32-37",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.067
+      "seconds": 1.066
     },
     {
       "id": "hadamard35-36",
       "exit_code": 0,
       "passed": true,
-      "seconds": 0.917
+      "seconds": 0.916
     },
     {
       "id": "section43",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.77
+      "seconds": 2.769
     },
     {
       "id": "section43-matrix",
@@ -388,21 +388,21 @@
       "id": "section45",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.167
+      "seconds": 1.217
     },
     {
       "id": "section45-parent",
       "exit_code": 0,
       "passed": true,
-      "seconds": 0.265
+      "seconds": 0.266
     },
     {
       "id": "dimension38",
       "exit_code": 0,
       "passed": true,
-      "seconds": 4.622
+      "seconds": 4.621
     }
   ],
   "inputs_unchanged": true,
-  "finished_at_utc": "2026-09-25T17:23:41.780299+00:00"
+  "finished_at_utc": "2026-09-25T17:37:43.519679+00:00"
 }

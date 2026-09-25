@@ -5,6 +5,8 @@ The kernel generators, coset representatives and weight-eight support lists
 are finite inputs. `verify.py` checks all pair types; `verify_independent.py`
 compiles a separate C++17 implementation in a temporary directory.
 
+From `constructions/codes/`, run:
+
 ```bash
 python verify.py --output /tmp/codes.json
 python verify_independent.py --output /tmp/codes-independent.json
@@ -27,8 +29,8 @@ and a 51-block code from one-factorizations, then enumerates all 945 and
 10,395 coordinate matchings. The resulting 256 and 576 signed vectors
 coincide with the certificates. The main Hadamard verifier also runs this
 reconstruction, together with the compact generators in `data/generators.json`.
-The latest bounds in these four dimensions are 347584, 409676,
-484760 and 498024 respectively.
+The resulting bounds are $K(32)\ge347584$, $K(35)\ge409676$,
+$K(36)\ge484760$ and $K(37)\ge498024$.
 
 The Python checks require the standard library; the independent check also
 requires a C++17 compiler. `generate.py` streams the original three-layer

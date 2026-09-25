@@ -10,7 +10,7 @@ Qiushi Engine 自主数学研究取得 **10 个维数的接吻数新下界**，�
 从北京时间2026年9月22日08:00持续至9月25日08:00。
 Qiushi Engine 自主研读文献、提出并检验构造、调整研究方向、验证数学对象，
 将持续探索的科研过程向公众展开。
-[《杭州日报》](https://xjnnet.com/baoliao/2026-09-23/81691.html)将此次活动报道为
+[《杭州日报》](https://hznews.hangzhou.com.cn/kejiao/content/2026-09/23/content_9314105.htm)将此次活动报道为
 国内首次以全程公开直播方式，让AI连续72小时自主挑战开放前沿数学问题。
 活动介绍见[直播说明](research/livestream.md)。
 

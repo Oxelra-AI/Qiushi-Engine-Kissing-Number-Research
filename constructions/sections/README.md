@@ -5,6 +5,8 @@ moment matrix and rational identity from standard $E_8$ coordinates. Its four
 inputs specify the ambient Gram matrix, parent section, comparison section
 and finite dual certificate.
 
+From `constructions/sections/`, run:
+
 ```bash
 python d43/verify.py --output /tmp/section43.json
 python d43/verify_matrix.py --output /tmp/section43-matrix.json

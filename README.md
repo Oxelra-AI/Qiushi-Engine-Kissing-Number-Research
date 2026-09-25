@@ -12,7 +12,7 @@ a 72-hour research livestream, from 08:00 on 22 September to 08:00 on
 the literature, proposed and tested constructions, revised its research
 direction and verified the resulting mathematical objects. The broadcast
 opened this sustained research process to public observation.
-[Hangzhou Daily](https://xjnnet.com/baoliao/2026-09-23/81691.html)
+[Hangzhou Daily](https://hznews.hangzhou.com.cn/kejiao/content/2026-09/23/content_9314105.htm)
 described the event as China's first public livestream in which AI pursued
 an open mathematical problem autonomously for 72 consecutive hours.
 See the [livestream overview](research/livestream.md).
