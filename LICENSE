@@ -1,0 +1,56 @@
+Qiushi Engine Kissing Number Research - License Terms
+
+Copyright (c) 2026 Qiushi Engine contributors
+
+1. Original software: MIT
+
+Original software in this repository, including verification tools, research
+programs, tests, build scripts, and their software documentation, is licensed
+under the MIT License below. This includes original code under constructions/ and tools/.
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+2. Original research materials: CC BY 4.0
+
+Original reports and their LaTeX sources, original figures, research notes,
+plans, and the original selection and arrangement of research records are
+licensed under the Creative Commons Attribution 4.0 International License:
+https://creativecommons.org/licenses/by/4.0/legalcode.en
+
+This permits sharing and adaptation, including commercial use, with
+appropriate attribution, a license link, and an indication of changes.
+For attribution, use the work's title and authors in CITATION.cff. The legal
+code linked above governs; this paragraph is a summary, not a substitute.
+
+To the extent copyright or database rights apply to original generated
+results, arrays, proof certificates, or other original non-software data,
+they are also offered under CC BY 4.0. These terms do not assert ownership
+over mathematical facts or ideas.
+
+3. Third-party material
+
+Third-party code, data, quotations, references, and other incorporated
+material retain their existing rights and applicable license notices;
+the licenses above apply only to original contributions. In particular,
+the upstream KissingNumbers MIT notice is preserved in
+constructions/third-party.md
+
+No endorsement or separate trademark rights are granted.

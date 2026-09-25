@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "Please cite this research collection and its reports."
+type: software
+title: "Qiushi Engine: Autonomous Discovery of New Lower Bounds for Kissing Numbers"
+repository-code: "https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research"
+abstract: "Explicit kissing configurations, geometric proofs, finite construction data, exact verification programs and bilingual research reports."
+authors:
+  - family-names: Yang
+    given-names: Shuxing
+  - family-names: Zhao
+    given-names: Rui
+  - family-names: Wu
+    given-names: Junyao
+  - family-names: Wang
+    given-names: Yize
+  - family-names: Chen
+    given-names: Fujia
+  - family-names: Zhu
+    given-names: Kaihao
+  - family-names: Li
+    given-names: Wenhao
+  - family-names: Li
+    given-names: Zichen
+  - family-names: Li
+    given-names: Yaqi
+  - family-names: Hong
+    given-names: Shenzhan
+  - family-names: Pan
+    given-names: Yuang
+  - family-names: Yang
+    given-names: Junjie
+  - family-names: Deng
+    given-names: Taowen
+  - family-names: Mi
+    given-names: Jincheng
+  - family-names: Chen
+    given-names: Hongsheng
+    email: hansomchen@zju.edu.cn
+  - family-names: Yang
+    given-names: Yihao
+    email: yangyihao@zju.edu.cn
+keywords:
+  - kissing number
+  - Leech lattice
+  - spherical code
+  - signed code
+  - lattice section
+  - exact arithmetic

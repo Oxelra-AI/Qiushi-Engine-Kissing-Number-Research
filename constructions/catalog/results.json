@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-09-25",
+  "scope": "Explicit kissing-number lower bounds",
+  "result_count": 10,
+  "results": [
+    {
+      "dimension": 32,
+      "lower_bound": 347584,
+      "family": "support exchange",
+      "count_formula": "131072 + 128*1676 + 2*32*31",
+      "contribution": "Replace intersecting weight-eight supports by a larger compatible support family of size 1676.",
+      "comparison": {
+        "lower_bound": 346432,
+        "gain": 1152,
+        "source_id": "brouwer-codes",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "dimension32",
+          "supports32-37"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/data/d32_supports_binary.txt",
+        "constructions/codes/data/d33_kernel.txt",
+        "constructions/codes/data/d33_representatives.txt",
+        "constructions/codes/verify_replacements.py"
+      ]
+    },
+    {
+      "dimension": 33,
+      "lower_bound": 363968,
+      "family": "support exchange",
+      "count_formula": "131072 + 128*1803 + 2*33*32",
+      "contribution": "Find 1803 weight-eight supports whose pairwise intersections are at most four.",
+      "comparison": {
+        "lower_bound": 362048,
+        "gain": 1920,
+        "source_id": "brouwer-codes",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "codes-primary",
+          "codes-independent",
+          "support-exchanges"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/data/d33_supports.txt",
+        "constructions/codes/data/d33_kernel.txt",
+        "constructions/codes/data/d33_representatives.txt",
+        "constructions/codes/verify.py",
+        "constructions/codes/verify_independent.py",
+        "constructions/codes/independent.cpp",
+        "constructions/codes/reference_checker.py",
+        "constructions/codes/data/exchanges/d33_parent.txt",
+        "constructions/codes/data/exchanges/exchanges.json",
+        "constructions/codes/verify_exchanges.py"
+      ]
+    },
+    {
+      "dimension": 34,
+      "lower_bound": 384196,
+      "family": "support exchange",
+      "count_formula": "131072 + 128*1960 + 2*34*33",
+      "contribution": "Find 1960 weight-eight supports whose pairwise intersections are at most four.",
+      "comparison": {
+        "lower_bound": 381124,
+        "gain": 3072,
+        "source_id": "brouwer-codes",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "codes-primary",
+          "codes-independent",
+          "support-exchanges"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/data/d34_supports.txt",
+        "constructions/codes/data/d34_kernel.txt",
+        "constructions/codes/data/d34_representatives.txt",
+        "constructions/codes/verify.py",
+        "constructions/codes/verify_independent.py",
+        "constructions/codes/independent.cpp",
+        "constructions/codes/reference_checker.py",
+        "constructions/codes/data/exchanges/d34_parent.txt",
+        "constructions/codes/data/exchanges/exchanges.json",
+        "constructions/codes/verify_exchanges.py"
+      ]
+    },
+    {
+      "dimension": 35,
+      "lower_bound": 409676,
+      "family": "signed local replacement",
+      "count_formula": "409548 - 128 + 256",
+      "contribution": "Replace one 128-point sign bundle by 256 compatible signed points.",
+      "comparison": {
+        "lower_bound": 409548,
+        "gain": 128,
+        "source_id": "brouwer-codes",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "hadamard35-36"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/hadamard/data/top_code.json",
+        "constructions/codes/hadamard/data/d35_supports.txt",
+        "constructions/codes/hadamard/data/d35_construction.json",
+        "constructions/codes/hadamard/verify.py",
+        "constructions/codes/hadamard/data/generators.json",
+        "constructions/codes/hadamard/search.py"
+      ]
+    },
+    {
+      "dimension": 36,
+      "lower_bound": 484760,
+      "family": "signed local replacement",
+      "count_formula": "484568 - 384 + 576",
+      "contribution": "Replace three 128-point sign bundles by 576 compatible signed points.",
+      "comparison": {
+        "lower_bound": 484568,
+        "gain": 192,
+        "source_id": "brouwer-codes",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "hadamard35-36"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/hadamard/data/top_code.json",
+        "constructions/codes/hadamard/data/d36_supports.txt",
+        "constructions/codes/hadamard/data/d36_construction.json",
+        "constructions/codes/hadamard/verify.py",
+        "constructions/codes/hadamard/data/generators.json",
+        "constructions/codes/hadamard/search.py"
+      ]
+    },
+    {
+      "dimension": 37,
+      "lower_bound": 498024,
+      "family": "support exchange and signed replacement",
+      "count_formula": "131072 + 128*2845 + 2*37*36 - 3*128 + 512",
+      "contribution": "Combine a 2845-support family with a replacement of three sign bundles by 512 points.",
+      "comparison": {
+        "lower_bound": 496232,
+        "gain": 1792,
+        "source_id": "brouwer-codes",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "supports32-37"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/data/d37_supports_binary.txt",
+        "constructions/codes/data/d37_signed_patch.json",
+        "constructions/codes/data/d33_kernel.txt",
+        "constructions/codes/data/d33_representatives.txt",
+        "constructions/codes/verify_replacements.py"
+      ]
+    },
+    {
+      "dimension": 38,
+      "lower_bound": 591900,
+      "family": "Leech equatorial augmentation",
+      "count_formula": "591612 + 2*144",
+      "contribution": "Add 144 antipodal norm-48 lines to the empty equator of the published 591612-point construction.",
+      "comparison": {
+        "lower_bound": 591612,
+        "gain": 288,
+        "source_id": "kr-results-20260925",
+        "retrieved_date": "2026-09-25"
+      },
+      "verification": {
+        "jobs": [
+          "dimension38"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/d38/base-data/axis_keep.txt",
+        "constructions/d38/base-data/axis_rotation.txt",
+        "constructions/d38/base-data/axis_rotation_D.txt",
+        "constructions/d38/base-data/class_labels.txt",
+        "constructions/d38/base-data/dim14_directions.txt",
+        "constructions/d38/base-data/golay_basis.txt",
+        "constructions/d38/base-data/triples.txt",
+        "constructions/d38/added-lines.txt",
+        "tools/verify_dimension38.py"
+      ]
+    },
+    {
+      "dimension": 39,
+      "lower_bound": 763668,
+      "family": "support exchange and sign cosets",
+      "count_formula": "327680 + 128*3383 + 2*39*38",
+      "contribution": "Combine 3383 weight-eight supports with ten compatible sign-code cosets of total size 327680.",
+      "comparison": {
+        "lower_bound": 756116,
+        "gain": 7552,
+        "source_id": "kr-results-cf14c5e",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "codes-primary",
+          "codes-independent",
+          "code-lineage"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/codes/data/d39_supports.txt",
+        "constructions/codes/data/d39_kernel.txt",
+        "constructions/codes/data/d39_representatives.txt",
+        "constructions/codes/verify.py",
+        "constructions/codes/verify_independent.py",
+        "constructions/codes/independent.cpp",
+        "constructions/codes/reference_checker.py",
+        "constructions/codes/data/exchanges/d39_parent.txt",
+        "constructions/codes/data/exchanges/exchanges.json",
+        "constructions/codes/verify_exchanges.py"
+      ]
+    },
+    {
+      "dimension": 43,
+      "lower_bound": 2553792,
+      "family": "lattice section and design moments",
+      "count_formula": "1092000 + 116235*12 + 9180*6 + 495*24 + 12",
+      "contribution": "Choose a different embedded D5 section; its orbit and design-moment identities determine a 2553792-point section.",
+      "comparison": {
+        "lower_bound": 2545056,
+        "gain": 8736,
+        "source_id": "lattice-sections",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "section43",
+          "section43-matrix"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/sections/d43/data/CQ48a.html",
+        "constructions/sections/d43/data/certificate.json",
+        "constructions/sections/d43/data/comparison-section.txt",
+        "constructions/sections/d43/data/parent-section.txt",
+        "constructions/sections/d43/verify.py",
+        "constructions/sections/d43/verify_matrix.py"
+      ]
+    },
+    {
+      "dimension": 45,
+      "lower_bound": 7380090,
+      "family": "QR-neighbour projection and moment inequality",
+      "count_formula": "7377408 + 9*298",
+      "contribution": "Change the parent anchor sector in the QR neighbour, obtain 298 finite witnesses, and transfer them through an exact moment inequality.",
+      "comparison": {
+        "lower_bound": 7379838,
+        "gain": 252,
+        "source_id": "lattice-sections",
+        "retrieved_date": "2026-09-24"
+      },
+      "verification": {
+        "jobs": [
+          "qr-ambient",
+          "section45",
+          "section45-parent"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/sections/qr/data/gram.json",
+        "constructions/sections/d45/data/compact.json",
+        "constructions/sections/d45/data/gram.json",
+        "constructions/sections/d45/data/record.json",
+        "constructions/sections/qr/verify.py",
+        "constructions/sections/qr/qr_code.py",
+        "constructions/sections/d45/verify.py",
+        "constructions/sections/d45/data/dual.json",
+        "constructions/sections/d45/data/parent.json",
+        "constructions/sections/d45/data/parent-vectors.jsonl",
+        "constructions/sections/d45/verify_parent.py"
+      ]
+    }
+  ]
+}

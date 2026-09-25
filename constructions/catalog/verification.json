@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "paths_relative_to": "repository root",
+  "receipts": [
+    {
+      "id": "codes",
+      "entry_point": "constructions/codes/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        33,
+        34,
+        37,
+        38,
+        39
+      ],
+      "lower_bounds": [
+        363968,
+        384196,
+        497640,
+        576892,
+        763668
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Support intersections, finite sign codes and every layer-pair inequality."
+    },
+    {
+      "id": "codes-independent",
+      "entry_point": "constructions/codes/verify_independent.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        33,
+        34,
+        37,
+        38,
+        39
+      ],
+      "lower_bounds": [
+        363968,
+        384196,
+        497640,
+        576892,
+        763668
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Separate C++17 integer implementation on the same inputs."
+    },
+    {
+      "id": "code-lineage",
+      "entry_point": "constructions/codes/check_code_lineage.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        33,
+        34,
+        37,
+        38,
+        39
+      ],
+      "lower_bounds": [],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Code generator, rank, shortening and coset lineage."
+    },
+    {
+      "id": "codes-replacements",
+      "entry_point": "constructions/codes/verify_replacements.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        32,
+        37
+      ],
+      "lower_bounds": [
+        347584,
+        498024
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Check the dense code and support lists; regenerate all 512 signed points from the 32 four-subsets and verify retained-layer compatibility."
+    },
+    {
+      "id": "hadamard",
+      "entry_point": "constructions/codes/hadamard/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        35,
+        36
+      ],
+      "lower_bounds": [
+        409676,
+        484760
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Exact signed replacements and retained-layer compatibility."
+    },
+    {
+      "id": "d43",
+      "entry_point": "constructions/sections/d43/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        43
+      ],
+      "lower_bounds": [
+        2553792
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Reconstruct the ambient match, projection domain, orbits, rational moments, Weyl average and negative controls."
+    },
+    {
+      "id": "d43-matrix",
+      "entry_point": "constructions/sections/d43/verify_matrix.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        43
+      ],
+      "lower_bounds": [
+        2553792
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Check the supplied rational A^T w=c and w^T b=2553792."
+    },
+    {
+      "id": "qr-ambient",
+      "entry_point": "constructions/sections/qr/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        45
+      ],
+      "lower_bounds": [],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Reconstruct the specified QR neighbour and parity proof of minimum squared norm six."
+    },
+    {
+      "id": "d45",
+      "entry_point": "constructions/sections/d45/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        45
+      ],
+      "lower_bounds": [
+        7380090
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Check 298 witnesses and the supplied rational dual against the regenerated complete signature domain and moment system."
+    },
+    {
+      "id": "d38",
+      "entry_point": "tools/verify_dimension38.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        38
+      ],
+      "lower_bounds": [
+        591900
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Reconstruct the base and check the frozen 144-line equator with integer arithmetic.",
+      "receipt": "constructions/d38/verification.json",
+      "receipt_sha256": "c3c44989700b426363b220904632096285b35e38f4a22041b3c8e8e77e67da03"
+    },
+    {
+      "id": "support-exchanges",
+      "entry_point": "constructions/codes/verify_exchanges.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        33,
+        34,
+        37,
+        38,
+        39
+      ],
+      "lower_bounds": [],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Reconstruct each terminal support exchange from the parent set and verify exact blockers and equality with the supplied final support family."
+    },
+    {
+      "id": "section45-parent",
+      "entry_point": "constructions/sections/d45/verify_parent.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        45
+      ],
+      "lower_bounds": [
+        7380090
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Verify the physical coordinates and complete 2256-endpoint parent, form its 1128-pair graph, and recover the section and all 298 final witnesses."
+    }
+  ],
+  "literature_inputs": {
+    "sections-d43": "The specified CQ48a/P48n lattice is extremal and its minimal shell is an 11-design.",
+    "sections-d45": "The extended ternary QR code parameters and its stated two-symbol weight enumerator; the 11-design theorem.",
+    "p48": "Published P48p minimum squared norm six and shell size 52416000.",
+    "p48-original": "Published Pless-code minimum distance and complete weight-enumerator inputs, followed by the checked neighbour and theta-series calculation."
+  }
+}

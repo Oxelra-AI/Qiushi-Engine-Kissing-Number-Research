@@ -1,0 +1,52 @@
+[
+  {
+    "dimension": 33,
+    "lower_bound": 363968,
+    "support_size": 1803,
+    "top_size": 131072,
+    "top_length": 32,
+    "support_file": "data/d33_supports.txt",
+    "kernel_file": "data/d33_kernel.txt",
+    "representatives_file": "data/d33_representatives.txt"
+  },
+  {
+    "dimension": 34,
+    "lower_bound": 384196,
+    "support_size": 1960,
+    "top_size": 131072,
+    "top_length": 32,
+    "support_file": "data/d34_supports.txt",
+    "kernel_file": "data/d34_kernel.txt",
+    "representatives_file": "data/d34_representatives.txt"
+  },
+  {
+    "dimension": 37,
+    "lower_bound": 497640,
+    "support_size": 2843,
+    "top_size": 131072,
+    "top_length": 32,
+    "support_file": "data/d37_supports.txt",
+    "kernel_file": "data/d37_kernel.txt",
+    "representatives_file": "data/d37_representatives.txt"
+  },
+  {
+    "dimension": 38,
+    "lower_bound": 576892,
+    "support_size": 3077,
+    "top_size": 180224,
+    "top_length": 38,
+    "support_file": "data/d38_supports.txt",
+    "kernel_file": "data/d38_kernel.txt",
+    "representatives_file": "data/d38_representatives.txt"
+  },
+  {
+    "dimension": 39,
+    "lower_bound": 763668,
+    "support_size": 3383,
+    "top_size": 327680,
+    "top_length": 39,
+    "support_file": "data/d39_supports.txt",
+    "kernel_file": "data/d39_kernel.txt",
+    "representatives_file": "data/d39_representatives.txt"
+  }
+]

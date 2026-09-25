@@ -1,0 +1,113 @@
+\section{The problem and main results}
+
+The kissing-number problem asks for the largest number $K(n)$ of unit
+balls that can touch a central unit ball in Euclidean $n$-space without
+overlapping interiors. Dividing the outer centres by two gives an equivalent
+problem on the unit sphere: place as many points as possible at angular
+distance at least $60^\circ$:
+\[
+K(n)=\max\{|X|:X\subset S^{n-1},\
+\langle x,y\rangle\le\tfrac12\quad(x\ne y)\}.
+\]
+The equivalence follows from $|x-y|^2=2-2\langle x,y\rangle$. It connects
+local sphere packing to spherical codes, and makes lattices, error-correcting
+codes and finite geometry natural sources of constructions
+\cite{conway1999sphere,dgs,leech-sloane1971}.
+
+Higher dimension allows more directions, but the number of pair constraints
+grows quadratically with the size of a configuration. An additional point
+may obstruct many old points, so searching for an isolated gap often fails
+to improve a large construction. Lattices and codes organize these
+constraints: sign patterns on a support share one distance argument, and
+vectors in a shell share norm and product restrictions. The problem becomes
+how to exploit that organization without freezing every choice it contains.
+We retain structures controlling most pairs while changing finite parts
+that determine the cardinality.
+
+\input{sections/results}
+
+\subsection{Background on the constructions}
+
+The first route starts with the three-layer construction of Edel, Rains
+and Sloane~\cite{ers}. Its count combines a dense binary code, a family of
+weight-eight supports and a root system. The Cheng--Sloane code supplies
+the length-32 dense layer~\cite{chengsloane}. Constant-weight constructions
+and comparisons are developed in the work of Brouwer, Shearer, Sloane and
+Smith and in the subsequent tables~\cite{bsss,brouwer}. Echols recently
+improved the bounds in dimensions 32, 33, 34 and 37 by support search
+\cite{echols}. Two further choices remain: can candidates share the cost
+of deleting old supports, and must a complete sign bundle remain
+indivisible? The local replacement principle has a direct precursor in
+the free zones of Takhanov--Yun~\cite[Section V]{signed-johnson}.
+The constructions here combine that principle with paired Hadamard
+transfer and explicit ERS embeddings. The seven code-based results
+give the support families, transverse selections and boundary conditions
+needed to turn these choices into larger configurations.
+
+The second route uses the minimal shell of the Leech lattice. A lifting
+combines a direction in the mother space with a low-dimensional tail;
+the two products together determine compatibility. The lifting framework
+of Cohn, Jiao, Kumar and Torquato~\cite[Theorem 7.5]{cjkt} and subsequent
+constructions show how directions can be reused. Our dimension-38 result
+starts from Kravatskiy's public 591612-point configuration
+\cite{kissingnumbers}. All minimal Leech lines already occur in its
+lifted layer, but its equator is empty. Instead of reusing those same
+minimal directions again, the search moves to another shell and seeks
+directions compatible with every lifted point. This adds 288 points.
+
+The third route takes a small section of an extremal 48-dimensional
+lattice and studies its perpendicular shell or the projections of selected
+fibres. Conway--Sloane sections and the antipode construction establish
+this connection~\cite{laminated,antipode}; the exact counts of Sun and Wang
+supply the public comparisons in dimensions 43 and 45
+\cite{sunwang-sections,crosssections}. The mother shell has 52416000
+vectors. The later analysis of embedded $E_8$ sections by
+Dorofeev, Sun and Wang~\cite{dorofeev} provides the relevant parent
+geometry for the 43-dimensional calculation. The large shell makes
+direct enumeration expensive. Moreover, a section's
+abstract root type and determinant do not determine its embedding.
+Spherical-design theory~\cite{dgs,nebe-designs} supplies exact low-degree
+moment identities constraining projection multiplicities. We use them
+to determine a 43-dimensional section count and to turn a small explicit
+witness set into a lower bound of millions of points in dimension 45.
+
+\subsection{Main contributions and construction principles}
+
+The research gives explicit lower bounds in \ResultCount{} dimensions and
+mathematical methods linking construction searches to exact proofs.
+In layered codes, shared conflicts determine the net gain of a joint
+support exchange. Paired Hadamard transfer turns weight-four codes into
+compatible local weight-eight signed codes, allowing support selection
+and sign assignments to change together. The 256-point replacement in
+dimension 35 attains the capacity bound of its eleven-coordinate model;
+the 576-point replacement in dimension 36 has a direct four-colour
+construction. Dimension 37 combines support enlargement and signed
+replacement, with gains of 1664 and 128 points. Each construction includes
+an explicit finite object and a proof of its boundary compatibility.
+
+In dimension 38, the key is to identify geometric space still available
+outside the lifted layer. We select 144 compatible lines from another
+Leech shell and prove both their mutual angular separation and their
+compatibility with every lifted point. This preserves the base configuration
+and adds 288 equatorial points. The construction resolves the choice of
+directions, the inner-product constraints between shells and the common
+coordinate realization of both layers.
+
+Dimensions 43 and 45 turn geometric construction problems into exact
+counting problems. In dimension 43, an embedded $E_8$ parent constrains
+the fibre multiplicities of a $D_5$ child; rational moment identities
+determine a count of 2,553,792 points. In dimension 45, a rational
+inequality for the target fibres is combined with a common-neighbour
+graph for witness search. The resulting 298 explicit vectors establish
+a lower bound of 7,380,090. These constructions exhibit two distinct
+uses of counting: determining a child's exact size from its parent
+structure, and using a small constructible set to control the size
+of a large projected configuration.
+
+Qiushi Engine autonomously conducted the construction searches, mathematical
+analysis and computational verification. Its autonomous experimental research
+is described in \cite{qiushi-optics}. After the result
+table, the report proceeds through code constructions, equatorial completion
+and section counts. Each chapter introduces the object being changed,
+derives its compatibility conditions, and explains how the finite data
+specify the resulting construction.

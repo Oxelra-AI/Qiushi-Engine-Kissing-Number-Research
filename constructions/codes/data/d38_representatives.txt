@@ -1,0 +1,14 @@
+# exact maximum coset clique representatives
+# n=38 d=10 kernel_generator=d38_kernel.txt kernel_k=14
+$BASE=16
+0000000000
+00000C6E94
+0000DF6ABF
+000027B441
+0000D3CE66
+000041BBBB
+0000BC1E1F
+0000052727
+00009951C8
+00007001EB
+00003F6969

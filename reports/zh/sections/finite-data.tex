@@ -1,0 +1,45 @@
+\section{构造数据与精确验证}\label{app:data}
+
+本PDF附有
+\textattachfile[color=ReportPrimary,mimetype=application/zip,description={Construction data and exact verification programs}]{certificates.zip}{\texttt{certificates.zip}}，
+可从阅读器的附件面板保存，也可执行
+\texttt{pdfdetach -saveall main.pdf} 提取。
+附件包含完整有限输入及其验证程序，中英文两份报告附入的压缩包完全相同。
+
+每项构造由覆盖全部点对类型的几何论证与满足相应假设的有限输入组成。
+码构造的输入包括支持族、生成矩阵、陪集代表和符号向量；
+格构造的输入包括整数方向、Gram 矩阵、嵌入截面及有理矩证书。
+目录 \qpath{constructions/catalog/results.json} 将各维数与定义文件、
+精确计数及验证任务逐项对应。下述路径均相对于 \texttt{constructions/}。
+
+32至37维与39维的完整支持列表、二元码生成矩阵、陪集代表和交换记录
+保存在 \qpath{codes/data/}。
+35、36维的局部替换保存在 \qpath{codes/hadamard/data/}；
+生成文件与重建程序精确恢复全部已存符号向量。
+37维的512点替换及坐标对应另存于 \qpath{codes/data/}。
+
+38维的 \qpath{d38/base-data/} 给出 Golay 生成矩阵、Leech 直线类、
+尾三角形及相对旋转，完整确定591612点母构型。
+144个新增代表保存在 \qpath{d38/added-lines.txt}。
+检查程序重建母壳、验证母构型，逐一检查新增向量的 Leech 同余条件，
+并精确核对新增点之间及其与原层之间的全部相关内积。
+
+43维的 \qpath{sections/d43/data/parent-section.txt} 给出母格 Gram 矩阵
+及嵌入已编号 $E_8$ 根的八行坐标。
+\qpath{sections/d43/data/certificate.json} 给出轨道数据、有理矩阵和
+确定 $D_5$ 计数的乘子。
+一个程序从几何数据重建方程，另一个程序独立检查有理矩阵恒等式。
+
+45维的 \qpath{sections/qr/} 重建所用极值邻格。
+在 \qpath{sections/d45/data/} 中，\texttt{record.json} 保存截面和298个见证，
+\texttt{dual.json} 保存命题\ref{prop:moment45}的精确乘子，
+\texttt{parent-vectors.jsonl} 保存2256点母集。
+程序重新生成矩方程的定义域与系数，验证格成员关系和内积，
+并由母图恢复同一见证集合。
+
+解压后的 \texttt{README.md} 列出依赖和命令。
+安装 SageMath、NumPy、SymPy 及 C++ 编译器后，执行
+\texttt{sage -python tools/reproduce.py --suite all --output ../verification}
+即可在独立目录中完成全部列明的检查，过程不需要联网。
+输出逐项记录检查结果与所用输入。附件清单给出每份文件的身份；
+完整仓库另外保存报告源码和实际复算记录。

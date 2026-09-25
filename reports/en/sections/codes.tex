@@ -1,0 +1,312 @@
+\section{Layered codes, joint exchanges and signed constructions}
+\label{sec:codes}
+
+These seven results use one geometric construction, with improvements at
+different levels. Dimensions 32, 33 and 34 use larger compatible families of
+eight-element supports; dimension 39 combines such a family with an explicit
+sign code. Dimensions 35, 36 and 37 also change the signs carried by the
+supports. The important transition is from deciding whether to retain a whole
+bundle to replacing it by a different finite set.
+
+\subsection{Compatibility of the layers}
+
+The Edel--Rains--Sloane construction~\cite{ers} places three coordinate patterns
+on the same unit sphere. Let $n\ge m\ge32$, let $T\subset\{0,1\}^m$ be a
+binary code, and let $\mathcal B$ be a family of eight-element subsets of
+$\{0,\ldots,n-1\}$. A support records the nonzero coordinates of a vector;
+the signs specify the vector itself. The dense, middle and root layers are
+\begin{align*}
+X_T&=\left\{\frac{1}{\sqrt m}
+ \bigl((-1)^{c_0},\ldots,(-1)^{c_{m-1}},0,\ldots,0\bigr):c\in T\right\},\\
+X_{\mathcal B}&=\left\{\frac{1}{\sqrt8}\sum_{i\in B}\varepsilon_i e_i:
+ B\in\mathcal B,\ \varepsilon_i\in\{-1,1\},\ \prod_{i\in B}\varepsilon_i=1\right\},\\
+X_R&=\left\{\frac{\pm e_i\pm e_j}{\sqrt2}:0\le i<j<n\right\}.
+\end{align*}
+Each support carries $2^7=128$ even-parity sign patterns. The layers have
+respectively $m$, eight and two nonzero coordinates, so they are disjoint.
+Their union contains
+\begin{equation}
+N=|T|+128|\mathcal B|+2n(n-1)
+\label{eq:ers-count}
+\end{equation}
+points.
+
+\begin{proposition}[Three-layer construction~\cite{ers}]
+\label{prop:ers}
+If $T$ has minimum Hamming distance at least $\lceil m/4\rceil$ and distinct
+supports satisfy $|B\cap B'|\le4$, then the union is a kissing configuration
+in dimension $n$.
+\end{proposition}
+\begin{proof}
+Two dense-layer points have product $1-2d_H(c,c')/m\le1/2$.
+Distinct even-parity patterns on the same support differ in at least two
+positions, giving at most $1-4/8=1/2$. Different supports give at most
+$|B\cap B'|/8\le1/2$. Distinct roots either share at most one coordinate
+with the same sign, or have the same support and differ in at least one
+sign; their product is also at most $1/2$.
+
+There are three remaining cross-layer cases. Dense--middle products are
+at most $8/(\sqrt m\sqrt8)=\sqrt{8/m}\le1/2$; dense--root products are
+at most $2/(\sqrt m\sqrt2)=\sqrt{2/m}\le1/2$; middle--root products are
+at most $2/(\sqrt8\sqrt2)=1/2$. These cover all distinct pairs.
+\end{proof}
+
+The geometric problem reduces to finding a large binary code and a large
+support family with intersection at most four. The support indicators have
+constant weight eight and satisfy
+$d_H(1_B,1_{B'})=16-2|B\cap B'|$. Thus the intersection condition is
+minimum distance eight in the constant-weight code. Equation~\eqref{eq:ers-count}
+converts improvements of such codes into kissing-number lower bounds
+\cite{bsss,brouwer,echols}.
+
+\subsection{Joint exchanges of supports}
+
+Inserting a new support generally requires removing old supports with large
+intersection. For a single candidate, these deletions may consume the gain.
+Several mutually compatible candidates can instead be obstructed by the
+same old supports. The search therefore selects additions jointly.
+
+For a candidate $b$, put $F(b)=\{B\in\mathcal B:|B\cap b|>4\}$.
+If $Y$ is disjoint from the old family and its internal intersections are
+at most four, then
+\begin{equation}
+\begin{split}
+\mathcal B'&=(\mathcal B\setminus F(Y))\cup Y,\qquad
+ F(Y)=\bigcup_{b\in Y}F(b),\\
+|\mathcal B'|-|\mathcal B|&=|Y|-|F(Y)|.
+\end{split}
+\label{eq:exchange}
+\end{equation}
+The cost is a union size, not the sum of the individual conflict counts.
+The stored final exchange in dimension 33 removes nine supports and adds
+ten; in dimension 34 it removes six and adds seven; an exchange in dimension
+37 removes 37 and adds 40. The data contain
+the parent families and actual deletions and additions, so these unions
+can be reconstructed.
+
+There is also a direct discrete formulation. For a finite candidate set
+$\mathcal C$, let $z_b\in\{0,1\}$ select a candidate and let
+$u_B\in\{0,1\}$ delete an old support. Impose $z_b+z_{b'}\le1$
+for incompatible candidates and $z_b\le u_B$ for $B\in F(b)$, and maximize
+\[
+\sum_{b\in\mathcal C}z_b-\sum_{B\in\mathcal B}u_B.
+\]
+An optimal choice deletes only supports actually blocking selected
+candidates, so its objective is exactly the gain in
+\eqref{eq:exchange}. This identifies the useful search property:
+concentrate conflicts on shared old supports, rather than minimizing
+each candidate's conflict count separately. Candidate generation and
+joint selection are complementary tasks; changing the candidate family
+changes the constructions available to this finite optimization problem.
+
+The following parameters give direct three-layer constructions. The
+dimension-37 support family was enlarged from 2843 to 2845 and then
+modified by a signed replacement, whose final count is given below.
+\begin{center}
+\begin{minipage}{\linewidth}\centering
+\captionof{table}{Parameters of the direct three-layer constructions.}
+\label{tab:code-parameters}
+\begin{tabular}{rrrrr}
+\toprule
+$n$ & Dense length $m$ & $|T|$ & $|\mathcal B|$ & Points\\
+\midrule
+32&32&131072&1676&347584\\
+33&32&131072&1803&363968\\
+34&32&131072&1960&384196\\
+39&39&327680&3383&763668\\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{center}
+Each extra support contributes 128 spherical points. For example,
+$131072+128\cdot1676+1984=347584$ in dimension 32.
+The gains of 15 and 24 supports in dimensions 33 and 34 give respectively
+1920 and 3072 points over the comparison constructions.
+
+The length-32 layer uses the Cheng--Sloane $[32,17,8]$ code
+\cite{chengsloane}, whose generator expands to $2^{17}=131072$ words.
+Dimension 39 uses $T=\bigcup_{a=1}^{10}(H+r_a)$, where $H$ has dimension
+15 and minimum weight 12. Enumeration of the supplied kernel and
+representatives gives
+\[
+\min_{h\in H}\operatorname{wt}(h+r_a+r_b)=10
+\]
+for all 45 distinct coset pairs. The cosets are disjoint, with
+$10\cdot2^{15}=327680$ words and minimum distance ten, as required.
+The kernel is obtained by shortening an extended quadratic-residue code;
+the programs compare generator row spaces and check the actual distances.
+
+The listed dimension-39 comparison has the same dense-layer size.
+Increasing its 3324 supports to 3383 adds $128(3383-3324)=7552$ points.
+Recording the support and dense layers separately identifies the finite
+objects and their respective contributions.
+
+\subsection{Hadamard transfer and local replacement}
+
+The support count is not the only variable. Each original support carries
+all 128 even-parity patterns. Removing a few complete bundles and inserting
+a different signed set can fill the affected region more efficiently.
+Both the internal products and products against the retained configuration
+must be controlled.
+
+\begin{proposition}[Paired Hadamard transfer]
+\label{prop:hadamard}
+Let $\mathcal A$ be a family of four-element supports with intersections
+at most two, transverse to a fixed coordinate pairing. Applying a
+Hadamard matrix to each pair in all signed versions of $\mathcal A$
+gives $16|\mathcal A|$ weight-eight vectors of squared norm eight and
+distinct-pair products at most four.
+\end{proposition}
+\begin{proof}
+Start with four-element supports having pairwise intersections at most
+two, and attach all sixteen sign patterns to each. Pair the coordinates
+and retain supports meeting each pair in at most one coordinate; call them
+transverse. Apply
+\[
+H=\begin{pmatrix}1&1\\1&-1\end{pmatrix}
+\]
+to each coordinate pair. Both $(\varepsilon,0)$ and $(0,\varepsilon)$
+become two nonzero coordinates, so weight four becomes weight eight.
+Distinct input vectors have product at most two: different supports
+satisfy the intersection condition, and distinct sign patterns on the same
+support differ in at least one position. Since $H^{\mathsf T}H=2I$,
+the images have squared norm eight and pairwise products at most four.
+Invertibility preserves their number.
+\end{proof}
+
+After division by $\sqrt8$, these vectors form an internally compatible
+spherical set $Q$. Intersections at most four with each retained support
+ensure compatibility with the retained middle layer. The dense and root
+cross bounds remain $\sqrt{8/32}=1/2$ and $1/2$, independently of the
+parity of the new signs. This is why replacements need not consist of
+complete even-parity bundles.
+
+The free-zone replacement principle appears in
+Takhanov--Yun~\cite[Section V, Definition 5 and Lemma 4]{signed-johnson}
+for signed weight-four codes. Here it is applied to weight-eight
+regions inside the ERS middle layer. The choices of region, transverse
+supports and paired transform give the replacements below.
+In dimensions 35 and 36, boundary compatibility can be secured before
+choosing $Q$. Take a coordinate region $W$, remove the old supports
+contained in it, and require $|B\cap W|\le4$ for every retained support.
+Any new weight-eight vector on $W$ is then compatible with the retained
+middle layer. Only its local internal products remain to be controlled.
+The regions are $W=\{12,\ldots,22\}$ and $W=\{12,\ldots,23\}$,
+respectively, with zero-based coordinates. They contain one and three
+old supports. The deletion costs are fixed at 128 and 384 points,
+turning a problem involving the whole configuration into a smaller
+independent construction problem.
+
+Direct search among signed weight-eight vectors in eleven and twelve
+coordinates has respectively $2^8\binom{11}{8}=42240$ and
+$2^8\binom{12}{8}=126720$ candidates. Weight-four transfer replaces this
+search with the choice of a combinatorial source and a coordinate pairing,
+while preserving an algebraic proof of the inner-product bounds.
+Dimension 35 starts with a Steiner quadruple system $S(3,4,10)$:
+each triple belongs to exactly one block, giving $\binom{10}{3}/4=30$
+blocks with pairwise intersections at most two. Enumerating the 945
+perfect matchings on ten coordinates yields sixteen transverse blocks.
+For dimension 36 we use the 51-block construction of
+Kalbfleisch--Stanton~\cite[Theorem 7]{kalbfleisch-stanton}, also described
+in~\cite[Section V, Construction 1]{signed-johnson}.
+Split twelve coordinates into two sets of six and
+use the same five one-factors of $K_6$ in each half. For every colour,
+the nine choices of a left and a right edge give a four-element block,
+producing 45 crossing blocks. Add, in each half, the complements of
+the three edges of the first colour to obtain six further blocks.
+
+The resulting 51 blocks still have intersections at most two.
+Same-colour crossing blocks sharing one edge intersect in two points;
+different colours share at most one endpoint in each half. Internal
+blocks in the same half intersect in two points; those in different
+halves are disjoint. An internal block meets a crossing block in at most
+two points.
+
+\begin{proposition}[A 576-point local code]
+\label{prop:local36}
+The paired Hadamard image of 36 transverse blocks from the two
+one-factorizations is a 576-point weight-eight code in twelve coordinates.
+\end{proposition}
+\begin{proof}
+Choose the three edges of one colour as the coordinate pairs in each
+half. Each edge of the other four colours meets every chosen pair at most
+once. Its union with a same-colour edge from the other half is therefore
+transverse. There are $4\cdot3\cdot3=36$ such blocks; their intersections
+are at most two by the preceding argument. Proposition~\ref{prop:hadamard}
+gives $36\cdot16=576$ points. The six internal blocks are unnecessary
+for this transverse subfamily.
+\end{proof}
+
+In the supplied local coordinate order, the chosen pairs are
+\[
+(0,1),\ (2,4),\ (3,5),\ (6,7),\ (8,10),\ (9,11).
+\]
+They form the same colour in
+the two halves. The direct construction with these pairs regenerates
+exactly the stored 576 vectors. The accompanying program also enumerates
+all 945 and 10395 matchings of the two source codes, recovering the
+256-point and 576-point sets. Thus the existence proof is explicit,
+while the exhaustive calculation records the finite choices available
+in this model.
+
+The three constructions select 16, 36 and 32 transverse supports,
+producing 256, 576 and 512 new points.
+The compatible region in dimension 35 has eleven coordinates; ten form
+five pairs and the remaining coordinate is zero. Dimensions 36 and 37
+use twelve coordinates each. The explicit pairs and transverse supports
+regenerate all 256, 576 and 512 signed points for comparison with the final sets.
+\begin{center}
+\begin{minipage}{\linewidth}\centering
+\captionof{table}{Signed replacements. The support count precedes the deletion of bundles.}
+\label{tab:signed-replacements}
+\begin{tabular}{rrrrr}
+\toprule
+Dimension & Original supports & Bundles removed & Points added & Net gain\\
+\midrule
+35&2157&1&256&128\\
+36&2742&3&576&192\\
+37&2845&3&512&128\\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\end{center}
+Combining the support choices and replacements gives
+\begin{align*}
+K(35)&\ge131072+128(2157-1)+256+2(35)(34)=409676,\\
+K(36)&\ge131072+128(2742-3)+576+2(36)(35)=484760,\\
+K(37)&\ge131072+128(2845-3)+512+2(37)(36)=498024.
+\end{align*}
+Relative to the comparison with 2832 supports, dimension 37 gains 1664
+points from thirteen extra supports and 128 from the replacement, totalling
+1792. Dimensions 35 and 36 keep their original support counts; their
+gains come entirely from the signed choices.
+
+The local choice in dimension 35 also attains an exact capacity bound.
+Let $M(11)$ be the largest number of weight-eight vectors in
+$\{0,\pm1\}^{11}$ with distinct-pair products at most four.
+Fix a full sign string $\sigma\in\{\pm1\}^{11}$. Two vectors agreeing
+with $\sigma$ on their supports would intersect in at least five
+positions and have product at least five. Thus each sign string
+extends at most one selected vector. Each vector, in turn, has eight
+extensions on its three zero coordinates. Counting gives
+\[
+8|Q|\le2^{11},\qquad M(11)\le256.
+\]
+The 256-point construction attains equality, so $M(11)=256$.
+This explains the complete use of the eleven-coordinate local region.
+In twelve coordinates, two eight-element supports can intersect in
+only four positions, allowing a sign string to extend several vectors;
+this is the geometric opening used by the larger local code in
+dimension 36.
+
+The finite checks use the coordinate order, pairs and four-subsets
+specified in the data. In dimension 37, a support string numbered from
+one at the left has coordinate $i$ at integer-mask bit $37-i$.
+The program regenerates all 512 points from 32 transverse supports and
+six coordinate pairs, checks equality with the stored replacement, and
+checks intersections with every retained support. The origin, count and
+geometric conditions are thereby connected through the same input.
+
+These seven results treat the support family and its sign patterns as
+coupled choices. The next construction changes another part of the
+geometry: equatorial directions left available by a large lattice lifting.

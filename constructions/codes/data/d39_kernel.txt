@@ -1,0 +1,21 @@
+# shortened binary linear code generator
+# n=39 k=15
+# source: shortened quadratic-residue kernel; see research/construction.md
+# shortened_zero_coords_0based=0
+# kept_coords_0based=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39
+$BASE=16
+4000152727
+2000C0DE0B
+1000AA229D
+08009F5CD6
+04004FAE6B
+0200ED9AAD
+0100BC80CE
+00805E4067
+0040E56DAB
+0020B8FB4D
+001096303E
+00084B181F
+0004EFC197
+0002BDAD53
+0001949B31

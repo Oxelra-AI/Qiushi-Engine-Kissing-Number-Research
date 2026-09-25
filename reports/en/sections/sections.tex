@@ -1,0 +1,302 @@
+\section{Extremal lattice sections and design moments}
+\label{sec:sections}
+
+The preceding chapters specify each layer and check its products. Here we
+select vectors from a large known lattice shell and obtain lower-dimensional
+configurations by projection. The required information is the number of
+vectors with particular projection signatures. Dimension 43 counts shell
+vectors perpendicular to a five-dimensional section; dimension 45 projects
+three fibres of a three-dimensional section. Both become finite multiplicity
+problems.
+
+\subsection{Mother shells, projection domains and
+moments}
+
+An extremal even unimodular lattice in dimension 48 has minimum squared
+norm six. Its theta series is
+
+\[
+E_4^6-1440E_4^3\Delta+125280\Delta^2
+=1+52416000q^3+O(q^4).
+\]
+
+Thus its minimal shell has 52416000 vectors. Here
+\(E_4=1+240q+2160q^2+6720q^3+\cdots\) and
+\(\Delta=q-24q^2+252q^3+\cdots\); the constant term and vanishing first
+two coefficients determine the expression in weight 24
+\cite{conway1999sphere}. Venkov's theorem makes this shell a spherical
+11-design~\cite[Theorem 4.1]{nebe-designs}.
+
+A spherical 11-design has the same averages as the sphere of equal radius
+for every polynomial of degree at most eleven. Thus its low-degree moments
+along any chosen direction are known without listing its vectors. For example,
+\[
+\sum_{x\in X}(x\cdot t)^2=\frac{6|X|}{48}\|t\|^2,\qquad
+\sum_{x\in X}(x\cdot t)^4=\frac{3\cdot6^2|X|}{48\cdot50}\|t\|^4.
+\]
+Grouping vectors by projection turns the left sides into linear combinations
+of unknown multiplicities, with completely known right sides.
+
+For section vectors \(t_i\) with Gram matrix \(H\), a shell vector has
+signature \(y_i=x\cdot t_i\) and projection norm
+\(y^{\mathsf T}H^{-1}y\le6\). The signatures are integral when the
+section vectors lie in the lattice. Inner-product bounds against known
+short section vectors further restrict this finite domain. For degree
+\(2m\le10\),
+
+\[
+\sum_{x\in X}\prod_{\ell=1}^{2m}(x\cdot t_{i_\ell})
+=\frac{|X|6^m}{48\cdot50\cdots(48+2m-2)}
+\sum_{\mathcal P}\prod_{(a,b)\in\mathcal P}H_{i_ai_b},
+\]
+
+where \(\mathcal P\) ranges over pairings of the labelled positions;
+degree zero gives the shell size. Unknown signature multiplicities
+therefore satisfy rational linear equations. In dimension 43 these
+equations determine the target statistic exactly. In dimension 45 they
+are combined with nonnegativity to bound the statistic from below.
+
+\subsection{Dimension 43: counting a child section through its parent}
+
+Let \(X\) be the minimal shell of \(P_{48n}\) \cite{latticecatalogue}. A supplied integer matrix
+embeds \(\sqrt3E_8\) into this lattice. Its first five simple roots span
+a \(\sqrt3D_5\) section \(U\), and \(X\cap U^\perp\) lies in dimension
+43.
+
+The root numbering is fixed by the following standard coordinates:
+\[
+\alpha_1=\tfrac12(1,-1,-1,-1,-1,-1,-1,1),\qquad
+\alpha_2=e_1+e_2,\qquad
+\alpha_j=e_{j-1}-e_{j-2}\quad(3\le j\le8).
+\]
+The supplied $8\times48$ integer matrix $T$ and ambient Gram matrix $G$
+satisfy $(TGT^{\mathsf T})_{ij}=3\alpha_i\cdot\alpha_j$; rows
+$1,2,3,4,5$ specify the child. This fixes the embedding as well as the
+abstract $D_5$ root type. The use of an embedded $\sqrt3E_8$ parent is
+developed in Dorofeev--Sun--Wang~\cite{dorofeev}; here its projection
+data are used to count this $D_5$ complement.
+
+\begin{proposition}[The specified $D_5$ complement]
+\label{prop:section43}
+For the matrices $G,T$ supplied in the certificate, the shell
+$X\cap U^\perp$ contains exactly $2553792$ vectors. Consequently
+$K(43)\ge2553792$.
+\end{proposition}
+
+No direction change is needed. Distinct minimal vectors satisfy
+$\|x-y\|^2\ge6$, so $x\cdot y\le3$; division by $\sqrt6$ gives a kissing
+configuration. The task is to count $|X\cap U^\perp|$ exactly.
+
+For a minimal vector, its projection onto the parent section is
+\(\lambda/\sqrt3\) with \(\lambda\in E_8\). The norm bound and the inner
+products with every embedded root give a complete domain of 26,641
+possible signatures. Of these, 240 are exceptional signatures of the
+section roots themselves.
+
+This domain exhausts the possible projections. Nonexceptional $\lambda$
+satisfy $\|\lambda\|^2\le18$ and $|\lambda\cdot r|\le3$ for every $E_8$
+root $r$. Enumeration gives shells of squared norm 0, 2, 4, 6 and 8,
+of sizes 1, 240, 2160, 6720 and 17280 respectively. Adding the 240
+exceptions $\lambda=3r$ gives the complete domain.
+
+The extremal 48-dimensional shell is an 11-design. For projection
+coordinates, every even moment through degree ten is therefore the
+corresponding spherical moment. Averaging over the parent Weyl group
+yields multiplicities
+
+\[
+1092000,\quad116235,\quad9180,\quad495,\quad63/4
+\]
+
+on its five nonexceptional norm orbits. As orbit averages of integer
+fibre sizes, these multiplicities can be rational.
+
+The perpendicular child has \(1,12,6,24,0\) signatures on those orbits
+and twelve exceptional roots. Hence the average child count is
+
+\[
+1092000+12(116235)+6(9180)+24(495)+12=2553792.
+\]
+
+Thus at least one child has at least 2,553,792 points. To count the
+specified child exactly, average only over a subgroup preserving that
+child. Explicitly, use the group generated by $-I$, the reflections in
+$\alpha_1,\ldots,\alpha_5$, and the reflections in the twelve $E_8$
+roots perpendicular to all five. The latter roots form $A_3$; each
+reflection is $s_r(x)=x-(x\cdot r)r$. These formulas determine the group
+without reference to an ambient automorphism. The complete domain has
+43 orbits under this group. Rational moment rows
+form a matrix \(A\), with right side \(b\) and target \(c\). The
+certificate gives \(w\) satisfying
+
+\[
+A^tw=c,\qquad w^tb=2553792.
+\]
+
+This proves Proposition~\ref{prop:section43}. The subgroup need not act by
+automorphisms of the whole mother lattice: it preserves the signature
+domain, the moment equations, and the target statistic.
+
+The calculation determines a linear statistic rather than every fibre.
+Even if $Av=b$ has several solutions, $c^{\mathsf T}v$ is constant on
+them whenever $c^{\mathsf T}$ lies in the row space of $A$.
+Independent moment rows can first be selected by modular linear algebra,
+followed by a rational solution for the multiplier. Reproduction then
+requires just the two displayed rational identities. The complete
+signature domain remains essential: the moments on the right describe
+the whole shell, while orthogonality belongs in the target vector $c$,
+not in a preliminary deletion of all other fibre columns.
+
+The comparison section has the same abstract \(D_5\) Gram type. What
+changes is the embedding, which can change the perpendicular population.
+Its extension to an \(E_8\) parent supplies additional projection
+constraints that certify this population. The additional equations
+determine a count of the fixed set; they do not change that set.
+
+\subsection{Dimension 45: 298 witnesses control the projected count}
+
+Use a specified quadratic-residue even neighbour of rank 48. The
+code-distance and parity argument in Appendix~\ref{app:ambient} proves its minimum squared norm
+six. Its shell again has 52,416,000 vectors and is an 11-design.
+
+Three section vectors have Gram matrix
+
+\[
+H=8I_3-2J_3,\qquad H^{-1}=(I_3+J_3)/8.
+\]
+
+Let $f(y)$ count shell vectors of signature $y$. The nonexceptional
+domain is explicitly
+\begin{equation}
+\begin{split}
+D_0=\{y\in\mathbb Z^3:\ &|y_i|\le3,\quad |y_1+y_2+y_3|\le3,\\
+&\textstyle\sum_i y_i^2+(\sum_i y_i)^2\le48\}.
+\end{split}
+\label{eq:domain45}
+\end{equation}
+The section roots are $\pm t_1,\pm t_2,\pm t_3$ and
+$\pm(t_1+t_2+t_3)$. Inner products with these eight vectors give the
+linear bounds in~\eqref{eq:domain45}, while $y^{\mathsf T}H^{-1}y\le6$
+gives its quadratic bound. Their own signatures form
+$E=\{\pm He_1,\pm He_2,\pm He_3,\pm H(1,1,1)^{\mathsf T}\}$.
+Each has multiplicity one: its section projection already has squared
+norm six. Enumeration of the displayed three-coordinate domain gives
+$|D_0|=231$ and $|D_0\cup E|=239$.
+
+For each pair $\{y,-y\}\subset D_0$, take the lexicographically smaller
+representative and set $v_{[y]}=f(y)=f(-y)$; retain zero separately.
+There are $(231+1)/2=116$ variables. For a multi-index $a$ of even
+total degree at most ten, its moment row is
+\[
+A_{a,[y]}=(2-\mathbf1_{y=0})\prod_i y_i^{a_i},\qquad
+b_a=M_a-\sum_{y\in E}\prod_i y_i^{a_i},
+\]
+where $M_a$ is the spherical moment defined above. There are
+$\sum_{j=0}^5\binom{2j+2}{2}=161$ such monomials. This constructs all
+entries of the $161\times116$ system $Av=b$.
+
+The fibre count $f(y)$ counts shell vectors satisfying
+$(x\cdot t_1,x\cdot t_2,x\cdot t_3)=y$.
+The target is $f(e_1)+f(e_2)+f(e_3)$, not every individual multiplicity.
+After moving known exceptional contributions to the right, write the
+moment equations as $Av=b$, with $v\ge0$. For a statistic
+$c^{\mathsf T}v$, a rational vector $w$ with $c-A^{\mathsf T}w\ge0$ gives
+\[
+c^{\mathsf T}v=w^{\mathsf T}b+(c-A^{\mathsf T}w)^{\mathsf T}v
+\ge w^{\mathsf T}b.
+\]
+This is the form of the moment certificate. Choosing the statistic well
+makes an accessible fibre appear with positive coefficient in the lower
+bound, so a small explicit witness set becomes useful.
+
+\begin{proposition}[A positive fibre contribution]
+\label{prop:moment45}
+The signature multiplicities satisfy
+
+\[
+f(e_1)+f(e_2)+f(e_3)
+\ge7377408+9f(-2,-2,3).
+\]
+\end{proposition}
+\begin{proof}
+Give $c$ coefficient $+1$ on the three classes $[e_i]$, coefficient
+$-9$ on $[(-2,-2,3)]$, and zero elsewhere. Order the representatives
+and multi-indices lexicographically. The multiplier in
+\texttt{dual.json}, supplied in Appendix~\ref{app:data}, then has 161
+rational entries and satisfies, by exact matrix multiplication,
+$c-A^{\mathsf T}w\ge0$ and $w^{\mathsf T}b=7377408$.
+The preceding identity with $v\ge0$ gives the assertion.
+\end{proof}
+
+\begin{corollary}[The 45-dimensional construction]
+\label{cor:section45}
+The specified quadratic-residue neighbour and section give
+$K(45)\ge7380090$.
+\end{corollary}
+\begin{proof}
+The certificate supplies 298 distinct integer lattice vectors of squared
+norm six and signature \((-2,-2,3)\). Thus the right side is at least
+7,380,090.
+
+Project the three fibres \(e_1,e_2,e_3\) onto the section's orthogonal
+complement. The projection formula is
+$\pi(x)=x-\operatorname{proj}_{U}x$, giving
+\[
+\pi(x)\cdot\pi(x')=x\cdot x'-y^{\mathsf T}H^{-1}y'.
+\]
+For $y=e_i$, the squared section projection norm is $1/4$; for distinct
+$e_i,e_j$, their section projections have product $1/8$. Since distinct
+mother-shell vectors have product at most three, each projected squared
+norm is \(23/4\). Products are at
+most \(11/4\) within a fibre and \(23/8\) between different fibres.
+Dividing by \(\sqrt{23/4}\) gives a kissing configuration:
+
+\[
+K(45)\ge7377408+9(298)=7380090.
+\]
+\end{proof}
+
+A witness search in a Pless lattice gave 292 vectors and the bound
+7,380,036. Enlarging the choice of anchors led to 298 vectors in a
+quadratic-residue even neighbour, with each additional witness contributing
+nine points to the projected bound. To organize the search, fix a
+norm-eight anchor $p\in\Lambda$ and set
+\[
+A_p=\{x\in X:x\cdot p=4\}.
+\]
+This parent set has exactly 2256 points, with completeness certified by
+low-degree moments. Since $x\pm p$ are nonzero lattice vectors,
+minimum six gives $|x\cdot p|\le4$. The polynomial
+\[
+P(t)=t^2(t^2-1)(t^2-4)(t^2-9)
+\]
+vanishes at all allowed integral products except $\pm4$, where it
+equals 20160. The eighth spherical moment gives
+$\sum_{x\in X}P(x\cdot p)=90961920$. Antipodal symmetry makes the
+two endpoint fibres equal, hence
+$|A_p|=90961920/(2\cdot20160)=2256$.
+The involution $x\mapsto p-x$ preserves $A_p$. The graph vertices are
+its 1,128 pairs \(\{x,p-x\}\) centred at \(p/2\). Two pairs are adjacent
+when representatives have inner product one or three; exchanging an
+endpoint preserves this condition. Fibre searches become
+common-neighbour calculations in this graph.
+
+Use the integer numerator coordinates $p=y/\sqrt{12}$ of the appendix.
+The selected $y$ has six coordinates of absolute value three and 42 of
+absolute value one, so $y^2=96$. This odd-coordinate shape explores
+another part of the neighbour rather than repeating anchors from its
+integral sector. The resulting graph has degree 368 and a selected
+nonadjacent pair with 70 common neighbours.
+The difference \(368-70=298\) identifies the witness
+fibre. The correspondence is explicit. Denote the selected endpoints by
+$r,s$ and use the section $T=(-s,s-p,p-r)$. For a pair adjacent to the
+vertex of $r$ but not that of $s$, choose its endpoint $a$ with
+$r\cdot a=3$; then $s\cdot a=2$. Set $w=p-a$. It satisfies
+\[
+\|w\|^2=6,\qquad (-s\cdot w,(s-p)\cdot w,(p-r)\cdot w)=(-2,-2,3).
+\]
+Different pairs give different witnesses, so the 298 selected graph
+vertices yield precisely the required lattice vectors. The
+parent-graph checker in Appendix~\ref{app:data} reconstructs the section and exactly the 298 vectors in the
+final certificate. The rational moment inequality then gives the stated
+bound.

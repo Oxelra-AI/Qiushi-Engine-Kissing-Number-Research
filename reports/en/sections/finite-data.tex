@@ -1,0 +1,54 @@
+\section{Construction data and exact verification}\label{app:data}
+
+This PDF contains the attachment
+\textattachfile[color=ReportPrimary,mimetype=application/zip,description={Construction data and exact verification programs}]{certificates.zip}{\texttt{certificates.zip}}.
+Save it from the PDF viewer's attachment panel, or extract it with
+\texttt{pdfdetach -saveall main.pdf}. It contains the complete finite
+inputs and the programs used to check them. The English and Chinese
+editions embed identical archives.
+
+Each construction combines a geometric argument covering all pair types
+with finite input satisfying its hypotheses. For the code constructions,
+the input consists of supports, generators, coset representatives and
+signed vectors. For the lattice constructions, it consists of integer
+directions, Gram matrices, embedded sections and rational moment
+certificates. The catalogue \qpath{constructions/catalog/results.json}
+specifies the defining files, exact count and verification tasks for each
+dimension. The following paths are relative to \texttt{constructions/}.
+
+For dimensions 32--37 and 39, \qpath{codes/data/} contains the complete
+support lists, binary generators, coset representatives and exchange
+records. The local replacements for dimensions 35 and 36 are in
+\qpath{codes/hadamard/data/}; their generator file and the reconstruction
+program reproduce the stored signed vectors exactly. Dimension 37 has
+its own 512-point replacement and coordinate map in \qpath{codes/data/}.
+
+For dimension 38, \qpath{d38/base-data/} specifies the Golay generator,
+Leech line classes, tail triangles and relative rotation defining the
+591,612-point base. The 144 added representatives are in
+\qpath{d38/added-lines.txt}. The checker reconstructs the shell, verifies
+the base, tests the Leech congruences of every new vector, and checks all
+new mutual and boundary products in exact arithmetic.
+
+For dimension 43, \qpath{sections/d43/data/parent-section.txt} gives the
+ambient Gram matrix and the eight rows embedding the numbered $E_8$ roots.
+\qpath{sections/d43/data/certificate.json} contains the orbit data,
+rational moment matrix and multiplier determining the $D_5$ count.
+One program reconstructs this system from the geometry; another checks
+the rational matrix identity independently.
+
+For dimension 45, \qpath{sections/qr/} reconstructs the extremal neighbour.
+Within \qpath{sections/d45/data/}, \texttt{record.json} contains the section
+and 298 witnesses, \texttt{dual.json} the exact multiplier of
+Proposition~\ref{prop:moment45}, and \texttt{parent-vectors.jsonl} the
+2,256-point parent set. The checkers regenerate the moment domain and
+equations, verify lattice membership and inner products, and recover
+the same witnesses from the parent graph.
+
+After extracting the archive, its \texttt{README.md} gives the dependencies
+and commands. With SageMath, NumPy, SymPy and a C++ compiler installed,
+\texttt{sage -python tools/reproduce.py --suite all --output ../verification}
+runs every listed check in a separate directory, without network access.
+The output records each check and its inputs. The archive's manifest
+identifies every distributed file; the full repository also contains
+the report sources and the recorded verification results.

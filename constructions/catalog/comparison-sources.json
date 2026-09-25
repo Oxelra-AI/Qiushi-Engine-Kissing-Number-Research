@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {
+      "id": "kr-results-20260925",
+      "title": "KissingNumbers results table",
+      "url": "https://github.com/alexlegeartis/KissingNumbers/blob/main/RESULTS.md",
+      "git_blob": "ee789844ce0115fea2770100c54f587418e9de2a",
+      "retrieved_date": "2026-09-25",
+      "dimensions": [
+        38
+      ]
+    },
+    {
+      "id": "kr-results-cf14c5e",
+      "title": "KissingNumbers results table, fixed revision",
+      "url": "https://github.com/alexlegeartis/KissingNumbers/blob/cf14c5ef4db6059bbf2e570e3f0ce24edfda243e/RESULTS.md",
+      "commit": "cf14c5ef4db6059bbf2e570e3f0ce24edfda243e",
+      "retrieved_date": "2026-09-24",
+      "dimensions": [
+        39
+      ]
+    },
+    {
+      "id": "brouwer-codes",
+      "title": "A. E. Brouwer, bounds for constant weight codes",
+      "url": "https://aeb.win.tue.nl/codes/Andw.html",
+      "retrieved_date": "2026-09-24",
+      "dimensions": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37
+      ],
+      "use": "Comparison values recorded in the archived construction comparison."
+    },
+    {
+      "id": "lattice-sections",
+      "title": "Lattice-section construction repository",
+      "url": "https://github.com/wcgbg/sphere-packing/blob/main/README.md",
+      "retrieved_date": "2026-09-24",
+      "dimensions": [
+        43,
+        45
+      ]
+    }
+  ]
+}

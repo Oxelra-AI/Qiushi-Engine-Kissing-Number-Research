@@ -1,0 +1,149 @@
+\section{Equatorial completion of a Leech-lattice lifting}
+\label{sec:equatorial}
+
+The signed replacements balance additions against deletions. Here a large
+lifting leaves an unused equator. We seek directions that can be inserted
+directly, compatible both with one another and with the entire lifted
+configuration. A set of 144 such lines contributes 288 points, increasing
+the lower bound from 591612 to 591900.
+
+\subsection{The lifted configuration and its equatorial constraints}
+
+Let \(\Sigma\subset\mathbb Z^{24}\) be the squared-norm-32 minimal Leech
+shell, with 196560 vectors. The supplied extended Golay code generates
+1104 vectors with two entries \(\pm4\); 97152 vectors with entries
+\(\pm2\) on a weight-eight support and even sign parity; and 98304
+vectors obtained from signs \((-1)^{c_i}\) by reversing one chosen sign
+and multiplying that entry by three. The Golay generator has rank 12 and
+weight enumerator \(1+759z^8+2576z^{12}+759z^{16}+z^{24}\). Distinct
+vectors in this standard shell model have inner product at most 16
+\cite{conway1999sphere}.
+
+Write \(\mathbb R^{38}=\mathbb R^{24}\oplus\mathbb R^{14}\). The public
+591,612-point construction uses every minimal Leech direction in a cap
+layer \cite{kissingnumbers}, but leaves the equatorial subspace
+available for other directions. The new construction exploits this
+distinction.
+
+Partition the 98,280 antipodal lines of \(\Sigma\) into 644 classes
+whose representatives satisfy \(|u\cdot u'|\le8\) within each class. In
+\(\mathbb R^{14}\) take 1932 vectors of squared norm 8 and distinct
+inner products at most 4, partitioned into 644 zero-sum triangles. Each
+triangle has pairwise products \(-4\). Pair a head class with a triangle
+and form six points per head line:
+
+\[
+\left(\frac{\varepsilon u}{\sqrt{48}},\frac d{\sqrt{24}}\right),
+\qquad \varepsilon\in\{1,-1\},
+\]
+
+with \(d\) ranging over the assigned triangle. These are unit vectors.
+Equal heads with different tails give product \(32/48-4/24=1/2\);
+different heads with an equal tail give at most \(8/48+8/24=1/2\).
+Points from different classes give at most \(16/48+4/24=1/2\), and the
+other cases give smaller bounds. The cap layer has
+\(6\cdot98280=589680\) points.
+
+Both signs on a head line are included. Opposite heads contribute $-32/48$,
+so even with identical tails their total product is only $-1/3$.
+
+Add a pure tail layer \((0,Rd/\sqrt8)\), using the same 1932 directions
+and an exact rational rotation \(R=Q/D\). Its integer data satisfy
+
+\[
+QQ^{\mathsf T}=D^2I,\qquad
+|d\cdot Qd'|\le\sqrt{48}\,D.
+\]
+
+The first identity preserves the pure tail products; the second bounds
+cap--tail products by \(1/2\). Integer square roots suffice to check the
+latter exactly. This gives the base count \(589680+1932=591612\).
+
+\subsection{Compatible lines in the second shell}
+
+We use the norm-48 shell of the same Leech lattice. If $\mathcal G$ is the
+supplied Golay code, its integer coordinate model is
+\begin{equation}
+\mathcal L=\left\{x\in\mathbb Z^{24}:\begin{array}{l}
+x_i\equiv m\pmod2\text{ for some }m\in\{0,1\},\\
+((x_i-m)/2\bmod2)_{i=1}^{24}\in\mathcal G,\\
+\sum_i x_i\equiv4m\pmod8
+\end{array}\right\}.
+\label{eq:leech-membership}
+\end{equation}
+Linearity of $\mathcal G$ and its all-one word make this set a lattice.
+Its minimum squared norm is 32. Indeed, for even coordinates a nonzero
+Golay residue has at least eight entries of absolute value two. A zero
+residue makes all coordinates multiples of four, and the sum congruence
+excludes a single entry of absolute value four. For odd coordinates, a
+vector of squared norm below 32 would have every entry $\pm1$; the
+doubly even Golay weight then makes its coordinate sum zero modulo eight,
+contrary to the last congruence. The minimal vectors described above
+attain 32.
+
+\begin{lemma}[Compatibility of the second shell]
+\label{lem:second-shell}
+If $v\in\mathcal L$ has squared norm 48 and $u\in\mathcal L$ has
+squared norm 32, then $|v\cdot u|\le24$.
+\end{lemma}
+\begin{proof}
+The distinct norms imply $v\pm u\ne0$. Their squared norms are
+$80\pm2v\cdot u\ge32$, which gives the claimed bound.
+\end{proof}
+
+Although all minimal lines are used, equatorial points can come from
+directions of another length. Squared norm 48 gives the same normalization
+denominator as the cap heads. The new compatibility conditions consequently
+become integer-product checks with threshold 24.
+The 144 supplied vectors satisfy all three congruences in
+\eqref{eq:leech-membership}. It remains to check their mutual products:
+
+\[
+\|v_i\|^2=48,\qquad
+|v_i\cdot v_j|\le24\quad(i\ne j),\qquad
+|v_i\cdot u|\le24\quad(u\in\Sigma).
+\]
+
+\begin{proposition}[Equatorial completion]
+\label{prop:equatorial}
+Adding the 288 points $(\pm v_i/\sqrt{48},0)$ to the cap and pure-tail
+layers gives a 591900-point kissing configuration in dimension 38.
+\end{proposition}
+\begin{proof}
+The 288 new equatorial points \((\pm v_i/\sqrt{48},0)\) are internally
+compatible. Their products with a cap are \(\pm v_i\cdot u/48\le1/2\),
+and they are orthogonal to the pure tails. No base point lies on the
+equator, so no deletion is needed. Thus
+
+\[
+K(38)\ge591612+2\cdot144=591900.
+\]
+\end{proof}
+
+The new directions can be selected in a concrete finite graph. Filter
+norm-48 candidates by the lattice congruences, retaining
+one canonical representative per antipodal line. Join two representatives
+when $|v\cdot v'|>24$. Each vertex of an independent set contributes
+exactly two equatorial points. Filtering against the mother shell is
+separate from selecting mutually compatible lines: the first calculation
+is needed only once per candidate, after which the selected subset can
+change without retesting the entire lifted layer. The checker also
+recomputes all products with $\Sigma$, independently confirming the
+consequence of Lemma~\ref{lem:second-shell} on the actual data.
+
+There is a direct geometric explanation. Write $C=\Sigma/\sqrt{32}$
+for the unit mother shell. An equatorial direction $z=v/\sqrt{48}$
+must satisfy $|z\cdot c|\le\sqrt{3/8}$. This threshold is strictly
+larger than $1/2$, because the head of a mixed point has length
+$\sqrt{2/3}$. The space available at the equator of the lifting is
+therefore larger than the space for inserting unit points directly
+into the mother shell. The second-shell directions exploit this
+space. Using every minimal direction need not exhaust the possible
+points in the resulting 38-dimensional configuration.
+
+The search first produced 142 compatible lines and then 144.
+The completed data use the same Golay basis as the cap
+construction. Canonical line representatives have positive first nonzero
+coordinate and are sorted lexicographically. This convention binds the
+class labels, tail triangles and added-line checks to one coordinate
+system.

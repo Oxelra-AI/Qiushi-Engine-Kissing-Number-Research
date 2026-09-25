@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "dimension": 38,
+  "points": 591900,
+  "base": {
+    "equator": 0,
+    "caps": 589680,
+    "axis": 1932,
+    "total": 591612
+  },
+  "added_antipodal_lines": 144,
+  "added_points": 288,
+  "max_abs_added_pair_product": 24,
+  "max_abs_added_shell_product": 24,
+  "axis_product_maximum": 1070369053891807076,
+  "axis_product_threshold": 1088127786719848869,
+  "data_hashes": {
+    "axis_keep.txt": "4fe46e2d2c68aac9f13052c745fc0f2a218c737b55feea03bc51a1e2bd2c0bcc",
+    "axis_rotation.txt": "48af3b7dc44a8623fd68767cbfa83b60fb334dcd2904d446bf3580362c8023d1",
+    "axis_rotation_D.txt": "2b57d872ff264a5998ff45a2ccab0b5516dd8860acfa49a40c721b7d3cf99cd0",
+    "class_labels.txt": "ba41c1f8e046f691d2186e512f2a8ae8dcebc0b6a65e1361071fafcf62174ba7",
+    "dim14_directions.txt": "6a9a48fad7110c8b5de6f0ed5dcb9bac78e16d4e75f50362484284a8071d5baf",
+    "golay_basis.txt": "2886898be698d0423c6255c9aeb5fb6511eaaed592ea469684d199a3610d469b",
+    "triples.txt": "b67b833445611220b3e70dd9af7dba42f028bf09771efef09d77501761302914"
+  },
+  "added_lines_sha256": "803d26167db01fc84126a60a17b7c125f611d0561991a188db35e8429d46b784",
+  "coordinate_convention": "The shipped Golay basis and lexicographically sorted canonical Leech lines",
+  "premise": "The standard Golay construction has Leech minimum squared norm 32 and shell size 196560.",
+  "arithmetic": "bounded int64 products; arbitrary-precision rational rotation products",
+  "external_verifiers_run": false
+}

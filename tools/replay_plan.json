@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "jobs": [
+    {
+      "id": "codes-primary",
+      "suite": "historical",
+      "description": "Sign codes and support layers",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/codes/verify.py",
+        "--output",
+        "{output}/codes-primary.json"
+      ],
+      "receipt": "codes-primary.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "dimension32",
+      "suite": "current",
+      "description": "32-dimensional support construction",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{tools}/verify_dimension32.py",
+        "--data",
+        "{source}/constructions/codes/data",
+        "--output",
+        "{output}/dimension32.json"
+      ],
+      "receipt": "dimension32.json",
+      "checks": {
+        "passed": true,
+        "points": 347584
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "codes-independent",
+      "suite": "historical",
+      "description": "Independent C++ integer code check",
+      "requirements": [
+        "c++"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/codes/verify_independent.py",
+        "--output",
+        "{output}/codes-independent.json"
+      ],
+      "receipt": "codes-independent.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "code-lineage",
+      "suite": "historical",
+      "description": "Generator and coset lineage",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/codes/check_code_lineage.py",
+        "--output",
+        "{output}/code-lineage.json"
+      ],
+      "receipt": "code-lineage.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "support-exchanges",
+      "suite": "historical",
+      "description": "Reconstruct five support exchanges from their parent sets",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/codes/verify_exchanges.py",
+        "--output",
+        "{output}/support-exchanges.json"
+      ],
+      "receipt": "support-exchanges.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "supports32-37",
+      "suite": "historical",
+      "description": "Supports and local signed replacement",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/codes/verify_replacements.py",
+        "--output",
+        "{output}/supports32-37.json"
+      ],
+      "receipt": "supports32-37.json",
+      "checks": {
+        "d32.verified": true,
+        "d32.bound": 347584,
+        "d37.patch_verified": true,
+        "d37.bound": 498024,
+        "d37.hadamard_reconstruction_matches": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "hadamard35-36",
+      "suite": "historical",
+      "description": "Hadamard transfer",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/codes/hadamard/verify.py",
+        "--output",
+        "{output}/hadamard35-36.json"
+      ],
+      "receipt": "hadamard35-36.json",
+      "checks": {
+        "all_checks_pass": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "section43",
+      "suite": "historical",
+      "description": "Reconstruct the section geometry and moments",
+      "requirements": [
+        "sympy"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/sections/d43/verify.py",
+        "--output",
+        "{output}/section43.json"
+      ],
+      "receipt": "section43.json",
+      "checks": {
+        "passed": true,
+        "lower_bound": 2553792
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "section43-matrix",
+      "suite": "historical",
+      "description": "Independent rational matrix identity",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/sections/d43/verify_matrix.py",
+        "--output",
+        "{output}/section43-matrix.json"
+      ],
+      "receipt": "section43-matrix.json",
+      "checks": {
+        "passed": true,
+        "lower_bound": 2553792
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "qr-ambient",
+      "suite": "historical",
+      "description": "Reconstruct the QR neighbour",
+      "requirements": [
+        "sage"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/sections/qr/verify.py",
+        "--output",
+        "{output}/qr-ambient.json"
+      ],
+      "receipt": "qr-ambient.json",
+      "checks": {
+        "verified": true,
+        "archived_gram_reproduced_exactly": true,
+        "minimum_squared_norm": 6
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "section45",
+      "suite": "historical",
+      "description": "Check the stored rational moment dual and witnesses",
+      "requirements": [
+        "sage"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/sections/d45/verify.py",
+        "--output",
+        "{output}/section45.json"
+      ],
+      "receipt": "section45.json",
+      "checks": {
+        "verified": true,
+        "bound": 7380090,
+        "stored_dual_checked": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "section45-parent",
+      "suite": "historical",
+      "description": "Recover the 298-vector fibre from the parent graph",
+      "requirements": [
+        "numpy"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/sections/d45/verify_parent.py",
+        "--output",
+        "{output}/section45-parent.json"
+      ],
+      "receipt": "section45-parent.json",
+      "checks": {
+        "passed": true,
+        "parent_complete_by_eighth_moment": true,
+        "section_matches": true,
+        "final_witness_set_matches": true,
+        "recovered_witness_count": 298,
+        "projection_lower_bound": 7380090
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "dimension38",
+      "suite": "current",
+      "description": "Exact 144-line equatorial extension",
+      "requirements": [
+        "numpy"
+      ],
+      "command": [
+        "{python}",
+        "{tools}/verify_dimension38.py",
+        "--base-data",
+        "{source}/constructions/d38/base-data",
+        "--lines",
+        "{source}/constructions/d38/added-lines.txt",
+        "--output",
+        "{output}/dimension38.json"
+      ],
+      "receipt": "dimension38.json",
+      "checks": {
+        "passed": true,
+        "points": 591900
+      },
+      "timeout": 1200
+    }
+  ]
+}
