@@ -44,6 +44,26 @@ The exact job list is in [replay_plan.json](../tools/replay_plan.json).
 [Sources and permissions](../constructions/third-party.md) identify the inputs
 used from earlier work.
 
+## Research calculations
+
+The [regional census](../research/data/support-regions.json) records how much
+local freedom remains in the 32- and 37-dimensional support families. Recompute
+its triangle counts, largest free-support counts and maximizing regions with:
+
+```sh
+python3 tools/check_support_regions.py --output ../support-regions.json
+```
+
+The [35-dimensional local-search data](../research/data/d35-local-codes.json)
+preserve the 153- and 162-point intermediate signed codes and the rank/size
+summary of the 192-point affine construction. The research tests check the two
+explicit codes and their common boundary, the regional census, the 45-dimensional
+signature domain and the neighbourhood-difference correspondence:
+
+```sh
+python3 -m unittest discover -s tests -p test_research.py -v
+```
+
 ## Reports
 
 Install a TeX distribution with XeLaTeX, BibTeX, latexmk, the Noto CJK fonts,

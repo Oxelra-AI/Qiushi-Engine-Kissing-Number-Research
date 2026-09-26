@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-09-26T08:06:35.836825+00:00",
+  "started_at_utc": "2026-09-26T08:52:02.419380+00:00",
   "suite": "all",
   "versions": {
     "python": "3.12.14",
@@ -9,7 +9,7 @@
   },
   "scope": "exact verification of the supplied finite constructions",
   "input_digest": {
-    "sha256": "888f25ea1da03c45c2860eee1a66ad41e1e5ba6cc97c979c43538b25ed0359bc",
+    "sha256": "61a8a52a86b5d7b9f1be50ef659bbce8772fb1f32e2eef91a6aac23d037c214c",
     "format": "SHA-256 of UTF-8 records sorted by path, each path + space + file SHA-256 + newline",
     "files": [
       {
@@ -289,6 +289,10 @@
         "sha256": "f1547f0cdfc4f15af687ca7e22b43614e48f1041592c289db846e4fc9ba9bc2b"
       },
       {
+        "path": "tools/check_support_regions.py",
+        "sha256": "4ea4e098701c11fbf987bb4988f2693fece918a3f4087801c685a7c64686ddd2"
+      },
+      {
         "path": "tools/make_manifest.py",
         "sha256": "8db82734ef5cff54049811ec8b328f67d7541b05b28928417f019dea7219f107"
       },
@@ -328,7 +332,7 @@
       "id": "codes-primary",
       "exit_code": 0,
       "passed": true,
-      "seconds": 3.921
+      "seconds": 3.97
     },
     {
       "id": "dimension32",
@@ -352,25 +356,25 @@
       "id": "support-exchanges",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.168
+      "seconds": 2.269
     },
     {
       "id": "supports32-37",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.117
+      "seconds": 1.066
     },
     {
       "id": "hadamard35-36",
       "exit_code": 0,
       "passed": true,
-      "seconds": 0.916
+      "seconds": 0.966
     },
     {
       "id": "section43",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.769
+      "seconds": 2.819
     },
     {
       "id": "section43-matrix",
@@ -382,13 +386,13 @@
       "id": "qr-ambient",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.067
+      "seconds": 1.117
     },
     {
       "id": "section45",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.217
+      "seconds": 1.167
     },
     {
       "id": "section45-parent",
@@ -400,9 +404,9 @@
       "id": "dimension38",
       "exit_code": 0,
       "passed": true,
-      "seconds": 4.621
+      "seconds": 4.922
     }
   ],
   "inputs_unchanged": true,
-  "finished_at_utc": "2026-09-26T08:06:55.628409+00:00"
+  "finished_at_utc": "2026-09-26T08:52:22.714442+00:00"
 }
