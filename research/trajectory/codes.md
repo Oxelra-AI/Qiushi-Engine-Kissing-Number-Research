@@ -44,10 +44,10 @@ selection problem, enumerate the five-subsets of the selected candidates,
 and add the constraints for repeated five-subsets. Repeat until the
 selection is internally compatible, then evaluate its exact net gain.
 A positive gain gives a new support family, and its blocking sets are
-recomputed for the next exchange. In the saved dimension-34 calculation,
+recomputed for the next exchange. In dimension 34,
 10,715 candidates with at most three blockers supplied the seven-for-six
-exchange from 1959 to 1960 supports. The criterion is a legal positive
-exchange, not completion of an optimality proof for the finite pool.
+exchange from 1959 to 1960 supports. A compatible positive-gain selection
+can be accepted immediately and used to generate the next candidate pool.
 
 The threshold has a precise meaning. If the pool contains every candidate
 with at most $f$ blockers, it contains every positive exchange adding at
@@ -100,7 +100,7 @@ multiplied by two. Pairwise intersections at most two in the source,
 together with all sixteen signs per support, therefore imply the required
 product bound of four in the image.
 
-Two finite source constructions supply the pairs of records:
+The signed replacements in dimensions 35 and 36 use the following source families:
 
 | Result | Source family | Matchings examined | Retained supports | Signed points |
 |---|---|---:|---:|---:|

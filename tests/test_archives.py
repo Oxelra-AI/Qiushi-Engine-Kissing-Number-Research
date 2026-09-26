@@ -35,6 +35,9 @@ class ArchiveMembership(unittest.TestCase):
     def add_extras(self, root):
         for name in (".env", "private/note.md", "constructions/.env",
                      "constructions/private/note.md", "constructions/unlisted.txt",
+                     "message/notes.md", "constructions/message/notes.md",
+                     "constructions/trace/events.jsonl", "constructions/runtime/config.json",
+                     "reports/en/message/editing.md", "reports/en/build/main.log",
                      "reports/en/draft.tex", "reports/en/unpublished.pdf",
                      "reports/en/figures/unlisted.png", "reports/en/private/note.tex"):
             path = root / name

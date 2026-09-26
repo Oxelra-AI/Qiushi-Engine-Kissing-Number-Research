@@ -1,9 +1,18 @@
 # Supports, sign codes and local replacements
 
-`data/claims.json` specifies the five original three-layer constructions.
-The kernel generators, coset representatives and weight-eight support lists
-are finite inputs. `verify.py` checks all pair types; `verify_independent.py`
-compiles a separate C++17 implementation in a temporary directory.
+The final code-based results cover dimensions 32–37 and 39. The construction
+uses weight-eight supports, binary sign codes and, in dimensions 35–37,
+local signed replacements.
+
+`data/claims.json` specifies the three-layer inputs in dimensions 33, 34,
+37, 38 and 39. The 38-dimensional code is retained to document the support
+exchange and the shortening relation between the sign codes in dimensions
+38 and 39; the final 38-dimensional result is the
+[Leech equatorial extension](../d38/README.md).
+`verify.py` checks all pair types, and `verify_independent.py` compiles a
+separate C++17 implementation in a temporary directory. The 32-dimensional
+support family and the 35–37-dimensional replacements have the additional
+checks below.
 
 From `constructions/codes/`, run:
 

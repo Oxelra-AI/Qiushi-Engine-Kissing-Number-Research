@@ -36,8 +36,8 @@ class Documents(unittest.TestCase):
         for relative in ("sections/constructions.tex", "latex/collection.tex", "refs.bib"):
             self.assertEqual((ROOT / "reports/en" / relative).read_bytes(),
                              (ROOT / "reports/zh" / relative).read_bytes(), relative)
-        en = (ROOT / "reports/en/sections/trajectory.tex").read_text()
-        zh = (ROOT / "reports/zh/sections/trajectory.tex").read_text()
+        en = (ROOT / "reports/en/main.tex").read_text()
+        zh = (ROOT / "reports/zh/main.tex").read_text()
         self.assertEqual(re.findall(r"\\input\{([^}]+)\}", en),
                          re.findall(r"\\input\{([^}]+)\}", zh))
         for language in ("en", "zh"):

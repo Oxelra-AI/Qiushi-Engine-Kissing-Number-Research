@@ -79,8 +79,8 @@
     },
     {
       "path": "constructions/codes/README.md",
-      "sha256": "840610c7aec082182c2a20c99a38c10a3190b7efc6d00a97a6298cb39a516b0f",
-      "bytes": 2061
+      "sha256": "f38860d35749819f9a3c14575105f978d91f536b8e2855362f16d3e020d35240",
+      "bytes": 2507
     },
     {
       "path": "constructions/codes/check_code_lineage.py",
@@ -459,8 +459,8 @@
     },
     {
       "path": "evidence/verification.json",
-      "sha256": "f2db404a9b1f45dbef8f23059c620c9a96c057ecfac88b4c3b03b7c40e116b62",
-      "bytes": 14561
+      "sha256": "d704e8daf4e9555879f28d8c40584b1f2ae36a5f218abb8d0e743f84d7d6c09d",
+      "bytes": 14562
     },
     {
       "path": "reports/README.md",
@@ -469,8 +469,8 @@
     },
     {
       "path": "reports/en/certificates.zip",
-      "sha256": "0bbb3e9a5af71ab14e67629ac5a98d839aa026ab28e267ac6ed7faf8cbb2a441",
-      "bytes": 546413
+      "sha256": "4691d0ced754a6cc5b67101334fa07a5769eb477276b44c0c1329ed4fb827fca",
+      "bytes": 546585
     },
     {
       "path": "reports/en/figures/qiushi-engine-logo.png",
@@ -499,13 +499,13 @@
     },
     {
       "path": "reports/en/main.pdf",
-      "sha256": "efe406daa210d6141e71a63342b427f7e1339014f91dfcca553391a7940297af",
-      "bytes": 1113280
+      "sha256": "84e7eefb39cca7929d84bdf286e7d50c1cf6ca2c12ba821c12e62150a8af83c5",
+      "bytes": 1113457
     },
     {
       "path": "reports/en/main.tex",
-      "sha256": "499de529b065845860ff6d4c0e8ed665bac0b86222e88c7d780e32af030f390b",
-      "bytes": 987
+      "sha256": "ef002f2f55f148db274cb7c4c701ee413deca2247d0727c0963f87c42c3df387",
+      "bytes": 925
     },
     {
       "path": "reports/en/refs.bib",
@@ -548,11 +548,6 @@
       "bytes": 3269
     },
     {
-      "path": "reports/en/sections/history-geometry.tex",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
-    },
-    {
       "path": "reports/en/sections/introduction.tex",
       "sha256": "b2a133d7f172e45aa7445a7c9652bc1004baff5efd2fe0d7779108f46f36bd54",
       "bytes": 6594
@@ -568,14 +563,9 @@
       "bytes": 12998
     },
     {
-      "path": "reports/en/sections/trajectory.tex",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
-    },
-    {
       "path": "reports/zh/certificates.zip",
-      "sha256": "0bbb3e9a5af71ab14e67629ac5a98d839aa026ab28e267ac6ed7faf8cbb2a441",
-      "bytes": 546413
+      "sha256": "4691d0ced754a6cc5b67101334fa07a5769eb477276b44c0c1329ed4fb827fca",
+      "bytes": 546585
     },
     {
       "path": "reports/zh/figures/qiushi-engine-logo.png",
@@ -604,13 +594,13 @@
     },
     {
       "path": "reports/zh/main.pdf",
-      "sha256": "f360cd1f869b2adb5457eb2e6ff211667d011887a83c5ac1f166d8408c8b03b3",
-      "bytes": 1290429
+      "sha256": "efaf24a366c731ac53b0d4405ef6cd81c8cfeec1888305001ddaecad3f6f3d6b",
+      "bytes": 1290612
     },
     {
       "path": "reports/zh/main.tex",
-      "sha256": "fb44382252dd9d3c26b92bc5a17f307e51fc399e7498834fbd6c71b3035fab5c",
-      "bytes": 922
+      "sha256": "4e2f5867560fde2d6c98ea0a5cf088d4522bb35f0092c576d85e10714cbeb3bb",
+      "bytes": 860
     },
     {
       "path": "reports/zh/refs.bib",
@@ -653,11 +643,6 @@
       "bytes": 2753
     },
     {
-      "path": "reports/zh/sections/history-geometry.tex",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
-    },
-    {
       "path": "reports/zh/sections/introduction.tex",
       "sha256": "a2c7e6164aeb64993be1afe3da983a5dc8ff44b817ad700165f80a7498eae5f0",
       "bytes": 5584
@@ -671,11 +656,6 @@
       "path": "reports/zh/sections/sections.tex",
       "sha256": "40be75d5b8ac92a91ca5da16956e777d7c5e14b0c6984ed090f1afb8b7c4e0f2",
       "bytes": 11820
-    },
-    {
-      "path": "reports/zh/sections/trajectory.tex",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "bytes": 0
     },
     {
       "path": "reproducibility/README.md",
@@ -709,13 +689,13 @@
     },
     {
       "path": "research/trajectory/codes.md",
-      "sha256": "8d839f657f1db433e9d869726339b8e04a1583f8b1f7b39ca2bdc7aba1c7e56d",
-      "bytes": 9536
+      "sha256": "77d68c898f52e38fdc83c7a97925e7392408f845d392b2d4760f6217cdb8584b",
+      "bytes": 9544
     },
     {
       "path": "research/trajectory/equatorial.md",
-      "sha256": "80e5646aa5f411a677d573ab7d6eb877fb2be42d1dd6d0e9ae8d8afecfff33b4",
-      "bytes": 4436
+      "sha256": "ceeb944b8e7a9a9ce7993588d8f09811db89cb5c064f8b8ed2f5b2e2062ff150",
+      "bytes": 4429
     },
     {
       "path": "research/trajectory/sections.md",
@@ -724,13 +704,13 @@
     },
     {
       "path": "tests/test_archives.py",
-      "sha256": "847a2e49c654048471632ab2e1a1b7f3ca92122276c8907136df78891dea0a5c",
-      "bytes": 5291
+      "sha256": "976fc70ef8f14ef2b6b5319be8df9a733be5f462620851a88a76f3a164ab3d16",
+      "bytes": 5543
     },
     {
       "path": "tests/test_documents.py",
-      "sha256": "dd7cf4041b8404d973ea71d183319acaeb52eb8750e2550f5ea9370e6315443c",
-      "bytes": 8509
+      "sha256": "45a302976920f2d8e301703835d2c74f659ab0b4af8f6b4ffeda6dde3c81f9fa",
+      "bytes": 8479
     },
     {
       "path": "tests/test_replay_binding.py",

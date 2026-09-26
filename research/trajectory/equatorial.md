@@ -62,8 +62,8 @@ The new input is the 144-line equatorial set. The partition, tail geometry
 and rational rotation come from the attributed public construction in
 [the source record](../provenance.md). The report derives all pair types;
 the verifier reconstructs and checks the complete finite base before
-checking the new lines. The final object is not dependent on a successful
-repetition of the original search.
+checking the new lines. These fixed inputs uniquely specify the complete
+591,900-point configuration.
 
 ## Coordinate realization and exact checks
 
