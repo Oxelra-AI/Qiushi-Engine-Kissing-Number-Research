@@ -99,6 +99,28 @@ each candidate's conflict count separately. Candidate generation and
 joint selection are complementary tasks; changing the candidate family
 changes the constructions available to this finite optimization problem.
 
+The blocking sets also organize candidate generation. For a chosen integer
+$f$, consider eight-subsets outside $\mathcal B$ with $|F(b)|\le f$.
+If the pool includes all such subsets, it covers every positive exchange
+with at most $f+1$ additions: for $b\in Y$,
+$|F(b)|\le|F(Y)|<|Y|\le f+1$. The threshold therefore describes a
+specific exchange neighbourhood rather than a limit on the final code.
+
+Candidate conflicts admit a compact representation. Two eight-subsets
+intersect in at least five positions exactly when they share a five-subset.
+Each candidate occupies $\binom85=56$ such subsets, and the constraints are
+\[
+\sum_{b\in\mathcal C:\ Q\subset b}z_b\le1
+\qquad\left(Q\in\binom{\{0,\ldots,n-1\}}5\right).
+\]
+They may be added successively: solve the current selection problem,
+inspect the selected five-subsets, and add the constraints at repeated
+subsets. Once none repeats, the selection is compatible and a positive
+objective gives an exchange. The recorded dimension-34 pool contains
+10715 candidates with at most three blockers; this procedure yields the
+seven-for-six exchange above. After each accepted exchange, recomputing
+the blocking sets makes further replacements available.
+
 The following parameters give direct three-layer constructions. The
 dimension-37 support family was enlarged from 2843 to 2845 and then
 modified by a signed replacement, whose final count is given below.

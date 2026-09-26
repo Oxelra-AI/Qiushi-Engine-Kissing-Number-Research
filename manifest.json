@@ -459,8 +459,8 @@
     },
     {
       "path": "evidence/verification.json",
-      "sha256": "504d64715720dcce0dc53687b70bc4fb97216c1c584bd4390fb0699e245f9712",
-      "bytes": 14562
+      "sha256": "f2db404a9b1f45dbef8f23059c620c9a96c057ecfac88b4c3b03b7c40e116b62",
+      "bytes": 14561
     },
     {
       "path": "reports/README.md",
@@ -469,8 +469,8 @@
     },
     {
       "path": "reports/en/certificates.zip",
-      "sha256": "76964782db911163940845e42d99353869f1490a87b4ed2ae242d85ed6baaab9",
-      "bytes": 545743
+      "sha256": "39cae988fc5acfac726bb8a650558523f1fdba2a72444c903ca8163f83ecba71",
+      "bytes": 546341
     },
     {
       "path": "reports/en/figures/qiushi-engine-logo.png",
@@ -499,8 +499,8 @@
     },
     {
       "path": "reports/en/main.pdf",
-      "sha256": "005097567142b8cd7e407db7da574b5e48b089be24c1407a747c89aa4cbc855b",
-      "bytes": 1110606
+      "sha256": "0aad31434f6336fd1d36b80725363dd3899f20f699b116d0931e3101d83f43b9",
+      "bytes": 1113780
     },
     {
       "path": "reports/en/main.tex",
@@ -524,8 +524,8 @@
     },
     {
       "path": "reports/en/sections/codes.tex",
-      "sha256": "1faefb52ed844aef27634f564cf239d1ca465c065f3d241ba3dd7344765ed449",
-      "bytes": 15034
+      "sha256": "03585ba7425d9784a5d68b8089f51ae5818d5f979a0fe7d7a224f538220b6f0f",
+      "bytes": 16234
     },
     {
       "path": "reports/en/sections/conclusions.tex",
@@ -539,8 +539,8 @@
     },
     {
       "path": "reports/en/sections/equatorial.tex",
-      "sha256": "9854204dbb3c53ed0c95ad041d2a1eef6849f674f7e052775845e7811698c560",
-      "bytes": 6762
+      "sha256": "2d37a2669784abc27378d9e84e79126972451f0fbca9a2070fefe7bcdbbddb57",
+      "bytes": 6872
     },
     {
       "path": "reports/en/sections/finite-data.tex",
@@ -574,8 +574,8 @@
     },
     {
       "path": "reports/zh/certificates.zip",
-      "sha256": "76964782db911163940845e42d99353869f1490a87b4ed2ae242d85ed6baaab9",
-      "bytes": 545743
+      "sha256": "39cae988fc5acfac726bb8a650558523f1fdba2a72444c903ca8163f83ecba71",
+      "bytes": 546341
     },
     {
       "path": "reports/zh/figures/qiushi-engine-logo.png",
@@ -604,8 +604,8 @@
     },
     {
       "path": "reports/zh/main.pdf",
-      "sha256": "591a497f38a292a12db0fc215b34a227ad2a92c44bec2bbb26c0d2fa10afd4f5",
-      "bytes": 1283123
+      "sha256": "60f3eac9a21b66c6ac15792e474c3ee5db5ce323b29bddc5fc8358dba2052e57",
+      "bytes": 1286549
     },
     {
       "path": "reports/zh/main.tex",
@@ -629,8 +629,8 @@
     },
     {
       "path": "reports/zh/sections/codes.tex",
-      "sha256": "ae00ff6240942d9df681a99e1336c2823bf40b2bd808fb615f485cfc3dd336ff",
-      "bytes": 13585
+      "sha256": "9b0219085e2be52378108bc0531c230bc49c58ee335c6f1ea2a72eca18dc4a3d",
+      "bytes": 14707
     },
     {
       "path": "reports/zh/sections/conclusions.tex",
@@ -644,8 +644,8 @@
     },
     {
       "path": "reports/zh/sections/equatorial.tex",
-      "sha256": "2064f6c6d0fd5f9d2f6c5a3c8f79809d758deaa5884e1bb99c847dffe7f8c265",
-      "bytes": 6377
+      "sha256": "f151356af23677b040a564d1abe5d0df4a63c2da28610b629da70d313336eee3",
+      "bytes": 6450
     },
     {
       "path": "reports/zh/sections/finite-data.tex",
@@ -709,18 +709,23 @@
     },
     {
       "path": "research/trajectory/codes.md",
-      "sha256": "70b16e0c4493e28104325e1aa40d138b997e169c90866f9400b677acc10945cf",
-      "bytes": 7859
+      "sha256": "8d839f657f1db433e9d869726339b8e04a1583f8b1f7b39ca2bdc7aba1c7e56d",
+      "bytes": 9536
     },
     {
       "path": "research/trajectory/equatorial.md",
-      "sha256": "814751a9000737dc9219f02e0872cc78728dea485a0cd51d64b67b2b678ebc07",
-      "bytes": 3738
+      "sha256": "80e5646aa5f411a677d573ab7d6eb877fb2be42d1dd6d0e9ae8d8afecfff33b4",
+      "bytes": 4436
     },
     {
       "path": "research/trajectory/sections.md",
       "sha256": "327af1bb88d5393c1d7ed2b3feb034833f6e8cbb473a822316edf0fa6dc287a3",
       "bytes": 7654
+    },
+    {
+      "path": "tests/test_archives.py",
+      "sha256": "847a2e49c654048471632ab2e1a1b7f3ca92122276c8907136df78891dea0a5c",
+      "bytes": 5291
     },
     {
       "path": "tests/test_documents.py",
@@ -729,13 +734,13 @@
     },
     {
       "path": "tests/test_replay_binding.py",
-      "sha256": "11ad1e72a6f6c6035678b5d71c1c6c5ad805f4ff5d04424f83ae1976e20a4332",
-      "bytes": 5208
+      "sha256": "a55af73684a975d65de663e094040feb2004a94a321421ada688773d6848adf2",
+      "bytes": 6211
     },
     {
       "path": "tools/build_reports.py",
-      "sha256": "808c28042799882b5005a1524dd9e7e80195b5c5ada03cd252251ae3e56d226d",
-      "bytes": 2277
+      "sha256": "735381803760b23f19e421ca3e132aea735a4523af361b05dad4ba39d327e872",
+      "bytes": 2872
     },
     {
       "path": "tools/check_package.py",
@@ -744,18 +749,18 @@
     },
     {
       "path": "tools/make_manifest.py",
-      "sha256": "47fc6a97e5e00a5fbb26c8a3d1fb4e93e5c5c9315c7e66675fcfa82b9468b24d",
-      "bytes": 1120
+      "sha256": "8db82734ef5cff54049811ec8b328f67d7541b05b28928417f019dea7219f107",
+      "bytes": 982
     },
     {
       "path": "tools/package_files.py",
-      "sha256": "00cd9af12dcba647a2cc838bf6345635752b25d7794669ce89316fd21db6a40a",
-      "bytes": 1530
+      "sha256": "ba168d7797d5ca5b009d7ab0ba1e62c54b37c4722af4c7b41cefd6102c3b2d72",
+      "bytes": 3328
     },
     {
       "path": "tools/package_reports.py",
-      "sha256": "06ac151a3660c7f8440e9fa8d6f1a1a2860f007b0cf4604a8bbe8123f9a774c5",
-      "bytes": 1871
+      "sha256": "50fba54a604e8276346c21506d6d106e19a038dc4845b8b9908db2d41dddd9bc",
+      "bytes": 1875
     },
     {
       "path": "tools/replay_plan.json",
@@ -764,13 +769,13 @@
     },
     {
       "path": "tools/reproduce.py",
-      "sha256": "e311fdf8db7dbda2a7f9582135461455ba49d3639461ac7c87a79dec897dc75c",
-      "bytes": 7375
+      "sha256": "37e016ed7294cfd99c1c949152cbecb4f56b235ca38ba3f6ea24e4838ce231b3",
+      "bytes": 7449
     },
     {
       "path": "tools/supplement.py",
-      "sha256": "e9f1b7d9b74682b3ffa7885c4e6fe3f2a41f735ab24fa6e20cf2d6e86854a557",
-      "bytes": 3999
+      "sha256": "babe21c801e9d5c33618e1e9dcfb29af0f170ebc83641139c0a6a5cd6d9e76fe",
+      "bytes": 4147
     },
     {
       "path": "tools/verify_dimension32.py",

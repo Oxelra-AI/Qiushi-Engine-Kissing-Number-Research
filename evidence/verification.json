@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-09-25T17:37:23.728439+00:00",
+  "started_at_utc": "2026-09-26T03:50:02.192467+00:00",
   "suite": "all",
   "versions": {
     "python": "3.12.14",
@@ -9,7 +9,7 @@
   },
   "scope": "exact verification of the supplied finite constructions",
   "input_digest": {
-    "sha256": "32d97c61c8e05a47bdc6a58f9488dc6f736ebd69ea05b079c79f18fccd2630bf",
+    "sha256": "888f25ea1da03c45c2860eee1a66ad41e1e5ba6cc97c979c43538b25ed0359bc",
     "format": "SHA-256 of UTF-8 records sorted by path, each path + space + file SHA-256 + newline",
     "files": [
       {
@@ -282,7 +282,7 @@
       },
       {
         "path": "tools/build_reports.py",
-        "sha256": "808c28042799882b5005a1524dd9e7e80195b5c5ada03cd252251ae3e56d226d"
+        "sha256": "735381803760b23f19e421ca3e132aea735a4523af361b05dad4ba39d327e872"
       },
       {
         "path": "tools/check_package.py",
@@ -290,15 +290,15 @@
       },
       {
         "path": "tools/make_manifest.py",
-        "sha256": "47fc6a97e5e00a5fbb26c8a3d1fb4e93e5c5c9315c7e66675fcfa82b9468b24d"
+        "sha256": "8db82734ef5cff54049811ec8b328f67d7541b05b28928417f019dea7219f107"
       },
       {
         "path": "tools/package_files.py",
-        "sha256": "00cd9af12dcba647a2cc838bf6345635752b25d7794669ce89316fd21db6a40a"
+        "sha256": "ba168d7797d5ca5b009d7ab0ba1e62c54b37c4722af4c7b41cefd6102c3b2d72"
       },
       {
         "path": "tools/package_reports.py",
-        "sha256": "06ac151a3660c7f8440e9fa8d6f1a1a2860f007b0cf4604a8bbe8123f9a774c5"
+        "sha256": "50fba54a604e8276346c21506d6d106e19a038dc4845b8b9908db2d41dddd9bc"
       },
       {
         "path": "tools/replay_plan.json",
@@ -306,11 +306,11 @@
       },
       {
         "path": "tools/reproduce.py",
-        "sha256": "e311fdf8db7dbda2a7f9582135461455ba49d3639461ac7c87a79dec897dc75c"
+        "sha256": "37e016ed7294cfd99c1c949152cbecb4f56b235ca38ba3f6ea24e4838ce231b3"
       },
       {
         "path": "tools/supplement.py",
-        "sha256": "e9f1b7d9b74682b3ffa7885c4e6fe3f2a41f735ab24fa6e20cf2d6e86854a557"
+        "sha256": "babe21c801e9d5c33618e1e9dcfb29af0f170ebc83641139c0a6a5cd6d9e76fe"
       },
       {
         "path": "tools/verify_dimension32.py",
@@ -328,7 +328,7 @@
       "id": "codes-primary",
       "exit_code": 0,
       "passed": true,
-      "seconds": 3.971
+      "seconds": 3.92
     },
     {
       "id": "dimension32",
@@ -352,7 +352,7 @@
       "id": "support-exchanges",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.168
+      "seconds": 2.218
     },
     {
       "id": "supports32-37",
@@ -388,13 +388,13 @@
       "id": "section45",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.217
+      "seconds": 1.117
     },
     {
       "id": "section45-parent",
       "exit_code": 0,
       "passed": true,
-      "seconds": 0.266
+      "seconds": 0.265
     },
     {
       "id": "dimension38",
@@ -404,5 +404,5 @@
     }
   ],
   "inputs_unchanged": true,
-  "finished_at_utc": "2026-09-25T17:37:43.519679+00:00"
+  "finished_at_utc": "2026-09-26T03:50:21.882657+00:00"
 }

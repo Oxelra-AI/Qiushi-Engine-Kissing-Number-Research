@@ -13,7 +13,7 @@ import shutil
 import subprocess
 import sys
 import time
-from package_files import files, sha256, write_json
+from package_files import approved_paths, contained_file, files, sha256, write_json
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -106,10 +106,11 @@ def main():
     source.mkdir()
     driver_files = {name: Path(__file__).with_name(name).read_bytes()
                     for name in ("reproduce.py", "package_files.py")}
-    for name in ("constructions", "tools"):
-        if (root / name).is_dir():
-            shutil.copytree(root / name, source / name,
-                            ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".git"))
+    for name in approved_paths(root):
+        if name.startswith(("constructions/", "tools/")):
+            target = contained_file(source, name)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(contained_file(root, name), target)
     # --root may differ from this driver's checkout: record the driver actually used.
     for name, content in driver_files.items():
         (source / "tools" / name).write_bytes(content)

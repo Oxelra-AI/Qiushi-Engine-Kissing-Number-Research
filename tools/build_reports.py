@@ -6,8 +6,17 @@ import shutil
 import subprocess
 import tempfile
 from supplement import write as write_supplement
+from package_files import approved_paths, contained_file
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def report_sources(root, language):
+    if language not in ("en", "zh"):
+        raise ValueError("Expected an English or Chinese report source")
+    prefix = "reports/" + language + "/"
+    return tuple(name for name in approved_paths(root)
+                 if name.startswith(prefix) and Path(name).suffix in {".tex", ".bib", ".png"})
 
 
 def build(root, language, keep_log=True):
@@ -17,7 +26,10 @@ def build(root, language, keep_log=True):
     supplement = write_supplement(root, language)
     with tempfile.TemporaryDirectory(prefix="kissing-report-") as temporary:
         work = Path(temporary) / language
-        shutil.copytree(source, work, ignore=shutil.ignore_patterns("*.pdf", "*.zip"))
+        for name in report_sources(root, language):
+            target = work / Path(name).relative_to("reports/" + language)
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(contained_file(root, name), target)
         shutil.copy2(supplement, work / supplement.name)
         result = subprocess.run(
             ["latexmk", "-xelatex", "-interaction=nonstopmode", "-halt-on-error", "main.tex"],
@@ -33,7 +45,7 @@ def build(root, language, keep_log=True):
                         "Citation `", "LaTeX Warning: Reference `"):
             if problem in log:
                 raise RuntimeError("Unresolved reference in " + language + " report")
-        shutil.copy2(work / "main.pdf", source / "main.pdf")
+        shutil.copy2(work / "main.pdf", contained_file(root, "reports/" + language + "/main.pdf"))
         return {"language": language, "pdf": "reports/" + language + "/main.pdf",
                 "overfull_boxes": log.count("Overfull")}
 

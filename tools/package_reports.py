@@ -3,10 +3,10 @@
 import argparse
 from pathlib import Path
 import zipfile
-from build_reports import build
+from build_reports import build, report_sources
+from package_files import contained_file
 
 ROOT = Path(__file__).resolve().parents[1]
-SUFFIXES = {".tex", ".bib", ".png", ".pdf"}
 
 
 def package(root, language):
@@ -16,13 +16,13 @@ def package(root, language):
     output = root / "dist" / ("kissing-number-report-" + language + ".zip")
     output.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as archive:
-        for path in sorted(source.rglob("*")):
-            if path.is_symlink():
-                raise ValueError("Report sources must be regular files")
-            if path.is_file() and (path.suffix in SUFFIXES or path.name == "certificates.zip"):
-                archive.write(path, path.relative_to(source).as_posix())
+        names = (*report_sources(root, language),
+                 "reports/" + language + "/main.pdf", "reports/" + language + "/certificates.zip")
+        for name in sorted(names):
+            path = contained_file(root, name)
+            archive.write(path, path.relative_to(source).as_posix())
         for name in ("LICENSE", "CITATION.cff"):
-            archive.write(root / name, name)
+            archive.write(contained_file(root, name), name)
         archive.writestr("README.md", "# Kissing number research report\n\n"
                         "Compile with XeLaTeX and BibTeX:\n\n"
                         "`latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex`\n\n"

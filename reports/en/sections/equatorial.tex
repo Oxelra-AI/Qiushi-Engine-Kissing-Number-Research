@@ -120,16 +120,17 @@ K(38)\ge591612+2\cdot144=591900.
 \]
 \end{proof}
 
-The new directions can be selected in a concrete finite graph. Filter
-norm-48 candidates by the lattice congruences, retaining
-one canonical representative per antipodal line. Join two representatives
-when $|v\cdot v'|>24$. Each vertex of an independent set contributes
-exactly two equatorial points. Filtering against the mother shell is
-separate from selecting mutually compatible lines: the first calculation
-is needed only once per candidate, after which the selected subset can
-change without retesting the entire lifted layer. The checker also
-recomputes all products with $\Sigma$, independently confirming the
-consequence of Lemma~\ref{lem:second-shell} on the actual data.
+Lemma~\ref{lem:second-shell} removes the entire old shell from the search
+constraints. Generate integer norm-48 vectors satisfying the lattice
+congruences and retain one canonical representative per antipodal line.
+Join two representatives when $|v\cdot v'|>24$. The remaining problem is
+an independent-set problem in this finite graph: each selected line
+contributes exactly two equatorial points. A joint replacement deletes
+the union of the old neighbours of the inserted lines, so it can improve
+the set even when no single line can be added. Every accepted set is
+checked for mutual compatibility. The verifier also recomputes all products
+with $\Sigma$, independently checking the cross-shell lemma on the supplied
+data; these products need not be recalculated during subset selection.
 
 There is a direct geometric explanation. Write $C=\Sigma/\sqrt{32}$
 for the unit mother shell. An equatorial direction $z=v/\sqrt{48}$

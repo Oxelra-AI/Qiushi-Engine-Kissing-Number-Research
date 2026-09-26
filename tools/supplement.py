@@ -7,11 +7,12 @@ import json
 from pathlib import Path
 import zipfile
 
-from package_files import contained_file, files
+from package_files import approved_paths, contained_file
 
 
 def contents(root):
     root = Path(root).resolve()
+    approved = set(approved_paths(root))
     plan = json.loads((root / "tools/replay_plan.json").read_text())
     selected = {"LICENSE", "RIGHTS.md", "CITATION.cff", "requirements.txt",
                 "tools/package_files.py", "tools/reproduce.py",
@@ -20,10 +21,9 @@ def contents(root):
         for argument in job["command"]:
             if argument.startswith("{tools}/"):
                 selected.add("tools/" + argument[len("{tools}/"):])
-    for path in files(root / "constructions"):
-        if path.is_symlink():
-            raise ValueError("The scientific supplement must not contain symbolic links")
-        selected.add(path.relative_to(root).as_posix())
+    selected.update(name for name in approved if name.startswith("constructions/"))
+    if not selected <= approved:
+        raise ValueError("A supplement input is absent from the package manifest")
     data = {name: contained_file(root, name).read_bytes() for name in sorted(selected)}
     rows = json.loads(data["constructions/catalog/results.json"])["results"]
     for row in rows:
@@ -68,7 +68,9 @@ def archive_bytes(root):
 
 
 def write(root, language):
-    output = Path(root) / "reports" / language / "certificates.zip"
+    if language not in ("en", "zh"):
+        raise ValueError("Expected an English or Chinese report source")
+    output = contained_file(root, "reports/" + language + "/certificates.zip")
     output.write_bytes(archive_bytes(root))
     return output
 

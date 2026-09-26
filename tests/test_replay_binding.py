@@ -13,6 +13,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "tools"))
 from reproduce import missing_dependencies
+from package_files import write_manifest
 
 
 class ReplayBinding(unittest.TestCase):
@@ -31,6 +32,8 @@ class ReplayBinding(unittest.TestCase):
             "receipt": "fixture.json", "checks": {"passed": True, "value": 7}, "timeout": 15,
         }]}
         (root / "tools/replay_plan.json").write_text(json.dumps(plan))
+        write_manifest(root, ["constructions/value.txt", "tools/helper.py",
+                              "tools/check_fixture.py", "tools/replay_plan.json"])
         return root
 
     def run_fixture(self, root):
@@ -87,6 +90,20 @@ class ReplayBinding(unittest.TestCase):
             self.assertTrue(report["checks"][0]["passed"])
             self.assertFalse(report["inputs_unchanged"])
             self.assertFalse(report["passed"])
+
+    def test_unlisted_files_never_enter_the_replay_or_receipt(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = self.make_fixture(temporary, """
+                Path(sys.argv[1]).write_text(json.dumps({"passed": True, "value": 7}))
+            """)
+            for name in ("tools/draft.txt", "constructions/.env"):
+                (root / name).write_text("Unlisted fixture\n")
+            result, report, output = self.run_fixture(root)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            paths = {entry["path"] for entry in report["input_digest"]["files"]}
+            for name in ("tools/draft.txt", "constructions/.env"):
+                self.assertNotIn(name, paths)
+                self.assertFalse((output / "inputs" / name).exists())
 
     def test_cpp_dependency_uses_the_configured_compiler(self):
         with patch.dict(os.environ, {"CXX": "clang++"}), \

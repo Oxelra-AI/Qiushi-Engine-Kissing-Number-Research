@@ -30,8 +30,36 @@ Counting each candidate's cost separately would discard this possibility.
 In a finite candidate pool, binary selection and deletion variables express
 the same problem exactly; the report gives its constraints and objective.
 
-The terminal exchanges saved for dimensions 33 and 34 replace nine supports
-by ten and six by seven, reaching 1803 and 1960. The saved 37-dimensional
+The candidate pool is organized by the blocking set $F(b)$. For a chosen
+threshold $f$, the admissible domain is the eight-subsets outside the
+current family with $|F(b)|\le f$. Bit masks make each intersection an
+integer operation. Joint selection is then represented as a packing of
+five-subsets: an eight-subset occupies 56 five-subsets, and no five-subset
+may belong to two selected candidates. This gives one capacity constraint
+for a whole group of conflicting candidates rather than a separate
+constraint for every pair.
+
+These capacity constraints can be inserted as needed. Solve the current
+selection problem, enumerate the five-subsets of the selected candidates,
+and add the constraints for repeated five-subsets. Repeat until the
+selection is internally compatible, then evaluate its exact net gain.
+A positive gain gives a new support family, and its blocking sets are
+recomputed for the next exchange. In the saved dimension-34 calculation,
+10,715 candidates with at most three blockers supplied the seven-for-six
+exchange from 1959 to 1960 supports. The criterion is a legal positive
+exchange, not completion of an optimality proof for the finite pool.
+
+The threshold has a precise meaning. If the pool contains every candidate
+with at most $f$ blockers, it contains every positive exchange adding at
+most $f+1$ supports: each selected candidate's blocking set lies in the
+common deletion set, whose size is smaller than the number of additions.
+Larger exchanges require a correspondingly richer pool; the 40-for-37
+exchange in dimension 37 illustrates the value of not fixing a small
+number of additions throughout the search.
+
+The terminal exchanges saved for dimensions 33, 34 and 39 replace nine supports
+by ten, six by seven, and fourteen by fifteen, reaching 1803, 1960 and 3383.
+The saved 37-dimensional
 exchange replaces 37 by 40 and reaches 2843. These are individual transitions
 inside a longer search, while the complete final support lists define the
 mathematical objects. The checker reconstructs each union of conflicts and
