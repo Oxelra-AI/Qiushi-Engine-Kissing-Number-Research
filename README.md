@@ -55,6 +55,20 @@ Public comparisons were recorded on 24–25 September 2026;
 | 43 | 2,553,792 | 2,545,056 | +8,736 |
 | 45 | 7,380,090 | 7,379,838 | +252 |
 
+## Follow the discoveries
+
+Each dimensional account follows a different mathematical question through
+candidate generation, obstacles, intermediate constructions and the final
+result. Read how ten supports share nine blockers in dimension 33, how a
+four-colour design replaces a difficult signed search in dimension 36,
+or how the geometry of a tetrahedron guides the 45-dimensional search.
+
+[32](research/dimensions/32.md) · [33](research/dimensions/33.md) · [34](research/dimensions/34.md) · [35](research/dimensions/35.md) · [36](research/dimensions/36.md) · [37](research/dimensions/37.md) · [38](research/dimensions/38.md) · [39](research/dimensions/39.md) · [43](research/dimensions/43.md) · [45](research/dimensions/45.md)
+
+The [research overview](research/README.md) connects these accounts and
+provides the corresponding Chinese versions. The accounts link directly
+to the finite objects that preserve the constructions and their saved exchanges.
+
 ## Mathematical ideas
 
 In a layered code, the benefit of adding several supports depends on their
@@ -112,7 +126,7 @@ produce self-contained LaTeX projects. See the [full instructions](reproducibili
 
 ```text
 reports/           English and Chinese reports: PDF, LaTeX, bibliography, figures
-research/          Mathematical development and sources
+research/          Per-dimension discovery accounts, shared methods and sources
 constructions/     Exact data, construction families and verification programs
 evidence/          Recorded verification and its relation to the proofs
 reproducibility/   Dependencies and execution instructions

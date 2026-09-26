@@ -6,11 +6,72 @@ import unittest
 import hashlib
 import ast
 import operator
+from collections import Counter
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class Documents(unittest.TestCase):
+    def test_dimensional_research_accounts_and_navigation(self):
+        expected = {32: 347584, 33: 363968, 34: 384196, 35: 409676, 36: 484760,
+                    37: 498024, 38: 591900, 39: 763668, 43: 2553792, 45: 7380090}
+        for suffix in (".md", ".zh-CN.md"):
+            index = (ROOT / "research" / ("README" + suffix)).read_text()
+            homepage = (ROOT / ("README" + suffix)).read_text()
+            paths = {path.name for path in (ROOT / "research/dimensions").glob("*" + suffix)
+                     if suffix != ".md" or not path.name.endswith(".zh-CN.md")}
+            self.assertEqual(paths, {str(d) + suffix for d in expected})
+            for dimension, bound in expected.items():
+                relative = f"dimensions/{dimension}{suffix}"
+                text = (ROOT / "research" / relative).read_text()
+                self.assertIn(f"]({relative})", index)
+                self.assertIn(f"](research/{relative})", homepage)
+                self.assertIn(r"\boxed{" + str(bound) + "}", text)
+                self.assertIn("../../constructions/", text)
+                other = ".zh-CN.md" if suffix == ".md" else ".md"
+                self.assertIn(f"]({dimension}{other})", text)
+
+    def test_shared_blocker_counts_in_the_research_accounts(self):
+        root = ROOT / "constructions/codes"
+        entries = json.loads((root / "data/exchanges/exchanges.json").read_text())["exchanges"]
+        expected = {33: (10, 9, 20, {1: 1, 2: 8, 3: 1}),
+                    34: (7, 6, 9, {1: 6, 3: 1}),
+                    37: (40, 37, 84, {1: 8, 2: 22, 3: 8, 4: 2}),
+                    39: (15, 14, 30, {1: 1, 2: 13, 3: 1})}
+        for entry in entries:
+            if entry["dimension"] not in expected:
+                continue
+            parent = [int(line, 16) for line in (root / entry["parent"]).read_text().splitlines()
+                      if line.strip() and not line.startswith(("#", "$"))]
+            additions = [int(value, 16) for value in entry["added_hex"]]
+            blockers = [{a for a in parent if (a & b).bit_count() > 4} for b in additions]
+            union = set().union(*blockers)
+            actual = (len(additions), len(union), sum(map(len, blockers)),
+                      dict(Counter(map(len, blockers))))
+            self.assertEqual(actual, expected[entry["dimension"]])
+            self.assertEqual(union, {int(value, 16) for value in entry["removed_hex"]})
+            if entry["dimension"] == 33:
+                self.assertEqual(max(Counter(a for group in blockers for a in group).values()), 4)
+
+    def test_saved_search_distinguishes_relaxation_from_construction(self):
+        record = json.loads((ROOT / "research/data/d34-exchange-search.json").read_text())
+        self.assertEqual(record["dimension"], 34)
+        for key in ("parent", "exchange"):
+            self.assertTrue((ROOT / record[key]).is_file())
+        first, final = record["iterations"]
+        self.assertFalse(first["internally_compatible"])
+        self.assertEqual(first["new_packing_constraints"], first["repeated_five_subset_keys"])
+        self.assertTrue(final["internally_compatible"])
+        self.assertEqual(final["repeated_five_subset_keys"], 0)
+        for iteration in record["iterations"]:
+            self.assertEqual(iteration["selected_candidates"] - iteration["deleted_old_supports"],
+                             iteration["objective"])
+        self.assertEqual(record["parent_size"] + final["objective"], record["final_size"])
+        exchange = next(row for row in json.loads((ROOT / record["exchange"]).read_text())["exchanges"]
+                        if row["dimension"] == 34)
+        self.assertEqual(len(exchange["added_hex"]), final["selected_candidates"])
+        self.assertEqual(len(exchange["removed_hex"]), final["deleted_old_supports"])
+
     def test_livestream_citation_uses_original_article(self):
         source = "https://hznews.hangzhou.com.cn/kejiao/content/2026-09/23/content_9314105.htm"
         for name in ("README.md", "README.zh-CN.md", "research/livestream.md"):

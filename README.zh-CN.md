@@ -1,6 +1,6 @@
 # Qiushi Engine：接吻数新下界的自主发现
 
-[English](README.md) · [中文报告](reports/zh/main.pdf) · [英文报告](reports/en/main.pdf) · [成果](research/results.md) · [研究脉络](research/README.md) · [复现](reproducibility/README.md)
+[English](README.md) · [中文报告](reports/zh/main.pdf) · [英文报告](reports/en/main.pdf) · [成果](research/results.md) · [研究脉络](research/README.zh-CN.md) · [复现](reproducibility/README.md)
 
 **72小时连续长程自主科研，全程公开直播。**
 
@@ -44,6 +44,17 @@ Qiushi Engine 自主研读文献、提出并检验构造、调整研究方向、
 | 43 | 2,553,792 | 2,545,056 | +8,736 |
 | 45 | 7,380,090 | 7,379,838 | +252 |
 
+## 逐维探索与发现
+
+每个维度都有独立的研究叙述，从所面对的数学问题出发，讲清候选如何产生、约束为何阻碍
+改进、中间构造如何形成，以及最终方法如何解决问题。33维的十个新支持如何共享九个阻挡？
+36维的符号搜索如何变成四色设计？45维成功构造的四面体几何又如何联系不同候选族？
+
+[32](research/dimensions/32.zh-CN.md) · [33](research/dimensions/33.zh-CN.md) · [34](research/dimensions/34.zh-CN.md) · [35](research/dimensions/35.zh-CN.md) · [36](research/dimensions/36.zh-CN.md) · [37](research/dimensions/37.zh-CN.md) · [38](research/dimensions/38.zh-CN.md) · [39](research/dimensions/39.zh-CN.md) · [43](research/dimensions/43.zh-CN.md) · [45](research/dimensions/45.zh-CN.md)
+
+[研究总览](research/README.zh-CN.md)说明各维度之间的联系，并提供中英文逐维文档。
+文档直接连接具体构造、保存的交换及重建程序，让研究思路与数学对象相互对应。
+
 ## 构造思想
 
 在分层码中，一组新支持的价值取决于它们共同排斥哪些旧支持：同一旧支持只需删除一次。
@@ -67,7 +78,7 @@ Qiushi Engine 自主研读文献、提出并检验构造、调整研究方向、
 | 43, 45 | [格截面与设计矩](constructions/sections/) | [格截面与设计矩](research/trajectory/sections.md) |
 
 [研究报告](reports/README.md)按上述顺序展开数学论证；
-[研究脉络](research/README.md)连接构造原理、搜索选择、中间对象与最终结果。
+[研究脉络](research/README.zh-CN.md)连接构造原理、搜索选择、中间对象与最终结果。
 有限数据附有坐标约定和数学来源。
 
 ## 阅读与复现
@@ -75,7 +86,7 @@ Qiushi Engine 自主研读文献、提出并检验构造、调整研究方向、
 | 阅读目的 | 入口 |
 |---|---|
 | 理解结果、几何证明与各构造的关系 | [中文报告](reports/zh/main.pdf) · [English report](reports/en/main.pdf) |
-| 理解构造如何形成 | [研究脉络](research/README.md) |
+| 理解构造如何形成 | [逐维探索与发现](research/README.zh-CN.md) |
 | 检查精确输入及证明条件 | [验证说明](evidence/README.md) |
 | 配置环境并运行程序 | [复现指南](reproducibility/README.md) |
 | 查看数据与来源 | [构造目录](constructions/catalog/results.json) · [来源说明](research/provenance.md) |
@@ -93,7 +104,7 @@ make verify
 
 ```text
 reports/           中英文报告：PDF、LaTeX、参考文献与图形
-research/          数学研究脉络与来源
+research/          逐维探索与发现、共同数学方法与来源
 constructions/     精确数据、构造族和验证程序
 evidence/          验证结果及其与证明的关系
 reproducibility/   环境依赖与运行说明

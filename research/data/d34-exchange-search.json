@@ -1,0 +1,35 @@
+{
+  "dimension": 34,
+  "parent": "constructions/codes/data/exchanges/d34_parent.txt",
+  "exchange": "constructions/codes/data/exchanges/exchanges.json",
+  "parent_size": 1959,
+  "candidate_count": 10715,
+  "maximum_old_blockers_per_candidate": 3,
+  "affected_old_supports": 1895,
+  "blocker_constraints": 29217,
+  "five_subset_buckets": 178704,
+  "buckets_with_multiple_candidates": 120216,
+  "iterations": [
+    {
+      "iteration": 1,
+      "solver_status": "OPTIMAL",
+      "selected_candidates": 10593,
+      "deleted_old_supports": 1772,
+      "objective": 8821,
+      "repeated_five_subset_keys": 119476,
+      "new_packing_constraints": 119476,
+      "internally_compatible": false
+    },
+    {
+      "iteration": 2,
+      "solver_status": "FEASIBLE",
+      "selected_candidates": 7,
+      "deleted_old_supports": 6,
+      "objective": 1,
+      "repeated_five_subset_keys": 0,
+      "new_packing_constraints": 0,
+      "internally_compatible": true
+    }
+  ],
+  "final_size": 1960
+}
