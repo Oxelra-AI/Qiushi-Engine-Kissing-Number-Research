@@ -1,6 +1,8 @@
-# Research development
+# Mathematical discovery
 
-The research is organized by mathematical mechanism. Each account follows the mathematical question, construction principles, search variables, intermediate and final objects, and exact computation. The [reports](../reports/README.md) develop the proofs in the same order.
+Qiushi Engine's investigation connects several ways of enlarging a constrained configuration: reorganizing compatible parts, finding unused geometric directions, and extracting counts from the structure of an ambient lattice. These connections turn coding, geometry and combinatorics into complementary tools for discovery.
+
+The accounts below explain the mathematical problems, the ideas that resolve them, and the constructions they produce. Search methods and exact computation are developed alongside the principles that make them effective. The [reports](../reports/README.md) give the full arguments and proofs.
 
 | Dimensions | Mathematical development | Data and programs |
 |---|---|---|

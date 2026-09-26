@@ -1,4 +1,4 @@
-# Qiushi Engine: New Lower Bounds for Kissing Numbers
+# Qiushi Engine: Autonomous Discovery of New Lower Bounds for Kissing Numbers
 
 [中文](README.zh-CN.md) · [English report](reports/en/main.pdf) · [中文报告](reports/zh/main.pdf) · [Results](research/results.md) · [Research](research/README.md) · [Reproduce](reproducibility/README.md)
 
@@ -17,12 +17,21 @@ described the event as China's first public livestream in which AI pursued
 an open mathematical problem autonomously for 72 consecutive hours.
 See the [livestream overview](research/livestream.md).
 
-The mathematical question is how to enlarge a highly constrained spherical
-configuration. The research develops joint code exchanges, signed local
-replacements, compatible directions from another lattice shell, and exact
-counts for lattice sections. The reports explain why these changes work;
-the accompanying data and programs reconstruct and verify the finite objects
-on which the proofs depend.
+Scientific discovery requires choosing what to investigate when the answer
+and the route to it are unknown. In this challenge, Qiushi Engine pursued
+an open mathematical goal across coding theory, lattice geometry and
+combinatorics, developing new constructions and proofs through sustained
+autonomous research.
+
+The mathematical insight is that even a tightly constrained configuration
+can retain room for growth in how its parts are organized. Coordinated
+replacements admit points that cannot be added individually; another
+lattice shell supplies new compatible directions; exact moment relations
+reveal large configurations through small sets of explicit witnesses.
+These discoveries demonstrate the value of connecting mathematical ideas
+across different constructions. The reports explain these connections,
+and the open data and programs let others reconstruct, examine and build
+on the results.
 
 ## Mathematical results
 

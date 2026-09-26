@@ -6,7 +6,9 @@
 
 《杭州日报》在9月23日的报道中，将此次活动介绍为国内首次以全程公开直播方式让 AI 连续72小时自主挑战开放前沿数学问题。参见[《浙大“求是引擎”亮相云栖大会》原报道（杭州网）](https://hznews.hangzhou.com.cn/kejiao/content/2026-09/23/content_9314105.htm)及[直播项目页](https://oxelra.com/live/)。
 
-接吻数问题要求确定各维空间中可同时接触中心球的等球数量。本专题的成果是十个维数的新构造下界：每个构型由精确数据和数学证明给出。研究报告将这些结果及其形成方法完整展开。
+接吻数问题要求确定各维空间中可同时接触中心球的等球数量。本专题的成果是十个维数的新构造下界。
+这次挑战把一项开放数学问题上的长期探索置于公众面前：系统需要自主组织研究，理解不同数学工具之间的联系，并将构想发展为新的构造与证明。
+直播让人们看见研究如何展开；开放的数学材料则让这些发现能够进入学术讨论、被独立重建，并成为进一步探索的起点。
 
 ## The research broadcast
 
@@ -16,7 +18,12 @@ research livestream during the Apsara Conference, from 08:00 on
 It presented autonomous literature study, mathematical analysis,
 construction search, computation, verification and changes of research direction.
 
-This collection brings together results in dimensions 32–39, 43 and 45.
-The reports develop code constructions, equatorial completion and lattice
-sections. Each stated lower bound is accompanied by its finite
-inputs and proof-oriented verification.
+This collection brings together new lower bounds in dimensions 32–39, 43
+and 45, developed through code constructions, equatorial completion and
+lattice sections. The challenge placed a sustained investigation of an
+open mathematical problem before a public audience. Qiushi Engine had to
+organize its research, connect mathematical tools, and develop ideas into
+new constructions and proofs. The broadcast made the investigation
+visible; the open mathematical materials allow the discoveries to enter
+scientific discussion, be reconstructed independently, and support further
+exploration.

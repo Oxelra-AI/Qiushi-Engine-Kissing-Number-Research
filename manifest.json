@@ -14,8 +14,8 @@
     },
     {
       "path": "CITATION.cff",
-      "sha256": "27023f7b1a878f8b8d1372ce864bd044cb42452751c05e4e138e776ef746b6f2",
-      "bytes": 1354
+      "sha256": "30a195149aa917c1c49c4b6adfb4a9ac641c92b5ab9ee2bff1590a68440f3dd5",
+      "bytes": 1527
     },
     {
       "path": "LICENSE",
@@ -29,13 +29,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "0d881c3cbfb4970bb6c32b1f0474b296c709b4be5d67d3bce451d9f872cec1f7",
-      "bytes": 6690
+      "sha256": "702eb1f417cd2c580585b71d513b4cbd7afcf5f560e093229b1885e143447f9e",
+      "bytes": 7218
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "1f4eac8baee648bd67d7befbf5d4379056c748bed07f0779c8e307f9fbcc1d02",
-      "bytes": 6011
+      "sha256": "208688d9b7c4decd2ffa1674b6748a8d9e0d9ee31a828bcfad050bb3303e667f",
+      "bytes": 6393
     },
     {
       "path": "RIGHTS.md",
@@ -464,13 +464,13 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "f71098b054ff39955b1ef13f434c621064fe7f669da1b3714203eb37babfd62d",
-      "bytes": 902
+      "sha256": "5b10dc62bcaff5c98eed164e9efa52c4bb0640168dd40918bfd3dd0f8838e039",
+      "bytes": 1238
     },
     {
       "path": "reports/en/certificates.zip",
-      "sha256": "39cae988fc5acfac726bb8a650558523f1fdba2a72444c903ca8163f83ecba71",
-      "bytes": 546341
+      "sha256": "0bbb3e9a5af71ab14e67629ac5a98d839aa026ab28e267ac6ed7faf8cbb2a441",
+      "bytes": 546413
     },
     {
       "path": "reports/en/figures/qiushi-engine-logo.png",
@@ -499,8 +499,8 @@
     },
     {
       "path": "reports/en/main.pdf",
-      "sha256": "0aad31434f6336fd1d36b80725363dd3899f20f699b116d0931e3101d83f43b9",
-      "bytes": 1113780
+      "sha256": "efe406daa210d6141e71a63342b427f7e1339014f91dfcca553391a7940297af",
+      "bytes": 1113280
     },
     {
       "path": "reports/en/main.tex",
@@ -514,8 +514,8 @@
     },
     {
       "path": "reports/en/sections/abstract.tex",
-      "sha256": "7fe6d3ba8d3e06666f3fbe14537784e90f2f3e2a7988d548c0a6d54e1b92fa26",
-      "bytes": 1827
+      "sha256": "f071ff01daf021e210b9df18187737ab3228c9e80e9e397d536e8a104dc58d8d",
+      "bytes": 1891
     },
     {
       "path": "reports/en/sections/ambient.tex",
@@ -529,8 +529,8 @@
     },
     {
       "path": "reports/en/sections/conclusions.tex",
-      "sha256": "f03cb5305d1f5889a6fa44c51ba575369e3efb6ac8595f8b2e1e8a13a19fe68f",
-      "bytes": 1225
+      "sha256": "78dab171d6795a4cf29087ddaf7456ebc8122c8d51105c51dbcd843e763f35f8",
+      "bytes": 1884
     },
     {
       "path": "reports/en/sections/constructions.tex",
@@ -574,8 +574,8 @@
     },
     {
       "path": "reports/zh/certificates.zip",
-      "sha256": "39cae988fc5acfac726bb8a650558523f1fdba2a72444c903ca8163f83ecba71",
-      "bytes": 546341
+      "sha256": "0bbb3e9a5af71ab14e67629ac5a98d839aa026ab28e267ac6ed7faf8cbb2a441",
+      "bytes": 546413
     },
     {
       "path": "reports/zh/figures/qiushi-engine-logo.png",
@@ -604,8 +604,8 @@
     },
     {
       "path": "reports/zh/main.pdf",
-      "sha256": "60f3eac9a21b66c6ac15792e474c3ee5db5ce323b29bddc5fc8358dba2052e57",
-      "bytes": 1286549
+      "sha256": "f360cd1f869b2adb5457eb2e6ff211667d011887a83c5ac1f166d8408c8b03b3",
+      "bytes": 1290429
     },
     {
       "path": "reports/zh/main.tex",
@@ -619,8 +619,8 @@
     },
     {
       "path": "reports/zh/sections/abstract.tex",
-      "sha256": "c93f67ce379af549a8fd3ef314654d81da53892c96d2aad184aee6ec32e5b709",
-      "bytes": 1514
+      "sha256": "bfc6ca1a1a30f8bd6063eb4c9ba6a1db06503b504bb97bef658bce56d0b517c3",
+      "bytes": 1616
     },
     {
       "path": "reports/zh/sections/ambient.tex",
@@ -634,8 +634,8 @@
     },
     {
       "path": "reports/zh/sections/conclusions.tex",
-      "sha256": "d5b87c0abe990f4cda42e841418f9812162d97111767c779f2b42ea80691c31a",
-      "bytes": 983
+      "sha256": "4745b2991d011540f550ec4903bb47474fd975aac3593fa977bbb0cb8c1b9232",
+      "bytes": 1567
     },
     {
       "path": "reports/zh/sections/constructions.tex",
@@ -689,13 +689,13 @@
     },
     {
       "path": "research/README.md",
-      "sha256": "33eabffdf4f8b20ec847c4cb41c24d70deca21aecde1b0205f75ffb831e5b89b",
-      "bytes": 835
+      "sha256": "2e06b3c8b760528d3558087b59b9dbb20a7186be9e92d443281d4a119196d71a",
+      "bytes": 1182
     },
     {
       "path": "research/livestream.md",
-      "sha256": "ce8bbfcfa61eb1eb125c1d1724e5d523568679a07e8c293d0c323f0090910ff7",
-      "bytes": 1790
+      "sha256": "2b67e1b3861de9c33f8db6d8b9aacbd0f55fbb09243ad37424dbc0a517b64aff",
+      "bytes": 2382
     },
     {
       "path": "research/provenance.md",

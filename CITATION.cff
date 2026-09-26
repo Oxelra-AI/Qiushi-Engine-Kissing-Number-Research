@@ -3,7 +3,7 @@ message: "Please cite this research collection and its reports."
 type: software
 title: "Qiushi Engine: Autonomous Discovery of New Lower Bounds for Kissing Numbers"
 repository-code: "https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research"
-abstract: "Explicit kissing configurations, geometric proofs, finite construction data, exact verification programs and bilingual research reports."
+abstract: "Qiushi Engine's autonomous mathematical research develops new kissing-number constructions through connections between coding theory, lattice geometry and combinatorics. The collection includes bilingual research reports, mathematical arguments, exact construction data and reproducible verification programs."
 authors:
   - family-names: Yang
     given-names: Shuxing

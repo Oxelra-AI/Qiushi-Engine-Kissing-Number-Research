@@ -1,5 +1,11 @@
 # Research reports
 
+Qiushi Engine's autonomous investigation of the kissing-number problem
+connects coding theory, lattice geometry and combinatorics to produce new
+constructions. The reports develop the mathematical ideas behind these
+discoveries, from the freedom left by distance constraints to methods for
+building and counting larger configurations.
+
 The English and Chinese reports share the same structure, mathematical statements,
 data and bibliography. Each language is a complete LaTeX project.
 
