@@ -29,13 +29,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "16cdfb4eec5e3ac2a7c139085cb88d69295f94cf0c28a3eaba2d4f6b5bcc379f",
-      "bytes": 12122
+      "sha256": "4113be6c4d78a7c637e48fae71cd96c80b7a6047e1b64bec39e6eca593c82d91",
+      "bytes": 12283
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "209490a670a54627653f21cf5f8e3f6bfe094f9d5ce481567153d52046b97253",
-      "bytes": 11041
+      "sha256": "6b4d03ac8745734fede3f1288244263dfb864fcd3135c843920c5857f871d24a",
+      "bytes": 11228
     },
     {
       "path": "RIGHTS.md",
@@ -1394,13 +1394,13 @@
     },
     {
       "path": "research/README.md",
-      "sha256": "aba62d7ce06a8c41c982ce9586b85ad989d3d66834bdcf2d0fae204c1b318aec",
-      "bytes": 6914
+      "sha256": "063056ee9e6af751f24a42492d616dfa318eb592a23461227243c1f5e88a587f",
+      "bytes": 7243
     },
     {
       "path": "research/README.zh-CN.md",
-      "sha256": "fcbe3278d0424b57016fda6b6df0527002a5915436f9686bded3e70e0b087bc0",
-      "bytes": 5996
+      "sha256": "7129ef165272eb1c10a94098a7486c634944b38eb521ab03555eaac0431fbca1",
+      "bytes": 6274
     },
     {
       "path": "research/comparisons/additional-dimensions.json",
@@ -1539,13 +1539,13 @@
     },
     {
       "path": "research/dimensions/43.md",
-      "sha256": "d7c10f9f0691f163d298f79243812b0ac9fef9d595b1743732fe0b604f63d2a4",
-      "bytes": 3673
+      "sha256": "643be23ace871c16297ca31345c118b39b24d189a6ae4d14c4d60bad795f2800",
+      "bytes": 4170
     },
     {
       "path": "research/dimensions/43.zh-CN.md",
-      "sha256": "34c2b3cd39ce2c8cceb658ae610e8b90bc4cb5645934568df9bbc0d85f27d89e",
-      "bytes": 2811
+      "sha256": "5442def6d0db88d12b13e93823d66795b38c88f41de45ab27dd7d146019de256",
+      "bytes": 3234
     },
     {
       "path": "research/dimensions/45.md",

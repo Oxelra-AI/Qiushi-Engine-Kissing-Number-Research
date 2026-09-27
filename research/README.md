@@ -1,6 +1,6 @@
 # How the constructions were discovered
 
-[中文](README.zh-CN.md) · [Results](results.md) · [Reports](../reports/README.md)
+[中文](README.zh-CN.md) · [Results](results.md) · [Paper](../paper/main.pdf) · [Reports](../reports/README.md) · [Proof map](../evidence/proof-map.md)
 
 A successful construction does not reveal the route to it. These accounts
 follow Qiushi Engine's autonomous mathematical investigation: how a problem
@@ -51,7 +51,7 @@ labels change together. A maximal 310-direction selection can therefore be
 replaced by a larger one even when direct insertion is impossible.
 
 **Shared conflicts change the value of a candidate.** In dimensions 32, 33,
-34 and 39, a support need not be admissible on its own to be useful. Joint
+34, 37 and 39, a support need not be admissible on its own to be useful. Joint
 choice prices the union of old conflicts. The final 33-dimensional exchange
 has twenty individually counted conflicts but only nine old supports to
 remove. Five-subset packing constraints make the candidates' mutual
@@ -92,8 +92,12 @@ kissing configuration.
 
 The dimensional accounts explain the individual investigations. The shared
 accounts below develop the mathematical framework used by related dimensions.
-The [reports](../reports/README.md) provide full geometric arguments, and
-the [reproduction guide](../reproducibility/README.md) gives the execution paths.
+The [paper](../paper/main.pdf) states the construction theorems and structural
+results; the [reports](../reports/README.md) develop the geometric arguments
+alongside the research process. For each dimension, the
+[proof map](../evidence/proof-map.md) identifies the counting formula, finite
+inputs and verification tasks. The [reproduction guide](../reproducibility/README.md)
+gives the corresponding commands.
 
 <!-- BEGIN RESEARCH_FAMILIES -->
 | Dimensions | Shared mathematical development | Data and programs |

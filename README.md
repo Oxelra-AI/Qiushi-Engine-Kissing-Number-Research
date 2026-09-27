@@ -1,4 +1,4 @@
-# Qiushi Engine: Autonomous Discovery of New Lower Bounds for Kissing Numbers
+# Qiushi Engine: Large-Scale Autonomous Discovery of Kissing Number Constructions
 
 [中文](README.zh-CN.md) · [Paper](paper/main.pdf) · [English report](reports/en_full/main.pdf) · [中文报告](reports/zh_full/main.pdf) · [Results](research/results.md) · [Research](research/README.md) · [Reproduce](reproducibility/README.md)
 
@@ -21,22 +21,22 @@ described the event as China's first public livestream in which AI pursued
 an open mathematical problem autonomously for 72 consecutive hours.
 See the [livestream overview](research/livestream.md).
 
-Scientific discovery requires choosing what to investigate when the answer
-and the route to it are unknown. In this challenge, Qiushi Engine pursued
-an open mathematical goal across coding theory, lattice geometry and
-combinatorics, developing new constructions and proofs through sustained
-autonomous research.
+Improving a large kissing configuration can require moving hundreds of
+points together, replacing a combinatorial design, or recasting a count
+of millions of vectors as a small system of identities. Qiushi Engine
+pursued these different routes within one autonomous investigation,
+changing the mathematical representation when a fixed search became limiting.
 
-The mathematical insight is that even a tightly constrained configuration
-can retain room for growth in how its parts are organized. Coordinated
-motion preserves a contact layer while opening space at its boundary;
-joint replacements admit points that cannot be added individually; another
-lattice shell supplies new compatible directions; exact moment relations
-reveal large configurations through small sets of explicit witnesses.
-These discoveries demonstrate the value of connecting mathematical ideas
-across different constructions. The reports explain these connections,
-and the open data and programs let others reconstruct, examine and build
-on the results.
+The central question is where a tightly constrained configuration still
+has room to change. Coordinated motion preserves a contact layer while
+opening space at its boundary; joint replacements share deletion costs;
+another lattice shell supplies compatible directions. For lattice sections,
+exact moments determine a target count or convert small witness sets into
+large lower bounds. The resulting constructions also yield structural
+results: a sharp capacity bound for a local signed-code model and an
+embedding theorem that forces a section count. The paper develops these
+statements; the research accounts explain how the system found them, and
+the data and programs make the constructions reproducible.
 
 ## Mathematical results
 
@@ -129,7 +129,7 @@ the remaining choice is among the new directions themselves. This gives
 
 For dimensions 43 and 45, spherical-design moments replace a count over
 52,416,000 lattice vectors with finite rational relations. An embedded
-$E_8$ section determines the orthogonal shell of a $D_5$ subsection and gives
+$\sqrt3 E_8$ section determines the orthogonal shell of the specified $D_5$ subsystem and gives
 2,553,792 points. In dimension 45, a moment inequality assigns a positive
 contribution to each vector in a selected fibre. Common-neighbour searches
 produce 298 such witnesses, yielding $7,377,408+9\times298=7,380,090$.
@@ -163,13 +163,12 @@ conventions and mathematical sources accompany the finite data.
 | Main theorems, proofs and structural results | [Mathematical paper](paper/main.pdf) · [LaTeX source](paper/main.tex) |
 | Results, geometric arguments and their relationship | [English report](reports/en_full/main.pdf) · [中文报告](reports/zh_full/main.pdf) |
 | How the constructions developed | [Research account](research/README.md) |
-| Exact inputs and proof checks | [Verification](evidence/README.md) |
+| Each result's finite inputs and proof checks | [Proof map](evidence/proof-map.md) · [Verification](evidence/README.md) |
 | Dependencies and execution | [Reproduction guide](reproducibility/README.md) |
 | Data and source attribution | [Construction catalogue](constructions/catalog/results.json) · [Sources](research/provenance.md) |
 
-With Python providing NumPy, SymPy and SageMath, and a C++17 compiler:
-
-The rigorous interval check in dimension 25 also requires `python-flint`.
+The verification suite uses Python with NumPy, SymPy, SageMath and
+`python-flint`, together with a C++17 compiler. To list and run the checks:
 
 ```sh
 make list
