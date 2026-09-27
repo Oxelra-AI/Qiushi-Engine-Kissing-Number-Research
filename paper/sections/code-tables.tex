@@ -1,0 +1,42 @@
+\section{Binary generators and coset representatives}\label{app:codes}
+
+Table~\ref{tab:generators} gives the generators used for the three
+dense sign codes. An entry is a hexadecimal mask, representing the
+binary word $c$ by $\sum_i c_i2^i$. The generator of length $32$ is
+used unchanged in ambient dimensions $32$--$37$. The
+length-$38$ and length-$39$ columns are the kernels reconstructed
+from~\eqref{eq:qr}. Table~\ref{tab:representatives} supplies the affine
+representatives; the length-$32$ code uses only zero.
+
+\begin{table}[ht]
+\centering\small
+\caption{Generator masks for $H_{32}$, $H_{38}$, and $H_{39}$. Blank
+entries reflect their different dimensions.}
+\label{tab:generators}
+\input{generated/generators}
+\end{table}
+
+\begin{table}[ht]
+\centering\small
+\caption{Representatives of the eleven cosets in length $38$ and the
+ten cosets in length $39$.}
+\label{tab:representatives}
+\input{generated/representatives}
+\end{table}
+
+The complete kernel weight distributions are given in
+Table~\ref{tab:weights}. The least nonzero weights give the within-coset
+distance bounds. For every distinct pair of representatives in
+Table~\ref{tab:representatives}, the affine space
+$r_a+r_b+H_m$ has minimum weight ten. Enumeration of these spaces
+establishes both the cross-coset distances and disjointness of the
+cosets. This determines each code in Proposition~\ref{prop:signs}
+entirely from the printed data.
+
+\begin{table}[ht]
+\centering\small
+\caption{Weight distributions $A_w=|\{h\in H_m:\wt(h)=w\}|$.
+Every omitted weight has coefficient zero.}
+\label{tab:weights}
+\input{generated/weights}
+\end{table}

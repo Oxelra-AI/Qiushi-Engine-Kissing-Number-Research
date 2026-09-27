@@ -1,0 +1,43 @@
+\section{The minimum of the ambient lattice used in dimension 45}
+\label{app:ambient}
+
+
+Let \(C\) be the extended ternary quadratic-residue \([48,24,15]\) code
+\cite{nebe}, and put \(M=\{z\in\mathbb Z^{48}:z\bmod3\in C\}\) and
+\(L_0=\{z/\sqrt3:z\in M,\ z^2\equiv0\pmod6\}\). The supplied basis
+determines a characteristic numerator \(\chi\in M\) with odd
+coordinates, \(\chi^2=264\), and \(\chi\cdot z\equiv z^2\pmod6\). Define
+
+\[
+\Lambda=L_0\cup\bigl(\chi/(2\sqrt3)+L_0\bigr).
+\]
+
+The characteristic congruence and \(\chi^2/12=22\) give integrality and
+evenness; the two index-two constructions give covolume one. The program
+reconstructs an integer numerator basis \(B\) and verifies
+\(BB^{\mathsf T}=12G\) for the exact Gram matrix used by the 298-vector
+certificate.
+
+In \(L_0\), squared norm two or four would require \(z^2\le12\). The
+code minimum weight 15 forces \(z\bmod3=0\), whose positive even lattice
+norms are at least six. In the other coset, \(y=\chi+2z\) has 48 odd
+coordinates, so \(y^2/12\ge4\). Equality requires \(y_i=\pm1\).
+
+Let \(s_i\in\{\pm1\}\) represent \(\chi_i\bmod3\). The finite checks
+give \(s\in C\), \(\chi\cdot s=66\), and \(\chi_i s_i\equiv1\pmod6\).
+Normalizing coordinates by \(s\) gives a code containing the all-one
+word. Its two-symbol enumerator is \(1+94t^{24}+t^{48}\)
+\cite[equation (20)]{munemasa-tamura}, so binary-valued codewords have
+weights 0, 24 or 48. Writing \(y=s(1-2b)\) gives such a binary word of
+weight \(w\), but
+
+\[
+\chi\cdot z
+=\frac{\chi\cdot s-\chi^2}{2}-\sum_i\chi_i s_i b_i
+\equiv-99-w\equiv3\pmod6,
+\]
+
+contrary to \(z/\sqrt3\in L_0\). Evenness excludes all other positive
+norms below six, while \(\sqrt3(e_1+e_2)\) has squared norm six. The
+theta-series and design-moment arguments therefore apply to this
+specified lattice.

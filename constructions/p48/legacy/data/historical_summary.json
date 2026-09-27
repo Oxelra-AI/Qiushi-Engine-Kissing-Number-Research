@@ -1,0 +1,590 @@
+{
+  "sha256": "6253e5cd9f71e869295ad13bb56f39982a89976388b0f95f4549d54bc020f148",
+  "rows": 618653,
+  "unique_oriented_rows": 618653,
+  "block_count": 63,
+  "membership_reason_histogram": {
+    "odd_glue_coset": 609903,
+    "even_sublattice": 8750
+  },
+  "abs_value_shape_histogram": {
+    "1:45,3:3": 609885,
+    "0:33,2:14,4:1": 8329,
+    "0:30,2:18": 348,
+    "0:46,6:2": 73,
+    "1:47,5:1": 18
+  },
+  "block_sizes_desc": [
+    9975,
+    9921,
+    9920,
+    9920,
+    9915,
+    9901,
+    9900,
+    9898,
+    9888,
+    9886,
+    9884,
+    9877,
+    9876,
+    9875,
+    9875,
+    9870,
+    9870,
+    9869,
+    9867,
+    9865,
+    9859,
+    9857,
+    9850,
+    9846,
+    9841,
+    9839,
+    9838,
+    9837,
+    9832,
+    9830,
+    9830,
+    9825,
+    9824,
+    9822,
+    9817,
+    9812,
+    9806,
+    9802,
+    9802,
+    9799,
+    9793,
+    9792,
+    9790,
+    9773,
+    9764,
+    9763,
+    9760,
+    9755,
+    9752,
+    9750,
+    9749,
+    9746,
+    9745,
+    9744,
+    9741,
+    9740,
+    9739,
+    9738,
+    9734,
+    9731,
+    9719,
+    9719,
+    9696
+  ],
+  "per_block": [
+    {
+      "block_id": 0,
+      "size": 9884,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 1,
+      "size": 9975,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 2,
+      "size": 9875,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 3,
+      "size": 9898,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 4,
+      "size": 9921,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 5,
+      "size": 9920,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 6,
+      "size": 9886,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 7,
+      "size": 9901,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 8,
+      "size": 9870,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 9,
+      "size": 9900,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 10,
+      "size": 9920,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 11,
+      "size": 9859,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 12,
+      "size": 9875,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 13,
+      "size": 9876,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 14,
+      "size": 9888,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 15,
+      "size": 9830,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 16,
+      "size": 9915,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 17,
+      "size": 9869,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 18,
+      "size": 9870,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 19,
+      "size": 9867,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 20,
+      "size": 9838,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 21,
+      "size": 9817,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 22,
+      "size": 9850,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 23,
+      "size": 9837,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 24,
+      "size": 9857,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 25,
+      "size": 9846,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 26,
+      "size": 9877,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 27,
+      "size": 9865,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 28,
+      "size": 9825,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 29,
+      "size": 9832,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 30,
+      "size": 9793,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 31,
+      "size": 9824,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 32,
+      "size": 9839,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 33,
+      "size": 9841,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 34,
+      "size": 9822,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 35,
+      "size": 9802,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 36,
+      "size": 9802,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 37,
+      "size": 9812,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 38,
+      "size": 9799,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 39,
+      "size": 9790,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 40,
+      "size": 9755,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 41,
+      "size": 9752,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 42,
+      "size": 9745,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 43,
+      "size": 9773,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 44,
+      "size": 9792,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 45,
+      "size": 9763,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 46,
+      "size": 9830,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 47,
+      "size": 9806,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 48,
+      "size": 9740,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 49,
+      "size": 9719,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 50,
+      "size": 9734,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 51,
+      "size": 9750,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 52,
+      "size": 9741,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 53,
+      "size": 9731,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 54,
+      "size": 9744,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 55,
+      "size": 9719,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 56,
+      "size": 9764,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 57,
+      "size": 9696,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 58,
+      "size": 9738,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 59,
+      "size": 9749,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 60,
+      "size": 9760,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 61,
+      "size": 9746,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    },
+    {
+      "block_id": 62,
+      "size": 9739,
+      "stored_dot_plus36_pairs": 0,
+      "stored_dot_gt24_pairs": 0,
+      "max_stored_dot_offdiag": 24,
+      "min_stored_dot_offdiag": -72
+    }
+  ],
+  "historical_verification_date": "2026-09-07",
+  "scope": "Historical finite-block verification; not a proof of ambient minimum norm or record priority."
+}

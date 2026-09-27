@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "source_revision": "5a453afe0125a4bc49eb47c4ddeb2b0c6a498945",
+  "dimensions": [
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    43,
+    45
+  ],
+  "files": [
+    {
+      "path": "reports/en/certificates.zip",
+      "sha256": "4691d0ced754a6cc5b67101334fa07a5769eb477276b44c0c1329ed4fb827fca"
+    },
+    {
+      "path": "reports/en/figures/qiushi-engine-logo.png",
+      "sha256": "12585d5569e5db1f1b184a68060445e8a31235cc3038f3e0c59c8765c7df4288"
+    },
+    {
+      "path": "reports/en/latex/authors.tex",
+      "sha256": "76f8fea8f6194ca70c003da1d66446eea9493b111e32bf700335ba66476ba1a0"
+    },
+    {
+      "path": "reports/en/latex/collection.tex",
+      "sha256": "2063fed82f9dfb723198382225fb51667b8790fbd00d4218afcea60fe9e4d436"
+    },
+    {
+      "path": "reports/en/latex/preamble.tex",
+      "sha256": "f4d558b091d9caa598bb3da4b4c3801f1e6ff50953eba22e9839f5998c037dbe"
+    },
+    {
+      "path": "reports/en/latex/style.tex",
+      "sha256": "39f52b84b827515ac9d03cd5c67a6a7edab3370697b6dc8f760d38f8c2d23c23"
+    },
+    {
+      "path": "reports/en/main.pdf",
+      "sha256": "1949dc5cada01f5d61d5c3d536bceb97d6052012db5c8608644439454756f9ad"
+    },
+    {
+      "path": "reports/en/main.tex",
+      "sha256": "ef002f2f55f148db274cb7c4c701ee413deca2247d0727c0963f87c42c3df387"
+    },
+    {
+      "path": "reports/en/refs.bib",
+      "sha256": "b57ca2cec6733e0e6063f1e3cf70b73a6055f365b9b8337440d269d2b5487321"
+    },
+    {
+      "path": "reports/en/sections/abstract.tex",
+      "sha256": "f071ff01daf021e210b9df18187737ab3228c9e80e9e397d536e8a104dc58d8d"
+    },
+    {
+      "path": "reports/en/sections/ambient.tex",
+      "sha256": "38fe10c4005eb9e9e5945d5327614516d7a498d67aebf53e14aaeb1a34d163e3"
+    },
+    {
+      "path": "reports/en/sections/codes.tex",
+      "sha256": "03585ba7425d9784a5d68b8089f51ae5818d5f979a0fe7d7a224f538220b6f0f"
+    },
+    {
+      "path": "reports/en/sections/conclusions.tex",
+      "sha256": "78dab171d6795a4cf29087ddaf7456ebc8122c8d51105c51dbcd843e763f35f8"
+    },
+    {
+      "path": "reports/en/sections/constructions.tex",
+      "sha256": "cb5243bd94e869317f3d644a240a1f91c789464acde560e5a5feb3a6252870f7"
+    },
+    {
+      "path": "reports/en/sections/equatorial.tex",
+      "sha256": "2d37a2669784abc27378d9e84e79126972451f0fbca9a2070fefe7bcdbbddb57"
+    },
+    {
+      "path": "reports/en/sections/finite-data.tex",
+      "sha256": "1cc8e7dc1aaf54392bbd1da17817ab473773b60dfa4fb8a8b538b6c3fa442015"
+    },
+    {
+      "path": "reports/en/sections/introduction.tex",
+      "sha256": "b2a133d7f172e45aa7445a7c9652bc1004baff5efd2fe0d7779108f46f36bd54"
+    },
+    {
+      "path": "reports/en/sections/results.tex",
+      "sha256": "9d22af288b1a9fc5ae791b273c802b607b7db4952902fc843feca7f1a3220aa5"
+    },
+    {
+      "path": "reports/en/sections/sections.tex",
+      "sha256": "ea83afdcdebf27b873cab0190951109964cf1e2df5ea9963634e479390334517"
+    },
+    {
+      "path": "reports/zh/certificates.zip",
+      "sha256": "4691d0ced754a6cc5b67101334fa07a5769eb477276b44c0c1329ed4fb827fca"
+    },
+    {
+      "path": "reports/zh/figures/qiushi-engine-logo.png",
+      "sha256": "12585d5569e5db1f1b184a68060445e8a31235cc3038f3e0c59c8765c7df4288"
+    },
+    {
+      "path": "reports/zh/latex/authors.tex",
+      "sha256": "a38fb462fc7949ff9eced83788f8f2b4388b78f72d153d810ead2fe040eafad7"
+    },
+    {
+      "path": "reports/zh/latex/collection.tex",
+      "sha256": "2063fed82f9dfb723198382225fb51667b8790fbd00d4218afcea60fe9e4d436"
+    },
+    {
+      "path": "reports/zh/latex/preamble.tex",
+      "sha256": "97cf933eaf2cd87f41c8a4360c4fe8c434f59c1615031a7a6d6216c209f65914"
+    },
+    {
+      "path": "reports/zh/latex/style.tex",
+      "sha256": "39f52b84b827515ac9d03cd5c67a6a7edab3370697b6dc8f760d38f8c2d23c23"
+    },
+    {
+      "path": "reports/zh/main.pdf",
+      "sha256": "2a992cb0c26ec03099bf5f9fb263bdc7467318164f8b5a8af9dc1b575b37bbea"
+    },
+    {
+      "path": "reports/zh/main.tex",
+      "sha256": "4e2f5867560fde2d6c98ea0a5cf088d4522bb35f0092c576d85e10714cbeb3bb"
+    },
+    {
+      "path": "reports/zh/refs.bib",
+      "sha256": "b57ca2cec6733e0e6063f1e3cf70b73a6055f365b9b8337440d269d2b5487321"
+    },
+    {
+      "path": "reports/zh/sections/abstract.tex",
+      "sha256": "bfc6ca1a1a30f8bd6063eb4c9ba6a1db06503b504bb97bef658bce56d0b517c3"
+    },
+    {
+      "path": "reports/zh/sections/ambient.tex",
+      "sha256": "e314c82308dac2da1801c46c9084129de8a8ffe95bfba20de8854caf946c8115"
+    },
+    {
+      "path": "reports/zh/sections/codes.tex",
+      "sha256": "9b0219085e2be52378108bc0531c230bc49c58ee335c6f1ea2a72eca18dc4a3d"
+    },
+    {
+      "path": "reports/zh/sections/conclusions.tex",
+      "sha256": "4745b2991d011540f550ec4903bb47474fd975aac3593fa977bbb0cb8c1b9232"
+    },
+    {
+      "path": "reports/zh/sections/constructions.tex",
+      "sha256": "cb5243bd94e869317f3d644a240a1f91c789464acde560e5a5feb3a6252870f7"
+    },
+    {
+      "path": "reports/zh/sections/equatorial.tex",
+      "sha256": "f151356af23677b040a564d1abe5d0df4a63c2da28610b629da70d313336eee3"
+    },
+    {
+      "path": "reports/zh/sections/finite-data.tex",
+      "sha256": "260e817fc7f9b62bdda381b70f02d4982bc67cdfef41555c18d707d14ec25ca2"
+    },
+    {
+      "path": "reports/zh/sections/introduction.tex",
+      "sha256": "a2c7e6164aeb64993be1afe3da983a5dc8ff44b817ad700165f80a7498eae5f0"
+    },
+    {
+      "path": "reports/zh/sections/results.tex",
+      "sha256": "face4ba68d00782ff9111edf9e8abbf743846fb9d8d6a70e54227bb423b08beb"
+    },
+    {
+      "path": "reports/zh/sections/sections.tex",
+      "sha256": "40be75d5b8ac92a91ca5da16956e777d7c5e14b0c6984ed090f1afb8b7c4e0f2"
+    }
+  ]
+}

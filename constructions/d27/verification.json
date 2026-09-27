@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "dimension": 27,
+  "points": 201567,
+  "first_layer_heads": 2258,
+  "first_layer_deleted": 2090,
+  "second_layer_owners": 311,
+  "axis_points": 12,
+  "equator_points": 194159,
+  "first_second_integer_max": 32,
+  "second_layer_integer_maxima": {
+    "same_line": 8,
+    "different_lines": 16
+  },
+  "exact_symbolic_upper_bounds": {
+    "first_head_axis": "sqrt(3)*(sqrt(2) + 2)/3",
+    "second_head_axis": "2",
+    "first_second": "sqrt(6)/3 + 2*sqrt(3)/3",
+    "second_equator": "sqrt(3)",
+    "paired_second_head": "2",
+    "second_same_line": "7/4",
+    "second_distinct_lines": "3/2"
+  },
+  "coordinate_files": {
+    "Y": {
+      "file": "heads27_Y.npy",
+      "sha256": "e137a6e3b11e6f70a0bc631b474f4ea340078f453893c56d5452513da5264bd1"
+    },
+    "side": {
+      "file": "heads27_side.npy",
+      "sha256": "b0e1457e2793db1ddd2fcc23a9110f8f956757ee08e017fac99200cae5199fb2"
+    },
+    "U": {
+      "file": "heads27_layer2_u.npy",
+      "sha256": "7d7a4bcd341d9104bad1dc17ac2f6e4daec71c0b2a9ab4b98e1766c12235bca2"
+    },
+    "line": {
+      "file": "heads27_layer2_line.npy",
+      "sha256": "f7b018510118faeda6d4d73b28a86ca0c6162bbf0d88da1244262b2c39b95fb7"
+    }
+  },
+  "leech_generator_sha256": "4f9a130ede03d6a9d7378e33b02c8134561988a3bc044e394f8209be6fba8cb6",
+  "premise": "The standard Golay construction of the Leech shell has squared norm 32 and maximum inner product 16 between distinct points.",
+  "arithmetic": "bounded int64 dot products and exact algebraic sign comparisons",
+  "external_verifiers_run": false
+}

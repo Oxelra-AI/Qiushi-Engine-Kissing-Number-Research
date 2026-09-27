@@ -1,0 +1,172 @@
+\section{Local signed replacements}\label{sec:signed}
+\subsection{A compatible replacement region}
+Use the three layers of Proposition~\ref{prop:ers}, scaled to squared
+norm 32, with the same binary $[32,17,8]$ code. Its $2^{17}$ codewords give vectors
+$(\pm1)^{32}$, padded with zeros to dimension $d$.
+Let $\mathcal B$ be a family of eight-subsets of $\{0,\ldots,d-1\}$ with
+pairwise intersections at most four. For each support take the 128 sign
+patterns of a fixed parity, with nonzero entries $\pm2$. Finally take
+all vectors with two entries $\pm4$. These are the standard ERS layers
+\cite{ers}, all of squared norm 32.
+
+For $d=35$ and $36$, the archived support families have 2,157 and 2,742
+blocks, respectively \cite{brouwer}. The base cardinalities are
+\[
+ 2^{17}+128\cdot2157+4\binom{35}{2}=409548,
+ \qquad
+ 2^{17}+128\cdot2742+4\binom{36}{2}=484568.
+\]
+
+\begin{lemma}[Isolated replacement]\label{lem:isolated-replacement}
+Let $W$ be a coordinate set containing exactly $b$ blocks of $\mathcal B$.
+Suppose every other block meets $W$ in at most four coordinates.
+Let $Q\subset\{0,\pm1\}^{W}$ consist of distinct weight-eight vectors
+with $q\cdot q'\le4$ for distinct $q,q'$. Replacing the $128b$ middle-layer
+vectors supported inside $W$ by $2Q$ preserves the kissing condition and
+changes the cardinality by $|Q|-128b$.
+\end{lemma}
+\begin{proof}
+Two new vectors have inner product at most 16. A new vector and any retained
+middle-layer vector overlap in at most four coordinates, so their inner
+product is also at most 16. A top-layer vector has inner product at most
+$8\cdot2=16$ with a new vector. A bottom-layer vector has inner product at
+most $2\cdot4\cdot2=16$. All new vectors have squared norm 32 and are
+distinct from the retained layers. The unchanged layers retain their
+original compatibility.
+\end{proof}
+
+In dimension 35 take $W=\{12,\ldots,22\}$; precisely block 2145 lies inside
+$W$. In dimension 36 take $W=\{12,\ldots,23\}$; precisely blocks
+2739, 2740 and 2741 lie inside $W$. Indices are zero-based. The independent
+checker verifies these facts from the complete support lists, together with
+all boundary intersections.
+
+\subsection{Hadamard transfer}
+\begin{lemma}[Paired Hadamard transfer]\label{lem:hadamard-transfer}
+Let $\mathcal A$ be a family of four-subsets on an even number $m$ of
+coordinates, with pairwise intersections at most two. Fix a perfect
+matching of the coordinates and retain the blocks meeting each matched
+pair in at most one coordinate. If $r$ blocks survive, there exists a
+signed weight-eight code of size $16r$ in $\{0,\pm1\}^{m}$ whose distinct
+vectors have inner products at most four.
+\end{lemma}
+\begin{proof}
+Take all sixteen sign patterns on each retained block and apply
+$H=\left(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right)$ to each
+matched coordinate pair. Each occupied pair contains exactly one input
+entry $\pm1$, and its image contains two entries $\pm1$. Thus every image
+has weight eight. Since $H^{\mathsf T}H=2I$, all inner products double.
+For different supports the original inner product is at most two. For the
+same support, two distinct sign patterns differ in at least one position,
+giving inner product at most $4-2=2$. The map is invertible and preserves
+distinctness.
+\end{proof}
+
+For dimension 35, an exact-cover construction gives a Steiner quadruple
+system $S(3,4,10)$ with 30 blocks. The matching
+\[
+(0,1),(2,3),(4,5),(6,7),(8,9)
+\]
+retains 16 blocks, hence 256 signed weight-eight vectors. One extra zero
+coordinate embeds them into the eleven-coordinate region $W$.
+
+The twelve-coordinate source is the 51-block design of
+Kalbfleisch--Stanton~\cite[Theorem 7]{kalbfleisch-stanton}, also used
+in the local-replacement construction of
+Takhanov--Yun~\cite[Section V]{signed-johnson}.
+For dimension 36, use two copies of a one-factorization of $K_6$. In each
+six-coordinate half, take the complements of the three edges in one
+factor, giving three internal four-subsets. For each of the five factors,
+combine each of its three edges in the first half with each of the three
+in the second half. There are $3+3+5\cdot9=51$ blocks, with intersections
+at most two. The matching
+\[
+(0,1),(2,4),(3,5),(6,7),(8,10),(9,11)
+\]
+retains 36 blocks, hence 576 signed weight-eight vectors.
+The two matched designs supply the replacement codes for the isolated
+ERS regions described above.
+
+\begin{proposition}[A four-colour construction]\label{prop:local36-paper}
+There is a signed weight-eight code of size 576 in twelve coordinates
+with distinct-pair inner products at most four.
+\end{proposition}
+\begin{proof}
+Use the edges of one colour of the one-factorization as the coordinate
+pairs in each half. Each of the other four colours has three edges
+transverse to these pairs. For each colour choose one edge in each
+half and take their union. This gives $4\cdot3\cdot3=36$ transverse
+four-subsets. Their intersections are at most two: within a colour
+they can share one edge; between colours they share at most one
+endpoint per half. Lemma~\ref{lem:hadamard-transfer} supplies
+$16\cdot36=576$ signed vectors.
+\end{proof}
+
+\begin{proposition}[Sign-extension bound]\label{prop:sign-capacity}
+Let $Q\subset\{0,\pm1\}^m$ have constant weight $w$ and distinct-pair
+inner products at most $s$. If $2w-m>s$, then $|Q|\le2^w$.
+In particular, the maximum size of a weight-eight code in eleven
+coordinates with inner products at most four is 256.
+\end{proposition}
+\begin{proof}
+A full sign string $\sigma\in\{\pm1\}^m$ cannot extend two members
+of $Q$: their supports would intersect in at least $2w-m>s$
+coordinates, and their signs agree wherever they intersect.
+Each member has $2^{m-w}$ extensions. Hence
+$2^{m-w}|Q|\le2^m$. The 256-point transferred code above attains
+the bound for $(m,w,s)=(11,8,4)$.
+\end{proof}
+
+\begin{theorem}
+There are kissing configurations of sizes 409,676 in dimension 35 and
+484,760 in dimension 36.
+\end{theorem}
+\begin{proof}
+The two replacement sizes give
+\begin{align*}
+N_{35}&=2^{17}+128(2157-1)+256+4\binom{35}{2}=409676,\\
+N_{36}&=2^{17}+128(2742-3)+576+4\binom{36}{2}=484760.
+\end{align*}
+The preceding lemmas prove compatibility involving the new vectors.
+For completeness, the top layer has inner product at most $32-2\cdot8=16$.
+On one retained middle support, equal parity forces at least two sign flips,
+so the inner product is at most $32-8\cdot2=16$; different supports intersect
+in at most four positions. The bottom layer has maximum inner product 16.
+The remaining cross-layer bounds are 16 for top--middle, 8 for top--bottom,
+and 16 for middle--bottom. All layers have squared norm 32.
+The archived finite data establish every hypothesis of these arguments.
+\end{proof}
+
+
+\subsection{A 512-point replacement in dimension 37}
+The replacement argument only needs every new support to intersect every
+retained support in at most four coordinates. It need not impose this
+condition on an entire containing coordinate region. Take the verified
+2845-word length-37 family and delete three complete sign bundles.
+The replacement consists of 512 signed weight-eight vectors on twelve
+coordinates. In the source's one-based, left-to-right numbering, the
+paired coordinates are
+\[
+(18,20),(23,24),(15,21),(16,22),(14,17),(19,25).
+\]
+Thirty-two transverse four-subsets on the twelve input axes, each with all
+sixteen signs, give the 512 vectors by the preceding Hadamard transfer.
+The four-subsets, coordinate pairs and signed images are supplied in
+\qpath{constructions/codes/data/d37_signed_patch.json}.
+The checker regenerates all $32\cdot16=512$ images and verifies equality
+with the supplied vector set.
+Their internal products are at most four, and every image support meets
+every retained support in at most four coordinates. Hence
+\[
+K(37)\ge2^{17}+128(2845-3)+512+2(37)(36)=498024.
+\]
+Against the 2832-support comparison family, the thirteen extra supports
+contribute $13\cdot128=1664$ points. The signed replacement contributes
+$512-3\cdot128=128$ further points, for a total gain of 1792.
+
+The left-to-right numbering is part of the witness specification.
+Assigning coordinate one to the rightmost bit instead requires the
+reversal $i\mapsto38-i$ for $1\le i\le37$. The independent verifier checks the complete
+support and signed-vector conditions in one consistent convention.
+Equivalently, left-to-right coordinate $i$ is integer bit $37-i$
+when the least significant bit has index zero.

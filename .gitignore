@@ -6,8 +6,11 @@ __pycache__/
 build/
 dist/
 *.pdf
+!paper/main.pdf
 !reports/en/main.pdf
 !reports/zh/main.pdf
+!reports/en_full/main.pdf
+!reports/zh_full/main.pdf
 *.aux
 *.bbl
 *.blg

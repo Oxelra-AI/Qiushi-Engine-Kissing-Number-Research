@@ -125,7 +125,7 @@ def main():
     versions = {"python": platform.python_version()}
     for name in sorted(needed - {"sage", "c++", "g++"}):
         try:
-            versions[name] = importlib.metadata.version(name)
+            versions[name] = importlib.metadata.version('python-flint' if name == 'flint' else name)
         except importlib.metadata.PackageNotFoundError:
             pass
     if "sage" in needed:

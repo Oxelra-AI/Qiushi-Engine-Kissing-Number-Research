@@ -1,0 +1,135 @@
+\section{Second-shell completion in dimension 38}\label{sec:completion}
+The preceding layered-code construction gives 576892 points in
+dimension 38. The larger bound in Table~\ref{tab:main} starts from
+the public 591612-point configuration~\cite{kissingnumbers}. Its
+decomposition has an unoccupied equator. This permits the addition
+of directions from a different Leech shell.
+
+\begin{lemma}[Equatorial completion]\label{lem:completion}
+Suppose $X\subset S^{D+k-1}$ is a kissing configuration consisting
+of points $(u/\sqrt q,t)$ and pure-tail points $(0,p)$.
+Let $V\subset\R^D$ be a set of representatives of distinct
+antipodal lines, all of squared norm $q$, such that
+\begin{align}
+ |\ip{v}{v'}|&\le q/2&&
+       (v,v'\in V,\ v\ne v'),\label{eq:completion-new}\\
+ |\ip{v}{u}|&\le q/2&&
+       (v\in V,\ (u/\sqrt q,t)\in X).\label{eq:completion-old}
+\end{align}
+Assume every $t$ in a point with nonzero head is nonzero.
+Then adjoining all $(\pm v/\sqrt q,0)$ gives a kissing configuration
+with $|X|+2|V|$ points.
+\end{lemma}
+\begin{proof}
+New points are unit vectors and their products with old pure-tail
+points vanish. Their products with old points having a head equal
+$\pm\ip{v}{u}/q$, so~\eqref{eq:completion-old} gives the required
+bound. Products between different new lines are bounded by
+\eqref{eq:completion-new}; the opposite points on one line have
+product $-1$. The nonzero-tail assumption and distinctness of the
+new lines prove that the added points are all new.
+\end{proof}
+
+\subsection{The base configuration}
+Use the integer Golay--Leech shell $\Sigma$ of squared norm 32,
+with the Golay generator stored in the dimension-38 package.
+Partition its 98280 antipodal lines into classes with pairwise
+absolute inner products at most eight. The tail data consist of
+1932 vectors of squared norm eight in $\R^{14}$, partitioned into
+644 zero-sum triples. Inside a triple the mutual products are $-4$;
+between any distinct tail vectors they are at most four.
+
+Each mother line is assigned a triple. It contributes six points
+of the form
+\begin{equation}\label{eq:d38-base-caps}
+ (\eps u/\sqrt{48},\,d/\sqrt{24}),
+ \qquad \eps\in\{-1,1\},
+\end{equation}
+where $d$ runs through its assigned triple.
+Their squared norm is $32/48+8/24=1$. Pairs in one class at one
+tail have product at most $8/48+8/24=1/2$. Repeated heads
+at different tails in their triple have product
+$32/48-4/24=1/2$. Different heads and different tails have product
+at most $16/48+4/24=1/2$.
+The cases with an opposite head have a smaller head contribution
+or are antipodal.
+
+There are also 1932 pure-tail points. Write the tail vectors as the
+rows of an integer matrix $F$, and the stored rational rotation as
+$M/h$, with $M$ integral and $h>0$. Its defining checks are
+\begin{equation}\label{eq:d38-rotation}
+ MM^t=h^2I_{14},\qquad
+ |(FM^tF^t)_{ij}|^2\le48h^2\quad\text{for all }i,j.
+\end{equation}
+The pure-tail points are $(0,dM^t/(h\sqrt8))$. Orthogonality preserves
+their norms and mutual products. Their products with the caps in
+\eqref{eq:d38-base-caps} are entries of
+$FM^tF^t/(h\sqrt{192})$, so the second inequality gives absolute
+products at most $1/2$. Thus both required checks use exact integer
+arithmetic. The layer counts are
+\[
+ \underbrace{0}_{\text{equator}}+
+ \underbrace{6(98280)}_{\text{caps}}+
+ \underbrace{1932}_{\text{pure tails}}=591612.
+\]
+The class partition, triples, rotation, and Golay generator are
+inherited data from the public construction; the completion below
+is the additional part.
+
+\subsection{The 144 added lines}
+The use of another shell removes the old shell from the selection
+constraints through a general minimum-norm argument.
+
+\begin{lemma}[Cross-shell compatibility]\label{lem:cross-shell}
+Let $\mathcal L$ be a lattice of minimum squared norm $m$.
+If $u,v\in\mathcal L$ have distinct squared norms $a,b$, then
+$|u\cdot v|\le(a+b-m)/2$.
+In the integer Leech model, $a=32$, $b=48$ and $m=32$ give
+$|u\cdot v|\le24$.
+\end{lemma}
+\begin{proof}
+The distinct norms imply $u\pm v\ne0$. Applying the minimum bound
+to these two lattice vectors gives $a+b\pm2u\cdot v\ge m$.
+\end{proof}
+
+The new certificate lists 144 integer rows $v$ of squared norm
+48. They are distinct modulo sign and satisfy
+\begin{equation}\label{eq:d38-witness}
+ |v\cdot v'|\le24\quad(v\ne v'),\qquad
+ \max_{u\in\Sigma}|v\cdot u|\le24.
+\end{equation}
+Each row also belongs to the Leech lattice. In the Golay convention
+used for these arrays, membership means that for some
+$\varepsilon\in\{0,1\}$ all coordinates have parity $\varepsilon$,
+$((v_i-\varepsilon)/2\bmod2)_i$ is a Golay word, and
+$\sum_i v_i\equiv4\varepsilon\pmod8$.
+The cross-shell inequality therefore follows from
+Lemma~\ref{lem:cross-shell}; the mutual products are the remaining
+selection constraint. The checker verifies these congruences and
+also recomputes every cross product as an independent finite check.
+The shell $\Sigma$ is generated from the same Golay basis as the
+base construction; a change of coordinate convention must be
+applied to both arrays.
+
+\begin{theorem}\label{thm:d38}
+There is a kissing configuration of 591900 points in dimension 38.
+\end{theorem}
+\begin{proof}
+Apply Lemma~\ref{lem:completion} with $q=48$ to the base
+configuration~\eqref{eq:d38-base-caps} and the 144-line witness.
+Its hypotheses are exactly~\eqref{eq:d38-witness}. The new points
+have zero tail, while every old cap has tail norm $1/\sqrt3$;
+the old pure-tail points have zero head. Thus the count is
+$591612+2(144)=591900$.
+\end{proof}
+
+The completion changes the shell used for new equatorial points.
+All minimal directions have already been used in the cap layer,
+but that does not exhaust the admissible directions of the
+equatorial sphere. The norm-48 shell supplies a separate finite
+search space with compatible cap products. Searching in that
+space produced a 142-line witness and then the 144-line witness.
+The latter, including its complete base checks, is the input
+to Theorem~\ref{thm:d38}. The second-shell choice is useful because
+it has the normalization of the cap heads and its entire interaction
+with the first shell is controlled by the lattice minimum.

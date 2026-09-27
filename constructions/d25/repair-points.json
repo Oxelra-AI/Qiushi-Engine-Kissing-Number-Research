@@ -1,0 +1,71 @@
+{
+  "construction": "two replacement points for the 197580-point tail rotation",
+  "dimension": 25,
+  "points": {
+    "upper": {
+      "integer_vector": [
+        -336,
+        -9,
+        -298,
+        286,
+        -17,
+        15,
+        -39,
+        22,
+        277,
+        19,
+        364,
+        304,
+        9,
+        -2,
+        -24,
+        -39,
+        4,
+        304,
+        -9,
+        -4,
+        271,
+        -29,
+        9,
+        -2,
+        500
+      ],
+      "squared_norm": 1007176,
+      "formula": "2 * integer_vector / sqrt(squared_norm)",
+      "float_max_dot_against_fixed": 1.9947212747556577
+    },
+    "lower": {
+      "integer_vector": [
+        -25,
+        -31,
+        -33,
+        4,
+        3,
+        2,
+        36,
+        33,
+        3,
+        -1,
+        -2,
+        -3,
+        -4,
+        -1,
+        4,
+        -2,
+        1,
+        2,
+        4,
+        -31,
+        -1,
+        -28,
+        -3,
+        -28,
+        -50
+      ],
+      "squared_norm": 10209,
+      "formula": "2 * integer_vector / sqrt(squared_norm)",
+      "float_max_dot_against_fixed": 1.9875210651280035
+    }
+  },
+  "pair_float": -0.22295532962813738
+}

@@ -2,6 +2,87 @@
   "schema_version": 1,
   "jobs": [
     {
+      "id": "dimension25",
+      "suite": "current",
+      "description": "25-dimensional coordinated motion and exact cap repairs",
+      "requirements": [
+        "numpy",
+        "flint"
+      ],
+      "command": [
+        "{python}",
+        "{tools}/verify_dimension25.py",
+        "--data",
+        "{source}/constructions/d25",
+        "--rejections",
+        "--output",
+        "{output}/dimension25.json"
+      ],
+      "receipt": "dimension25.json",
+      "checks": {
+        "passed": true,
+        "points": 197580,
+        "negative_tests_passed": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "leech-primary",
+      "suite": "historical",
+      "description": "Leech lifting: exact finite data",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/leech/verify.py",
+        "--output",
+        "{output}/leech-primary.json"
+      ],
+      "receipt": "leech-primary.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "leech-independent",
+      "suite": "historical",
+      "description": "Leech lifting: independent algebraic check",
+      "requirements": [
+        "numpy",
+        "sympy"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/leech/verify_independent.py",
+        "--output",
+        "{output}/leech-independent.json"
+      ],
+      "receipt": "leech-independent.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "leech-tails",
+      "suite": "historical",
+      "description": "Tail coordinate model",
+      "requirements": [
+        "sympy"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/leech/check_tails.py",
+        "--output",
+        "{output}/leech-tails.json"
+      ],
+      "receipt": "leech-tails.json",
+      "checks": {
+        "valid": true
+      },
+      "timeout": 1200
+    },
+    {
       "id": "codes-primary",
       "suite": "historical",
       "description": "Sign codes and support layers",
@@ -130,6 +211,28 @@
       "timeout": 1200
     },
     {
+      "id": "residual18",
+      "suite": "historical",
+      "description": "Archived algebraic 18-dimensional certificate",
+      "requirements": [
+        "numpy"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/residual/d18/verify.py",
+        "--chunk",
+        "128",
+        "--output",
+        "{output}/residual18.json"
+      ],
+      "receipt": "residual18.json",
+      "checks": {
+        "overall_verified": true,
+        "verified_lower_bound": 8230
+      },
+      "timeout": 1200
+    },
+    {
       "id": "section43",
       "suite": "historical",
       "description": "Reconstruct the section geometry and moments",
@@ -234,6 +337,52 @@
       "timeout": 1200
     },
     {
+      "id": "p48-legacy",
+      "suite": "historical",
+      "description": "Historical P48 blocks and ambient argument",
+      "requirements": [
+        "c++"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/p48/legacy/verify.py",
+        "--output",
+        "{output}/p48-legacy.json"
+      ],
+      "receipt": "p48-legacy.json",
+      "checks": {
+        "passed": true,
+        "finite.valid_finite_blocks": true,
+        "ambient.valid": true
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "dimension27",
+      "suite": "current",
+      "description": "Exact two-layer 27-dimensional construction",
+      "requirements": [
+        "numpy",
+        "sympy"
+      ],
+      "command": [
+        "{python}",
+        "{tools}/verify_dimension27.py",
+        "--data",
+        "{source}/constructions/d27/data",
+        "--library",
+        "{source}/constructions/d27/lib",
+        "--output",
+        "{output}/dimension27.json"
+      ],
+      "receipt": "dimension27.json",
+      "checks": {
+        "passed": true,
+        "points": 201567
+      },
+      "timeout": 1200
+    },
+    {
       "id": "dimension38",
       "suite": "current",
       "description": "Exact 144-line equatorial extension",
@@ -254,6 +403,32 @@
       "checks": {
         "passed": true,
         "points": 591900
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "p48-current",
+      "suite": "current",
+      "description": "7077-line class and automorphism-image lifting",
+      "requirements": [
+        "numpy"
+      ],
+      "command": [
+        "{python}",
+        "{source}/constructions/p48/verify.py",
+        "--output",
+        "{output}/p48-current.json"
+      ],
+      "receipt": "p48-current.json",
+      "checks": {
+        "status": "PASS",
+        "results.49.kissing_lower_bound": 52430156,
+        "results.50.kissing_lower_bound": 52458468,
+        "results.51.kissing_lower_bound": 52500930,
+        "results.52.kissing_lower_bound": 52585772,
+        "results.53.kissing_lower_bound": 52698696,
+        "results.54.kissing_lower_bound": 52923774,
+        "results.55.kissing_lower_bound": 53301140
       },
       "timeout": 1200
     }

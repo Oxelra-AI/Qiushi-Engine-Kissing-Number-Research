@@ -1,0 +1,228 @@
+\section{Embedded root systems and moment-certified sections}\label{sec:sections}
+An embedded root system imposes restrictions on the projections of the
+entire minimal shell. In the case below, these restrictions determine
+the number of points perpendicular to a child section.
+
+\begin{theorem}[$E_8$-extension count]\label{d43:thm:structure}
+Let $L$ be an extremal even unimodular lattice of rank 48, and let
+$\iota:\sqrt3E_8\hookrightarrow L$ be an isometric embedding.
+Use the simple-root numbering in~\eqref{d43:eq:simple}, and set
+\[
+ U=\operatorname{span}_{\R}\{\iota(\sqrt3\alpha_1),\ldots,
+                              \iota(\sqrt3\alpha_5)\}.
+\]
+Then exactly $2,553,792$ vectors of squared norm 6 in $L$ are
+perpendicular to $U$. The same count holds for every $W(E_8)$-conjugate
+of this $D_5$ subsystem inside the embedded $E_8$.
+\end{theorem}
+
+The proof uses integrality, the lattice minimum and spherical-design
+moments. It does not require the Weyl group to extend to automorphisms
+of $L$. We first give an explicit realization, then establish the count
+under the hypotheses of the theorem.
+
+\subsection{A realization in \texorpdfstring{$P_{48n}$}{P48n}}
+Take $L=P_{48n}$, whose Gram matrix $G$ is published as CQ48a
+in the Nebe--Sloane catalogue~\cite{latticecatalogue}. It is an extremal even
+unimodular lattice of rank 48, minimum squared norm 6, with minimal shell
+\[
+X=\{x\in L:\|x\|^2=6\},\qquad |X|=52,416,000.
+\]
+The parent certificate~\cite{crosssections} specifies eight integer
+coefficient rows $T$ and scaled coordinate rows $B$,
+satisfying
+\begin{equation}\label{d43:eq:embedding}
+ TGT^t=H=3C(E_8)=BB^t/96.
+\end{equation}
+Thus the rows of $T$, interpreted in the basis of $L$, generate an actual
+$\sqrt3E_8$ sublattice. The catalogue Gram and the certificate Gram agree
+entry by entry. Let $T_5$ consist of the first five rows of $T$. Its Gram is
+\begin{equation}\label{d43:eq:d5}
+H_5=\begin{pmatrix}
+6&0&-3&0&0\\0&6&0&-3&0\\-3&0&6&-3&0\\
+0&-3&-3&6&-3\\0&0&0&-3&6
+\end{pmatrix},\qquad \det H_5=972.
+\end{equation}
+This is $3C(D_5)$ in the stated numbering. Both $T$ and $T_5$ have all
+nonzero Smith invariants equal to one. In particular the embedded
+sublattices are primitive. If $U$ is the span of the five rows, then
+$\dim U^\perp=43$.
+
+\begin{corollary}\label{d43:thm:main}
+The set $Y=X\cap U^\perp$ has $2,553,792$ elements. Consequently the ordinary
+Euclidean kissing number satisfies $K(43)\ge2,553,792$.
+\end{corollary}
+
+The cardinality follows from Theorem~\ref{d43:thm:structure} and the
+verified embedding~\eqref{d43:eq:embedding}. To verify the
+kissing condition, distinct $x,x'\in Y$ satisfy $x-x'\in L\setminus\{0\}$,
+so $12-2\ip{x}{x'}\ge6$. Hence $Y/\sqrt6$ consists of unit vectors with
+pairwise inner products at most $1/2$.
+
+The construction is specified without a list of millions of points. In
+integer basis coordinates its defining set is
+\begin{equation}\label{d43:eq:integer}
+\mathcal Z=\{z\in\Z^{48}:zGz^t=6,\ T_5Gz^t=0\}.
+\end{equation}
+For any real $E$ with $EE^t=G$, the points are $zE/\sqrt6$, for
+$z\in\mathcal Z$. All matrices needed for this definition are included in
+the accompanying source certificate.
+
+\subsection{The complete projection domain}
+Now let $L$ be any lattice satisfying Theorem~\ref{d43:thm:structure},
+and let $X$ be its squared-norm-six shell. The theta-series
+identity~\eqref{eq:theta48} gives $|X|=52,416,000$.
+Identify the parent section with $\sqrt3E_8$, with simple roots
+$\sqrt3\alpha_1,\ldots,\sqrt3\alpha_8$. Write the orthogonal projection of
+$x\in X$ onto this section as $p=\lambda/\sqrt3$.
+Integrality of $L$ and self-duality of $E_8$ imply $\lambda\in E_8$. Set
+\[
+y_i=\ip{\lambda}{\alpha_i}=\ip{x}{\sqrt3\alpha_i},\qquad
+q=\|p\|^2=\|\lambda\|^2/3=y^tH^{-1}y\le6.
+\]
+For an $E_8$ root $r$, if $x\ne\pm\sqrt3r$, applying the minimum bound to
+$x\pm\sqrt3r$ gives
+\begin{equation}\label{d43:eq:rootbound}
+|\ip{\lambda}{r}|\le3.
+\end{equation}
+The exceptions are $\lambda=3r$. Each such projection has multiplicity one:
+its squared length is already 6, so the perpendicular component vanishes.
+
+For a transparent finite enumeration use the model
+\[
+E_8=\{u/2:u\in\Z^8,\ u_i\text{ all of the same parity},\
+\textstyle\sum_i u_i\equiv0\pmod4\}.
+\]
+Its roots are the 112 vectors $\pm e_i\pm e_j$ and the 128 half-integer
+vectors with entries $\pm1/2$ and an even number of minus signs.
+The simple roots used here are
+\begin{equation}\label{d43:eq:simple}
+\begin{aligned}
+\alpha_1&=(1,-1,-1,-1,-1,-1,-1,1)/2, &\alpha_2&=e_1+e_2,\\
+\alpha_{i+2}&=-e_i+e_{i+1} &&(1\le i\le6).
+\end{aligned}
+\end{equation}
+Their Gram is precisely $H/3$.
+
+Enumeration of $\|u\|^2\le72$ subject to~\eqref{d43:eq:rootbound} gives
+\begin{center}
+\begin{tabular}{rrrrrr}\toprule
+$\|\lambda\|^2$ &0&2&4&6&8\\\midrule
+Nonexceptional signatures &1&240&2,160&6,720&17,280\\\bottomrule
+\end{tabular}
+\end{center}
+There are no other nonexceptional signatures. Including the 240 exceptions
+gives 26,641 signatures in total.
+
+The enumeration has an elementary completeness bound. Pair roots imply
+that the two largest absolute coordinates of $u$ sum to at most 6.
+For the half-integer roots, the largest signed sum with an even number of
+minus signs is $\|u\|_1$, except when all coordinates are nonzero and the
+number of negative coordinates is odd; then it is
+$\|u\|_1-2\min_i|u_i|$. This quantity must be at most 12.
+Since $\min_i|u_i|\le3$, the safe additional bound is $\|u\|_1\le18$.
+The verifier exhausts these integer boxes and applies the parity, norm and
+root bounds exactly. The norm-eight shell loses the 240 doubled roots,
+leaving $17,520-240=17,280$ admissible points.
+
+\subsection{Moments and the averaging explanation}
+Venkov's theorem, as stated in Nebe~\cite[Theorem 4.1]{nebe-designs}, makes $X$ a
+spherical 11-design. For $2m\le10$ and section vectors
+$b_{i_1},\ldots,b_{i_{2m}}$, its moments therefore satisfy
+\begin{equation}\label{d43:eq:moments}
+\sum_{x\in X}\prod_{j=1}^{2m}\ip{x}{b_{i_j}}
+=\frac{|X|6^m}{48\cdot50\cdots(48+2m-2)}
+\sum_{P}\prod_{(a,b)\in P}H_{i_a i_b},
+\end{equation}
+where $P$ runs over pairings of the $2m$ labelled positions. The empty
+product gives the degree-zero equation.
+
+Average the actual projection multiplicities under the abstract Weyl group
+$W(E_8)$. The nonexceptional domain has one orbit for each of its five
+norms. Let their sizes be $s_j$, projected squared norms be
+$q_j=0,2/3,4/3,2,8/3$, and averaged multiplicities be $a_j$.
+Spherical radial moments give
+\begin{equation}\label{d43:eq:radial}
+\sum_j s_ja_jq_j^k=|X|6^k\frac{(4)_k}{(24)_k}-240\,6^k,
+\qquad 0\le k\le5,
+\end{equation}
+where $(a)_k$ denotes the rising factorial. The ratio is the radial moment
+of an eight-dimensional orthogonal projection of a sphere in dimension 48.
+The subtraction removes the actual section roots. The equations for
+$k=0,\ldots,4$ yield
+\[
+(a_0,a_1,a_2,a_3,a_4)
+=(1,092,000,116,235,9,180,495,63/4).
+\]
+The equation for $k=5$ is an additional exact check.
+
+The roots perpendicular to the first five simple roots form $A_3$.
+The target subspace contains respectively $1,12,6,24,0$ admissible
+signatures at the five norms, and 12 exceptional roots. Thus the average
+contact count over the Weyl images of this $D_5$ child is
+\begin{equation}\label{d43:eq:count}
+1,092,000+12(116,235)+6(9,180)+24(495)+12=2,553,792.
+\end{equation}
+Every such image is an actual child inside the embedded $E_8$. At least
+one child has a count at least as large as the average, proving the lower
+bound. The averaging takes place within the section's Weyl group;
+its transformations need not extend to automorphisms of $L$.
+The $a_j$ are orbit averages of integer fibre multiplicities and can
+therefore be rational, as the value $63/4$ illustrates.
+
+\subsection{Exact count for the specified child}
+To prove the stronger cardinality claim for the first five rows, average
+only under the subgroup
+\[
+\Gamma=\langle W(D_5),W(A_3),-1\rangle.
+\]
+This group preserves both the full admissible domain and the target
+$y_1=\cdots=y_5=0$. Consequently averaging preserves the target count,
+even when the actual multiplicity function has no such symmetry.
+The invariant spherical moment equations remain valid after averaging.
+
+The domain has 43 $\Gamma$-orbits $O_j$. Write $v_j$ for the averaged
+multiplicity of a signature in $O_j$. A monomial moment row has entries
+\[
+A_{\alpha,j}=\sum_{y\in O_j}y^\alpha,
+\]
+and right-hand side $b_\alpha$ given by~\eqref{d43:eq:moments}.
+Actual-root orbits supply the additional equations $v_j=1$. The target is
+\[
+c_j=|\{y\in O_j:y_1=\cdots=y_5=0\}|.
+\]
+The supplied certificate selects 43 moment or fixed-root rows, and provides
+a rational column vector $w$ such that
+\begin{equation}\label{d43:eq:dual}
+A^tw=c,\qquad w^tb=2,553,792.
+\end{equation}
+Since the actual averaged distribution satisfies $Av=b$, these identities
+give $|X\cap U^\perp|=c^tv=w^tAv=w^tb$. The domain, the matrices $A,c$,
+and the moment vector $b$ depend only on the specified root system
+and the rank-48 spherical moments. Thus the identity holds for every
+$L$ in Theorem~\ref{d43:thm:structure}. Precomposing $\iota$ with any
+$g\in W(E_8)$ proves the assertion for the conjugate subsystems,
+without extending $g$ to $L$.
+
+The full arrays, row labels, orbit representatives and rational $w$
+form the target-count certificate listed in Table~\ref{tab:certificates}.
+The independent verifier reconstructs all orbit entries, all entries of
+$A$, all moment right-hand sides $b$, and the target $c$ from the standard
+coordinate model. Only the row selection and candidate $w$ are taken from
+the certificate before checking~\eqref{d43:eq:dual}. Thus verification does
+not reduce to trusting stored matrix entries.
+
+\subsection{What accounts for the improvement}
+The comparison certificate from~\cite{crosssections} records $2,545,056$
+contacts. Its section is also a primitive $\sqrt3D_5$, with determinant
+972, singleton cluster and parameter $\beta=0$. The old and new section
+Grams are permutation-isometric. The improvement therefore concerns the
+embedding of the section, not its intrinsic lattice type or determinant.
+
+The new section is a child of a specified $E_8$ inside $P_{48n}$; the
+comparison uses a $D_5$ in $P_{48p}$. The parent $E_8$ supplies additional
+roots and projection relations that force the larger perpendicular shell
+population. Two isometric sections can have different numbers of ambient
+minimal vectors perpendicular to them. Their extension structure is
+therefore relevant to contact-number optimization even when determinant
+and singleton packing density agree.

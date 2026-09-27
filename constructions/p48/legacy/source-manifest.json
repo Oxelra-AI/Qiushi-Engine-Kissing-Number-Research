@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "data/blocks.txt",
+      "source_sha256": "6253e5cd9f71e869295ad13bb56f39982a89976388b0f95f4549d54bc020f148",
+      "sha256": "6253e5cd9f71e869295ad13bb56f39982a89976388b0f95f4549d54bc020f148"
+    },
+    {
+      "path": "data/historical_summary.json",
+      "source_sha256": "f0837c44616ba34b60afe9a835a74c430911c2e3fee9276b7e061b23deae47eb",
+      "sha256": "f0837c44616ba34b60afe9a835a74c430911c2e3fee9276b7e061b23deae47eb"
+    },
+    {
+      "path": "check_blocks.cpp",
+      "source_sha256": "bfac5737fb8965847aecc7d4d817c39a3243900e9ffa20fa8fcbb52c11b20aa0",
+      "sha256": "bfac5737fb8965847aecc7d4d817c39a3243900e9ffa20fa8fcbb52c11b20aa0"
+    },
+    {
+      "path": "verify_ambient.py",
+      "source_sha256": "e447cc15a8fce4ea7c712cd0f7d43c81edbda0bd5a999a08eba6fa9eb9c49683",
+      "sha256": "e6303e171ec3a43982f8c123497ff21b04a3e5916b6aff050607b24f1c247fd8"
+    }
+  ]
+}

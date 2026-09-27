@@ -1,0 +1,42 @@
+\subsection{Results}
+
+\begin{theorem}\label{thm:main}
+For every dimension $n$ in Table~\ref{tab:results}, there is a kissing configuration of $N_n$ points, where $N_n$ is the lower bound in the second column. Thus $K(n)\ge N_n$.
+\end{theorem}
+
+The constructions in this report give the following lower bounds. The comparison column uses the fixed public sources recorded on 2026-09-24 to 2026-09-27.
+
+\begin{longtable}{rrrrl}
+\caption{Explicit lower bounds and their public comparison values.}\label{tab:results}\\
+\toprule
+Dimension & Lower bound & Public comparison & Increase & Source\\\midrule
+\endfirsthead
+\toprule
+Dimension & Lower bound & Public comparison & Increase & Source\\\midrule
+\endhead
+\bottomrule\endfoot
+25 & 197580 & 197579 & 1 & \cite{kissingnumbers} \\
+27 & 201567 & 201566 & 1 & \cite{lindow27} \\
+32 & 347584 & 346944 & 640 & \cite{brouwer} \\
+33 & 363968 & 362048 & 1920 & \cite{brouwer} \\
+34 & 384196 & 381124 & 3072 & \cite{brouwer} \\
+35 & 409676 & 409548 & 128 & \cite{brouwer} \\
+36 & 484760 & 484568 & 192 & \cite{brouwer} \\
+37 & 498024 & 496232 & 1792 & \cite{brouwer} \\
+38 & 591900 & 591612 & 288 & \cite{kissingnumbers} \\
+39 & 763668 & 756116 & 7552 & \cite{kissingnumbers} \\
+43 & 2553792 & 2545056 & 8736 & \cite{sunwang-sections,crosssections} \\
+45 & 7380090 & 7379838 & 252 & \cite{sunwang-sections,crosssections} \\
+49 & 52430156 & 52430140 & 16 & \cite{kissingnumbers} \\
+50 & 52458468 & 52458418 & 50 & \cite{kissingnumbers} \\
+51 & 52500930 & 52500816 & 114 & \cite{kissingnumbers} \\
+52 & 52585772 & 52585516 & 256 & \cite{kissingnumbers} \\
+53 & 52698696 & 52698222 & 474 & \cite{kissingnumbers} \\
+54 & 52923774 & 52922906 & 868 & \cite{kissingnumbers} \\
+55 & 53301140 & 53299730 & 1410 & \cite{kissingnumbers} \\
+\end{longtable}
+
+The dimension-32 comparison uses Lysenst\o en's 1671-word code listed in
+Brouwer's table~\cite{brouwer}. The ERS formula gives
+$2^{17}+128\cdot1671+2\cdot32\cdot31=346944$.
+The 1667-word code of Echols~\cite{echols} remains the seed used in our search.

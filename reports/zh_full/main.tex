@@ -1,0 +1,27 @@
+\documentclass[11pt,a4paper]{article}
+\input{latex/preamble}
+\input{latex/authors}
+\input{latex/collection}
+\title{Qiushi Engine\\接吻数构造的大规模自主发现}
+\newcommand{\ReportSubtitle}{完整研究报告}
+\date{2026年9月25日}
+\hypersetup{pdftitle={Qiushi Engine：接吻数构造的大规模自主发现},pdfauthor={\ReportAuthorNames},pdfsubject={完整研究报告；\ResultDimensionsZH 维}}
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+\input{sections/abstract}
+{\setstretch{1.05}\tableofcontents\par}
+\clearpage
+\input{sections/introduction}
+\input{sections/constructions}
+\input{sections/conclusions}
+\appendix
+\input{sections/ambient}
+\input{sections/finite-data}
+\input{sections/trajectory}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{参考文献}
+\bibliographystyle{unsrtnat}
+\bibliography{refs}
+\end{document}

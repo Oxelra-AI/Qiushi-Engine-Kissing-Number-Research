@@ -1,0 +1,160 @@
+\section{Seven lifts from a compatible line class}\label{app:p48}
+
+The antipodal block lift amplifies improvements to a single compatible
+class. Two choices determine the gain: the size of the class and the
+overlap among its selected images. This section makes both choices
+explicit for $P_{48p}$ and obtains seven configurations from one
+geometric argument.
+
+\subsection{The tail configurations}
+For dimensions $k=1,\ldots,7$, use respectively the normalized root
+configurations
+$A_1,A_2,D_3,D_4,D_5,E_6,E_7$. They have
+$2,6,12,24,40,72,126$ points and are antipodal. Explicitly,
+$A_1=\{-1,1\}$, and $A_2$ is the six points
+$(e_i-e_j)/\sqrt2$ in the plane $x_1+x_2+x_3=0$. The $D_k$ roots
+are $(\eps e_i+\eps'e_j)/\sqrt2$, with $i<j$. Their kissing
+conditions follow directly from their coordinate overlaps.
+
+For completeness the last two codes can be specified together in
+an integer model. Let
+\begin{equation}\label{eq:E8}
+ W=\{\pm2e_i\pm2e_j:i<j\}
+  \cup\{(\eps_0,\ldots,\eps_7):\eps_i\in\{\pm1\},\ \prod_i\eps_i=1\}.
+\end{equation}
+Every row has squared norm eight and distinct rows have inner product
+at most four: this follows from support overlap for the first family,
+at most two signed contributions for cross-family pairs, and an even
+positive sign distance within the second family. The subsets
+\[
+ W_7=\{w\in W:w_6+w_7=0\},\qquad
+ W_6=\{w\in W:w_5=w_6=-w_7\}
+\]
+have respectively $62+64=126$ and $40+32=72$ rows. The maps
+\[
+ w\longmapsto(w_0,\ldots,w_5,\sqrt2w_6),\qquad
+ w\longmapsto(w_0,\ldots,w_4,\sqrt3w_5)
+\]
+are isometries on the indicated subspaces. Dividing by $\sqrt8$
+therefore gives the required $7$- and $6$-dimensional antipodal codes.
+
+
+\subsection{The 7077-line class and its automorphism images}
+\label{sec:p48-update}
+We use the catalogue lattice $P_{48p}$ in its published
+integral Gram basis $G$~\cite{p48p-catalogue}. Its minimum squared norm
+is six. Since it is even unimodular of rank 48, the theta-series
+calculation in~\eqref{eq:theta48} gives 52416000 minimal vectors.
+The witnesses use this catalogue basis directly. The quadratic-residue
+neighbour used in dimension 45 is constructed in
+Section~\ref{sec:qr-neighbour}. The theta-series calculation in
+Appendix~\ref{app:pless-neighbour} applies to every extremal even
+unimodular lattice of rank 48.
+
+Represent a minimal line by an integer row $c$ satisfying
+$cGc^t=6$, identifying $c$ and $-c$. The new mother class
+$\mathcal C$ has 7077 lines and satisfies
+\begin{equation}\label{eq:p48-class}
+ |cGc'^t|\le2\qquad(c\ne\pm c',\ c,c'\in\mathcal C).
+\end{equation}
+Every norm and pair product in this assertion is an integer.
+The certificate supplies the complete class and matrices $A_i$ with
+$A_iGA_i^t=G$. Thus $\mathcal C A_i$ is another class with the
+same property.
+
+For $t$ selected images, assign each line to the first image in which
+it occurs. Write $\mathcal D_i$ for the assigned subset of
+$\mathcal C A_i$, and put
+\[
+ S=\left|\bigcup_{i=1}^t\mathcal C A_i\right|
+   =\sum_{i=1}^t|\mathcal D_i|.
+\]
+The $\mathcal D_i$ are disjoint as line sets. Taking both signs of
+each assigned line gives disjoint vector blocks $B_i$ of size
+$2|\mathcal D_i|$, with normalized inner products at most $1/3$
+by~\eqref{eq:p48-class}. Assign these blocks injectively to the $t$
+distinct antipodal lines of the corresponding root tail code.
+Theorem~\ref{thm:block-lift} gives
+\begin{equation}\label{eq:p48-lines-count}
+ K(48+k)\ge52416000+2S+\tau_k,
+ \qquad \tau_k=2t.
+\end{equation}
+
+The injective assignment is part of the construction. For two
+different assigned classes, the minimal-norm bound gives a normalized
+head product at most $1/2$, and distinct tail lines give a tail
+product at most $1/2$. Their cap product is therefore at most
+$(3/4)(1/2)+(1/4)(1/2)=1/2$. Reusing a tail line for arbitrary
+different classes would instead give $5/8$ and is not permitted.
+
+\begin{theorem}\label{thm:p48-update}
+The class and image matrices in the supplementary data give the
+seven bounds in Table~\ref{tab:p48-update}.
+\end{theorem}
+\begin{proof}
+The finite checker verifies the catalogue Gram matrix, its exact
+isometries, all 7077 norms, distinctness modulo sign, and
+all distinct-line inequalities~\eqref{eq:p48-class}. It then
+reconstructs each selected image and counts its union with the
+preceding images. This gives the $S$ values in the table.
+The root tail codes have the ranks, sizes, and inner products
+established above. Hence~\eqref{eq:p48-lines-count} applies.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{The line-class liftings. The union, rather than
+the sum of image sizes, determines the number of available lines.}
+\label{tab:p48-update}
+\begin{tabular}{rrrrr}
+\toprule
+$d$&$t$&$S$&$\tau_k$&$52416000+2S+\tau_k$\\\midrule
+49&1&7077&2&52430156\\
+50&3&21231&6&52458468\\
+51&6&42459&12&52500930\\
+52&12&84874&24&52585772\\
+53&20&141328&40&52698696\\
+54&36&253851&72&52923774\\
+55&63&442507&126&53301140\\\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Class growth and image selection}
+The public comparison uses a 7069-line class
+$\mathcal C_0\subset\mathcal C$~\cite{kissingnumbers}. With the selected
+matrices held fixed, let
+\[
+ S_0=\left|\bigcup_{i=1}^t\mathcal C_0 A_i\right|,
+\]
+and let $S_{\rm ref}$ be the union size in the comparison construction.
+The increase in the final point count splits exactly as
+\begin{equation}\label{eq:p48-gain}
+ 2(S-S_{\rm ref})=2(S-S_0)+2(S_0-S_{\rm ref}).
+\end{equation}
+The first term measures the effect of enlarging the class with these
+images fixed; the second measures the effect of changing the images
+with the original class fixed. Both are obtained by exact union counts.
+
+\begin{table}[ht]
+\centering
+\caption{The two contributions to the seven point-count improvements.}
+\label{tab:p48-gain}
+\begin{tabular}{rrrrr}
+\toprule
+$d$&$S_0$&$2(S-S_0)$&$2(S_0-S_{\rm ref})$&Total\\\midrule
+49&7069&16&0&16\\
+50&21207&48&2&50\\
+51&42411&96&18&114\\
+52&84778&192&64&256\\
+53&141168&320&154&474\\
+54&253565&572&296&868\\
+55&442009&996&414&1410\\\bottomrule
+\end{tabular}
+\end{table}
+
+The three selected images in dimension 50 are disjoint. Larger image
+families overlap, so an eight-line enlargement need not supply eight
+new lines per image. In dimension 55 it contributes 498 distinct lines,
+rather than $8\cdot63=504$. The image choice contributes a further
+207 lines. Thus the two improvements reinforce one another through
+the union, rather than through a sum of independently optimized class sizes.

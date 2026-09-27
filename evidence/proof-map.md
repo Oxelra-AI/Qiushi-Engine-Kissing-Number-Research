@@ -6,6 +6,8 @@ the [reproduction guide](../reproducibility/README.md) explains how to run the t
 
 | Dimension | Count | Verification tasks |
 |---:|---|---|
+| 25 | `197579 - 552 - 2 + 552 + 2 + 1 = 197580` | `dimension25` |
+| 27 | `196560 - 2090 - 311 + 3*2258 + 2*311 + 12 = 201567` | `dimension27` |
 | 32 | `131072 + 128*1676 + 2*32*31 = 347584` | `dimension32`, `supports32-37` |
 | 33 | `131072 + 128*1803 + 2*33*32 = 363968` | `codes-primary`, `codes-independent`, `support-exchanges` |
 | 34 | `131072 + 128*1960 + 2*34*33 = 384196` | `codes-primary`, `codes-independent`, `support-exchanges` |
@@ -16,8 +18,41 @@ the [reproduction guide](../reproducibility/README.md) explains how to run the t
 | 39 | `327680 + 128*3383 + 2*39*38 = 763668` | `codes-primary`, `codes-independent`, `code-lineage` |
 | 43 | `1092000 + 116235*12 + 9180*6 + 495*24 + 12 = 2553792` | `section43`, `section43-matrix` |
 | 45 | `7377408 + 9*298 = 7380090` | `qr-ambient`, `section45`, `section45-parent` |
+| 49 | `52416000 + 2*7077 + 2 = 52430156` | `p48-current` |
+| 50 | `52416000 + 2*21231 + 6 = 52458468` | `p48-current` |
+| 51 | `52416000 + 2*42459 + 12 = 52500930` | `p48-current` |
+| 52 | `52416000 + 2*84874 + 24 = 52585772` | `p48-current` |
+| 53 | `52416000 + 2*141328 + 40 = 52698696` | `p48-current` |
+| 54 | `52416000 + 2*253851 + 72 = 52923774` | `p48-current` |
+| 55 | `52416000 + 2*442507 + 126 = 53301140` | `p48-current` |
 
 ## Defining inputs
+
+### Dimension 25
+
+Move 552 retained shell points together, adjoin one point, and replace two individual caps by normalized integer vectors.
+
+- [d25/baseline-heads.json](../constructions/d25/baseline-heads.json)
+- [d25/repair-points.json](../constructions/d25/repair-points.json)
+- [d25/construction.tex](../constructions/d25/construction.tex)
+- [d25/verify_baseline.py](../constructions/d25/verify_baseline.py)
+- [d25/verify_extension.py](../constructions/d25/verify_extension.py)
+- [d25/golay.py](../constructions/d25/golay.py)
+- [d25/leech.py](../constructions/d25/leech.py)
+- [d25/check_rejections.py](../constructions/d25/check_rejections.py)
+- [tools/verify_dimension25.py](../tools/verify_dimension25.py)
+
+### Dimension 27
+
+Keep the published 2258-head first layer and enlarge its compatible second layer from 310 to 311 owners.
+
+- [d27/data/heads27_Y.npy](../constructions/d27/data/heads27_Y.npy)
+- [d27/data/heads27_layer2_line.npy](../constructions/d27/data/heads27_layer2_line.npy)
+- [d27/data/heads27_layer2_u.npy](../constructions/d27/data/heads27_layer2_u.npy)
+- [d27/data/heads27_side.npy](../constructions/d27/data/heads27_side.npy)
+- [d27/lib/golay.py](../constructions/d27/lib/golay.py)
+- [d27/lib/leech.py](../constructions/d27/lib/leech.py)
+- [tools/verify_dimension27.py](../tools/verify_dimension27.py)
 
 ### Dimension 32
 
@@ -145,3 +180,79 @@ Change the parent anchor sector in the QR neighbour, obtain 298 finite witnesses
 - [sections/d45/data/parent.json](../constructions/sections/d45/data/parent.json)
 - [sections/d45/data/parent-vectors.jsonl](../constructions/sections/d45/data/parent-vectors.jsonl)
 - [sections/d45/verify_parent.py](../constructions/sections/d45/verify_parent.py)
+
+### Dimension 49
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+
+### Dimension 50
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+- [p48/data/dim50_group_elems.npy](../constructions/p48/data/dim50_group_elems.npy)
+
+### Dimension 51
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+- [p48/data/dim51_group_elems.npy](../constructions/p48/data/dim51_group_elems.npy)
+
+### Dimension 52
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+- [p48/data/dim52_group_elems.npy](../constructions/p48/data/dim52_group_elems.npy)
+
+### Dimension 53
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+- [p48/data/dim53_group_elems.npy](../constructions/p48/data/dim53_group_elems.npy)
+
+### Dimension 54
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+- [p48/data/dim54_group_elems.npy](../constructions/p48/data/dim54_group_elems.npy)
+
+### Dimension 55
+
+Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.
+
+- [p48/data/P48p.html](../constructions/p48/data/P48p.html)
+- [p48/data/p48p_gram.npy](../constructions/p48/data/p48p_gram.npy)
+- [p48/data/p48p_gens.npy](../constructions/p48/data/p48p_gens.npy)
+- [p48/data/class_p48_7077.npy](../constructions/p48/data/class_p48_7077.npy)
+- [p48/verify.py](../constructions/p48/verify.py)
+- [p48/data/dim55_group_elems.npy](../constructions/p48/data/dim55_group_elems.npy)

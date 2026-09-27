@@ -1,0 +1,82 @@
+\section{Finite search and mathematical structure}\label{sec:research}
+Qiushi Engine's investigation connected changes in geometric
+representation with finite optimization and counting problems.
+For replacements, the objective is the net gain after all required
+deletions. For lattice sections, the relevant object is a linear
+statistic of fibre multiplicities. These reductions retain the
+constraints that determine the final point count.
+
+\subsection{An exact exchange objective}
+Let $X\subset S^{d-1}$ be a kissing configuration and let
+$C\subset S^{d-1}\setminus X$ be a finite candidate set.
+For $c\in C$, write
+$F(c)=\{x\in X:\ip{c}{x}>1/2\}$. Join two candidates when they
+are incompatible. For an independent set $I\subset C$,
+\begin{equation}\label{eq:general-exchange}
+ X_I=(X\setminus F(I))\cup I,\qquad
+ F(I)=\bigcup_{c\in I}F(c),
+ \qquad |X_I|-|X|=|I|-|F(I)|.
+\end{equation}
+The retained old points are compatible, every old--new conflict
+has been removed, and the selected new points are pairwise compatible.
+Thus maximizing this expression over a candidate pool is an exact
+finite subproblem of the geometric search.
+
+For binary variables $z_c$ and $r_x$ indicating insertion and
+removal, respectively, the corresponding integer program is
+\[
+ \max\left(\sum_{c\in C}z_c-\sum_{x\in X}r_x\right),\qquad
+ z_c+z_{c'}\le1\ (cc'\in E),\quad
+ r_x\ge z_c\ (x\in F(c)).
+\]
+At an optimum, $r_x=1$ precisely on the union of the selected
+conflict sets. When candidates and deletions are disjoint bundles
+of internally compatible points, their cardinalities become the
+coefficients in the objective.
+This is the weighted form behind a support exchange, a signed
+replacement, and a first/second-layer head selection.
+
+Write $g(I)=|I|-|F(I)|$. If $c\notin I$ is compatible with $I$, then
+\[
+ g(I\cup\{c\})-g(I)=1-|F(c)\setminus F(I)|.
+\]
+Thus a candidate pays only for blockers not already removed. Its
+marginal gain can increase as the selected family grows, which is why
+screening candidates by their individual insertion costs can discard
+profitable exchanges. The final length-33 witness inserts ten supports
+with nine distinct blockers, despite twenty blocker incidences.
+
+\subsection{When the candidate representation changes}
+A finite candidate pool fixes the coordinates of every candidate.
+Its conflict graph therefore describes those coordinates. A
+coordinate change can alter an edge, remove a blocker, or admit
+a previously excluded point. The geometric lifting criterion
+\eqref{eq:lift-mixed} gives the conditions to rebuild the graph
+after such a change.
+
+The motion in Section~\ref{sec:motion25}, the signed replacements in
+Section~\ref{sec:signed}, and the added shell in dimension 38 change
+this finite problem rather than merely improve its incumbent solution.
+The two optimizations in dimensions 49--55 also interact: image families
+chosen for one line class need not remain optimal after the class grows.
+Equation~\eqref{eq:p48-gain} separates the resulting gains.
+
+The moment calculations use a different compression. They retain
+all admissible projection signatures and optimize or identify a
+linear statistic of their multiplicities. Exact dual multipliers
+then express that statistic in terms of known moments. For
+dimension 43 the target is determined by an equality; for dimension
+45 a nonnegative slack gives a lower bound. The proof requires
+completeness of the signature domain, but not prior knowledge of
+each individual fibre.
+
+\subsection{Further structural questions}
+The constructions leave several precise questions. Which tail Gram
+matrices permit the equality case in the reuse bound while supporting
+larger head classes? Which boundary conditions allow a signed local
+code to attain Proposition~\ref{prop:sign-capacity}? For embedded
+sections, which parent root systems force a child count independently
+of the ambient lattice, as in Theorem~\ref{d43:thm:structure}?
+The last question is distinct from optimizing the determinant of the
+section: the two isometric $D_5$ sections in Section~\ref{sec:sections}
+already have different perpendicular shell populations.

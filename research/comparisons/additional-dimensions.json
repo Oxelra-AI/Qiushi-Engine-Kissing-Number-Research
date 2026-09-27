@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "checked_date": "2026-09-27",
+  "comparison_kind": "largest public reports located in the checked sources",
+  "external_constructions_fully_replayed_in_this_check": false,
+  "sources": [
+    {
+      "id": "kr-results-20260927",
+      "title": "Kravatskiy, KissingNumbers results, fixed revision",
+      "url": "https://github.com/alexlegeartis/KissingNumbers/blob/cf14c5ef4db6059bbf2e570e3f0ce24edfda243e/RESULTS.md",
+      "commit": "cf14c5ef4db6059bbf2e570e3f0ce24edfda243e",
+      "retrieved_date": "2026-09-27",
+      "dimensions": [
+        18,
+        25,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ]
+    },
+    {
+      "id": "lindow-pr-1-20260927",
+      "title": "Lindow, 201566-point contribution, public PR 1",
+      "url": "https://github.com/alexlegeartis/KissingNumbers/pull/1",
+      "commit": "277c297058d58a756e57ad8e3c6c710f4d29f2b6",
+      "retrieved_date": "2026-09-27",
+      "dimensions": [
+        27
+      ],
+      "reported_lower_bound": 201566
+    }
+  ],
+  "results": [
+    {
+      "dimension": 18,
+      "qiushi_lower_bound": 8358,
+      "external_lower_bound": 8358,
+      "difference": 0,
+      "source_id": "kr-results-20260927",
+      "comparison": "equal"
+    },
+    {
+      "dimension": 25,
+      "qiushi_lower_bound": 197580,
+      "external_lower_bound": 197579,
+      "difference": 1,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 27,
+      "qiushi_lower_bound": 201567,
+      "external_lower_bound": 201566,
+      "difference": 1,
+      "source_id": "lindow-pr-1-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 49,
+      "qiushi_lower_bound": 52430156,
+      "external_lower_bound": 52430140,
+      "difference": 16,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 50,
+      "qiushi_lower_bound": 52458468,
+      "external_lower_bound": 52458418,
+      "difference": 50,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 51,
+      "qiushi_lower_bound": 52500930,
+      "external_lower_bound": 52500816,
+      "difference": 114,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 52,
+      "qiushi_lower_bound": 52585772,
+      "external_lower_bound": 52585516,
+      "difference": 256,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 53,
+      "qiushi_lower_bound": 52698696,
+      "external_lower_bound": 52698222,
+      "difference": 474,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 54,
+      "qiushi_lower_bound": 52923774,
+      "external_lower_bound": 52922906,
+      "difference": 868,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    },
+    {
+      "dimension": 55,
+      "qiushi_lower_bound": 53301140,
+      "external_lower_bound": 53299730,
+      "difference": 1410,
+      "source_id": "kr-results-20260927",
+      "comparison": "higher"
+    }
+  ]
+}

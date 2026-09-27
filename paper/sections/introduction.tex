@@ -1,0 +1,309 @@
+\section{Introduction}\label{sec:introduction}
+The kissing-number problem is one of the oldest problems in discrete
+geometry. In 1694, Isaac Newton and David Gregory discussed whether
+12 or 13 equal spheres could simultaneously touch a central sphere in
+three dimensions. The answer, 12, was proved more than two centuries
+later~\cite{musin}. Yet the apparent simplicity of the question is
+deceptive. More than three hundred years after its formulation, exact
+kissing numbers are known only in dimensions $1,2,3,4,8$ and $24$.
+In the exceptional dimensions $8$ and $24$, the optimal configurations
+arise from the $E_8$ and Leech lattices, with 240 and 196560 contacts,
+respectively~\cite{conway1999sphere,musin}. In most other dimensions,
+substantial gaps remain between the best constructions and known upper
+bounds.
+
+Progress on lower bounds has historically relied on explicit mathematical
+structure. Lattices and error-correcting codes provide large families of
+vectors whose pairwise interactions can be controlled simultaneously
+\cite{conway1999sphere,macwilliams}. These ideas have led to
+laminated-lattice constructions, lattice sections and extensions,
+code-based spherical configurations, and lifting methods that combine
+a high-dimensional mother configuration with additional coordinates
+\cite{laminated,antipode,ers,cjkt,kallal}. Such constructions can contain
+hundreds of thousands or even tens of millions of vectors. Their strength,
+however, is also a source of difficulty: once a configuration is highly
+constrained, improving it may require reorganizing an entire collection
+of points rather than inserting a single new one. The relevant search
+spaces grow combinatorially, while the geometric degrees of freedom that
+permit improvement can be difficult to identify from the original
+representation.
+
+Artificial intelligence has recently begun to alter how these spaces are
+explored. AlphaEvolve, a general-purpose coding agent, discovered a
+593-point kissing configuration in dimension 11, improving the previously
+known lower bound of 592~\cite{alphaevolve}. PackingStar formulated the kissing-number
+problem as a two-player matrix-completion game and used game-theoretic
+reinforcement learning to search the space of Gram matrices, reporting
+new constructions across dimensions 25--31 and uncovering thousands of
+candidate geometric structures~\cite{packingstar-discovery}. EinsteinArena
+allowed autonomous agents to submit solutions, inspect intermediate
+results and build on discoveries made by other agents; this collective
+process increased the dimension-11 lower bound from 593 to
+604~\cite{einsteinarena}. The Station subsequently reported exact
+604-point configurations and structural theorems developed in an
+open-world multi-agent environment~\cite{station}. Together, these
+developments demonstrate the scope of AI-guided geometric search and
+collaborative mathematical discovery.
+
+These advances also expose a deeper challenge. Finding an improved
+configuration is only one part of mathematical discovery. Why does the
+configuration exist, which structural degree of freedom makes it possible,
+can the mechanism be generalized, and how can the result be converted into
+a proof or an independently verifiable certificate? Computational
+searches begin from a prescribed representation---for example,
+coordinates, Gram matrices, codes or a fixed optimization objective.
+Open-ended mathematical research additionally requires the ability to
+change that representation when the current one becomes limiting, to
+formulate new intermediate problems, connect apparently unrelated
+structures, and develop arguments that certify the resulting
+construction.
+
+Autonomous scientific research systems provide a possible route towards
+this broader form of discovery. Recent large-language-model-based agents
+can carry out extended sequences of reasoning, computation and tool use,
+while revising research strategies in response to intermediate evidence.
+Qiushi Engine was previously used for end-to-end autonomous scientific
+discovery on a physical optical platform~\cite{qiushi-optics}, where it
+conducted long-horizon investigations that combined theoretical
+reasoning, computation and experiment. Here we ask whether the same
+paradigm can be extended to open mathematical research: can an autonomous
+research system move beyond optimizing a fixed mathematical formulation
+and instead discover new representations, constructions and proofs?
+
+Here we report an autonomous investigation of the kissing-number problem
+that yields new lower bounds in nineteen dimensions:
+\[
+25,\quad27,\quad32\text{--}39,\quad43,\quad45,\quad49\text{--}55.
+\]
+The resulting bounds include
+\[
+\begin{aligned}
+K(25)&\ge197580,&K(27)&\ge201567,&K(38)&\ge591900,\\
+K(43)&\ge2553792,&K(45)&\ge7380090,&K(55)&\ge53301140.
+\end{aligned}
+\]
+Rather than arising from a single optimization procedure, these
+improvements were obtained through a sequence of distinct structural
+discoveries. They include coordinated motions of complete contact layers,
+labelled liftings that separate direction deletion from reuse, joint
+support exchanges that exploit shared deletion costs, signed-code
+replacements generated through Hadamard transfers, compatible directions
+drawn from a different lattice shell, enlarged lattice-line classes
+combined through low-overlap isometric images, and spherical-design
+moment identities and inequalities that determine or bound large lattice
+sections without enumerating the ambient shell.
+
+A common pattern connects these apparently different constructions.
+Configurations that appear saturated in one representation retain
+exploitable freedom in another. In dimension 25, moving an entire
+552-point contact layer while preserving its internal Gram matrix
+creates room for an additional point. In dimension 27, labelled lifting
+separates direction reuse from deletion; with the first layer fixed,
+jointly selecting second-layer directions and labels enlarges the final
+two-layer construction. In dimensions 32--37 and 39, optimizing
+collective exchanges and individual sign patterns exposes improvements
+hidden by separate support-insertion scores and complete sign bundles.
+In dimension 38, changing the search from the minimal Leech shell to a
+second lattice shell produces 288 additional points. In dimensions 43
+and 45, counting millions of minimal lattice vectors reduces to a finite
+space of projection signatures whose multiplicities satisfy exact
+spherical-design moments. A single enlarged line class in dimension 48,
+combined with low-overlap isometric images, similarly generates new
+constructions throughout dimensions 49--55.
+
+Qiushi Engine carried out the construction searches, mathematical analysis
+and computational verification. Each discovered mechanism is expressed
+through explicit geometric or combinatorial conditions. Each reported
+bound is supported by finite witnesses checked using exact integer and
+rational arithmetic, lattice and code identities, rigorous interval
+arithmetic, and finite combinatorial verification. In dimension 25,
+outward-rounded interval arithmetic certifies the remaining strict
+inequalities~\cite{johansson-arb}. These mathematical arguments and
+reproducible certificates make the constructions independently
+checkable.
+
+These results suggest a role for AI in mathematics that extends beyond
+accelerating numerical search. For difficult problems with enormous
+structured search spaces, a central task may be to discover the
+representation in which progress becomes possible. Autonomous research
+systems that can alternate between exploration, structural interpretation
+and rigorous verification may provide a route towards such discoveries
+at scale.
+
+\subsection{Main results and structural statements}
+
+The kissing number $K(d)$ is the largest cardinality of a set
+$X\subset S^{d-1}$ satisfying
+\begin{equation}\label{eq:kissing}
+ \ip{x}{y}\le\tfrac12\qquad(x\ne y).
+\end{equation}
+Equivalently, it is the largest number of nonoverlapping unit balls
+that can touch a central unit ball in $\R^d$.
+
+\begin{theorem}\label{thm:main}
+For every pair $(d,N_d)$ in Table~\ref{tab:main}, there is a kissing
+configuration of $N_d$ points in $\R^d$. In particular, $K(d)\ge N_d$.
+\end{theorem}
+
+\begin{longtable}{rrrrl}
+\caption{The nineteen lower bounds, with the public comparison values
+recorded in the accompanying catalogue on 24--27 September 2026.}
+\label{tab:main}\\
+\toprule
+$d$&$N_d$&Comparison&Increase&Source\\\midrule
+\endfirsthead
+\toprule $d$&$N_d$&Comparison&Increase&Source\\\midrule\endhead
+25&197580&197579&1&\cite{kissingnumbers}\\
+27&201567&201566&1&\cite{lindow27}\\
+32&347584&346944&640&\cite{brouwer}\\
+33&363968&362048&1920&\cite{brouwer,echols}\\
+34&384196&381124&3072&\cite{brouwer,echols}\\
+35&409676&409548&128&\cite{brouwer}\\
+36&484760&484568&192&\cite{brouwer}\\
+37&498024&496232&1792&\cite{brouwer,echols}\\
+38&591900&591612&288&\cite{kissingnumbers}\\
+39&763668&756116&7552&\cite{kissingnumbers}\\
+43&2553792&2545056&8736&\cite{crosssections}\\
+45&7380090&7379838&252&\cite{crosssections}\\
+49&52430156&52430140&16&\cite{kissingnumbers}\\
+50&52458468&52458418&50&\cite{kissingnumbers}\\
+51&52500930&52500816&114&\cite{kissingnumbers}\\
+52&52585772&52585516&256&\cite{kissingnumbers}\\
+53&52698696&52698222&474&\cite{kissingnumbers}\\
+54&52923774&52922906&868&\cite{kissingnumbers}\\
+55&53301140&53299730&1410&\cite{kissingnumbers}\\\bottomrule
+\end{longtable}
+
+For dimension 32, the comparison follows from Lysenst\o en's
+1671-word code recorded in Brouwer's table~\cite{brouwer}:
+$2^{17}+128\cdot1671+2\cdot32\cdot31=346944$.
+The 1667-word code of Echols~\cite{echols} was the seed for our support search.
+
+\subsection{Structural consequences}
+
+The constructions yield statements about compatibility, capacity and
+counting beyond their individual point counts.
+
+\paragraph{Motion and lifting.}
+Lemma~\ref{lem:chord-motion} specifies a Gram-preserving motion whose
+interaction with a fixed equator is controlled by convexity. The
+dimension-25 construction combines this motion with two cap repairs
+(Theorem~\ref{thm:d25}).
+The labelled criterion in Theorem~\ref{lem:lift} separates the number of
+lifted copies from the number of deleted mother directions.
+Proposition~\ref{prop:weighted} bounds the gain through cliques in a reuse
+graph, and Proposition~\ref{prop:capacity} gives an attaining
+four-triangle arrangement in the twelve-label, 496-point-capacity model.
+The final dimension-27 construction instead improves a larger two-layer
+input by selecting 311 second-layer owners in place of 310
+(Theorem~\ref{thm:d27}).
+
+\paragraph{Exchange, transfer and completion.}
+For an inserted family $Y$, let $F(Y)$ be the union of its old conflicts.
+The objective $|Y|-|F(Y)|$ accounts for shared deletions
+(Section~\ref{sec:codes} and Theorem~\ref{thm:supports}).
+Paired Hadamard transfer preserves normalized products
+(Lemma~\ref{lem:hadamard-transfer}) and gives signed replacements of
+sizes 256, 576 and 512 in dimensions 35--37. The first attains an
+eleven-coordinate capacity bound; the second has a direct construction
+from four colours of two one-factorizations
+(Propositions~\ref{prop:sign-capacity} and~\ref{prop:local36-paper}).
+For dimension 38, the lattice minimum alone bounds every product
+between the selected norm-48 directions and the norm-32 minimal shell
+(Lemma~\ref{lem:cross-shell}). In dimensions 49--55,
+Theorem~\ref{thm:block-lift} converts an image union of $S$ minimal lines
+and $t$ antipodal tail lines into $52416000+2S+2t$ points.
+The gain from enlarging the source class and the gain from choosing
+its images are separated in Section~\ref{sec:p48-update}.
+
+\paragraph{Counts forced by an embedded parent.}
+For every extremal even unimodular lattice of rank 48 containing
+$\sqrt3E_8$, a rational identity determines exactly 2553792 minimal
+vectors perpendicular to the specified $D_5$ child and each of its
+Weyl conjugates (Theorem~\ref{d43:thm:structure}). A verified embedding
+in $P_{48n}$ realizes this count (Corollary~\ref{d43:thm:main}).
+The $D_5$ Gram alone does not determine the perpendicular shell:
+the extension to $E_8$ supplies the additional constraints.
+In dimension 45, let $f(y)$ count minimal-shell vectors with
+inner-product signature $y$ relative to the section basis, as defined
+in Section~\ref{sec:projection45}. For the standard basis vectors
+$e_1,e_2,e_3$ of $\R^3$, the moments give
+\[
+ f(e_1)+f(e_2)+f(e_3)\ge7377408+9f(-2,-2,3).
+\]
+Finding 298 vectors in the last fibre proves a lower bound of 7380090
+for the projected configuration (Theorem~\ref{thm:d45}).
+A neighbourhood-difference calculation makes this fibre searchable.
+The same moment framework thus supports an exact target count in one
+case and a witness-driven lower bound in the other.
+
+\subsection{Relation to earlier constructions}
+
+Cohn--Jiao--Kumar--Torquato~\cite[Section 7]{cjkt} and
+Kallal--Kan--Wang~\cite{kallal} developed Leech lifting methods.
+The 496-point blocks used in our four-triangle example are from
+PackingStar~\cite{packingstar,packingstar-data}.
+Takhanov--Yun~\cite{takhanov-yun} exploit freedom in lifted blocks while
+keeping the unlifted bulk fixed. Our 25-dimensional construction instead
+moves retained equatorial points of the 197579-point configuration
+in~\cite{kissingnumbers}. The current two-layer input in dimension 27
+is Lindow's 201566-point contribution~\cite{lindow27}.
+
+The code-based constructions use the layers of
+Edel--Rains--Sloane~\cite{ers}, the dense codes of
+Cheng--Sloane~\cite{chengsloane}, and constant-weight constructions
+and tables~\cite{bsss,brouwer,echols}. Local replacement has a direct
+precursor in the free-zone construction of
+Takhanov--Yun~\cite[Section V]{signed-johnson}; the 51-block
+weight-four design is classical~\cite{kalbfleisch-stanton}.
+Here the new supports, transverse choices, signed replacements and
+their boundary embeddings supply the improvements.
+
+The empty-equator lift in dimension 38 and the 7069-line class in
+dimension 48 are inputs from~\cite{kissingnumbers}.
+For sections, we use the framework of Conway--Sloane
+\cite{laminated,antipode}, the embedded parent geometry
+of~\cite{dorofeev}, and the explicit lattice and section data
+of~\cite{latticecatalogue,p48p-catalogue,crosssections}.
+The new constructions specify the added shell lines, the enlarged
+line class and image families, and the section statistics and witnesses
+used in the stated bounds.
+
+\subsection{Notation and organization}
+
+We write $[n]=\{0,\ldots,n-1\}$ unless a finite input explicitly uses
+one-based coordinates. The notation $A(n,\delta,w)$ denotes the largest
+binary constant-weight code of length $n$, weight $w$ and minimum
+Hamming distance $\delta$. For vectors of common squared norm $q$,
+the kissing condition is $\ip{x}{y}\le q/2$ before normalization.
+The main coordinate scales are collected in Table~\ref{tab:scales};
+products between different shells are treated separately.
+
+\begin{table}[ht]
+\centering
+\caption{Coordinate scales used in the constructions.}
+\label{tab:scales}
+\begin{tabular}{lrr}\toprule
+Point set & Squared norm & Product threshold\\\midrule
+Normalized configurations & $1$ & $1/2$\\
+Dimension-25 motion & $4$ & $2$\\
+Integer Leech minimal shell & $32$ & $16$\\
+Local signed codes & $8$ & $4$\\
+Dimension-38 added shell & $48$ & $24$\\
+Rank-48 minimal shells & $6$ & $3$\\
+Dimension-45 projected fibres & $23/4$ & $23/8$\\\bottomrule
+\end{tabular}
+\end{table}
+
+The paper first treats lifting and motion, then support and signed-code
+replacement, second-shell completion, and the seven Pless-shell lifts.
+The final construction sections develop the two moment arguments.
+Appendices specify the Leech coordinates, dense codes, even-neighbour
+premise and deformation estimates. Section~\ref{sec:certificates} connects
+the proofs to the finite inputs and independent checking programs.
+The accompanying catalogue records dated public comparisons separately
+from the existence statements of Theorem~\ref{thm:main}.
+
+Section~\ref{sec:autonomous-research} and the accompanying research
+accounts describe Qiushi Engine's mathematical contributions and the
+development of the constructions.

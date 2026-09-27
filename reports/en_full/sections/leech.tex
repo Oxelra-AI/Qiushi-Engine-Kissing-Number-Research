@@ -1,0 +1,119 @@
+\section{Labelled lifts: count the directions that
+remain}
+
+Let \(C\subset S^{D-1}\) be a kissing configuration. Split the larger
+space as \(\mathbb R^D\oplus\mathbb R^k\). Choose pairwise distinct
+nonzero tails \(t_i\) of norm less than one and subsets
+\(A_i\subseteq C\). Write \(a_i=\sqrt{1-\|t_i\|^2}\) and
+\(U=\bigcup_iA_i\). Retain \((x,0)\) for \(x\in C\setminus U\), insert
+\((a_ix,t_i)\) for \(x\in A_i\), and add a pure-tail kissing code
+\(Y\subset S^{k-1}\).
+
+The count is
+
+\[
+|X|=|C|-|U|+\sum_i|A_i|+|Y|.
+\]
+
+Every original direction is deleted once, however many labels use it.
+For distinct labelled pairs \((x,i)\ne(x',j)\) and pure tails
+\(y\in Y\), the remaining conditions are
+
+\[
+a_ia_j\langle x,x'\rangle+\langle t_i,t_j\rangle\le\frac12,
+\qquad
+\langle t_i,y\rangle\le\frac12.
+\]
+
+These conditions separate tail geometry from head selection without
+discarding their coupling.
+
+\subsection{Multiplicity and the four-triangle
+construction}
+
+If every tail has squared norm \(h^2<1/2\), repeated copies of one
+direction require
+
+\[
+\langle t_i,t_j\rangle\le h^2-\frac12.
+\]
+
+For \(m\) copies, the squared norm of the sum of their tails is at most
+
+\[
+\frac m2\bigl(1-m(1-2h^2)\bigr).
+\]
+
+Its nonnegativity implies \(m\le\lfloor(1-2h^2)^{-1}\rfloor\). At
+\(h^2=1/3\), a direction can be used three times. Equality is realized
+by a zero-sum triangle.
+
+The twelve roots of \(D_3\), scaled to tail norm \(1/\sqrt3\), split
+into four zero-sum triangles. Four disjoint 496-point Leech blocks, each
+carried on one triangle, give
+
+\[
+196560-4(496)+12(496)+12=200540.
+\]
+
+The comparison allocation used multiplicities \((3,3,2,2,2)\). The new
+allocation uses \((3,3,3,3)\), preserving 496 additional equatorial
+points while keeping the same number of lifted points. The blocks
+themselves are published PackingStar data; the change is their
+assignment to the tail geometry.
+
+For this fixed twelve-label system with at most \(\alpha\) directions
+per label, the count is at most \(196560+8\alpha+12\). Thus the
+construction attains the allocation capacity at \(\alpha=496\).
+
+\subsection{The later 201,567-point
+construction}
+
+The later construction extends a public two-layer configuration. Its
+first layer, taken unchanged from Lindow's 201,566-point contribution,
+has 2,258 integer heads of squared norm 192. Of these, 2,090 delete one
+Leech minimal vector each, and 168 delete none. Each head produces three
+caps.
+
+Use the integer Leech convention in which minimal vectors have squared
+norm 32 and the kissing threshold is 16. A first-layer head \(y\)
+produces
+
+\[
+(y/3,\;4v/\sqrt3),
+\]
+
+where \(v\) runs through its assigned \(D_3\) triangle. The exact head
+thresholds are 48 on one triangle and 96 between different triangles.
+
+A second-layer owner \(u\) is a Leech minimal vector assigned to one of
+three coordinate lines. Replace its equatorial point by
+
+\[
+(\sqrt3\,u/2,\;\pm\sqrt8\,e_j).
+\]
+
+The supplied 311-owner witness has line sizes 105, 103, and 103. Every
+first-layer head satisfies \(y\cdot u\le32\). Two owners on one line
+have product at most eight; different lines have product at most
+sixteen. Owners are distinct and do not overlap the first-layer deletion
+set.
+
+For example, the first/second-layer product is at most
+
+\[
+\frac{\sqrt3}{6}\,32+\frac{4\sqrt8}{\sqrt3}
+=\frac{16\sqrt3+8\sqrt6}{3}<16.
+\]
+
+The second-layer/pure-tail product is at most \(\sqrt8\sqrt{32}=16\),
+including equality. The two caps of one owner also have product sixteen.
+These checks give
+
+\[
+196560-2090-311+3(2258)+2(311)+12=201567.
+\]
+
+Replacing the public input's 310 second-layer owners by the new
+selection of 311 adds one point: each owner replaces one equatorial
+point by two caps.

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "README.md",
+      "source_sha256": "e32179c916a8d626b9394d594a76200804b22442d343073dead2da8d20cddb16",
+      "sha256": "4d1123d8dd815a1a5ef17bdfffc55a6b1981300910118be95f7562b95b00cba9"
+    },
+    {
+      "path": "THIRD_PARTY_LICENSE.txt",
+      "source_sha256": "f27b3a1c633d96f2a99634473b4e32ce2a76aad37a502fb84224a739984c2781",
+      "sha256": "f27b3a1c633d96f2a99634473b4e32ce2a76aad37a502fb84224a739984c2781"
+    },
+    {
+      "path": "baseline-heads.json",
+      "source_sha256": "b6b1dff1172ca723595c19bc4daf49448f0e8d04d506033786a8e96afbf515d6",
+      "sha256": "b6b1dff1172ca723595c19bc4daf49448f0e8d04d506033786a8e96afbf515d6"
+    },
+    {
+      "path": "repair-points.json",
+      "source_sha256": "daeabf4a2614779749bf9a5c30f55d502c830e45a88ef2b52fdbbc7f87703677",
+      "sha256": "daeabf4a2614779749bf9a5c30f55d502c830e45a88ef2b52fdbbc7f87703677"
+    },
+    {
+      "path": "construction.tex",
+      "source_sha256": "87c264296e0b65d23cd648d975268896c2ad577964d41a8df19951430d34e9e5",
+      "sha256": "87c264296e0b65d23cd648d975268896c2ad577964d41a8df19951430d34e9e5"
+    },
+    {
+      "path": "verify_baseline.py",
+      "source_sha256": "64ca7a3dbe5222f46f729b9bd4bbc80eab197ee5dccb95cba9936ea751f92abf",
+      "sha256": "4927fe5edea1d7281f238190368b2d7d8e812142f270f40e4e759c064bbfc519"
+    },
+    {
+      "path": "verify_extension.py",
+      "source_sha256": "c203a1193b22267f641c202920393405b613e3555e373eaa9fddf3d36bf9296f",
+      "sha256": "72b130d75de17640e32525b9d50b6610de9d30b5e9287424f5f68775afae999b"
+    },
+    {
+      "path": "verify.py",
+      "source_sha256": "4bdc09fa5b4787abbb41ae1c9feddf755ccc049fa50990faa956fb54d9837433",
+      "sha256": "ffedab1cbf069d34a9574c59db6adea684e7e11baaee51f169e3b44bfad1d5cc"
+    },
+    {
+      "path": "check_rejections.py",
+      "source_sha256": "00fc81017f7e0a6ac5feb0356daf291ab8b632f4bbbc6f3ae2d3402d05eef228",
+      "sha256": "2d1a9b9a2bb5292a7674aea4117b2969ceaf6fcdcc075429755325536980781f"
+    },
+    {
+      "path": "export.py",
+      "source_sha256": "1583ac03d38fdbb40e73f4666ffda6597a5ed84c69ed4678af1bde617c683105",
+      "sha256": "1583ac03d38fdbb40e73f4666ffda6597a5ed84c69ed4678af1bde617c683105"
+    },
+    {
+      "path": "golay.py",
+      "source_sha256": "24e7606f676c8f96add71877bab93d30321678c35fca279fd01ca4f822ed3227",
+      "sha256": "24e7606f676c8f96add71877bab93d30321678c35fca279fd01ca4f822ed3227"
+    },
+    {
+      "path": "leech.py",
+      "source_sha256": "4f9a130ede03d6a9d7378e33b02c8134561988a3bc044e394f8209be6fba8cb6",
+      "sha256": "4f9a130ede03d6a9d7378e33b02c8134561988a3bc044e394f8209be6fba8cb6"
+    },
+    {
+      "path": "requirements.txt",
+      "source_sha256": "febf719a6e45ca1b64bb84d28d8f78ce30d331151f9cfa69407f9bcd9b576719",
+      "sha256": "febf719a6e45ca1b64bb84d28d8f78ce30d331151f9cfa69407f9bcd9b576719"
+    },
+    {
+      "path": "extension.md",
+      "source_sha256": "f3c71dbec6ab45a2d77b341d908a8178ca868664fe989e675f4a5b9f9a568be7",
+      "sha256": "f3c71dbec6ab45a2d77b341d908a8178ca868664fe989e675f4a5b9f9a568be7"
+    }
+  ]
+}

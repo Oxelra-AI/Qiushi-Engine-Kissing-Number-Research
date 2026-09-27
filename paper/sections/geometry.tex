@@ -1,0 +1,97 @@
+\section{Flexibility of auxiliary configurations}\label{sec:deformations}
+
+The layer inequalities identify which constraints are tight and which
+leave room for deformation. A \emph{contact} is a pair of distinct
+points with inner product $1/2$. Here $X_{25}$ is the 197058-point
+endpoint model of~\eqref{eq:d25}, and $X_T,X_M,X_R$ are the ERS layers
+of Section~\ref{sec:codes}. The dimension-38 observation concerns
+that layered-code construction; the 591900-point construction instead
+uses the Leech lift of Section~\ref{sec:completion}.
+The connection between contact
+constraints and rigidity of spherical codes is developed
+in~\cite{cjkt}; here it can be made quantitative directly from the
+proved inner-product margins.
+
+\subsection{Paired motion in dimension 25}
+Write $s\in S_*/\sqrt{32}$ and
+$x_s^{\pm}=(\sqrt3\,s/2,\pm1/2)$, with poles $p^{\pm}=(0,\pm1)$.
+The contacts involving these new points are exactly the $496$ paths
+\begin{equation}\label{eq:contact-paths}
+ p^+\;--\;x_s^+\;--\;x_s^-\;--\;p^-.
+\end{equation}
+Their internal vertices are disjoint. They have no contacts with the
+retained equator, because the relevant inner products are at most
+$\sqrt3/4<1/2$. Between different directions the same-latitude bound
+is $7/16$, and the opposite-latitude bound is $-1/16$. Thus the
+displayed graph has $994$ vertices and $1488$ edges.
+
+\begin{proposition}\label{prop:d25-motion}
+Keep the equator and the two poles of $X_{25}$ fixed. For each
+$s\in S_*/\sqrt{32}$ choose independently a unit vector $\widehat s$
+with $\norm{\widehat s-s}<1/24$. Replacing $x_s^\pm$ by
+$(\sqrt3\,\widehat s/2,\pm1/2)$ preserves the kissing condition and
+the contacts~\eqref{eq:contact-paths}.
+\end{proposition}
+\begin{proof}
+Let $\delta=\max_s\norm{\widehat s-s}<1/24$. For unit vectors,
+\[
+ \bigl|\ip{\widehat s}{\widehat t}-\ip{s}{t}\bigr|
+ \le\norm{\widehat s-s}+\norm{\widehat t-t}\le2\delta.
+\]
+Consequently distinct same-latitude directions have inner product
+less than $7/16+3\delta/2<1/2$, and distinct opposite-latitude
+directions have inner product less than $-1/16+3\delta/2<0$.
+For a fixed equatorial direction $z$,
+\[
+ \frac{\sqrt3}{2}\ip{z}{\widehat s}
+ \le\frac{\sqrt3}{4}+\frac{\sqrt3}{2}\delta
+ <\frac{13\sqrt3}{48}<\frac12.
+\]
+The last inequality follows from $3\cdot13^2<24^2$. A paired pair
+still has inner product $1/2$, as do its contacts with the appropriate
+poles. All other pole products are unchanged.
+\end{proof}
+
+With the equator, poles, and labels fixed, the common direction of
+each pair is free to move in an open subset of $S^{23}$. The height is
+forced, but the direction is not.
+Thus saturation of the latitude constraints does not imply rigidity
+of the lifted configuration.
+
+\subsection{Independent motion of the dense layers}
+In dimensions $m=n=38,39$, the dense sign codes have minimum distance
+ten. Their mutual inner products are therefore at most $1-20/m<1/2$.
+Their products with the middle and root layers are at most
+$\sqrt{8/m}$ and $\sqrt{2/m}$, also strictly less than $1/2$.
+Every dense point is an isolated vertex of the contact graph.
+
+\begin{proposition}\label{prop:dense-motion}
+For $m=n\in\{38,39\}$, keep $X_M$ and $X_R$ fixed and put
+\[
+ \eta_m=\frac{40-m}{4m}.
+\]
+Each $x\in X_T$ may independently be replaced by a unit vector
+$\widehat x$ with $\norm{\widehat x-x}<\eta_m$. The resulting
+configuration has the same cardinality and satisfies the kissing
+condition. No new contact involves a dense point.
+\end{proposition}
+\begin{proof}
+The change in a product of two unit vectors is at most the sum of
+their displacement lengths. Hence distinct moved dense points have
+inner product strictly less than
+\[
+ 1-\frac{20}{m}+2\eta_m=\frac12.
+\]
+For a moved dense point and a fixed middle point, the bound is
+$\sqrt{8/m}+\eta_m<1/2$. To verify the latter inequality exactly,
+the positive number $1/2-\eta_m$ has square exceeding $8/m$ by
+$153/5776$ at $m=38$ and by $937/24336$ at $m=39$.
+The root-layer bound is smaller. The other pairs are unchanged.
+\end{proof}
+
+The respective displacement radii are $1/76$ and $1/156$.
+The codes provide exact starting configurations, while their
+neighbourhoods need not retain a binary description. The two motion
+results exhibit distinct sources of flexibility: collective motion
+of a contacting pair in dimension $25$, and independent motion of
+strictly separated points in dimensions $38$ and $39$.

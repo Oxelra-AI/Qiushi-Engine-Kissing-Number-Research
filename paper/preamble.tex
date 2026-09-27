@@ -1,0 +1,41 @@
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs,array,longtable}
+\usepackage[margin=1.05in]{geometry}
+\usepackage{cite}
+\usepackage{xurl,hyperref}
+\DeclareUrlCommand\path{\urlstyle{tt}\def\UrlBreaks{\do\/\do\-}\def\UrlBigBreaks{}}
+\hypersetup{hidelinks,pdftitle={Large-Scale Autonomous Discovery of Kissing Number Constructions}}
+\emergencystretch=2em
+\raggedbottom
+\makeatletter
+\renewcommand{\@settitle}{%
+  \begin{center}\normalfont\fontsize{13}{16}\selectfont\bfseries\@title\end{center}%
+}
+\renewcommand{\@setauthors}{%
+  \begingroup
+  \trivlist\centering\footnotesize
+  \@topsep30\p@\relax
+  \advance\@topsep by -\baselineskip
+  \item\relax\MakeUppercase{\PaperAuthorBlock}%
+  \endtrivlist
+  \endgroup
+}
+\AddToHook{cmd/@setauthors/after}{%
+  \par\nobreak\smallskip
+  {\centering\footnotesize\normalfont\PaperAffiliation\par}%
+  \nobreak\smallskip
+  {\centering\footnotesize\normalfont\PaperCorrespondence\par}%
+  \global\let\addresses\@empty
+}
+\makeatother
+\numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\R}{\mathbb R}\newcommand{\Z}{\mathbb Z}\newcommand{\Q}{\mathbb Q}\newcommand{\F}{\mathbb F}
+\newcommand{\wt}{\operatorname{wt}}\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}\newcommand{\norm}[1]{\lVert #1\rVert}
+\newcommand{\eps}{\varepsilon}\newcommand{\qpath}[1]{\texttt{\nolinkurl{#1}}}

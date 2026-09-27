@@ -1,0 +1,107 @@
+{
+  "passed": true,
+  "dimension": 25,
+  "points": 197580,
+  "baseline": {
+    "baseline_verified": true,
+    "points": 197579,
+    "class_heads": 972,
+    "rational_heads": 44,
+    "class_shell_comparisons": 191056320,
+    "rational_shell_comparisons": 8648640,
+    "rational_big_integer_checks": 44,
+    "class_class_pairs": 471906,
+    "rational_class_pairs": 42768,
+    "rational_rational_pairs": 946,
+    "extra_equator_deletions": 552,
+    "shell_basis": "Golay enumeration of the Leech minimal shell; its lattice minimum gives mutual compatibility.",
+    "floating_point_acceptance_decisions": 0,
+    "input_sha256": "b6b1dff1172ca723595c19bc4daf49448f0e8d04d506033786a8e96afbf515d6",
+    "elapsed_seconds": 23.6876323223114
+  },
+  "extension": {
+    "points": 197580,
+    "dimension": 25,
+    "squared_norm": 4,
+    "inner_product_bound": 2,
+    "extension_verified": true,
+    "precision_bits": 192,
+    "depends_on": "Exact baseline verification plus the Leech minimal-shell inner-product bound.",
+    "norms_and_shell_equalities": "algebraic identities in construction.tex",
+    "moved_shell_count": 552,
+    "unchanged_shell_count": 194992,
+    "moved_vs_class_caps": {
+      "checked_expressions": 31,
+      "maximum_enclosure": "[1.89893852818128761013160478510536545936960615246099970742 +/- 5.33e-57]",
+      "strictly_below_two": true,
+      "represented_comparisons": 1073088
+    },
+    "moved_vs_rational_caps": {
+      "checked_expressions": 44,
+      "maximum_enclosure": "[1.99937195451150681583743520963520202945877633665189764245 +/- 3.48e-57]",
+      "strictly_below_two": true,
+      "represented_comparisons": 47472
+    },
+    "Q_vs_unchanged_caps": {
+      "checked_expressions": 1016,
+      "maximum_enclosure": "[1.96592582628906828674974319972889736763390483900840455040 +/- 3.43e-57]",
+      "strictly_below_two": true
+    },
+    "replacement_points": {
+      "upper": {
+        "integer_squared_norm": 1007176,
+        "unchanged_shell_comparisons": 194992,
+        "maximum_shell_dot_integer": 2830,
+        "shell_strict_test": [
+          8008900,
+          8057408
+        ],
+        "moved_shell_max_enclosure": "[1.99365834866234326746110167772201509881423163348746921534 +/- 5.51e-57]",
+        "caps": {
+          "checked_expressions": 2030,
+          "maximum_enclosure": "[1.99472127475565764814804336408306331738863918436370779561 +/- 3.20e-57]",
+          "strictly_below_two": true
+        },
+        "poles_P_Q_integer_tests": true
+      },
+      "lower": {
+        "integer_squared_norm": 10209,
+        "unchanged_shell_comparisons": 194992,
+        "maximum_shell_dot_integer": 284,
+        "shell_strict_test": [
+          80656,
+          81672
+        ],
+        "moved_shell_max_enclosure": "[1.62848570392825311869879010765704148117928834665568023503 +/- 4.35e-57]",
+        "caps": {
+          "checked_expressions": 2030,
+          "maximum_enclosure": "[1.98374080013381521364780339284218498178735265262577808054 +/- 3.49e-57]",
+          "strictly_below_two": true
+        },
+        "poles_P_Q_integer_tests": true
+      }
+    },
+    "replacement_mutual_integer_dot": -5652,
+    "distinctness": "All norms are 4 and all distinct-index products are at most 2; coincidence is excluded.",
+    "input_sha256": {
+      "baseline-heads.json": "b6b1dff1172ca723595c19bc4daf49448f0e8d04d506033786a8e96afbf515d6",
+      "repair-points.json": "daeabf4a2614779749bf9a5c30f55d502c830e45a88ef2b52fdbbc7f87703677",
+      "leech.py": "4f9a130ede03d6a9d7378e33b02c8134561988a3bc044e394f8209be6fba8cb6",
+      "golay.py": "24e7606f676c8f96add71877bab93d30321678c35fca279fd01ca4f822ed3227"
+    },
+    "elapsed_seconds": 1.6151080131530762
+  },
+  "negative_tests": [
+    {
+      "case": "upper_minus_Q",
+      "exact_squared_norm": 4,
+      "rejected": true
+    },
+    {
+      "case": "lower_duplicate_Q",
+      "exact_squared_norm": 4,
+      "rejected": true
+    }
+  ],
+  "negative_tests_passed": true
+}

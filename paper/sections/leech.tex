@@ -1,0 +1,318 @@
+\section{Reuse geometry and two-layer Leech lifting}\label{sec:leech}
+
+The endpoint and four-triangle constructions below isolate the geometry
+of direction reuse: the latitude, the tail partition, and the capacity
+of a prescribed label system. They give the auxiliary configurations
+of sizes 197058 and 200540. Section~\ref{sec:leech-two-layer} then
+uses a second layer to obtain the current 201567-point construction.
+
+We use the integer Leech shell $\Sigma\subset\Z^{24}$ in the Golay
+coordinate convention of Appendix~\ref{app:leech}. Its relevant
+properties are
+\begin{equation}\label{eq:leech-shell}
+ |\Sigma|=196560,\qquad r\cdot r=32,\qquad
+ r\cdot r'\le16\quad(r\ne r',\ r,r'\in\Sigma).
+\end{equation}
+Consequently $C=\Sigma/\sqrt{32}$ is a kissing configuration. A block
+$S\subset\Sigma$ will be called \emph{compatible} if distinct rows
+satisfy $r\cdot r'\le8$. After normalization its maximum inner product
+is at most $1/4$.
+
+\begin{lemma}[Leech block witnesses]\label{lem:leech-blocks}
+There is a compatible set $S_*\subset\Sigma$ of size $496$ and there
+are four pairwise disjoint compatible sets $S_0,S_1,S_2,S_3\subset\Sigma$,
+each of size $496$.
+\end{lemma}
+\begin{proof}[Finite verification]
+The five complete integer arrays are specified in
+Table~\ref{tab:certificates}. They are taken from the
+PackingStar coordinate data~\cite{packingstar-data}.
+For each array, membership is checked against the three shell families
+in Appendix~\ref{app:leech}. Each array has $496$ distinct rows, each
+row has squared norm $32$, and the maximum of its $122760$ unordered
+distinct-row inner products is eight. The latter four arrays have a
+union of cardinality $1984$. These checks, implemented separately by
+the two programs described in Section~\ref{sec:certificates}, prove
+compatibility and disjointness.
+\end{proof}
+
+\subsection{The endpoint construction in dimension 25}
+The normalized block $S_*/\sqrt{32}$ satisfies the $1/3$ condition of
+Theorem~\ref{thm:block-lift}, since it satisfies the stronger bound $1/4$.
+The resulting configuration is
+\begin{align}
+ X_{25}={}&\{(r/\sqrt{32},0):r\in\Sigma\setminus S_*\}\nonumber\\
+ &\quad\cup\{(\sqrt3\,r/\sqrt{128},\eps/2):
+                   r\in S_*,\ \eps\in\{\pm1\}\}
+       \cup\{(0,1),(0,-1)\}.\label{eq:d25}
+\end{align}
+Its cardinality is
+\[
+ 196064+992+2=197058,
+\]
+giving the historical bound $K(25)\ge197058$.
+The endpoint choice permits the two poles without requiring a larger
+Leech block. Distinct same-latitude directions have inner product at
+most $7/16$, whereas the opposite-latitude copies of one direction
+have inner product exactly $1/2$. This distinction will also determine
+the local geometry of $X_{25}$ in Section~\ref{sec:deformations}.
+
+\subsection{The tail geometry in dimension 27}
+Let
+\begin{equation}\label{eq:D3}
+ V=\{\pm e_i\pm e_j:1\le i<j\le3\},\qquad
+ R=\begin{pmatrix}
+  1/\sqrt2&-1/\sqrt2&0\\
+  1/\sqrt2&1/\sqrt2&0\\
+  0&0&1
+ \end{pmatrix}.
+\end{equation}
+The twelve roots in $V$ form a cuboctahedron. Put
+\begin{equation}\label{eq:tailsets}
+ T=V/\sqrt6,\qquad P=RV/\sqrt2.
+\end{equation}
+Thus $T$ supplies mixed tails of squared norm $1/3$, and $P$ supplies
+twelve unit pure tails. The relative rotation is through $45$ degrees
+in the first two coordinates.
+
+\begin{lemma}\label{lem:tails}
+Distinct members of $T$ have inner products in
+$\{-1/3,-1/6,0,1/6\}$, and $P$ is a kissing configuration. Moreover,
+\begin{equation}\label{eq:tail-cross}
+ \max_{p\in P,\,t\in T}\ip{p}{t}
+  =\frac{1+1/\sqrt2}{\sqrt{12}}<\frac12.
+\end{equation}
+The roots admit a partition into four zero-sum triples, each of which
+has pairwise inner product $-1$.
+\end{lemma}
+\begin{proof}
+Every root has squared norm two. Distinct roots have inner products
+$-2,-1,0,$ or $1$, giving the first assertions by scaling and
+orthogonality of $R$. The absolute coordinates of $Rv$, up to order,
+are either $(\sqrt2,0,0)$ or $(1,1/\sqrt2,1/\sqrt2)$. Its largest inner
+product with a root is obtained by choosing two coordinates with the
+appropriate signs. The maximum is $1+1/\sqrt2$, giving
+\eqref{eq:tail-cross}. The strict inequality follows, for example, from
+$18+12\sqrt2<36$ after squaring the equivalent inequality
+$\sqrt6+2\sqrt3<6$.
+
+An explicit partition is given by the rows of
+\begin{equation}\label{eq:triangles}
+\begin{array}{rrr}
+ (-1,0,-1)&(1,-1,0)&(0,1,1)\\
+ (0,-1,-1)&(-1,0,1)&(1,1,0)\\
+ (-1,-1,0)&(0,1,-1)&(1,0,1)\\
+ (-1,1,0)&(1,0,-1)&(0,-1,1).
+\end{array}
+\end{equation}
+The roots in a row sum to zero. Their equal squared norms then force
+all three mutual inner products to be $-1$.
+\end{proof}
+
+Write $T_b$ for row $b$ of~\eqref{eq:triangles}, divided by $\sqrt6$.
+Thus $T$ is the disjoint union of $T_0,T_1,T_2,T_3$. A block assigned
+to $T_b$ is used at three labels, while its original equatorial copy
+is removed once. This is the multiplicity-three counterpart of the
+antipodal lift.
+
+\begin{proposition}[Four-triangle lift]\label{prop:triangles}
+For pairwise disjoint compatible subsets $S_0,S_1,S_2,S_3$ of $\Sigma$,
+the following three sets form a kissing configuration:
+\begin{align}
+ Z&=\{(r/\sqrt{32},0):r\in\Sigma\setminus\textstyle\bigcup_bS_b\},
+ \nonumber\\
+ M&=\bigcup_{b=0}^{3}\{(r/\sqrt{48},t):r\in S_b,\ t\in T_b\},
+ \label{eq:d27}\\
+ P_0&=\{(0,p):p\in P\}.\nonumber
+\end{align}
+Its cardinality is $196560+2\sum_b|S_b|+12$.
+\end{proposition}
+\begin{proof}
+Use Theorem~\ref{lem:lift} with $h^2=1/3$ and $a=\sqrt{2/3}$.
+The mixed vectors have norm one since $32/48+1/3=1$.
+For mixed points, multiply their inner-product condition by $48$:
+\begin{equation}\label{eq:raw-mixed}
+ r\cdot r'+48\ip{t}{t'}\le24.
+\end{equation}
+If $t=t'$, the raw vectors are distinct and lie in one compatible
+block, so the left side is at most $8+16=24$. If $r=r'$ and $t\ne t'$,
+disjointness of the blocks places both tails in one triangle, giving
+$32-8=24$. If both directions and labels differ, the universal shell
+bound and Lemma~\ref{lem:tails} give $16+8=24$ as an upper bound.
+These three cases cover every distinct mixed pair. Pure--mixed
+compatibility follows from~\eqref{eq:tail-cross}; all remaining pairs
+are covered by Theorem~\ref{lem:lift}.
+
+For $B=\sum_b|S_b|$, the layer sizes are $196560-B$, $3B$, and $12$.
+They are disjoint, and their parametrizations are injective, as in
+\eqref{eq:lift-count}. Their sum is the asserted count.
+\end{proof}
+
+Applying Proposition~\ref{prop:triangles} to Lemma~\ref{lem:leech-blocks}
+gives
+\[
+ |Z|=194576,\qquad |M|=5952,\qquad |P_0|=12,
+\]
+and hence $|X_{27}|=200540$. The comparison allocation uses block
+multiplicities $(3,3,2,2,2)$, whereas~\eqref{eq:triangles} uses
+$(3,3,3,3)$. Both occupy twelve labels. The latter allocation uses
+$496$ fewer original directions and therefore preserves $496$ more
+equatorial points.
+
+\subsection{Capacity and its equality case}
+The preceding count has an exact interpretation even when the label
+sets are not arranged in disjoint blocks. Let $A_i\subseteq\Sigma$
+be the rows assigned to tail $t_i\in T$. Assume that the resulting
+lifting is valid, retains $\Sigma\setminus\bigcup_iA_i$ at the equator,
+and contains all twelve pure tails.
+
+\begin{proposition}\label{prop:capacity}
+If $|A_i|\le\alpha$ for each of the twelve labels, then
+\begin{equation}\label{eq:capacity}
+ |X|\le196560+8\alpha+12.
+\end{equation}
+Equality holds precisely when every used row occurs at three labels
+and every label contains $\alpha$ rows. For $\alpha=496$, the
+four-triangle construction attains equality.
+\end{proposition}
+\begin{proof}
+Proposition~\ref{prop:multiplicity} gives maximum multiplicity three.
+Writing $m(r)$ for the multiplicity of a used row,
+\[
+ |X|-196560-12
+ =\sum_r(m(r)-1)
+ \le\frac23\sum_rm(r)
+ =\frac23\sum_i|A_i|\le8\alpha.
+\]
+The first inequality is an equality exactly when all $m(r)=3$;
+the last is an equality exactly when all labels are full. The explicit
+assignment has both properties.
+\end{proof}
+
+More precisely, let $n_j$ count the used rows with multiplicity $j$,
+and let $c_i=\alpha-|A_i|$. The deficit is
+\begin{equation}\label{eq:deficit}
+ 196560+8\alpha+12-|X|
+ =\frac23\sum_i c_i+\frac23n_1+\frac13n_2.
+\end{equation}
+For the comparison allocation, $n_2=3\cdot496$ and all $c_i=0$, so
+the deficit is exactly $496$. The capacity assumption in
+Proposition~\ref{prop:capacity} concerns the prescribed label system;
+the block witnesses supply $\alpha=496$ without requiring a bound on
+the largest possible compatible subset of the Leech shell.
+
+\subsection{A two-layer configuration with 201567 points}
+\label{sec:leech-two-layer}
+The larger construction retains the first-layer heads of the public
+201566-point contribution~\cite{lindow27} and replaces its second
+layer by a 311-owner witness. We give the pair conditions explicitly.
+For this subsection use squared norm 32 and threshold 16 throughout.
+Write $\Sigma_{27}$ for the Leech shell generated in the Golay
+coordinate basis of the two-layer data. All heads and owners below
+use that same basis. The shell argument in Appendix~\ref{app:leech}
+applies to its verified Golay generator.
+
+The first-layer data are 2258 distinct integer heads $Y$ of squared
+norm 192, each assigned to one of four triples. In the order of the
+stored labels, these triples of roots are
+\[
+\begin{array}{c|rrr}
+0&(1,1,0)&(-1,0,-1)&(0,-1,1)\\
+1&(1,-1,0)&(-1,0,1)&(0,1,-1)\\
+2&(-1,-1,0)&(1,0,-1)&(0,1,1)\\
+3&(-1,1,0)&(1,0,1)&(0,-1,-1).
+\end{array}
+\]
+For a head $y$ in triple $b$, take the three points
+\begin{equation}\label{eq:d27-first}
+ (y/3,\,4v/\sqrt3)\qquad(v\text{ in triple }b).
+\end{equation}
+The pure-tail points are $(0,4Rv)$ for all twelve roots
+$v\in V$, with $R$ as in~\eqref{eq:D3}.
+
+A first-layer owner is a shell vector $z\in\Sigma_{27}$ with $y\cdot z>48$.
+The finite data have 2090 heads with exactly one owner and 168
+heads with none; all 2090 owners are distinct. The former are
+of the form $y=3u+v$ with $u\in\Sigma_{27}$, $v^2=48$, and
+$u\cdot v=-24$. The latter are twice norm-48 vectors. These
+descriptions explain the candidate families; verification recovers
+the owners by checking the whole shell.
+For distinct first-layer heads, the stored data satisfy
+\begin{equation}\label{eq:d27-first-threshold}
+ y\cdot y'\le
+ \begin{cases}
+ 48,&\text{on the same triple},\\
+ 96,&\text{on different triples}.
+ \end{cases}
+\end{equation}
+Retaining all nonowners at the equator gives
+$196560-2090+3(2258)+12=201256$ points.
+
+The additional data are 311 distinct owners $u\in\Sigma_{27}$, with a
+label $\ell(u)\in\{1,2,3\}$. None is a first-layer owner. Replace
+the equatorial point $(u,0)$ by
+\begin{equation}\label{eq:d27-second}
+ (\sqrt3\,u/2,\,\eps\sqrt8\,e_{\ell(u)}),
+ \qquad \eps\in\{-1,1\}.
+\end{equation}
+The three labels have respectively 105, 103, and 103 owners.
+The checked inequalities are
+\begin{align}
+ y\cdot u&\le32&&\text{for every first-layer head }y,\label{eq:d27-interlayer}\\
+ u\cdot u'&\le8&&\text{if }\ell(u)=\ell(u'),\quad u\ne u',\label{eq:d27-sameline}\\
+ u\cdot u'&\le16&&\text{if }\ell(u)\ne\ell(u').\label{eq:d27-crossline}
+\end{align}
+
+\begin{theorem}\label{thm:d27}
+The two layers just specified, their retained equator, and their
+twelve pure-tail points form a kissing configuration of 201567
+points in dimension 27.
+\end{theorem}
+\begin{proof}
+All points have squared norm 32. An old equatorial point and a
+first-layer cap have product at most $48/3=16$. The two
+thresholds in~\eqref{eq:d27-first-threshold} give respectively
+$48/9+32/3=16$ and $96/9+16/3=16$.
+Two different caps of the same head have product
+$192/9-16/3=16$.
+The rotation estimate of Lemma~\ref{lem:tails}, scaled by 32,
+checks the first layer against all pure tails.
+
+A second-layer cap has product at most
+$(\sqrt3/2)16=8\sqrt3<16$ with every retained equatorial
+point. Its own owner is deleted. Against a first-layer cap, the
+head product and tail product sum to at most
+\[
+ \frac{\sqrt3}{6}(32)+\frac{4\sqrt8}{\sqrt3}
+ =\frac{16\sqrt3+8\sqrt6}{3}<16.
+\]
+The last inequality is equivalent to
+$2\sqrt3+\sqrt6<6$ and follows by squaring positive quantities.
+Second-layer caps on distinct owners of the same label have
+product at most $(3/4)8+8=14$; distinct labels give at most
+$(3/4)16=12$. The two caps of one owner have product
+$(3/4)32-8=16$. A second-layer cap and a pure tail have
+product at most $\sqrt8\sqrt{32}=16$.
+All old--old pairs retain their original bounds.
+
+The head squared norms in the equator, first layer, second layer,
+and pure-tail layer are respectively $32$, $64/3$, $24$, and zero,
+so different layers cannot coincide. Within a layer, distinct
+heads and tail labels give distinct points. Each of the 311
+new owners is removed once and inserted twice. Hence
+\[
+ 196560-2090-311+3(2258)+2(311)+12=201567.
+\]
+Dividing all points by $\sqrt{32}$ proves the unit-sphere claim.
+\end{proof}
+
+The finite optimization behind the second layer has a particularly
+small geometric description. Keep only shell vectors that are
+not first-layer owners and satisfy~\eqref{eq:d27-interlayer}.
+Connect two such vectors when their product exceeds eight.
+One seeks a largest subset that can be split into three independent
+sets of this graph. Assign each independent set to one coordinate
+line. Distinct-label products are already controlled by the
+Leech-shell bound. The published 310-owner witness and the new
+311-owner witness are feasible assignments in this same model;
+each extra owner contributes one net point.

@@ -11,6 +11,18 @@ The [source account](../research/provenance.md) explains the mathematical
 role of each input. Third-party materials retain their existing rights and
 notices. The project license applies to the original contributions.
 
+The 27-dimensional first layer and its coordinate library follow
+[Lindow's public contribution](https://github.com/alexlegeartis/KissingNumbers/pull/1).
+The earlier 496-point blocks use the fixed PackingStar data described in the reports.
+
+The 25-dimensional baseline heads and Golay/Leech enumeration use
+[KissingNumbers, fixed revision cf14c5e](https://github.com/alexlegeartis/KissingNumbers/tree/cf14c5ef4db6059bbf2e570e3f0ce24edfda243e/verifications/improved/dim25-lens-heads).
+The original MIT notice is also retained in `d25/THIRD_PARTY_LICENSE.txt`.
+
+The P48p Gram matrix and automorphisms use the
+[Nebe–Sloane catalogue](https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/P48p.html),
+with numerical arrays from the public KissingNumbers package.
+
 ## KissingNumbers license
 
 MIT License

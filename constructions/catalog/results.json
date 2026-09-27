@@ -1,9 +1,65 @@
 {
   "schema_version": 1,
-  "as_of": "2026-09-25",
+  "as_of": "2026-09-27",
   "scope": "Explicit kissing-number lower bounds",
-  "result_count": 10,
+  "result_count": 19,
   "results": [
+    {
+      "dimension": 25,
+      "lower_bound": 197580,
+      "family": "coordinated shell motion",
+      "count_formula": "197579 - 552 - 2 + 552 + 2 + 1",
+      "contribution": "Move 552 retained shell points together, adjoin one point, and replace two individual caps by normalized integer vectors.",
+      "comparison": {
+        "lower_bound": 197579,
+        "gain": 1,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "dimension25"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/d25/baseline-heads.json",
+        "constructions/d25/repair-points.json",
+        "constructions/d25/construction.tex",
+        "constructions/d25/verify_baseline.py",
+        "constructions/d25/verify_extension.py",
+        "constructions/d25/golay.py",
+        "constructions/d25/leech.py",
+        "constructions/d25/check_rejections.py",
+        "tools/verify_dimension25.py"
+      ]
+    },
+    {
+      "dimension": 27,
+      "lower_bound": 201567,
+      "family": "Leech two-layer lifting",
+      "count_formula": "196560 - 2090 - 311 + 3*2258 + 2*311 + 12",
+      "contribution": "Keep the published 2258-head first layer and enlarge its compatible second layer from 310 to 311 owners.",
+      "comparison": {
+        "lower_bound": 201566,
+        "gain": 1,
+        "source_id": "lindow-pr-1-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "dimension27"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/d27/data/heads27_Y.npy",
+        "constructions/d27/data/heads27_layer2_line.npy",
+        "constructions/d27/data/heads27_layer2_u.npy",
+        "constructions/d27/data/heads27_side.npy",
+        "constructions/d27/lib/golay.py",
+        "constructions/d27/lib/leech.py",
+        "tools/verify_dimension27.py"
+      ]
+    },
     {
       "dimension": 32,
       "lower_bound": 347584,
@@ -11,10 +67,10 @@
       "count_formula": "131072 + 128*1676 + 2*32*31",
       "contribution": "Replace intersecting weight-eight supports by a larger compatible support family of size 1676.",
       "comparison": {
-        "lower_bound": 346432,
-        "gain": 1152,
-        "source_id": "brouwer-codes",
-        "retrieved_date": "2026-09-24"
+        "lower_bound": 346944,
+        "gain": 640,
+        "source_id": "brouwer-codes-20260927",
+        "retrieved_date": "2026-09-27"
       },
       "verification": {
         "jobs": [
@@ -290,6 +346,236 @@
         "constructions/sections/d45/data/parent-vectors.jsonl",
         "constructions/sections/d45/verify_parent.py"
       ]
+    },
+    {
+      "dimension": 49,
+      "lower_bound": 52430156,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*7077 + 2",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 52430140,
+        "gain": 16,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 7077,
+        "tail_points": 2,
+        "tail_lines": 1,
+        "cap_level": "3/4"
+      }
+    },
+    {
+      "dimension": 50,
+      "lower_bound": 52458468,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*21231 + 6",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 52458418,
+        "gain": 50,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py",
+        "constructions/p48/data/dim50_group_elems.npy"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 21231,
+        "tail_points": 6,
+        "tail_lines": 3,
+        "cap_level": "3/4"
+      }
+    },
+    {
+      "dimension": 51,
+      "lower_bound": 52500930,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*42459 + 12",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 52500816,
+        "gain": 114,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py",
+        "constructions/p48/data/dim51_group_elems.npy"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 42459,
+        "tail_points": 12,
+        "tail_lines": 6,
+        "cap_level": "3/4"
+      }
+    },
+    {
+      "dimension": 52,
+      "lower_bound": 52585772,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*84874 + 24",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 52585516,
+        "gain": 256,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py",
+        "constructions/p48/data/dim52_group_elems.npy"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 84874,
+        "tail_points": 24,
+        "tail_lines": 12,
+        "cap_level": "3/4"
+      }
+    },
+    {
+      "dimension": 53,
+      "lower_bound": 52698696,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*141328 + 40",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 52698222,
+        "gain": 474,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py",
+        "constructions/p48/data/dim53_group_elems.npy"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 141328,
+        "tail_points": 40,
+        "tail_lines": 20,
+        "cap_level": "3/4"
+      }
+    },
+    {
+      "dimension": 54,
+      "lower_bound": 52923774,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*253851 + 72",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 52922906,
+        "gain": 868,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py",
+        "constructions/p48/data/dim54_group_elems.npy"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 253851,
+        "tail_points": 72,
+        "tail_lines": 36,
+        "cap_level": "3/4"
+      }
+    },
+    {
+      "dimension": 55,
+      "lower_bound": 53301140,
+      "family": "P48p cap lifting",
+      "count_formula": "52416000 + 2*442507 + 126",
+      "contribution": "Extend the compatible P48p mother class to 7077 lines and select automorphism images with a large union.",
+      "comparison": {
+        "lower_bound": 53299730,
+        "gain": 1410,
+        "source_id": "kr-results-20260927",
+        "retrieved_date": "2026-09-27"
+      },
+      "verification": {
+        "jobs": [
+          "p48-current"
+        ]
+      },
+      "artifact_ids": [
+        "constructions/p48/data/P48p.html",
+        "constructions/p48/data/p48p_gram.npy",
+        "constructions/p48/data/p48p_gens.npy",
+        "constructions/p48/data/class_p48_7077.npy",
+        "constructions/p48/verify.py",
+        "constructions/p48/data/dim55_group_elems.npy"
+      ],
+      "parameters": {
+        "mother_class_lines": 7077,
+        "used_distinct_lines": 442507,
+        "tail_points": 126,
+        "tail_lines": 63,
+        "cap_level": "3/4"
+      }
     }
   ]
 }

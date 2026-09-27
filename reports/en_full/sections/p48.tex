@@ -1,0 +1,109 @@
+\section{Seven dimensions from one enlarged line
+class}
+
+The
+\href{https://www.math.rwth-aachen.de/~Gabriele.Nebe/LATTICES/P48p.html}{catalogue
+lattice \(P_{48p}\)} is even unimodular of dimension 48 and minimum
+squared norm six. Its theta series determines a minimal shell of
+52,416,000 vectors~\cite{p48p-catalogue,nebe}.
+
+\subsection{Disjoint blocks from overlapping images}
+
+The new finite object is a class of 7,077 minimal lines. Integer
+representatives \(c\) in the catalogue Gram basis satisfy \(cGc^t=6\)
+and
+
+\[
+|cGc'^t|\le2\qquad(c\ne\pm c').
+\]
+
+Exact lattice isometries give further classes. Select a family of images
+and assign every line to its first occurrence. This produces disjoint
+line subsets with union size \(S\). Taking both signs of every line
+produces compatible head blocks.
+
+Use the root codes \(A_1,A_2,D_3,D_4,D_5,E_6,E_7\) as tails in
+dimensions one through seven. Their sizes are \(2,6,12,24,40,72,126\).
+Assign each head block to a different antipodal tail line. A used mother
+line loses its two equatorial points and contributes four cap points at
+head squared norm \(3/4\) and tail squared norm \(1/4\). The count is
+
+\[
+K(48+k)\ge52416000-2S+4S+\tau_k=52416000+2S+\tau_k.
+\]
+
+\begin{longtable}[]{@{}rrrr@{}}
+\toprule
+\(k\) & Selected images & Union size \(S\) & Tail points
+\(\tau_k\)\tabularnewline
+\midrule
+\endhead
+1 & 1 & 7,077 & 2\tabularnewline
+2 & 3 & 21,231 & 6\tabularnewline
+3 & 6 & 42,459 & 12\tabularnewline
+4 & 12 & 84,874 & 24\tabularnewline
+5 & 20 & 141,328 & 40\tabularnewline
+6 & 36 & 253,851 & 72\tabularnewline
+7 & 63 & 442,507 & 126\tabularnewline
+\bottomrule
+\end{longtable}
+
+\subsection{Why the lift preserves all angular constraints}
+
+Let $x$ be a selected mother vector divided by $\sqrt6$, and let $p_i$
+represent its assigned unit tail line. The four points replacing
+$\{\pm x\}$ are
+\[
+ \left(\varepsilon\frac{\sqrt3}{2}x,
+       \delta\frac12p_i\right),\qquad \varepsilon,\delta\in\{\pm1\}.
+\]
+They have unit norm. Within a block, distinct head lines have absolute
+product at most $1/3$; in the entire minimal shell the corresponding
+bound is $1/2$. These two facts give all cap inequalities:
+\[
+\begin{array}{ll}
+\text{different lines in one block:}&(3/4)(1/3)+1/4=1/2,\\
+\text{same head, opposite tails:}&3/4-1/4=1/2,\\
+\text{opposite heads:}&-3/4+1/4=-1/2,\\
+\text{different blocks:}&(3/4)(1/2)+(1/4)(1/2)=1/2.
+\end{array}
+\]
+The last line uses distinct tail lines. Reusing a tail line for arbitrary
+different blocks would permit $5/8$. A cap meets a retained equatorial
+point with product at most $\sqrt3/4$, and a pure tail with product at
+most $1/2$. The retained equator and pure tails already satisfy the
+kissing condition. Thus the construction and its count are established
+by the class inequalities and the lattice minimum.
+
+\subsection{Separating the two sources of gain}
+
+The gain over the public 7,069-line class~\cite{kissingnumbers} has two
+sources: eight additional mother lines and improved choices of isometric
+images. Apply the selected images to the original class and call the
+union size $S_0$; let $S_{\rm ref}$ be the comparison construction's
+union size. Then
+\[
+ N-N_{\rm ref}=2(S-S_0)+2(S_0-S_{\rm ref}).
+\]
+The first term holds the images fixed and measures class growth. The
+second holds the original class fixed and measures image selection.
+
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+Dimension&Class growth&Image selection&Total increase\\\midrule
+49&16&0&16\\
+50&48&2&50\\
+51&96&18&114\\
+52&192&64&256\\
+53&320&154&474\\
+54&572&296&868\\
+55&996&414&1410\\\bottomrule
+\end{tabular}
+\end{center}
+
+The three images in dimension 50 are disjoint. In dimension 55,
+overlap reduces the $8\cdot63$ possible new lines to 498 distinct
+lines; image selection on the original class supplies another 207.
+This is why enlarging one class and maximizing the union are
+complementary parts of the construction.

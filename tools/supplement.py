@@ -8,6 +8,7 @@ from pathlib import Path
 import zipfile
 
 from package_files import approved_paths, contained_file
+from report_editions import prefix, verify_frozen
 
 
 def contents(root):
@@ -29,6 +30,9 @@ def contents(root):
     for row in rows:
         if not set(row["artifact_ids"]) <= set(data):
             raise ValueError("A defining input is missing from the supplement")
+    dependencies = "Python 3.10 or later, NumPy, SymPy, a C++ compiler and SageMath 10"
+    if any(row['dimension'] == 25 for row in rows):
+        dependencies += ", with python-flint for the Arb checks"
     data["README.md"] = (
         "# Kissing-number constructions\n\n"
         "Finite data and verification programs accompanying the Qiushi Engine reports.\n"
@@ -37,7 +41,7 @@ def contents(root):
         "Each construction directory describes its coordinates and mathematical sources.\n"
         "The proof is in the report containing this attachment.\n\n"
         "## Verification\n\n"
-        "Use Python 3.10 or later, NumPy, SymPy, a C++ compiler and SageMath 10.\n"
+        "Use " + dependencies + ".\n"
         "From this directory, check file integrity, then run all mathematical checks:\n\n"
         "```sh\npython3 tools/check_package.py\n"
         "sage -python tools/reproduce.py --suite all --output ../kissing-verification\n```\n\n"
@@ -67,10 +71,12 @@ def archive_bytes(root):
     return stream.getvalue()
 
 
-def write(root, language):
+def write(root, language, edition='livestream'):
     if language not in ("en", "zh"):
         raise ValueError("Expected an English or Chinese report source")
-    output = contained_file(root, "reports/" + language + "/certificates.zip")
+    output = contained_file(root, prefix(language, edition) + "/certificates.zip")
+    if edition == 'livestream' and verify_frozen(root):
+        return output
     output.write_bytes(archive_bytes(root))
     return output
 
@@ -79,8 +85,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--language", choices=("en", "zh"), required=True)
+    parser.add_argument("--edition", choices=('livestream', 'complete'), default='livestream')
     args = parser.parse_args()
-    print(write(args.root, args.language))
+    print(write(args.root, args.language, args.edition))
 
 
 if __name__ == "__main__":

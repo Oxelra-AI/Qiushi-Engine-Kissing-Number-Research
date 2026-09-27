@@ -1,3 +1,4 @@
 # Common numerical dependencies. SageMath is installed separately.
 numpy>=1.26
 sympy>=1.12
+python-flint>=0.6

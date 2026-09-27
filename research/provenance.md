@@ -5,6 +5,22 @@ This account identifies the mathematical inputs and the new finite objects.
 
 ## Construction families
 
+**Coordinated shell motion.** The 197,580-point construction in dimension 25
+starts from Kravatskiy's fixed 197,579-point head data. Qiushi Engine moves
+a complete 552-point partner layer, introduces one new point and replaces
+two individual caps by normalized integer vectors. Convexity controls the
+unchanged equatorial contacts; integer and Arb checks certify the remaining
+strict inequalities. The original coordinates and their license are retained
+in [the construction directory](../constructions/d25/).
+
+**Leech liftings.** The earlier 25- and 27-dimensional constructions use
+496-point blocks and a small tail geometry. The latest 27-dimensional
+construction instead retains the public first layer in
+[Lindow's contribution](https://github.com/alexlegeartis/KissingNumbers/pull/1)
+and improves the compatible second layer. The new finite object is the
+311-owner witness, with label-class sizes $(105,103,103)$, replacing the
+310-owner choice and giving 201,567 points.
+
 **Supports and signs.** The initial representation attaches all even-parity
 sign patterns to each weight-eight support. Replacing conflicting supports
 improves the support code. Later work changes the sign sets themselves:
@@ -29,6 +45,13 @@ witness gives the additional 288 points. Both layers use the Golay basis
 supplied with the base construction, so their cross-products are checked
 in a common coordinate system.
 
+**P48p caps.** The earlier high-dimensional family and the new 7,077-line
+family share a lifting principle. The new work enlarges the finite head
+class and selects its automorphism images jointly. Overlapping lines are
+assigned once, so the relevant statistic is the union size, not the sum of
+the image sizes. The lifting uses the known minimum and shell size of
+$P_{48p}$ and the explicitly supplied class and automorphism matrices.
+
 **Lattice sections and moments.** A section is governed by the geometry of
 its embedding, not just by its abstract Gram type. Dimension 43 exploits
 this distinction inside an embedded $E_8$. Dimension 45 changes the parent
@@ -41,6 +64,14 @@ The embedded $E_8$ parent is part of the cross-section framework of
 The new $D_5$ count uses its specified embedding and a target-preserving
 43-orbit moment system. Historical numerical comparisons cite the earlier
 Sun–Wang v3, which explicitly reports the two comparison counts.
+
+**Partial fibres and parity.** The historical 18-dimensional construction
+keeps a 5,350-point core, adds 2,048 points from partial fibres and fills
+832 compatible holes. Parity characters control which fibre subsets may
+coexist; a finite angle palette turns the remaining geometric conditions
+into exact compatibility checks. The resulting 8,230-point construction
+and its pairwise verification are retained with the later research on
+partial fibres.
 
 ## Discovery, construction and proof
 

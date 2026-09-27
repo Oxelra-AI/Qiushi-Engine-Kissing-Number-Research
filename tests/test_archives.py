@@ -13,10 +13,65 @@ sys.path.insert(0, str(ROOT / "tools"))
 from build_reports import report_sources
 from package_files import approved_paths, contained_file, write_manifest
 from package_reports import package
+from package_paper import package as package_paper, paper_sources
 from supplement import contents
 
 
 class ArchiveMembership(unittest.TestCase):
+    def paper_fixture(self, root):
+        data = {'paper/main.tex': r'\input{preamble}\input{sections/result}\bibliography{references}',
+                'paper/preamble.tex': r'\usepackage{amsmath}',
+                'paper/sections/result.tex': 'A construction.\n',
+                'paper/references.bib': '',
+                'paper/sections/parity.tex': 'Unused historical section.\n'}
+        for name, text in data.items():
+            path = root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text)
+        write_manifest(root, data)
+        return set(data) - {'paper/sections/parity.tex'}
+
+    def test_paper_export_follows_active_inputs_and_uses_submission_root(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            expected = self.paper_fixture(root)
+            (root / 'paper/draft.tex').write_text('Not for export.\n')
+            self.assertEqual(set(paper_sources(root)), expected)
+            with patch('package_paper.archive_bytes', return_value=b'Finite data'):
+                output = package_paper(root)
+            with zipfile.ZipFile(output) as bundle:
+                self.assertEqual(set(bundle.namelist()),
+                    {str(Path(name).relative_to('paper')) for name in expected}
+                    | {'anc/certificates.zip', 'README.md'})
+                self.assertEqual(bundle.read('anc/certificates.zip'), b'Finite data')
+                self.assertIn(b'latexmk -xelatex', bundle.read('README.md'))
+                self.assertNotIn(b'make paper', bundle.read('README.md'))
+
+    def test_paper_export_rejects_unapproved_input(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.paper_fixture(root)
+            (root / 'paper/main.tex').write_text(r'\input{draft}')
+            (root / 'paper/draft.tex').write_text('Not for export.\n')
+            with self.assertRaisesRegex(ValueError, 'absent'):
+                paper_sources(root)
+
+    def test_paper_export_rejects_escaping_input(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.paper_fixture(root)
+            (root / 'paper/main.tex').write_text(r'\input{../private/note}')
+            with self.assertRaisesRegex(ValueError, 'nonrelative'):
+                paper_sources(root)
+
+    def test_paper_export_skips_commented_input_and_terminates_input_cycles(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            self.paper_fixture(root)
+            (root / 'paper/main.tex').write_text('% \\input{draft}\n' + r'\input{preamble}')
+            (root / 'paper/preamble.tex').write_text(r'\input{main}')
+            self.assertEqual(set(paper_sources(root)), {'paper/main.tex', 'paper/preamble.tex'})
+
     def fixture(self, root):
         data = {"LICENSE": "License\n", "RIGHTS.md": "Rights\n", "CITATION.cff": "title: Example\n",
                 "requirements.txt": "", "tools/package_files.py": "", "tools/reproduce.py": "",

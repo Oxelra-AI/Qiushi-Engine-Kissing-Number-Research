@@ -10,4 +10,5 @@
 
 The complete computational replay is recorded under
 [evidence](../../evidence/README.md). The catalogue is the source for the
-result tables in the repository and both reports.
+current result tables in the repository, paper and complete reports. The
+published livestream reports retain their original dated comparisons.

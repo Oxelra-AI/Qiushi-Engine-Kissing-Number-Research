@@ -1,0 +1,131 @@
+\section{An explicit Pless neighbour and its minimal shell}\label{app:pless-neighbour}
+
+This appendix establishes the minimum and shell size in an explicit
+integer model of an even neighbour. The theta-series argument applies
+to every extremal even unimodular lattice of rank 48, including the
+catalogue lattice in Section~\ref{app:p48} and the QR neighbour in
+Section~\ref{sec:projection45}.
+
+\subsection{The specified even neighbour}
+Index the rows and columns of a $24\times24$ matrix $S$ by
+$\{\infty\}\cup\F_{23}$, in that order. With $\chi$ the quadratic
+character modulo $23$, set
+\begin{equation}\label{eq:paley}
+ S_{\infty\infty}=0,\quad S_{\infty j}=1,\quad S_{i\infty}=-1,
+ \quad S_{ij}=\chi(i-j)\quad(i,j\in\F_{23}).
+\end{equation}
+The identity $SS^{\mathsf T}=23I$ follows from the quadratic-character
+sum $\sum_x\chi(i-x)\chi(j-x)=-1$ for $i\ne j$. Consequently the
+ternary code
+\[
+ C_3=\{(u,uS):u\in\F_3^{24}\}\subset\F_3^{48}
+\]
+is self-dual: its systematic generator has rank $24$, and
+$I+SS^{\mathsf T}=24I=0$ over $\F_3$. Put
+\begin{equation}\label{eq:construction-A}
+ M=\{z\in\Z^{48}:z\bmod3\in C_3\},\qquad L=M/\sqrt3.
+\end{equation}
+The row basis
+\[
+ \begin{pmatrix}I_{24}&S\\0&3I_{24}\end{pmatrix}
+\]
+has determinant $3^{24}$. The code orthogonality makes $L$ integral,
+and the scaling gives covolume one. It is odd, since it contains
+$3e_0/\sqrt3$ of squared norm three.
+
+Let $L_0=\{x\in L:x\cdot x\in2\Z\}$ and define
+\begin{equation}\label{eq:characteristic}
+ c=(1^{24},-23,1^{23}),\qquad g=c+6e_0,
+ \qquad L'=L_0\cup\left(\frac{g}{2\sqrt3}+L_0\right).
+\end{equation}
+The characteristic congruence
+$c\cdot z/3\equiv z\cdot z/3\pmod2$ for $z\in M$ is checked on
+the displayed basis. This suffices since the squared norm modulo two
+is additive on an integral lattice. Also $g/\sqrt3\in L_0$,
+$g\cdot g/3=208$, and $g/(2\sqrt3)$ has squared norm $52$.
+Its product with $z/\sqrt3\in L_0$ is integral by the characteristic
+congruence. Thus~\eqref{eq:characteristic} is an even lattice, obtained
+by extending the index-two sublattice $L_0$ by two cosets, and has
+covolume one.
+
+The matrix~\eqref{eq:paley} is the defining matrix of the Pless symmetry
+code $C(23)$, with the same signs and coordinate order as
+\cite[Section~1]{tonchev}. In particular, $C_3$ has minimum Hamming
+weight $15$~\cite{pless,tonchev}. The sum of the rows of $(I\mid S)$
+is $c$, so $C_3$ contains the all-one word. We shall also use the
+following consequence of the complete weight enumerator of an extremal
+ternary self-dual $[48,24,15]$ code containing that word:
+\begin{equation}\label{eq:binary-words}
+ \sum_{b\in C_3\cap\{0,1\}^{48}} t^{\wt(b)}
+   =1+94t^{24}+t^{48}.
+\end{equation}
+This is the two-symbol specialization of
+\cite[equation~(20)]{munemasa-tamura}. These two code-theoretic facts
+determine which of the possible short vectors can occur in the even
+neighbour.
+
+\begin{theorem}[The mother shell]\label{thm:p48-shell}
+The lattice $L'$ in~\eqref{eq:characteristic} is even unimodular,
+has minimum squared norm $6$, and has exactly $52416000$ vectors of
+squared norm $6$.
+\end{theorem}
+\begin{proof}
+Evenness and unimodularity were established above. Suppose first that
+$z/\sqrt3\in L_0$ has squared norm $2$ or $4$. Then $z\cdot z$ is
+$6$ or $12$. A nonzero residue $z\bmod3$ would have Hamming weight
+at least $15$, whereas its weight is at most $z\cdot z$. Hence
+$z=3w$ for some integer vector $w$. Its squared norm is $3w\cdot w$,
+which is even only when $w\cdot w$ is even, and is therefore at least
+$6$ if nonzero.
+
+A vector in the other coset has the form $y/(2\sqrt3)$, where
+$y=g+2z$ and $z/\sqrt3\in L_0$. All $48$ coordinates of $y$ are odd,
+so its squared norm is at least $4$. Equality would force
+$y\in\{1,-1\}^{48}$. Let $b$ be the incidence vector of its negative
+coordinates and put $w=\wt(b)$. Since $g\equiv\boldsymbol1\pmod3$,
+the identity $z=(y-g)/2$ gives $-z\equiv b\pmod3$. Consequently
+$b\in C_3$, and~\eqref{eq:binary-words} implies $w\in\{0,24,48\}$.
+On the other hand, $c_i\equiv1\pmod6$, $\sum_i c_i=24$, and
+$c\cdot g=582$. It follows that
+\begin{equation}\label{eq:odd-parity}
+ c\cdot z
+ =\frac{\sum_i c_i-c\cdot g}{2}-\sum_{i:b_i=1}c_i
+ \equiv3-w\equiv3\pmod6.
+\end{equation}
+This contradicts $z/\sqrt3\in L_0$, which requires
+$c\cdot z\equiv0\pmod6$. Thus neither coset contains a vector of
+squared norm $2$ or $4$. The vector $\sqrt3(e_0+e_1)\in L_0$
+has squared norm $6$, proving the asserted minimum.
+
+It remains to count the minimum shell. Write
+$\Theta_{L'}(q)=\sum_{x\in L'}q^{x\cdot x/2}$. The theta series of
+an even unimodular lattice of rank $48$ is a modular form of weight
+$24$~\cite{conway1999sphere,mos}. The space has basis
+$E_4^6,E_4^3\Delta,\Delta^2$. Its constant term and the vanishing
+coefficients of $q$ and $q^2$ therefore give
+\begin{equation}\label{eq:theta48}
+ \Theta_{L'}=E_4^6-1440E_4^3\Delta+125280\Delta^2.
+\end{equation}
+Substituting
+$E_4=1+240q+2160q^2+6720q^3+O(q^4)$ and
+$\Delta=q-24q^2+252q^3+O(q^4)$ yields
+\[
+ \Theta_{L'}=1+52416000q^3+O(q^4),
+\]
+as required.
+\end{proof}
+
+Within this Pless-code model, the shift can equivalently be written
+using $g_*=\boldsymbol1+6e_0$: indeed,
+$(g-g_*)/2=-12e_{24}\in\sqrt3L_0$, so $g$ and $g_*$ define the
+same coset of $L_0$. This is the all-one neighbour construction in
+\cite{munemasa-tamura}; the parity calculation above explains directly
+why this choice excludes the norm-four vectors. The liftings of
+Section~\ref{app:p48} use the catalogue Gram basis and its published
+minimum directly; the projection of Section~\ref{sec:projection45}
+uses the separately specified QR neighbour.
+
+The norm-six shell of $L'$, divided by $\sqrt6$,
+is a kissing configuration $C$ of size $52416000$. Indeed, for two
+distinct shell vectors $x,x'$, the nonzero lattice vector $x-x'$
+has squared norm at least six, so $x\cdot x'\le3$.

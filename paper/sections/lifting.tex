@@ -1,0 +1,237 @@
+\section{Lifting and the cost of reusing a direction}\label{sec:lifting}
+
+Let $C\subset S^{D-1}$ be a kissing configuration. Decompose the enlarged
+space as $\R^{D+k}=\R^D\oplus\R^k$. We refer to the second component as
+the \emph{tail}. Fix $\ell\ge1$ distinct tails $t_1,\ldots,t_\ell$ with
+$0<\norm{t_i}<1$, and put $a_i=\sqrt{1-\norm{t_i}^2}$. Choose subsets
+$A_i\subseteq C$, write $U=\bigcup_i A_i$, and let
+$Y\subset S^{k-1}$ be a kissing configuration. Consider
+\begin{align}
+ Z&=\{(x,0):x\in C\setminus U\},\nonumber\\
+ M&=\bigcup_{i=1}^{\ell}\{(a_i x,t_i):x\in A_i\},\label{eq:general-lift}\\
+ P&=\{(0,y):y\in Y\}.\nonumber
+\end{align}
+Put $X=Z\cup M\cup P$. The three parts are distinguished by their
+first-component norms.
+Different tail labels distinguish the copies in $M$, so
+\begin{equation}\label{eq:lift-count}
+ |Z\cup M\cup P|=|C|-|U|+\sum_i|A_i|+|Y|.
+\end{equation}
+
+\begin{theorem}[Labelled lifting criterion]\label{lem:lift}
+The set in~\eqref{eq:general-lift} is a kissing configuration if and only if
+\begin{align}
+ a_i a_j\ip{x}{x'}+\ip{t_i}{t_j}&\le\frac12
+ &&\text{whenever }(x,i)\ne(x',j),\ x\in A_i,\ x'\in A_j,
+ \label{eq:lift-mixed}\\
+ \ip{t_i}{y}&\le\frac12
+ &&(i\text{ with }A_i\ne\varnothing,\ y\in Y).\label{eq:lift-pure}
+\end{align}
+\end{theorem}
+\begin{proof}
+Every point has norm one. Equator--equator and pure-tail pairs inherit
+the inequalities for $C$ and $Y$. Equator--pure-tail pairs are orthogonal.
+For an equator--mixed pair, the two original directions are different
+because the equator excludes $U$; their inner product is at most
+$a_i/2<1/2$. The remaining pairs have exactly the products in
+\eqref{eq:lift-mixed} and~\eqref{eq:lift-pure}, which are therefore
+both necessary and sufficient.
+\end{proof}
+
+Equivalently, the tail Gram matrix specifies a threshold matrix
+\begin{equation}\label{eq:kappa}
+ \kappa_{ij}=\frac{1/2-\ip{t_i}{t_j}}{a_i a_j},
+\end{equation}
+and the selected base directions must satisfy
+$\ip{x}{x'}\le\kappa_{ij}$ for every distinct labelled pair.
+This formulation allows unequal latitudes. It turns the geometric
+assembly into a finite family of compatibility conditions on the
+mother configuration, with the pure-tail conditions kept separate.
+
+For equal tail norms, put $\norm{t_i}^2=h^2$ and
+$a_i=a=\sqrt{1-h^2}$. Two different conditions occur within
+\eqref{eq:lift-mixed}. Points
+with the same label require
+\begin{equation}\label{eq:block-threshold}
+ \ip{x}{x'}\le\frac{1/2-h^2}{1-h^2}\qquad(x\ne x',\ x,x'\in A_i),
+\end{equation}
+whereas two copies of the same direction require
+\begin{equation}\label{eq:reuse-threshold}
+ \ip{t_i}{t_j}\le h^2-\frac12\qquad(x\in A_i\cap A_j,\ i\ne j).
+\end{equation}
+The first inequality controls the size of a block; the second controls
+its multiplicity. These are the two geometric restrictions behind the
+counting formula.
+
+\subsection{The incidence-capacity inequality}
+For general tail norms define a graph $\Gamma$ on the labels by
+\begin{equation}\label{eq:reuse-graph}
+ ij\in E(\Gamma)\quad\Longleftrightarrow\quad
+ a_i a_j+\ip{t_i}{t_j}\le\frac12\qquad(i\ne j).
+\end{equation}
+The labels assigned to one base direction must form a clique in
+$\Gamma$. This condition gives a capacity inequality independently of
+the detailed relations between different base directions.
+
+\begin{proposition}[Weighted incidence bound]\label{prop:weighted}
+Suppose~\eqref{eq:general-lift} is a kissing configuration with
+$|A_i|\le\alpha_i$. If nonnegative numbers $\lambda_1,\ldots,\lambda_\ell$
+satisfy
+\begin{equation}\label{eq:clique-cover}
+ \sum_{i\in J}\lambda_i\ge |J|-1
+ \quad\text{for every nonempty clique }J\text{ of }\Gamma,
+\end{equation}
+then
+\begin{equation}\label{eq:weighted-capacity}
+ |X|\le |C|+|Y|+\sum_i\lambda_i\alpha_i.
+\end{equation}
+Equality holds exactly when every used direction's label clique is
+tight in~\eqref{eq:clique-cover} and every label with
+$\lambda_i>0$ reaches its capacity.
+\end{proposition}
+\begin{proof}
+For $x\in U$, let $J(x)=\{i:x\in A_i\}$. The count gives
+\[
+ |X|-|C|-|Y|=\sum_{x\in U}(|J(x)|-1)
+ \le\sum_{x\in U}\sum_{i\in J(x)}\lambda_i
+ =\sum_i\lambda_i|A_i|\le\sum_i\lambda_i\alpha_i.
+\]
+Both inequalities are sums of nonnegative deficits. Their equality
+conditions are precisely those stated.
+\end{proof}
+
+If $\Gamma$ has clique number $\omega$, the uniform choice
+$\lambda_i=1-1/\omega$ is feasible. Thus
+\begin{equation}\label{eq:clique-capacity}
+ |X|\le |C|+|Y|+
+ \left(1-\frac1\omega\right)\sum_i\alpha_i.
+\end{equation}
+Minimizing $\sum_i\lambda_i\alpha_i$ subject to
+\eqref{eq:clique-cover} gives a finite linear program on the labels;
+a feasible rational choice already supplies an exact upper bound
+for the prescribed lifting family. For the twelve tails below, eight
+triangles are the maximum cliques and four disjoint triangles saturate
+the uniform bound. The geometry also bounds multiplicity without
+enumerating this graph, by the simplex-bound argument of
+Rankin~\cite{rankin} applied to the tails.
+
+\begin{proposition}[Multiplicity bound]\label{prop:multiplicity}
+Suppose~\eqref{eq:general-lift} is a kissing configuration, all tails
+have squared norm $h^2$, and $h^2<1/2$. The number of copies of any
+original direction is at most
+\begin{equation}\label{eq:max-multiplicity}
+ r=\left\lfloor\frac1{1-2h^2}\right\rfloor.
+\end{equation}
+If $|A_i|\le\alpha_i$, its cardinality is consequently at most
+\begin{equation}\label{eq:reuse-bound}
+ |C|+|Y|+\left(1-\frac1r\right)\sum_i\alpha_i.
+\end{equation}
+\end{proposition}
+\begin{proof}
+Suppose one direction occurs at $m$ labels. By
+\eqref{eq:reuse-threshold}, the sum of their tails satisfies
+\[
+ 0\le\norm{\sum_{i=1}^{m}t_i}^2
+ \le mh^2+m(m-1)(h^2-1/2)
+ =\frac m2\bigl(1-m(1-2h^2)\bigr).
+\]
+This proves~\eqref{eq:max-multiplicity}. If $m(x)$ is the multiplicity
+of $x\in U$, the gain in~\eqref{eq:lift-count} is
+\[
+ \sum_{x\in U}(m(x)-1)
+ \le\left(1-\frac1r\right)\sum_{x\in U}m(x)
+ =\left(1-\frac1r\right)\sum_i|A_i|.
+\]
+Adding the pure tails proves~\eqref{eq:reuse-bound}.
+\end{proof}
+
+The relation between block separation and multiplicity can be
+realized for every integer multiplicity, using a regular simplex.
+
+\begin{proposition}[Simplex specialization]\label{prop:simplex}
+Let $r\ge2$, let $C\subset S^{D-1}$ be a kissing configuration, and
+let $B\subset C$ have maximum inner product at most $1/(r+1)$.
+There is a kissing configuration in $\R^{D+r-1}$ with
+$|C|+(r-1)|B|$ points. It replaces each direction of $B$ by $r$
+copies with tails of squared norm $(r-1)/(2r)$.
+\end{proposition}
+\begin{proof}
+In the hyperplane $\sum_i z_i=0$ of $\R^r$, put
+\[
+ t_i=\frac1{\sqrt2}\left(e_i-\frac1r\boldsymbol1\right),
+ \qquad a=\sqrt{\frac{r+1}{2r}}\qquad(1\le i\le r).
+\]
+The tails satisfy $\norm{t_i}^2=(r-1)/(2r)$ and
+$\ip{t_i}{t_j}=-1/(2r)$ for $i\ne j$. Retain $C\setminus B$
+at the equator and use all $(ax,t_i)$ with $x\in B$.
+Same-label, distinct-direction products are at most
+\[
+ \frac{r+1}{2r}\frac1{r+1}+\frac{r-1}{2r}=\frac12.
+\]
+Distinct labels on the same direction give
+$(r+1)/(2r)-1/(2r)=1/2$, and distinct labels on different
+directions give at most zero. Theorem~\ref{lem:lift} proves
+validity, and~\eqref{eq:lift-count} gives the count.
+\end{proof}
+
+At this tail norm the multiplicity bound is $r$, and equality in
+its norm-of-sum proof forces the used tails to sum to zero, with
+every mutual inner product $-1/(2r)$. Their Gram matrix has rank
+$r-1$, so this equality geometry is precisely a regular simplex.
+Thus the threshold $1/(r+1)$, the multiplicity $r$, and the
+$(r-1)$ additional dimensions fit the same equality case. The
+Leech application below fits several such triangles into one
+three-dimensional tail space and also accommodates pure tails.
+
+At $h^2=1/4$ the block threshold is $1/3$ and a direction can occur
+twice. At $h^2=1/3$ the threshold is $1/4$ and a direction can occur
+three times. The two Leech constructions realize these two cases.
+The first case extends to several disjoint blocks as follows.
+
+\begin{theorem}[Antipodal block lift]\label{thm:block-lift}
+Let $C\subset S^{D-1}$ be a kissing configuration, and let
+$B_1,\ldots,B_t\subset C$ be pairwise disjoint subsets satisfying
+\[
+ \ip{x}{x'}\le\frac13\qquad(x\ne x',\ x,x'\in B_i).
+\]
+Let $Y\subset S^{k-1}$ be a kissing configuration containing $t$
+distinct antipodal pairs $\{\pm u_i\}$. Then
+\begin{align}
+ X={}&\{(x,0):x\in C\setminus\textstyle\bigcup_iB_i\}\nonumber\\
+ &\quad\cup\{(\tfrac{\sqrt3}{2}x,\tfrac\eps2u_i):
+                     x\in B_i,\ \eps\in\{\pm1\}\}
+       \cup\{(0,y):y\in Y\}\label{eq:antipodal-lift}
+\end{align}
+is a kissing configuration in $\R^{D+k}$ with
+\begin{equation}\label{eq:antipodal-count}
+ |X|=|C|+\sum_i|B_i|+|Y|.
+\end{equation}
+\end{theorem}
+\begin{proof}
+Use Theorem~\ref{lem:lift} with tails $\pm u_i/2$. A mixed point has
+inner product at most $1/2$ with every pure tail by Cauchy--Schwarz.
+For two mixed points in one block at the same tail, the bound is
+$(3/4)(1/3)+1/4=1/2$. At opposite tails, different original directions
+give at most zero, and equal directions give $3/4-1/4=1/2$.
+
+For points from different blocks, the original directions are distinct,
+as are the directed tail labels. Their inner product is at most
+$(3/4)(1/2)+(1/4)(1/2)=1/2$. Thus all conditions of the theorem hold.
+Each selected direction is deleted once and used twice, giving the count.
+\end{proof}
+
+For one block and $Y=\{-1,1\}$ this construction lifts to two latitudes
+and includes both poles. In fact their presence fixes the height.
+If $(\sqrt{1-h^2}x,\pm h)$ are both used, their mutual inner product
+$1-2h^2$ requires $h^2\ge1/4$. The poles require $|h|\le1/2$.
+Thus $|h|=1/2$, for $0<|h|<1$. The same-latitude inequality at this
+height is exactly the block threshold $1/3$ in the theorem.
+
+Formula~\eqref{eq:antipodal-count} also explains why the construction can
+outperform the orthogonal union of $C$ and $Y$: every selected direction
+contributes one additional point. The finite question is therefore to
+find many disjoint, sufficiently separated blocks inside one mother
+configuration. Section~\ref{app:p48} gives a large instance of this
+question. Section~\ref{sec:motion25} varies the geometry of a two-latitude
+lift, while Section~\ref{sec:leech} treats a different reuse geometry in
+which each direction contributes two additional points.

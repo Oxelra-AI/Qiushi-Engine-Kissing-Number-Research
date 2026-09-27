@@ -1,0 +1,94 @@
+\section{Finite verification}\label{sec:certificates}
+Each lower bound has two parts: a mathematical reduction covering
+all types of point pairs, and a finite witness satisfying the reduction's
+hypotheses. The supplement contains these witnesses and programs
+for checking the required identities and inequalities.
+Table~\ref{tab:certificates} identifies the finite objects used in the
+proofs; paths are relative to \qpath{constructions/}.
+
+\begin{table}[ht]
+\centering\small
+\caption{Finite inputs to the construction proofs.}
+\label{tab:certificates}
+\begin{tabular}{@{}p{.13\textwidth}p{.57\textwidth}p{.23\textwidth}@{}}\toprule
+Dimensions & Mathematical input & Location\\\midrule
+25 & Head data, the 552-point layer and two repair vectors & \qpath{d25/}\\
+27 & Five 496-point blocks; first-layer heads and 311 labelled second-layer owners
+   & \qpath{leech/}, \qpath{d27/}\\
+32--34, 37, 39 & Complete weight-eight support lists, parent families and exchanges
+   & \qpath{codes/data/}\\
+35--37 & Signed local codes and their boundary embeddings & \qpath{codes/}\\
+38 & Shell partition, tail rotation and 144 added lines & \qpath{d38/}\\
+49--55 & The 7077-line class, isometries and tail assignments & \qpath{p48/}\\
+43 & Parent embedding, orbit data and target-count certificate & \qpath{sections/d43/}\\
+45 & QR-neighbour basis, moment multipliers, parent graph and 298 witnesses
+   & \qpath{sections/qr/}, \qpath{sections/d45/}\\\bottomrule
+\end{tabular}
+\end{table}
+
+For dimension 25, the checker first certifies the 197579-point input
+from its integer and rational head data. The 552-point motion has
+symbolically preserved equalities, as proved in
+Section~\ref{sec:motion25}. The remaining strict inequalities use
+192-bit outward-rounded Arb intervals or integer comparisons after
+squaring positive quantities. The two repair vectors are given as
+integer rows with exact normalization.
+
+For the triangular Leech lifting, the inputs are five 496-point blocks, the Golay
+coordinate convention, and exact tail coordinates. Integer products,
+membership, disjointness and radical identities establish the hypotheses
+of the lifting theorem. The separate implementations are
+\qpath{leech/verify.py} and \qpath{leech/verify_independent.py}.
+The updated dimension-27 construction additionally
+checks all first-layer owners, the 311 second-layer owners and labels,
+and every interlayer inequality in Section~\ref{sec:leech-two-layer}.
+For the layered constructions, support intersection
+checks are combined with the distances of the dense binary code or its
+coset unions. The five supplied parent families also reproduce the
+support exchanges, including the exact union of deleted conflicts.
+The signed replacements additionally check every new signed pair and
+every boundary support intersection; in dimension 37 the checker
+regenerates all 512 vectors from the 32 transverse four-subsets.
+
+For the bounds in dimensions 49--55, the checker verifies the
+7077-line mother class in the catalogue Gram basis, the exact image
+matrices, the seven union counts, and an injective assignment to
+antipodal tail lines. The published minimum and the theta-series
+identity supply the mother-shell premise. The same images applied
+to the original 7069-line class verify every term in
+Table~\ref{tab:p48-gain}. The ambient minimum supplies the
+cross-block inequality.
+
+For dimension 38, the checker regenerates the Leech shell from
+the base package's Golay generator, checks the class partition,
+tail triples and rational rotation, and verifies the 144 new
+norm-48 lines against both the complete shell and one another.
+All pair products in the additional tests are integers. Two
+implementations check the 144-line extension.
+
+The dimension-43 verifier checks the concrete lattice embedding, then
+regenerates the 26641-signature domain, subgroup action, moment matrix
+and target vector from standard $E_8$ coordinates. It checks the supplied
+rational multiplier against this regenerated system. These latter steps
+use only the hypotheses of Theorem~\ref{d43:thm:structure}.
+The dimension-45 checks reconstruct the
+specified QR neighbour, verify its exact basis Gram, establish the
+norm-four parity obstruction, and check all 298 fibre witnesses.
+The parent-graph calculation checks all 2256 endpoints, their pairing
+about $p/2$, and the extraction of the same 298 witnesses.
+A separate rational calculation regenerates the 161-row moment system
+and checks the supplied multiplier in~\eqref{eq:45dual} directly.
+
+\subsection{Autonomous mathematical research}\label{sec:autonomous-research}
+The nineteen constructions arose from Qiushi Engine's autonomous
+mathematical research, encompassing construction searches, mathematical
+analysis and computational verification. Its research connected
+changes of representation with new finite objects: coordinated layer
+motion (Section~\ref{sec:motion25}), joint label selection
+(Section~\ref{sec:leech-two-layer}), signed-design transfer
+(Section~\ref{sec:signed}), and moment functionals adapted to the
+section counts (Sections~\ref{sec:sections} and~\ref{sec:projection45}).
+The accompanying research
+accounts describe these mathematical developments and identify their
+inputs and resulting constructions. Background on the research system
+is given in~\cite{qiushi-optics}.

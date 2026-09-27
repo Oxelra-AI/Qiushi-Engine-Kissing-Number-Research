@@ -1,0 +1,190 @@
+\section{A moment-certified projection in dimension 45}\label{sec:projection45}
+We obtain 7380090 points by projecting three fibres of the minimal
+shell of a quadratic-residue neighbour. The argument first establishes
+the minimum of this lattice, then bounds the three fibre sizes by
+an exact moment inequality and 298 explicit vectors.
+
+\subsection{The specified quadratic-residue neighbour}\label{sec:qr-neighbour}
+Let $C$ be the extended ternary quadratic-residue code of length 48.
+We use its published parameters $[48,24,15]$~\cite{leech-sloane1971,nebe}.
+The supplement constructs a generator by a degree-23 factor of
+$1+x+\cdots+x^{46}$ over $\F_3$ and a self-dual extension coordinate.
+The finite generator matrix fixes the factor, coordinate order and
+extension.
+Set
+\[
+M=\{z\in\Z^{48}:z\bmod3\in C\},\qquad L=M/\sqrt3,
+\qquad L_0=\{z/\sqrt3\in L:z^2\equiv0\pmod6\}.
+\]
+An integer basis $B_0$ for $M$ and a characteristic numerator
+$\chi\in M$ are supplied. They satisfy
+\[
+\chi_i\text{ odd for all }i,\qquad
+\chi^2=264,\qquad
+\chi\cdot z\equiv z^2\pmod6\quad(z\in M).
+\]
+The last congruence is checked on $B_0$ and extends by integrality.
+Define
+\[
+\Lambda=L_0\cup\bigl(\chi/(2\sqrt3)+L_0\bigr).
+\]
+The characteristic relation and $\chi^2/12=22$ make $\Lambda$ even
+and integral. The two index-two constructions give covolume one.
+The supplied integer basis $B$ satisfies $BB^t=12G$ for the exact
+Gram matrix $G$ of the 298-vector certificate. It is reconstructed
+from $B_0$ and the two cosets by integer row operations; the verifier
+checks equality with the archived $G$, not merely its determinant.
+
+\begin{lemma}\label{lem:qr-minimum}
+The specified lattice $\Lambda$ has minimum squared norm six.
+\end{lemma}
+\begin{proof}
+In $L_0$, a putative vector of squared norm two or four has numerator
+$z$ with $z^2\le12$. The minimum code weight forces $z\bmod3=0$.
+Its nonzero squared norm is then $3w^2$, whose positive even values
+are at least six.
+
+In the other coset, the numerator $y=\chi+2z$ has all coordinates
+odd, so $y^2/12\ge4$. Equality requires $y_i=\pm1$.
+Let $s_i\in\{-1,1\}$ represent $\chi_i\bmod3$. The certificate
+checks that $s\in C$ and $\chi\cdot s=66$. Multiplying coordinates
+by $s$ yields an equivalent extremal ternary code containing the
+all-one word. Its binary-valued words have weights $0,24,48$, by
+the two-symbol specialization of the complete weight
+enumerator~\cite[equation (20)]{munemasa-tamura}.
+Write $y=s(1-2b)$ coordinatewise. Since $y\bmod3\in C$, the
+binary word $b$ belongs to the normalized code, and its weight $w$
+is one of these three values. But $\chi_i s_i\equiv1\pmod6$,
+so
+\[
+\chi\cdot z
+=\frac{\chi\cdot s-\chi^2}{2}-\sum_i\chi_i s_i b_i
+\equiv-99-w\equiv3\pmod6.
+\]
+This contradicts $z/\sqrt3\in L_0$. Evenness excludes other
+positive squared norms below six, and $\sqrt3(e_0+e_1)\in L_0$ has
+squared norm six.
+\end{proof}
+
+The weight-24 theta-series calculation in~\eqref{eq:theta48}
+now gives a minimal shell $X$ of size $52416000$. It is a spherical
+11-design~\cite{nebe-designs}. These are consequences for this
+specified Gram matrix, with the literature inputs and basis identities
+stated above.
+
+\subsection{A complete signature domain and its moments}
+The three stored section rows $T$ satisfy
+\[
+H=TGT^t=8I_3-2J_3
+=\begin{pmatrix}6&-2&-2\\-2&6&-2\\-2&-2&6\end{pmatrix},
+\quad H^{-1}=(I_3+J_3)/8,\quad\det H=128.
+\]
+For $x\in X$, put $y_i=\ip{x}{t_i}$ and write $f(y)$ for the
+number of vectors with that signature. The projection norm is
+$y^tH^{-1}y\le6$. The certificate also supplies integer rows $W$
+with $WGT^t=I_3$. Hence the section is primitive: if an ambient
+lattice vector has the form $x=aT$, then $a=xGW^t$ is integral.
+The section has eight norm-six vectors: the
+three basis vectors, their sum, and their negatives. Completeness
+follows because a section vector of norm six has integer coefficients
+bounded in absolute value by $\sqrt{6(H^{-1})_{ii}}=\sqrt{3/2}<2$.
+
+Unless $x$ is one of those eight vectors, the ambient minimum gives
+$|y\cdot z|\le3$ for each of their section coefficient rows $z$.
+The eight exceptional signatures have multiplicity one. Enumeration
+over the integer box $[-6,6]^3$, with the norm and root inequalities,
+therefore gives a complete domain of 239 signatures. Removing the
+eight exceptions and identifying antipodes leaves 116 nonnegative
+unknown fibre multiplicities, including the zero signature.
+
+For a multi-index $\alpha$ of degree $2m\le10$, the design identity is
+\begin{equation}\label{eq:45moment}
+\sum_{x\in X}\prod_{i=1}^3\ip{x}{t_i}^{\alpha_i}
+=\frac{|X|6^m}{48\cdot50\cdots(48+2m-2)}
+\sum_{P}\prod_{(a,b)\in P}H_{i_a i_b},
+\end{equation}
+where $P$ runs over pairings of the multiset with $\alpha_i$ copies
+of $i$. Subtracting the exceptional signatures gives $Av=b$ with
+161 moment rows and 116 variables. An antipodal nonzero orbit has
+coefficient $2y^\alpha$; the zero orbit has coefficient $0^\alpha$.
+All entries are rational and are regenerated from $H$.
+
+Let $c$ be the coefficient vector of
+\[
+f(e_1)+f(e_2)+f(e_3)-9f(-2,-2,3).
+\]
+The rational dual certificate provides a multiplier $\lambda$, with
+107 nonzero entries, satisfying
+\begin{equation}\label{eq:45dual}
+c-A^t\lambda\ge0,\qquad \lambda^tb=7377408.
+\end{equation}
+Because $v\ge0$, this proves
+\begin{equation}\label{eq:45count}
+f(e_1)+f(e_2)+f(e_3)\ge7377408+9f(-2,-2,3).
+\end{equation}
+Thus the moments bound the desired statistic even when they leave
+individual fibre sizes undetermined. The checker reconstructs
+the whole domain and all moment entries, then directly checks the stored
+multiplier and every rational reduced cost in~\eqref{eq:45dual}.
+
+\subsection{The witness and the kissing configuration}
+The certificate supplies 298 distinct integer coefficient rows $w$ with
+\[
+wGw^t=6,\qquad TGw^t=(-2,-2,3)^t.
+\]
+Consequently $f(-2,-2,3)\ge298$. Project the shell vectors in the
+three fibres as follows.
+
+\begin{theorem}\label{thm:d45}
+The projections of the shell vectors with signatures $e_1,e_2,e_3$,
+normalized to unit length, form a kissing configuration in dimension
+45 with at least 7380090 points.
+\end{theorem}
+\begin{proof}
+Project the
+three fibres $e_1,e_2,e_3$ to the section's orthogonal complement.
+Each projected squared norm is $6-1/4=23/4$.
+Two original distinct vectors have inner product at most three.
+Their projected products are therefore at most $3-1/4=11/4$ within
+one fibre and $3-1/8=23/8$ in different fibres. This also excludes
+collisions. Normalization gives a kissing configuration in dimension 45,
+and~\eqref{eq:45count} yields
+\[
+K(45)\ge7377408+9(298)=7380090.
+\]
+The 298-vector witness and the moment inequality together establish
+the count.
+\end{proof}
+
+\subsection{The change of search representation}
+For a squared-norm-eight anchor $p$, define
+$A_p=\{x\in X:\ip{x}{p}=4\}$. Integrality and the minimum
+bound imply $|\ip{x}{p}|\le4$. Applying the eighth moment to
+$P(t)=t^2(t^2-1)(t^2-4)(t^2-9)$ gives
+\[
+2P(4)|A_p|=90961920,\qquad P(4)=20160,\qquad |A_p|=2256.
+\]
+This converts completeness of a proposed parent set into a finite
+check of 2256 distinct valid vectors. Relations between endpoints
+can then be evaluated as common-neighbour counts on the same parent
+set, replacing repeated lattice enumeration for each section.
+
+The earlier Pless-lattice route found 292 witnesses. The 298-vector
+construction instead uses an anchor in the odd-coordinate sector of
+the QR neighbour: in numerator coordinates it has shape
+$(3^6,1^{42})$ up to signs and permutation. Pair each $x\in A_p$ with
+$p-x$. The resulting 1128 pairs are centred at $p/2$. Join two pairs
+when representatives have inner product one or three; changing an
+endpoint replaces the product by four minus itself, so adjacency is
+well defined. The graph has degree 368, and a selected nonadjacent
+pair represented by $r,s$ has 70 common neighbours.
+
+For each of the $368-70=298$ neighbours of $r$ that are not neighbours
+of $s$, orient its endpoint $a$ so that $\ip{r}{a}=3$.
+Then $\ip{s}{a}=2$. With section rows $T=(-s,s-p,p-r)$, the vector
+$w=p-a$ has squared norm six and signature $(-2,-2,3)$.
+The parent certificate specifies the anchor, chosen endpoints and
+complete parent set; its inputs are listed in Table~\ref{tab:certificates}.
+The checker reconstructs this graph and verifies that the extracted
+section and 298-vector set equal the final certificate.
+The additional search freedom lies in the parent anchor's sector and shape.

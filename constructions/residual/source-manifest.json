@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "files": [
+    {
+      "path": "d18/data/certificate.json",
+      "source_sha256": "dd0c28bb55b131f20be31e25b023282072188b45e715acc4da627ed3e15c2e78",
+      "sha256": "9028110d4bf517b23642f53f55cb7a991818de05aefb22e6dd020bc84abea244"
+    },
+    {
+      "path": "d18/verify.py",
+      "source_sha256": "a09f4cf52fe31316c2880be857cbf2042679af177523ebfc7aa2b96f20c0dc66",
+      "sha256": "3f44f701bbe74f44c7b11ef704abb315d55e3a765e65ee2a5273b2dd2ceb1cd9"
+    }
+  ]
+}

@@ -3,6 +3,61 @@
   "paths_relative_to": "repository root",
   "receipts": [
     {
+      "id": "leech",
+      "entry_point": "constructions/leech/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        25,
+        27
+      ],
+      "lower_bounds": [
+        197058,
+        200540
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Golay code, shell, blocks and exact tail inequalities."
+    },
+    {
+      "id": "leech-independent",
+      "entry_point": "constructions/leech/verify_independent.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        25,
+        27
+      ],
+      "lower_bounds": [
+        197058,
+        200540
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Independent shell-membership and exact algebraic checks."
+    },
+    {
+      "id": "leech-tails",
+      "entry_point": "constructions/leech/check_tails.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        27
+      ],
+      "lower_bounds": [
+        200540
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Common orthogonal transformation to the D3 tail model."
+    },
+    {
       "id": "codes",
       "entry_point": "constructions/codes/verify.py",
       "arguments": [
@@ -110,6 +165,23 @@
       "scope": "Exact signed replacements and retained-layer compatibility."
     },
     {
+      "id": "d18",
+      "entry_point": "constructions/residual/d18/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        18
+      ],
+      "lower_bounds": [
+        8230
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Reconstruct all points and check every pair in Q(sqrt(3))."
+    },
+    {
       "id": "d43",
       "entry_point": "constructions/sections/d43/verify.py",
       "arguments": [
@@ -176,6 +248,54 @@
       "scope": "Check 298 witnesses and the supplied rational dual against the regenerated complete signature domain and moment system."
     },
     {
+      "id": "p48-original",
+      "entry_point": "constructions/p48/legacy/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "lower_bounds": [
+        52425977,
+        52445822,
+        52475564,
+        52534909,
+        52613892,
+        52771283,
+        53034779
+      ],
+      "last_replay_date": "2026-09-25",
+      "status": "passed",
+      "scope": "Check all oriented blocks and their common Pless-code ambient; count the seven lifts."
+    },
+    {
+      "id": "d27",
+      "entry_point": "tools/verify_dimension27.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        27
+      ],
+      "lower_bounds": [
+        201567
+      ],
+      "last_replay_date": "2026-09-27",
+      "status": "passed",
+      "scope": "Reconstruct the shell, check both layers and symbolic pair bounds, and count the configuration.",
+      "receipt": "constructions/d27/verification.json",
+      "receipt_sha256": "513ebb7240885c1b064a2f076e0aa42653c1e68d839e3b6c8204529fc4e0579d"
+    },
+    {
       "id": "d38",
       "entry_point": "tools/verify_dimension38.py",
       "arguments": [
@@ -193,6 +313,37 @@
       "scope": "Reconstruct the base and check the frozen 144-line equator with integer arithmetic.",
       "receipt": "constructions/d38/verification.json",
       "receipt_sha256": "c3c44989700b426363b220904632096285b35e38f4a22041b3c8e8e77e67da03"
+    },
+    {
+      "id": "p48",
+      "entry_point": "constructions/p48/verify.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55
+      ],
+      "lower_bounds": [
+        52430156,
+        52458468,
+        52500930,
+        52585772,
+        52698696,
+        52923774,
+        53301140
+      ],
+      "last_replay_date": "2026-09-27",
+      "status": "passed",
+      "scope": "Check the 7077-line class, selected automorphism unions, tail codes and cap inequalities.",
+      "receipt": "constructions/p48/verification.json",
+      "receipt_sha256": "4948cff3dc48773dc9590fa0ddba644e4b088b550d6c629eb9b6f7e206fa5eba"
     },
     {
       "id": "support-exchanges",
@@ -229,6 +380,24 @@
       "last_replay_date": "2026-09-25",
       "status": "passed",
       "scope": "Verify the physical coordinates and complete 2256-endpoint parent, form its 1128-pair graph, and recover the section and all 298 final witnesses."
+    },
+    {
+      "id": "d25",
+      "entry_point": "tools/verify_dimension25.py",
+      "arguments": [
+        "--rejections",
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        25
+      ],
+      "lower_bounds": [
+        197580
+      ],
+      "last_replay_date": "2026-09-27",
+      "status": "passed",
+      "scope": "Exact baseline, analytic equalities, 192-bit Arb strict inequalities and two corrupted-repair rejection checks."
     }
   ],
   "literature_inputs": {

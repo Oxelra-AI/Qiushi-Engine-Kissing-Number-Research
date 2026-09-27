@@ -1,0 +1,261 @@
+\section{Layered binary codes and joint support exchanges}\label{sec:codes}
+
+The Leech lift gains points by changing how its finite blocks are used.
+The next construction instead keeps the layer geometry fixed and
+improves its binary ingredients. We first give the common geometric
+argument, then specify the support families and the dense sign codes.
+This order separates the dimension-independent proof from the finite
+objects that determine the cardinalities.
+
+\subsection{The three-layer construction}
+Let $n\ge m\ge32$. Choose a binary code $T\subset\F_2^m$ with minimum
+distance at least $\lceil m/4\rceil$, and a support family
+$\mathcal B\subseteq\binom{[n]}8$ such that
+\begin{equation}\label{eq:support}
+ |B\cap B'|\le4\qquad(B\ne B',\ B,B'\in\mathcal B).
+\end{equation}
+For the standard basis $e_0,\ldots,e_{n-1}$ of $\R^n$, define
+\begin{align}
+ X_T&=\left\{\frac1{\sqrt m}\sum_{i=0}^{m-1}(-1)^{c_i}e_i:c\in T\right\},
+ \label{eq:sign-layer}\\
+ X_M&=\left\{\frac1{\sqrt8}\sum_{i\in B}\eps_i e_i:
+       B\in\mathcal B,\ \eps_i\in\{\pm1\},\ \prod_{i\in B}\eps_i=1\right\},
+ \label{eq:middle-layer}\\
+ X_R&=\left\{\frac{\eps e_i+\eps'e_j}{\sqrt2}:
+       0\le i<j<n,\ \eps,\eps'\in\{\pm1\}\right\}.
+ \label{eq:root-layer}
+\end{align}
+The final layer consists of the normalized $D_n$ roots.
+
+\begin{proposition}[Three-layer specialization of ERS~\cite{ers}]
+\label{prop:ers}
+The union $X_T\cup X_M\cup X_R$ is a kissing configuration with
+\begin{equation}\label{eq:ers-count}
+ |X|=|T|+128|\mathcal B|+2n(n-1).
+\end{equation}
+\end{proposition}
+\begin{proof}
+All points are unit vectors. Their support sizes $m$, eight, and two
+distinguish the layers. Within each layer, the signs and support recover
+the parameters uniquely. On an eight-element support there are $2^7$
+even sign patterns; on a two-element support there are four sign
+patterns. This proves the count.
+
+In the dense layer, two codewords at distance $d$ have inner product
+$1-2d/m\le1/2$. On one middle support, two distinct even sign patterns
+differ in at least two positions, giving at most $(8-4)/8=1/2$.
+On different middle supports,~\eqref{eq:support} gives at most four
+contributions of $1/8$. Two roots with different supports share at most
+one coordinate, giving at most $1/2$; on the same support distinct
+roots have inner product zero or $-1$.
+
+For the three cross-layer cases, the numbers of overlapping coordinates
+give respectively
+\begin{equation}\label{eq:ers-cross}
+ \ip{X_T}{X_M}\le\sqrt{8/m},\qquad
+ \ip{X_T}{X_R}\le\sqrt{2/m},\qquad
+ \ip{X_M}{X_R}\le\frac{2}{\sqrt8\sqrt2}=\frac12.
+\end{equation}
+Here the notation denotes the maximum over the indicated two layers.
+The first two bounds are at most $1/2$ because $m\ge32$.
+If a middle support extends beyond the first $m$ coordinates, the
+overlap is smaller. Thus every pair satisfies~\eqref{eq:kissing}.
+\end{proof}
+
+The proof imposes no coupling between particular support words and
+particular sign words. Any inputs with the stated parameters can be
+combined. In particular, one additional support contributes $128$
+points, and an increase in the sign-code size contributes its full
+cardinality increment.
+
+\subsection{The support families}
+For eight-element supports the identity
+\[
+ d_H(B,B')=16-2|B\cap B'|
+\]
+identifies~\eqref{eq:support} with minimum distance eight. The following
+finite objects supply the middle layers.
+
+\begin{theorem}\label{thm:supports}
+The following constant-weight-code lower bounds hold:
+\[
+\begin{array}{c|rrrrr}
+ n&33&34&37&38&39\\\hline
+ A(n,8,8)\ge&1803&1960&2843&3077&3383.
+\end{array}
+\]
+\end{theorem}
+\begin{proof}[Finite verification]
+The complete binary-mask lists $\mathcal B_n$ are specified in
+Table~\ref{tab:certificates}.
+For the list of length $n$, every mask is nonnegative and less
+than $2^n$, has exactly eight set bits, and occurs once. Every unordered
+pair has an intersection of size at most four. Direct pairwise checks
+give the distributions in Table~\ref{tab:support-histograms}.
+An independent equivalent check enumerates all five-element subsets of
+each support: no such subset occurs in two supports. This equivalence
+holds because an intersection has size at least five exactly when it
+contains a five-subset. In total $56|\mathcal B_n|$ distinct keys are
+obtained. These finite checks establish the stated codes.
+\end{proof}
+
+\begin{table}[ht]
+\centering\small
+\caption{Support cardinalities and numbers $h_j$ of unordered pairs
+with intersection size $j$. All other intersection counts are zero.}
+\label{tab:support-histograms}
+\input{generated/support-histograms}
+\end{table}
+
+The final support families arise from exchanges in the constant-weight
+space. For an incumbent family $\mathcal B$ and a new support $c$, let
+$F(c)=\{b\in\mathcal B:|b\cap c|>4\}$. If
+$Y\subseteq\binom{[n]}8\setminus\mathcal B$ is internally compatible,
+then
+\begin{equation}\label{eq:exchange}
+ \mathcal B'=(\mathcal B\setminus F(Y))\cup Y,
+ \qquad F(Y)=\bigcup_{c\in Y}F(c),
+ \qquad |\mathcal B'|-|\mathcal B|=|Y|-|F(Y)|.
+\end{equation}
+The old--old and new--new pairs are compatible by assumption; all
+incompatible old--new pairs have been removed. The union in $F(Y)$
+is essential: several inserted words may share deletion costs, allowing
+a positive joint exchange even when no single insertion improves the
+cardinality.
+
+The final transitions are
+\[
+\begin{array}{c|rrrrr}
+n&33&34&37&38&39\\\hline
+\text{parent size}&1802&1959&2840&3076&3382\\
+|F(Y)|&9&6&37&6&14\\
+|Y|&10&7&40&7&15\\
+\text{final size}&1803&1960&2843&3077&3383.
+\end{array}
+\]
+The certificate includes each complete parent and its inserted and
+removed sets.
+The checker recomputes each conflict union $F(Y)$ and reconstructs
+the final family by~\eqref{eq:exchange}. The theorem itself uses the final complete
+witnesses, so its verification is independent of choices made during
+the search.
+
+\subsection{Dense layers from coset unions}
+Let $H\subset\F_2^m$ be linear and let $r_0,\ldots,r_{q-1}$ be coset
+representatives. Define
+\begin{equation}\label{eq:coset-union}
+ T=\bigcup_{a=0}^{q-1}(r_a+H),\qquad
+ \delta_{ab}=\min_{h\in H}\wt(r_a+r_b+h)\quad(a\ne b).
+\end{equation}
+Within one coset, distances between distinct words are the nonzero
+weights of $H$. Between two cosets, the difference set is exactly
+$r_a+r_b+H$. Thus the $\delta_{ab}$ determine all cross-coset minimum
+distances. Positive $\delta_{ab}$ also prove that the cosets are
+disjoint, giving $|T|=q2^{\dim H}$.
+
+\begin{proposition}\label{prop:signs}
+The generators and representatives in Appendix~\ref{app:codes} define
+the sign codes in Table~\ref{tab:signs}.
+\end{proposition}
+\begin{table}[ht]
+\centering
+\caption{Parameters of the dense sign codes.}
+\label{tab:signs}
+\begin{tabular}{rrrrrrl}
+\toprule
+$m$&$\dim H$&$d(H)$&$q$&$d(T)$&$|T|$&Used in dimension\\
+\midrule
+32&17&8&1&8&131072&32--37\\
+38&14&12&11&10&180224&38\\
+39&15&12&10&10&327680&39\\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{proof}[Finite verification]
+Binary elimination gives the three displayed ranks. Enumeration of
+the spans gives the weight distributions in Appendix~\ref{app:codes},
+whose least positive weights are eight, twelve, and twelve. The
+length-$32$ code uses the sole representative zero. For lengths $38$
+and $39$, enumeration of~\eqref{eq:coset-union} gives
+$\delta_{ab}=10$ for all $55$ and $45$ distinct representative pairs,
+respectively. The preceding difference-set argument proves the sizes
+and minimum distances. Finally, each distance is at least
+$\lceil m/4\rceil$, as required by Proposition~\ref{prop:ers}.
+\end{proof}
+
+The length-$32$ code is the Cheng--Sloane
+$[32,17,8]$ code~\cite{chengsloane}, in the generator convention of
+Grassl's table~\cite{grassl32}. The other two kernels have a common
+quadratic-residue origin. Let
+\begin{align}
+ g(x)={}&x^{23}+x^{19}+x^{18}+x^{14}+x^{13}+x^{12}+x^{10}+x^9
+ \nonumber\\
+ &\quad+x^7+x^6+x^5+x^3+x^2+x+1\in\F_2[x].\label{eq:qr}
+\end{align}
+Take the coefficient vectors of $x^ig(x)$, $0\le i<24$, as
+length-$47$ binary words, and append their parity at coordinate $47$.
+This specifies the extended quadratic-residue code in the chosen
+convention~\cite[Chapter~16]{macwilliams}. Shorten at coordinates
+$40,\ldots,47$, retaining coordinates $0,\ldots,39$ in order, to
+obtain a dimension-$16$ code $H_{40}$. Shortening $H_{40}$ at coordinate
+zero gives the printed $H_{39}$; shortening at coordinates zero and
+one gives the printed $H_{38}$. Here shortening imposes zeros before
+deleting coordinates. Exact row-space comparisons verify these
+identities and, in the displayed retained-coordinate conventions,
+\begin{equation}\label{eq:nesting}
+ H_{38}=\{(h_0,\ldots,h_{37}):(h_0,\ldots,h_{37},0)\in H_{39}\}.
+\end{equation}
+These reconstructions give both kernels a precise common source.
+The distance proof uses their explicit generators and the affine
+representatives rather than an assumed distance of a named mother code.
+
+\begin{proof}[The five layered-code constructions]
+For each $n\in\{33,34,37,38,39\}$, combine the support family of
+Theorem~\ref{thm:supports} with the sign code of
+Proposition~\ref{prop:signs}. Proposition~\ref{prop:ers} gives
+Table~\ref{tab:layers}. The dimension-37 and dimension-38 counts are
+improved further in Sections~\ref{sec:signed} and~\ref{sec:completion}.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{The three contributions to the five code-based configurations.}
+\label{tab:layers}
+\begin{tabular}{rrrrr}
+\toprule
+$n$&$|X_T|$&$|X_M|$&$|X_R|$&Total\\
+\midrule
+33&131072&230784&2112&363968\\
+34&131072&250880&2244&384196\\
+37&131072&363904&2664&497640\\
+38&180224&393856&2812&576892\\
+39&327680&433024&2964&763668\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At the first three lengths, the increase relative to the cited
+comparison is $128$ times the increase in support size, respectively
+$15$, $24$, and $11$. At the last two lengths, both the larger support
+families and the explicit coset unions enter the final count.
+The same geometric argument accommodates all five inputs, while
+their different dense-layer distances lead to the different local
+geometries considered next.
+
+\subsection{A new length-32 support family}
+The same construction applies to a verified family of 1676 eight-subsets
+of $[32]$. There are $1,403,650$ unordered support pairs. Their intersection
+histogram, in orders zero through four, is
+\[
+(112077,318935,601033,196122,175483).
+\]
+No larger intersection occurs. Together with the same $[32,17,8]$ dense
+code, Proposition~\ref{prop:ers} gives
+\[
+K(32)\ge 2^{17}+128(1676)+2(32)(31)=347584.
+\]
+The family was obtained from Echols's public 1667-word seed~\cite{echols} through joint
+exchanges. The final witness, rather than successful replay of a randomized
+search, is the finite input to this proof. The 2843-word length-37 family
+above is also improved to 2845 words. Section~\ref{sec:signed} uses this
+larger family and changes the sign patterns, giving a further gain.

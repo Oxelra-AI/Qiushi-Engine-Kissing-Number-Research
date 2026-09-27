@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\ip}[2]{\langle #1,#2\rangle}
+\title{A 197580-point kissing configuration in dimension 25}
+\author{}
+\date{26 September 2026}
+\begin{document}
+\maketitle
+
+\noindent
+This note describes a finite modification of the 197579-point configuration
+supplied in the public
+\href{https://github.com/alexlegeartis/KissingNumbers/tree/cf14c5ef4db6059bbf2e570e3f0ce24edfda243e/verifications/improved/dim25-lens-heads}
+{\texttt{KissingNumbers/dim25-lens-heads}} package.
+The original configuration, its 1016 heads, and the Leech-shell construction
+are inputs credited to that package. The modification below moves 552
+retained equatorial points, adjoins one point, and replaces two individual
+cap points.
+
+\paragraph{Normalization and input.}
+All points have squared norm 4; the kissing condition is an inner product
+at most 2 between distinct points. Write the input configuration as
+\[
+ C_0=\{(z,0):z\in L\setminus D\}
+ \cup\{(x_i,\pm1):0\le i<1016\}
+ \cup\{P_0,N,S\},
+\]
+where $L$ is the 196560-vector minimal shell of the Leech lattice,
+$|D|=1016$, $P_0=(P,0)$, and $N=(0,2)$, $S=(0,-2)$.
+The head indices refer to rows of the source \texttt{heads\_X.npy}; the
+mathematical values of its 44 rational heads are preserved as exact
+rational numbers in \texttt{baseline-heads.json}.
+
+Let $v$ be the first complete block's norm-6 lean and put $n=v/\sqrt6=-P/2$.
+An exact integer description of this direction is
+\[
+v=\frac{1}{\sqrt8}(-5,-1,-1,-1,-1,1,-1,1,-1,-1,-1,1,
+1,-1,-1,-1,1,1,-1,1,-1,-1,1,-1).
+\]
+The complete block is $U=\{u\in L:\ip uv=-3\}$, of size 552.
+Every $u\in U$ belongs to $D$. For each such $u$, the point $w=u+v$ is
+minimal, lies outside $D$, and satisfies $\ip uv=-3$ and $\ip uw=1$.
+The corresponding old cap points have horizontal coordinate
+$u+t v$, with $t=(3-\sqrt3)/6$.
+All these input identities are checked by the shell and owner data.
+
+\paragraph{The modification.}
+For $u\in U$ define
+\[
+r=u+\sqrt{3/2}\,n=w-\sqrt{3/2}\,n,\qquad
+a=\frac{\sqrt3}{2}+\frac{\sqrt2}{4},\qquad
+b=\frac{\sqrt6-2}{4}.
+\]
+Then $r\perp n$, $\|r\|^2=5/2$, and the old cap points over $u$ are
+$(r-n/\sqrt2,\pm1)$. Replace every $(w,0)$ by
+\[
+ W(r)=(r+a n,b),
+\]
+and adjoin
+\[
+ Q=(\sqrt3 n,-1)=(V/4,-1),
+\]
+where $V=\sqrt8\,v$ is the integer vector printed above. In particular,
+the new point $Q$ is rational and has squared norm $48/16+1=4$.
+Finally replace the upper point $(x_{984},1)$ and the lower point
+$(x_{1008},-1)$ by $R_+$ and $R_-$, respectively. The certificate specifies
+two integer vectors and defines
+\[
+ R_+=\frac{2k}{\sqrt{1007176}},\qquad
+ R_-=\frac{2\ell}{\sqrt{10209}},
+\]
+where the following integer vectors have squared norms 1007176 and 10209:
+\begin{align*}
+k={}&(-336,-9,-298,286,-17,15,-39,22,277,19,364,304,9,\!\\
+ &\phantom{(}-2,-24,-39,4,304,-9,-4,271,-29,9,-2,500),\\
+\ell={}&(-25,-31,-33,4,3,2,36,33,3,-1,-2,-3,-4,\!\\
+ &\phantom{(}-1,4,-2,1,2,4,-31,-1,-28,-3,-28,-50).
+\end{align*}
+The opposite old cap points $(x_{984},-1)$ and $(x_{1008},1)$ are retained.
+The certificate, rather than an optimization routine or floating-point
+array, defines the selected integer vectors.
+
+\begin{lemma}[Norms and pairs not involving other cap points]
+All the $W(r)$ and $Q$ have squared norm 4. They are mutually compatible,
+and are compatible with all unchanged equatorial points, both poles, and
+$P_0$. Each $W(r)$ is also compatible with the old cap points belonging
+to the complete first block.
+\end{lemma}
+
+\begin{proof}
+The identities
+\[
+a^2+b^2=\frac32,\qquad \sqrt3a-b=2,\qquad
+-\frac a{\sqrt2}+b=-\frac34
+\]
+give the norm assertions and $\ip{W(r)}Q=2$.
+For two different block points,
+\[
+\ip{W(r_i)}{W(r_j)}=\ip{r_i}{r_j}+\frac32=\ip{w_i}{w_j}\le2.
+\]
+Since $0<a<\sqrt{3/2}$, the horizontal component of $W(r)$ is
+\[
+r+a n=(1-\lambda)w+\lambda u,\qquad
+\lambda=\frac{\sqrt{3/2}-a}{2\sqrt{3/2}}\in(0,1).
+\]
+An unchanged equatorial point $z$ is different from both $u$ and $w$.
+Both $\ip uz$ and $\ip wz$ are at most 2, so their convex combination is
+at most 2.
+
+The shell has integral $\ip vz\in\{-3,-2,-1,0,1,2,3\}$.
+The negative extreme layer is deleted and the positive extreme layer
+is exactly the moved set. Thus every unchanged equatorial point obeys
+\[
+ \ip Q{(z,0)}=\frac{\ip vz}{\sqrt2}\le\sqrt2<2.
+\]
+These layer statements can also be checked directly on the finite integer
+shell, without invoking a classification of holes or a numerical optimizer.
+
+The remaining pure-point products are
+\[
+\ip{W(r)}{P_0}=-2a,\quad
+\ip{W(r)}N=2b,\quad \ip{W(r)}S=-2b,
+\]
+\[
+\ip Q{P_0}=-2\sqrt3,\quad \ip QN=-2,\quad \ip QS=2.
+\]
+All satisfy the required inequality. For the same block index, the
+products with the old upper and lower cap points are, respectively,
+\[
+\frac52-\frac a{\sqrt2}+b=\frac74,
+\qquad
+\frac52-\frac a{\sqrt2}-b=\frac{11}{4}-\frac{\sqrt6}{2}<2.
+\]
+For different block indices, $\ip{r_i}{r_j}\le1/2$, so both products
+are smaller still.
+\end{proof}
+
+\paragraph{The finite certificate.}
+The previous lemma handles every equality created by the modification.
+The remaining products to certify are:
+\begin{enumerate}
+\item the 552 moved points against the 2030 unchanged cap points;
+\item $Q$ against those unchanged cap points;
+\item $R_+$ and $R_-$ against every point retained in the final configuration,
+      including one another, with their own diagonal entries omitted.
+\end{enumerate}
+Their observed maxima are approximately
+\[
+1.99937195451151,\quad 1.96592582628907,\quad
+1.99472127475566,\quad 1.98752106512801.
+\]
+These decimals are diagnostic values, not rounded-up proof bounds.
+The accompanying integer/interval certificate has checked these groups with
+strict upper bounds below 2 at 192-bit Arb precision and checked both
+normalizations exactly. In particular, the first two upper bounds are
+strictly below 1.999372 and 1.965926.
+No conclusion depends on an optimizer success flag. All pairs involving
+only unchanged points are inherited from the verified source configuration.
+
+\begin{theorem}
+The specified configuration consists of 197580 distinct points on
+the radius-2 sphere in $\mathbb R^{25}$ with pairwise inner products at
+most 2. Consequently the kissing number in dimension 25 is at least 197580.
+\end{theorem}
+
+\begin{proof}
+The lemma, the verified finite checks, and the independently checked source
+certificate exhaust all pairs. The baseline checks include every head--shell
+and same-cap head--head inequality, with integer or rational acceptance
+decisions. Compatibility within the Leech shell follows from its lattice
+minimum.
+All squared norms are exactly 4, including those of $R_+$ and $R_-$ by
+definition. The 552 moved points replace 552 existing points and the two
+repairs replace two existing cap points; only $Q$ increases the inventory.
+Thus
+\[
+ |C|=197579-552-2+552+2+1=197580.
+\]
+No duplicate can occur: two equal norm-4 vectors would have inner product
+4, contradicting the verified bound 2 for their distinct indices.
+\end{proof}
+
+\end{document}
