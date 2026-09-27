@@ -53,8 +53,9 @@ the commands for checking each construction.
 
 From the repository root, `make source-paper` creates
 `dist/kissing-number-paper-source.zip`. This archive puts `main.tex` at
-the compilation root, includes its active source files and bibliography,
-and supplies the finite-data archive as `anc/certificates.zip`.
+the compilation root and includes only its active source files and bibliography.
+Construction data and verification programs remain in the separate certificate
+archive linked above; they are not included in the paper source ZIP.
 
 The [bilingual reports](../reports/README.md) give the construction arguments
 together with the research development. [Verification instructions](../reproducibility/README.md)

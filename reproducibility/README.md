@@ -130,8 +130,8 @@ To compile from the paper source directory itself, use
 `latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex`.
 `make source-paper` creates `dist/kissing-number-paper-source.zip` with
 `main.tex` at the root and only the sources used by the manuscript.
-The same finite-data supplement as in the complete reports is included
-as `anc/certificates.zip`; its README gives the verification commands.
+The [finite-data supplement](../reports/en_full/certificates.zip) is distributed
+separately; its README gives the verification commands.
 
 For the livestream reports:
 

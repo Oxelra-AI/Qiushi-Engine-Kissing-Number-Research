@@ -178,7 +178,8 @@ make verify
 
 The verification run writes its results to a new directory beside the repository.
 `make paper` compiles the mathematical paper to `paper/main.pdf`.
-`make source-paper` exports its active LaTeX sources with the finite-data supplement.
+`make source-paper` exports only the LaTeX sources needed to compile the paper.
+The [finite-data supplement](reports/en_full/certificates.zip) is available separately.
 `make reports` checks and preserves the published livestream PDFs;
 `make source-en` and `make source-zh` package their self-contained LaTeX projects.
 `make reports-full` builds the complete study in `reports/en_full/` and `reports/zh_full/`;

@@ -147,7 +147,8 @@ make verify
 ```
 
 复算结果写入仓库旁新建的目录。`make paper` 编译论文，生成 `paper/main.pdf`。
-`make source-paper` 导出论文使用的 LaTeX 源码及有限数据补充包。
+`make source-paper` 仅导出编译论文所需的 LaTeX 源码。
+[有限数据补充包](reports/en_full/certificates.zip)单独提供。
 `make reports` 检查并保留已发表的直播版双语 PDF；
 `make source-en`、`make source-zh` 打包对应的独立 LaTeX 工程。
 `make reports-full` 在 `reports/en_full/` 和 `reports/zh_full/` 编译完整研究报告；

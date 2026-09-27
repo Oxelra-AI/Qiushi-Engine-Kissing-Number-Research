@@ -37,15 +37,12 @@ class ArchiveMembership(unittest.TestCase):
             expected = self.paper_fixture(root)
             (root / 'paper/draft.tex').write_text('Not for export.\n')
             self.assertEqual(set(paper_sources(root)), expected)
-            with patch('package_paper.archive_bytes', return_value=b'Finite data'):
-                output = package_paper(root)
+            output = package_paper(root)
             with zipfile.ZipFile(output) as bundle:
                 self.assertEqual(set(bundle.namelist()),
-                    {str(Path(name).relative_to('paper')) for name in expected}
-                    | {'anc/certificates.zip', 'README.md'})
-                self.assertEqual(bundle.read('anc/certificates.zip'), b'Finite data')
-                self.assertIn(b'latexmk -xelatex', bundle.read('README.md'))
-                self.assertNotIn(b'make paper', bundle.read('README.md'))
+                    {str(Path(name).relative_to('paper')) for name in expected})
+                self.assertFalse(any(name.startswith('anc/') or name.endswith(('.zip', '.pdf'))
+                                     for name in bundle.namelist()))
 
     def test_paper_export_rejects_unapproved_input(self):
         with tempfile.TemporaryDirectory() as temporary:

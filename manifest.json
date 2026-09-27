@@ -29,13 +29,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "b6827bafbbdcc38391c73ed97c2e97640509edc46e29af3506e47d35ecd0be96",
-      "bytes": 12040
+      "sha256": "16cdfb4eec5e3ac2a7c139085cb88d69295f94cf0c28a3eaba2d4f6b5bcc379f",
+      "bytes": 12122
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "98bfb7b54f5c1049389e95c57f13ec5ec2b0319c2f3fc13743202b63d6d12d8a",
-      "bytes": 10983
+      "sha256": "209490a670a54627653f21cf5f8e3f6bfe094f9d5ce481567153d52046b97253",
+      "bytes": 11041
     },
     {
       "path": "RIGHTS.md",
@@ -789,8 +789,8 @@
     },
     {
       "path": "paper/README.md",
-      "sha256": "b8d9021968ee04c7c9a96196c4e75a27bf20f2377144157e1181a6ddb2c3e4a1",
-      "bytes": 2740
+      "sha256": "b2b45f40602cc3a039f583f2d6ae1aa850868c13b4e7102ecfe5ceee8b48e44a",
+      "bytes": 2832
     },
     {
       "path": "paper/authors.tex",
@@ -1384,8 +1384,8 @@
     },
     {
       "path": "reproducibility/README.md",
-      "sha256": "14425cfd70cd5375019dc295302e66205a8fef4c781834f33527eae9c28428f8",
-      "bytes": 7255
+      "sha256": "73ca7928ffe65790b2166bd9ab67e762f2fa9be869b284f74f70ddcba31fc5d6",
+      "bytes": 7250
     },
     {
       "path": "requirements.txt",
@@ -1689,8 +1689,8 @@
     },
     {
       "path": "tests/test_archives.py",
-      "sha256": "6adbd3ca93545a35edf302dfdb1e2505b4e4a59f6c553a2ce17de08602f29645",
-      "bytes": 8492
+      "sha256": "2c85d239513d6de800eca22004049a76ecf9e8c84f93200208ba34322177797a",
+      "bytes": 8272
     },
     {
       "path": "tests/test_documents.py",
@@ -1739,8 +1739,8 @@
     },
     {
       "path": "tools/package_paper.py",
-      "sha256": "5de38a73b25f1de59639b747d4cf8453838fc081d1fcd023f7e839fe2648eac5",
-      "bytes": 3617
+      "sha256": "82d47272576158cf0061dee27e60eea72cca8cf57313e029754db33c0e5d63f6",
+      "bytes": 2402
     },
     {
       "path": "tools/package_reports.py",
