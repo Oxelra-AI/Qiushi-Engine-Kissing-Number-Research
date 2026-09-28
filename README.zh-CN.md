@@ -2,7 +2,7 @@
 
 [English](README.md) · [论文](paper/main.pdf) · [中文报告](reports/zh_full/main.pdf) · [英文报告](reports/en_full/main.pdf) · [成果](research/results.md) · [研究脉络](research/README.zh-CN.md) · [复现](reproducibility/README.md)
 
-[下载完整工程](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [第三次发布：结构性结果与完整研究材料](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28)
+[下载完整工程](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28.1/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [第三次发布：结构性结果与完整研究材料](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28.1)
 
 Qiushi Engine 自主数学研究取得 **19 个维数的接吻数新下界**，覆盖 **25、27、32–39、43、45、49–55维**。
 本研究的构造搜索、数学分析与计算验证由 Qiushi Engine 自主开展。

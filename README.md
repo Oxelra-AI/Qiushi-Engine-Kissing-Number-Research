@@ -2,7 +2,7 @@
 
 [中文](README.zh-CN.md) · [Paper](paper/main.pdf) · [English report](reports/en_full/main.pdf) · [中文报告](reports/zh_full/main.pdf) · [Results](research/results.md) · [Research](research/README.md) · [Reproduce](reproducibility/README.md)
 
-[Download the complete project](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [Third release: structural results and research materials](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28)
+[Download the complete project](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28.1/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [Third release: structural results and research materials](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28.1)
 
 Qiushi Engine's autonomous mathematical research yields new kissing-number lower bounds in **19 dimensions: 25, 27, 32–39, 43, 45 and 49–55**.
 The system carried out the construction searches, mathematical analysis
