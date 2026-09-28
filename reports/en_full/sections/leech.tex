@@ -9,13 +9,11 @@ nonzero tails \(t_i\) of norm less than one and subsets
 \((a_ix,t_i)\) for \(x\in A_i\), and add a pure-tail kissing code
 \(Y\subset S^{k-1}\).
 
-The count is
-
+Each original direction is deleted once, giving
 \[
 |X|=|C|-|U|+\sum_i|A_i|+|Y|.
 \]
 
-Every original direction is deleted once, however many labels use it.
 For distinct labelled pairs \((x,i)\ne(x',j)\) and pure tails
 \(y\in Y\), the remaining conditions are
 
@@ -24,9 +22,6 @@ a_ia_j\langle x,x'\rangle+\langle t_i,t_j\rangle\le\frac12,
 \qquad
 \langle t_i,y\rangle\le\frac12.
 \]
-
-These conditions separate tail geometry from head selection without
-discarding their coupling.
 
 \subsection{Multiplicity and the four-triangle
 construction}
@@ -44,9 +39,24 @@ For \(m\) copies, the squared norm of the sum of their tails is at most
 \frac m2\bigl(1-m(1-2h^2)\bigr).
 \]
 
-Its nonnegativity implies \(m\le\lfloor(1-2h^2)^{-1}\rfloor\). At
-\(h^2=1/3\), a direction can be used three times. Equality is realized
-by a zero-sum triangle.
+Nonnegativity gives the latitude bound. Strictly negative mutual tail
+products also imply affine independence: an affine dependence would
+equate positive combinations of disjoint sets whose mutual product is
+negative. Thus
+\[
+m\le r=\min\{k+1,\lfloor(1-2h^2)^{-1}\rfloor\}.
+\]
+Both bounds are sharp for one direction, by regular-simplex tails.
+If label $i$ has capacity $\alpha_i$, the count is consequently at most
+$|C|+|Y|+(1-1/r)\sum_i\alpha_i$.
+
+More precisely, lifting a nonempty block $B$ at the same $r\ge2$ tails
+at some $0<h^2<1/2$ is possible exactly when $k\ge r-1$ and its
+distinct products are at most $1/(r+1)$. Necessity follows from the
+multiplicity bound and the decreasing same-label threshold
+$(1/2-h^2)/(1-h^2)$. A regular simplex at
+$h^2=(r-1)/(2r)$ attains both bounds, giving $|C|+(r-1)|B|$ points
+without pure tails. At $h^2=1/3$, this is triple reuse on a zero-sum triangle.
 
 The twelve roots of \(D_3\), scaled to tail norm \(1/\sqrt3\), split
 into four zero-sum triangles. Four disjoint 496-point Leech blocks, each
@@ -56,11 +66,9 @@ carried on one triangle, give
 196560-4(496)+12(496)+12=200540.
 \]
 
-The comparison allocation used multiplicities \((3,3,2,2,2)\). The new
-allocation uses \((3,3,3,3)\), preserving 496 additional equatorial
-points while keeping the same number of lifted points. The blocks
-themselves are published PackingStar data; the change is their
-assignment to the tail geometry.
+Changing multiplicities from \((3,3,2,2,2)\) to \((3,3,3,3)\)
+preserves 496 additional equatorial points with the same lifted count.
+The blocks are published PackingStar data; their tail assignment changes.
 
 For this fixed twelve-label system with at most \(\alpha\) directions
 per label, the count is at most \(196560+8\alpha+12\). Thus the

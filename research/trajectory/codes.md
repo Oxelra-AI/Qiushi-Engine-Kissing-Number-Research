@@ -11,11 +11,9 @@ their thresholds, every pair of spherical points is controlled and the count is
 
 $$N=|T|+128|\mathcal B|+2n(n-1).$$
 
-The dense layer, supports and signs are separate mathematical choices.
-Changing one support adds 128 points, whereas changing the signs on a small
-group of supports can improve the count without increasing the support family.
-This distinction leads to two constructive problems: profitable joint exchanges
-and larger signed point sets inside a region with a controlled boundary.
+An additional support contributes 128 points; changing local signs can
+improve the count without enlarging the support family. The two problems
+are joint exchanges and signed replacement with a controlled boundary.
 
 ## Joint support selection
 
@@ -24,46 +22,35 @@ The [exchange records](../../constructions/codes/data/exchanges/exchanges.json) 
 
 For a candidate support $b$, let $F(b)$ be the old supports meeting it in
 more than four positions. A mutually compatible candidate set $Y$ has net
-gain $|Y|-|\bigcup_{b\in Y}F(b)|$. Thus a useful candidate can have several
-conflicts when those conflicts are shared by other selected candidates.
-Counting each candidate's cost separately would discard this possibility.
-In a finite candidate pool, binary selection and deletion variables express
-the same problem exactly; the report gives its constraints and objective.
+gain $|Y|-|\bigcup_{b\in Y}F(b)|$: shared conflicts are charged once.
+Binary selection and deletion variables express this objective exactly.
+When the entire candidate pool $C$ is compatible, its bipartite conflict
+graph $H$ with the old family gives the optimum $|C|-\nu(H)$, where
+$\nu$ denotes maximum matching size. Alternating paths from unmatched
+candidates produce an attaining subexchange. This is optimality within
+the specified pool, not over all possible supports.
 
-The candidate pool is organized by the blocking set $F(b)$. For a chosen
-threshold $f$, the admissible domain is the eight-subsets outside the
-current family with $|F(b)|\le f$. Bit masks make each intersection an
-integer operation. Joint selection is then represented as a packing of
-five-subsets: an eight-subset occupies 56 five-subsets, and no five-subset
-may belong to two selected candidates. This gives one capacity constraint
-for a whole group of conflicting candidates rather than a separate
-constraint for every pair.
-
-These capacity constraints can be inserted as needed. Solve the current
-selection problem, enumerate the five-subsets of the selected candidates,
-and add the constraints for repeated five-subsets. Repeat until the
-selection is internally compatible, then evaluate its exact net gain.
-A positive gain gives a new support family, and its blocking sets are
-recomputed for the next exchange. In dimension 34,
+For a threshold $f$, candidates are eight-subsets outside the current
+family with $|F(b)|\le f$. Bit masks compute intersections. Each candidate
+occupies 56 five-subsets; no five-subset may occur twice. The selection
+procedure adds constraints at repeated five-subsets until compatibility
+holds, then accepts positive gain and recomputes blockers. In dimension 34,
 10,715 candidates with at most three blockers supplied the seven-for-six
-exchange from 1959 to 1960 supports. A compatible positive-gain selection
-can be accepted immediately and used to generate the next candidate pool.
+exchange from 1959 to 1960 supports.
 
 The threshold has a precise meaning. If the pool contains every candidate
 with at most $f$ blockers, it contains every positive exchange adding at
 most $f+1$ supports: each selected candidate's blocking set lies in the
 common deletion set, whose size is smaller than the number of additions.
-Larger exchanges require a correspondingly richer pool; the 40-for-37
-exchange in dimension 37 illustrates the value of not fixing a small
-number of additions throughout the search.
+This is a bounded exchange neighbourhood, not a bound on the final code.
 
 The terminal exchanges saved for dimensions 33, 34 and 39 replace nine supports
 by ten, six by seven, and fourteen by fifteen, reaching 1803, 1960 and 3383.
-The saved 37-dimensional
-exchange replaces 37 by 40 and reaches 2843. These are individual transitions
-inside a longer search, while the complete final support lists define the
-mathematical objects. The checker reconstructs each union of conflicts and
-then checks every pair in the new family.
+The saved 37-dimensional exchange replaces 37 by 40 and reaches 2843;
+dimension 38 replaces six by seven and reaches 3077. In dimensions
+33, 34, 37, 38 and 39, matching certifies gains $1,1,3,1,1$ as optimal
+within these saved insertion pools. Complete final support lists, rather
+than a reconstruction of the search chronology, prove the code bounds.
 
 The next change relaxed the complete parity bundle on a support. Small signed codes could fill a controlled region more efficiently. A matched Hadamard map turned transverse four-subsets into signed weight-eight vectors, giving the 256-point replacement in dimension 35 and the 576-point replacement in dimension 36.
 
@@ -85,10 +72,11 @@ layers impose the same universal bounds as before. The search therefore
 reduces to finding an internally compatible signed code $Q$ on $W$, with
 gain $|Q|-128b$, where $b$ is the number of removed supports.
 
-The regions have eleven and twelve coordinates and contain respectively
-one and three old supports. This is more informative than a search through
-all signed vectors: it identifies why local changes can be made without
-disturbing the rest of the large configuration.
+The regions have eleven and twelve coordinates, with one and three old
+supports. More generally, isolation is unnecessary: compatible, disjoint
+insertion is equivalent to each new weight-eight support meeting every
+retained complete bundle in at most four coordinates. Changing parity
+cannot relax this boundary condition.
 
 ## Constructing the signed code
 
@@ -117,22 +105,35 @@ are proved in the report.
 rebuilds both families, enumerates the matchings and regenerates exactly
 the signed sets in the certificates. The more compact
 [generators](../../constructions/codes/hadamard/data/generators.json)
-specify the retained supports directly. Thus the package preserves both
-the method for finding these objects and their shortest reconstruction.
+specify the retained supports directly.
 
-For dimension 36 there is also a direct description. Use one colour of
-the one-factorization as the coordinate pairing in both halves. Each of
-the other four colours contributes nine cross blocks, all transverse to
-that pairing. Their sixteen sign patterns give $4\cdot9\cdot16=576$
-points. The reconstruction program checks that this four-colour
-description gives exactly the stored construction.
+For dimension 36, pair coordinates by one colour in both halves. The
+other four colours contribute nine transverse cross blocks each, giving
+$4\cdot9\cdot16=576$ points, exactly the stored construction.
+For halves of size $2t$, the same construction gives $32t^2(t-1)$ points.
+It is sharp among complete-sign transverse $2+2$ transfers: fixing an
+edge in either half, its partners must form a matching of size at most
+$t$. Equality requires every such fibre to be perfect. This is not a
+bound on arbitrary signed weight-eight codes.
 
 The eleven-coordinate model has a sharp bound: each signed weight-eight
 vector extends to eight full sign strings, while each full sign string
 extends at most one compatible vector. Therefore $8|Q|\le2^{11}$ and
-$|Q|\le256$. The dimension-35 replacement attains this value. Twelve
-coordinates permit intersections of size four within a common sign
-string, allowing the larger construction used in dimension 36.
+$|Q|\le256$, attained in dimension 35.
+
+In twelve coordinates, boundary restrictions select complete pair types.
+Let $H\subseteq K_{3,3}$ record the allowed combinations of two left
+coordinate pairs and two right pairs. If $D_H$ is the bipartite double
+cover of its line graph, the exact source capacity is
+$\beta(H)=8|E(H)|-4\nu(D_H)$, with $16\beta(H)$ transferred points.
+[The boundary construction](../../constructions/codes/hadamard/boundary.py)
+returns attaining blocks and matching certificates for all $2^9$ type
+relations. Exactly one forbidden type reduces the capacity from 576 to 512.
+For the dimension-37 pairing and three fixed deletions, the ten divisions
+into two halves have capacities 512 (four), 448 (four) and 384 (two).
+The supplied 512-point witness itself lies outside every such division;
+it is a general transverse transfer, not a $2+2$ construction. These
+capacities therefore do not establish its unrestricted optimality.
 
 ## Combining the mechanisms
 

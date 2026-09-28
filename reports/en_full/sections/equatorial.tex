@@ -120,31 +120,50 @@ K(38)\ge591612+2\cdot144=591900.
 \]
 \end{proof}
 
-Lemma~\ref{lem:second-shell} removes the entire old shell from the search
-constraints. Generate integer norm-48 vectors satisfying the lattice
-congruences and retain one canonical representative per antipodal line.
-Join two representatives when $|v\cdot v'|>24$. The remaining problem is
-an independent-set problem in this finite graph: each selected line
-contributes exactly two equatorial points. A joint replacement deletes
-the union of the old neighbours of the inserted lines, so it can improve
-the set even when no single line can be added. Every accepted set is
-checked for mutual compatibility. The verifier also recomputes all products
-with $\Sigma$, independently checking the cross-shell lemma on the supplied
-data; these products need not be recalculated during subset selection.
+Lemma~\ref{lem:second-shell} leaves a finite independent-set problem:
+norm-48 lattice lines conflict exactly when $|v\cdot v'|>24$.
+The search produced 142 lines and then 144. The data use the base
+construction's Golay basis, positive first nonzero coordinates and
+lexicographic order; the verifier also recomputes every product with
+$\Sigma$. Geometrically, the shortened cap heads permit
+$|z\cdot c|\le\sqrt{3/8}$ for $c\in\Sigma/\sqrt{32}$, a wider angle
+range than direct insertion into the unit mother shell.
 
-There is a direct geometric explanation. Write $C=\Sigma/\sqrt{32}$
-for the unit mother shell. An equatorial direction $z=v/\sqrt{48}$
-must satisfy $|z\cdot c|\le\sqrt{3/8}$. This threshold is strictly
-larger than $1/2$, because the head of a mixed point has length
-$\sqrt{2/3}$. The space available at the equator of the lifting is
-therefore larger than the space for inserting unit points directly
-into the mother shell. The second-shell directions exploit this
-space. Using every minimal direction need not exhaust the possible
-points in the resulting 38-dimensional configuration.
+\subsection{Contacts and limits of the shell choice}
 
-The search first produced 142 compatible lines and then 144.
-The completed data use the same Golay basis as the cap
-construction. Canonical line representatives have positive first nonzero
-coordinate and are sorted lexicographically. This convention binds the
-class labels, tail triangles and added-line checks to one coordinate
-system.
+For minimal lattice heads of squared norm $m$ scaled by $1/\sqrt q$,
+the same minimum-norm argument gives automatic compatibility for
+equatorial vectors of squared norm $m<b\le q$. Two added vectors of
+norms $b,c$ still require
+\[
+|v\cdot w|\le\sqrt{bc}/2
+\quad\Longleftrightarrow\quad
+\min\{\|v-w\|^2,\|v+w\|^2\}\ge b+c-\sqrt{bc}.
+\]
+The lattice minimum alone is smaller than this threshold when $b,c>m$.
+Here the automatic interval $32<b\le48$ contains only the norm-48
+shell, since squared norms in this Leech scaling are multiples of 16.
+
+The next shell is impossible for the unchanged base. Both this
+obstruction and the norm-48 contact count follow from one calculation.
+Rescale to minimum four. For $v^2=s$, the spherical 11-design property
+of the minimal shell $L$~\cite{nebe-designs} gives
+\[
+M_{2j}(s)=\sum_{x\in L}(v\cdot x)^{2j}
+=\frac{196560(4s)^j(2j-1)!!}{24\cdot26\cdots(24+2j-2)}
+\quad(1\le j\le5).
+\]
+For $s=6$ and $8$, the products are integers of absolute value at most
+3 and 4, respectively. Polynomials vanishing at the smaller values give
+\[
+\frac{M_6(6)-5M_4(6)+4M_2(6)}{720}=552,\qquad
+\frac{M_8(8)-14M_6(8)+49M_4(8)-36M_2(8)}{40320}=46.
+\]
+Thus each norm-48 added point touches 552 oriented minimal heads,
+paired by $u\mapsto v-u$, and hence $3\cdot552=1656$ old caps.
+Every norm-64 vector instead has 46 heads with $v\cdot u=32$.
+Their product with its normalized equatorial point is
+$32/\sqrt{64\cdot48}=1/\sqrt3>1/2$, giving exactly 138 cap conflicts
+for either endpoint. The contact checker verifies the first count for
+all 144 lines; the design argument proves the norm-64 obstruction for
+the whole shell.

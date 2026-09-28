@@ -53,17 +53,16 @@ the image sizes. The lifting uses the known minimum and shell size of
 $P_{48p}$ and the explicitly supplied class and automorphism matrices.
 
 **Lattice sections and moments.** A section is governed by the geometry of
-its embedding, not just by its abstract Gram type. Dimension 43 exploits
-this distinction inside an embedded $E_8$. Dimension 45 changes the parent
-anchor sector in the QR neighbour, obtains a larger finite witness set, and
-converts that set to a lower bound through a rational moment inequality.
-The two constructions use design moments to avoid enumerating the full
-ambient minimal shell.
-The embedded $E_8$ parent is part of the cross-section framework of
+its embedding, not just its Gram type. The embedded $E_8$ parent belongs
+to the cross-section framework of
 [Dorofeev–Sun–Wang, v4](https://arxiv.org/abs/2607.20359v4).
-The new $D_5$ count uses its specified embedding and a target-preserving
-43-orbit moment system. Historical numerical comparisons cite the earlier
-Sun–Wang v3, which explicitly reports the two comparison counts.
+Target-preserving moments give the new fixed $D_5$ count and eight fixed
+coordinate-cut counts, without requiring ambient Weyl symmetry.
+In dimension 45, a QR-neighbour anchor gives a complete 298-vector fibre;
+norm-eight restrictions sharpen the original moment inequality to an
+exact projected count. Its optimum is for that fixed anchor and specified
+Gram only. Historical comparisons cite Sun–Wang v3, which reports the
+two comparison counts.
 
 **Partial fibres and parity.** The historical 18-dimensional construction
 keeps a 5,350-point core, adds 2,048 points from partial fibres and fills

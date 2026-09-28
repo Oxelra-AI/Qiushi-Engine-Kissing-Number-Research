@@ -36,17 +36,11 @@ so $|v\cdot u|\le24$ for every minimal vector $u$. Thus the geometric
 constraint involving 196,560 old points is automatic once membership in
 the same lattice and squared norm 48 are established.
 
-Candidate generation and selection now have separate tasks. Generate
-integer vectors of squared norm 48 satisfying the three lattice congruences
-in the report, and retain the representative whose first nonzero coordinate
-is positive. Two candidate lines conflict exactly when their absolute
-product exceeds 24. An independent set in this finite graph supplies two
-equatorial points per line; the objective is its cardinality. Joint
-replacement can change several selected lines at once, with each newly
-selected line paying only for the union of its old neighbours. The final
-144-line set is checked by its norms, lattice membership and mutual
-products. Direct products against the old shell provide a second check
-of the cross-shell lemma, rather than an additional search constraint.
+The finite selection problem therefore uses norm-48 lattice lines,
+joining two when their absolute product exceeds 24. An independent set
+supplies two equatorial points per line. The final 144-line set is checked
+by its norms, membership and mutual products; direct products against the
+old shell independently check the cross-shell argument.
 
 ## The complete construction
 
@@ -78,3 +72,22 @@ and then compares each added line with the entire shell and with every
 other added line. The two product maxima are both 24. These checks expose
 the exact contacts at the threshold while preserving the simple layered
 proof for the full 591900-point configuration.
+
+## Contacts and the next-shell obstruction
+
+For minimal heads of squared norm $m$ scaled by $1/\sqrt q$, the lattice
+minimum gives automatic compatibility for new shell norms $m<b\le q$.
+Different added shells still require $|v\cdot w|\le\sqrt{bc}/2$, or
+equivalently $\min\{\|v-w\|^2,\|v+w\|^2\}\ge b+c-\sqrt{bc}$.
+This separation exceeds the ambient minimum when $b,c>m$.
+
+Here only norm 48 lies in $32<b\le48$. Each added endpoint touches
+552 minimal heads, paired by $u\mapsto v-u$, hence 1,656 old caps.
+The next shell cannot be used with the unchanged base: every norm-64
+vector has 46 heads with product 32, giving normalized product
+$1/\sqrt3>1/2$ and exactly 138 cap conflicts per endpoint.
+Both counts follow from the Leech shell's spherical-design moments,
+using polynomials that isolate the extreme products. The
+[paper proof](../../paper/sections/equatorial-completion.tex) establishes
+the shell-wide statements; the [contact checker](../../constructions/d38/verify_contacts.py)
+also verifies all 144 stored lines in integers.

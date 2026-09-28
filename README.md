@@ -2,6 +2,8 @@
 
 [中文](README.zh-CN.md) · [Paper](paper/main.pdf) · [English report](reports/en_full/main.pdf) · [中文报告](reports/zh_full/main.pdf) · [Results](research/results.md) · [Research](research/README.md) · [Reproduce](reproducibility/README.md)
 
+[Download the complete project](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [Third release: structural results and research materials](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28)
+
 Qiushi Engine's autonomous mathematical research yields new kissing-number lower bounds in **19 dimensions: 25, 27, 32–39, 43, 45 and 49–55**.
 The system carried out the construction searches, mathematical analysis
 and computational verification presented in this study.
@@ -93,7 +95,9 @@ to the finite objects that preserve the constructions and their saved exchanges.
 In dimension 25, a coordinated motion of 552 contact points preserves their
 transverse components and all internal distances. Convexity controls the
 unchanged equator. The released space admits one new point, with only two
-local contacts requiring repair, giving 197,580 points.
+local contacts requiring repair, giving 197,580 points. For this insertion
+and motion family, two cap changes are also necessary. More generally,
+the motion's fixed-boundary constraints admit a finite exact test on a circle.
 
 ### Choose directions and reuse labels together
 
@@ -107,14 +111,19 @@ giving 201,567 points.
 In a layered code, the benefit of adding several supports depends on their
 shared conflicts: the supports removed to admit the whole family are counted
 only once. Optimizing this joint cost enlarges the constant-weight codes
-in dimensions 32–34, 37 and 39.
+in dimensions 32–34, 37 and 39. When the candidate pool is internally
+compatible, a maximum matching computes the optimal subexchange exactly.
 
 ### Transfer a design into a local signed replacement
 
 Paired Hadamard maps transfer weight-four signed codes into compatible
 weight-eight configurations. Their placement in suitable coordinate regions
 gives the local improvements in dimensions 35–37, including a sharp capacity
-bound for the eleven-coordinate model used in dimension 35.
+bound for the eleven-coordinate model used in dimension 35. The construction
+extends to a family of $32t^2(t-1)$ signed vectors in $4t$ coordinates,
+attaining the capacity of its transverse $2+2$ model for every $t\ge2$.
+In twelve coordinates, arbitrary restrictions by complete pair types have
+an exact matching formula and an explicit optimal construction.
 
 ### Let the lattice minimum control every cross-shell pair
 
@@ -129,10 +138,16 @@ the remaining choice is among the new directions themselves. This gives
 
 For dimensions 43 and 45, spherical-design moments replace a count over
 52,416,000 lattice vectors with finite rational relations. An embedded
-$\sqrt3 E_8$ section determines the orthogonal shell of the specified $D_5$ subsystem and gives
-2,553,792 points. In dimension 45, a moment inequality assigns a positive
-contribution to each vector in a selected fibre. Common-neighbour searches
-produce 298 such witnesses, yielding $7,377,408+9\times298=7,380,090$.
+$\sqrt3 E_8$ section determines the cardinality of the orthogonal shell of the specified $D_5$ subsystem and gives
+2,553,792 points. More generally, one polynomial fixes the counts for
+eight nested coordinate sections: the parent embedding determines these
+populations in every extremal even unimodular lattice of rank 48 containing it.
+In dimension 45, additional section-vector constraints
+turn the moment inequality into an exact count identity. A fibre of size
+$368-c$ corresponds to a neighbourhood difference, where $c$ counts common
+neighbours in an anchor graph. Its signed Gram matrix imposes spectral and
+parity restrictions; the supplied graph attains its minimum $c=70$, giving
+exactly $7,377,408+9\times298=7,380,090$ points.
 
 ### Enlarge a class, then choose its images for their union
 
@@ -141,6 +156,13 @@ Each dimension uses a different number of automorphism images. Their union,
 rather than the sum of their sizes, measures the available gain. Assigning
 each repeated direction once and pairing the resulting classes with root
 tails gives seven new bounds from the same construction principle.
+Within this paired architecture, the pure tails force the lifting heights
+and exclude repeated assignment of a head. The optimization is exactly
+maximum image coverage; a finite-pool selection rule gives a computable
+guarantee without enumerating the full isometry group.
+
+The [construction-principle overview](paper/README.md#construction-principles)
+connects all nineteen dimensions to their general statements and checks.
 
 | Dimensions | Data and verification | Mathematical development |
 |---|---|---|

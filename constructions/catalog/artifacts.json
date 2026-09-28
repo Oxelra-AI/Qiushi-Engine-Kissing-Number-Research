@@ -895,16 +895,22 @@
     {
       "id": "constructions/sections/d45/verify.py",
       "path": "constructions/sections/d45/verify.py",
-      "sha256": "d296340f9a6eb7f0b5e0869cef0e648c4a739f7152046b9b2c008c3d39237794",
-      "bytes": 3877,
+      "sha256": "0a6b0f0e477817ccdfea5a095dc693e0a2711eff08ec3c17691de64d0fcbe7ba",
+      "bytes": 4561,
       "source_sha256": "6168aeafeb4960efaaf3d93b1658091e32035353862ae2e026693cd9ff92a68c"
     },
     {
       "id": "constructions/sections/d45/verify_parent.py",
       "path": "constructions/sections/d45/verify_parent.py",
       "source_sha256": "e54898070b867e52caa63d75c397a2649857e74cfc72dec1035730eb5652715c",
-      "sha256": "acddf827bf7e97a29257d0b0f438986c3030e96624fcf783cf8884284865811c",
-      "bytes": 6940
+      "sha256": "2163454f9019006b367949c7a939f5897c24f2f18b7bd8992e3139c9d337e289",
+      "bytes": 15301
+    },
+    {
+      "id": "constructions/sections/d45/verify_statistics.py",
+      "path": "constructions/sections/d45/verify_statistics.py",
+      "sha256": "639385c15621a71f1aa574b99609f10d1f54bd53dad10bdd68c3ad1a00a7b58b",
+      "bytes": 6540
     },
     {
       "id": "constructions/sections/qr/data/gram.json",

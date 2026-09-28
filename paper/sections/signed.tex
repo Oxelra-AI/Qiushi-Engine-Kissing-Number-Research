@@ -1,13 +1,10 @@
 \section{Local signed replacements}\label{sec:signed}
 \subsection{A compatible replacement region}
-Use the three layers of Proposition~\ref{prop:ers}, scaled to squared
-norm 32, with the same binary $[32,17,8]$ code. Its $2^{17}$ codewords give vectors
-$(\pm1)^{32}$, padded with zeros to dimension $d$.
-Let $\mathcal B$ be a family of eight-subsets of $\{0,\ldots,d-1\}$ with
-pairwise intersections at most four. For each support take the 128 sign
-patterns of a fixed parity, with nonzero entries $\pm2$. Finally take
-all vectors with two entries $\pm4$. These are the standard ERS layers
-\cite{ers}, all of squared norm 32.
+Scale the ERS layers~\cite{ers} of Proposition~\ref{prop:ers} to squared norm 32:
+the $[32,17,8]$ code gives $2^{17}$ vectors $(\pm1)^{32}$ padded to
+dimension $d$; each eight-subset $B\in\mathcal B$ carries 128
+fixed-parity sign patterns with entries $\pm2$; the roots have two
+entries $\pm4$. Distinct supports in $\mathcal B$ intersect in at most four.
 
 For $d=35$ and $36$, the archived support families have 2,157 and 2,742
 blocks, respectively \cite{brouwer}. The base cardinalities are
@@ -17,23 +14,61 @@ blocks, respectively \cite{brouwer}. The base cardinalities are
  2^{17}+128\cdot2742+4\binom{36}{2}=484568.
 \]
 
-\begin{lemma}[Isolated replacement]\label{lem:isolated-replacement}
-Let $W$ be a coordinate set containing exactly $b$ blocks of $\mathcal B$.
-Suppose every other block meets $W$ in at most four coordinates.
-Let $Q\subset\{0,\pm1\}^{W}$ consist of distinct weight-eight vectors
-with $q\cdot q'\le4$ for distinct $q,q'$. Replacing the $128b$ middle-layer
-vectors supported inside $W$ by $2Q$ preserves the kissing condition and
-changes the cardinality by $|Q|-128b$.
-\end{lemma}
+\begin{proposition}[Exact bundle boundary]\label{prop:bundle-boundary}
+Let $Q\subset\{0,\pm1\}^{d}$ consist of distinct weight-eight vectors
+with $q\cdot q'\le4$ for distinct $q,q'$, and let
+$\mathcal D\subseteq\mathcal B$.
+Deleting the complete middle-layer bundles on $\mathcal D$ and adjoining
+$2Q$ preserves the kissing condition and changes the cardinality by
+$|Q|-128|\mathcal D|$ if and only if
+\begin{equation}\label{eq:bundle-boundary}
+ |\supp(q)\cap B|\le4
+ \qquad(q\in Q,\ B\in\mathcal B\setminus\mathcal D).
+\end{equation}
+\end{proposition}
 \begin{proof}
-Two new vectors have inner product at most 16. A new vector and any retained
-middle-layer vector overlap in at most four coordinates, so their inner
-product is also at most 16. A top-layer vector has inner product at most
-$8\cdot2=16$ with a new vector. A bottom-layer vector has inner product at
-most $2\cdot4\cdot2=16$. All new vectors have squared norm 32 and are
-distinct from the retained layers. The unchanged layers retain their
-original compatibility.
+Write a retained middle-layer vector as $2s$, and put
+$r=|\supp(q)\cap B|$, where $B=\supp(s)$. If $r<8$, signs agreeing
+with $q$ on the intersection extend to either prescribed parity on $B$:
+one coordinate of $B\setminus\supp(q)$ can fix the parity.
+Thus $\max_s q\cdot s=r$. For $r=8$, the maximum is eight or six
+according as $q$ has the bundle's parity or not. If $r>4$, a maximizing
+$s=q$ violates the additive count, and any other maximizer violates
+the kissing condition. This proves necessity, including possible duplicates.
+
+Conversely,~\eqref{eq:bundle-boundary} bounds new--retained middle
+products by 16; new--new products have the same bound by hypothesis.
+Top--new and bottom--new products are at most $8\cdot2=16$ and
+$2\cdot4\cdot2=16$. New vectors have squared norm 32 and distinct
+supports from retained middle vectors; coordinate magnitudes distinguish
+them from the other layers. Unchanged pairs remain compatible, proving
+the count and sufficiency.
 \end{proof}
+
+For prescribed $Q$, the least whole-bundle deletion set making $2Q$
+a compatible, disjoint insertion is
+\[
+ F(Q)=\{B\in\mathcal B:\ |B\cap\supp(q)|>4
+                         \text{ for some }q\in Q\}.
+\]
+Its cost is $128|F(Q)|$, as in Proposition~\ref{prop:exchange},
+regardless of the new signs' parity while retained bundles remain complete.
+
+\begin{corollary}[Isolated replacement]\label{lem:isolated-replacement}
+Let $W$ contain exactly $b$ blocks of $\mathcal B$, and suppose every
+other block meets $W$ in at most four coordinates. Any internally
+compatible signed weight-eight code $Q$ on $W$ can replace those $b$
+bundles, with gain $|Q|-128b$.
+\end{corollary}
+\begin{proof}
+Every new support is contained in $W$, so
+\eqref{eq:bundle-boundary} holds after deleting the $b$ contained blocks.
+\end{proof}
+
+This is the weight-eight version of the free-zone replacement principle
+of Takhanov--Yun~\cite[Definition 5 and Lemma 4]{signed-johnson}.
+The exact criterion also permits non-isolated regions with suitable
+new supports.
 
 In dimension 35 take $W=\{12,\ldots,22\}$; precisely block 2145 lies inside
 $W$. In dimension 36 take $W=\{12,\ldots,23\}$; precisely blocks
@@ -49,17 +84,24 @@ matching of the coordinates and retain the blocks meeting each matched
 pair in at most one coordinate. If $r$ blocks survive, there exists a
 signed weight-eight code of size $16r$ in $\{0,\pm1\}^{m}$ whose distinct
 vectors have inner products at most four.
+If the paired coordinates are embedded in the ERS configuration, write
+$P(A)$ for the union of the four pairs met by a retained source block $A$.
+The transferred code replaces any $b$ old bundles with gain $16r-128b$
+provided
+\begin{equation}\label{eq:transfer-boundary}
+ |P(A)\cap B|\le4
+ \quad\text{for every retained source block $A$ and undeleted old block $B$}.
+\end{equation}
 \end{lemma}
 \begin{proof}
 Take all sixteen sign patterns on each retained block and apply
 $H=\left(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right)$ to each
-matched coordinate pair. Each occupied pair contains exactly one input
-entry $\pm1$, and its image contains two entries $\pm1$. Thus every image
-has weight eight. Since $H^{\mathsf T}H=2I$, all inner products double.
-For different supports the original inner product is at most two. For the
-same support, two distinct sign patterns differ in at least one position,
-giving inner product at most $4-2=2$. The map is invertible and preserves
-distinctness.
+matched coordinate pair. An occupied pair's single entry $\pm1$ becomes
+two entries $\pm1$, so every image has weight eight and support $P(A)$.
+Original inner products are at most two, by the intersection bound
+for different supports and at least one sign change for equal supports.
+Since $H^{\mathsf T}H=2I$, products double and distinctness is preserved.
+Proposition~\ref{prop:bundle-boundary} gives the replacement claim.
 \end{proof}
 
 For dimension 35, an exact-cover construction gives a Steiner quadruple
@@ -84,22 +126,229 @@ at most two. The matching
 (0,1),(2,4),(3,5),(6,7),(8,10),(9,11)
 \]
 retains 36 blocks, hence 576 signed weight-eight vectors.
-The two matched designs supply the replacement codes for the isolated
-ERS regions described above.
+The same cross-block construction works for every even half-size, and
+is sharp in its complete-sign, transverse $2+2$ model. Let $L,R$ be
+disjoint sets of $2t$ coordinates, with prescribed perfect matchings
+$M_L,M_R$. Write $E_L=\binom L2\setminus M_L$ and
+$E_R=\binom R2\setminus M_R$. Identify a transverse $2+2$ support
+$e\cup f$ with the pair $(e,f)\in E_L\times E_R$.
 
-\begin{proposition}[A four-colour construction]\label{prop:local36-paper}
-There is a signed weight-eight code of size 576 in twelve coordinates
-with distinct-pair inner products at most four.
+\begin{proposition}[Sharp transverse transfer]\label{prop:local36-paper}
+Let $t\ge2$ and $\mathcal A\subseteq E_L\times E_R$. Taking all sixteen
+signs on each source support and applying the paired Hadamard map gives
+an internally compatible weight-eight code if and only if both
+\[
+ \{f:(e,f)\in\mathcal A\}\quad(e\in E_L),\qquad
+ \{e:(e,f)\in\mathcal A\}\quad(f\in E_R)
+\]
+are matchings on their respective coordinate sets. Consequently
+\begin{equation}\label{eq:transverse-capacity}
+ |\mathcal A|\le2t^2(t-1),\qquad |Q|\le32t^2(t-1).
+\end{equation}
+Equality holds precisely when every one of these left and right
+fibres is a perfect matching. For any prescribed $M_L,M_R$, equality
+is attainable. In particular, $t=3$ gives 576 vectors in twelve coordinates.
 \end{proposition}
 \begin{proof}
-Use the edges of one colour of the one-factorization as the coordinate
-pairs in each half. Each of the other four colours has three edges
-transverse to these pairs. For each colour choose one edge in each
-half and take their union. This gives $4\cdot3\cdot3=36$ transverse
-four-subsets. Their intersections are at most two: within a colour
-they can share one edge; between colours they share at most one
-endpoint per half. Lemma~\ref{lem:hadamard-transfer} supplies
-$16\cdot36=576$ signed vectors.
+Two source supports with different edges in both halves intersect in
+at most two positions. If their left edges agree, their intersection
+has size at most two exactly when their right edges are disjoint;
+the symmetric statement holds on the right. Complete sign bundles
+make this intersection condition necessary as well as sufficient:
+signs agreeing on an intersection of size at least three have product
+at least three, and hence product at least six after transfer.
+Lemma~\ref{lem:hadamard-transfer} proves sufficiency and the factor sixteen.
+
+Each fibre has at most $t$ edges, and
+$|E_L|=|E_R|=\binom{2t}{2}-t=2t(t-1)$.
+Summing degrees on either side proves the bound, with equality exactly
+when every fibre is a perfect matching.
+
+For attainment, take one-factorizations of the two complete graphs;
+these exist for every $t$~\cite[p.~137]{kalbfleisch-stanton}. Relabel
+vertices so that factor zero is the prescribed pairing in each half,
+and use the same $2t-1$ colour labels. For each nonzero colour include
+every union of one left edge and one right edge of that colour.
+Every fibre is a perfect matching, and there are $(2t-2)t^2$ blocks.
+For $t=3$ this is the four-colour construction used above.
+\end{proof}
+
+The equality criterion does not classify extremizers as synchronized
+one-factorizations. The bound requires both the $2+2$ restriction and
+complete source sign bundles; it does not cover arbitrary signed
+weight-eight codes.
+
+\subsection{Boundary-constrained capacity}
+For fixed old bundles to be deleted, form the bipartite allowed-block
+graph $\Gamma\subseteq E_L\times E_R$ by retaining exactly the pairs
+$(e,f)$ for which $P(e\cup f)$ satisfies
+\eqref{eq:transfer-boundary}. More generally, $\Gamma$ can encode any
+prescribed restrictions on the transverse $2+2$ blocks. For each
+$e\in E_L$, let $G_e$ be the graph on $R$ with edges
+$\{f:(e,f)\in\Gamma\}$; define $H_f$ on $L$ symmetrically. Denote
+the matching number of a graph $G$ by $\nu(G)$.
+
+\begin{proposition}[Boundary matching bounds]\label{prop:boundary-capacity}
+An allowed family $\mathcal A\subseteq\Gamma$ is compatible exactly
+when all its left and right fibres are matchings. If
+$C_L\subseteq E_L$, $C_R\subseteq E_R$ form a vertex cover of
+$\Gamma$, then
+\begin{equation}\label{eq:boundary-cover}
+ |\mathcal A|\le
+ \sum_{e\in C_L}\nu(G_e)+\sum_{f\in C_R}\nu(H_f).
+\end{equation}
+In particular one may use either complete vertex class as a cover,
+or minimize the displayed weighted cover bound. Any vertex cover of
+$G_e$ or $H_f$ gives a further explicit upper bound on its matching number.
+
+The unrestricted bound $2t^2(t-1)$ is attainable under $\Gamma$ if
+and only if $\Gamma$ contains a subfamily whose fibres on both sides
+are perfect matchings. Thus even one fibre with matching number less
+than $t$ obstructs equality. If $U$ is any upper bound obtained from
+\eqref{eq:boundary-cover}, deleting $b$ old bundles and using this
+model has net gain at most $16U-128b$.
+\end{proposition}
+\begin{proof}
+The compatibility and equality assertions follow from
+Proposition~\ref{prop:local36-paper}. The degree of $e$ in
+$\mathcal A$ is at most $\nu(G_e)$, and similarly for $f$.
+Every selected pair has an endpoint in the chosen vertex cover, so
+summing these degree bounds proves~\eqref{eq:boundary-cover}.
+A matching uses distinct vertices of any vertex cover, proving the
+additional local bound. The last claim counts sixteen inserted points
+per source block and 128 points per deleted bundle.
+\end{proof}
+
+Local matching bounds need not be simultaneously attainable: choices
+in the $G_e$ can violate the $H_f$ conditions. In twelve coordinates,
+the geometric boundary resolves this obstruction. Each half contains
+three coordinate pairs. A left pair type selects two of the three left
+pairs, and a right pair type selects two of the three right pairs.
+There are three types on each side. Represent the allowed combinations
+by a bipartite graph $H$ on these two three-element sets. Every edge
+$a\in E(H)$ allows all sixteen source blocks choosing one coordinate
+from each of its four prescribed pairs. This is exactly the restriction
+produced by~\eqref{eq:transfer-boundary}, since the image support depends
+only on the four occupied pairs, not on the chosen input axes.
+
+Put $h=|E(H)|$. Define a bipartite graph $D_H$ with two copies $a^-,a^+$
+of every edge $a$ of $H$, joining $a^-$ to $b^+$ when $a\ne b$ share
+an endpoint in $H$. Thus $D_H$ is the bipartite double cover of the
+line graph of $H$. Matching--vertex-cover duality bounds the capacity;
+compatible source blocks attain the resulting integer cell weights.
+
+\begin{theorem}[Exact twelve-coordinate boundary capacity]
+\label{thm:type-boundary-capacity}
+The maximum number of compatible transverse $2+2$ source blocks under
+the type restriction $H$ is
+\begin{equation}\label{eq:type-boundary-capacity}
+ \beta(H)=8h-4\nu(D_H)
+ =\max_{M\text{ matching in }H}
+       \bigl(8|M|+4|E(H-V(M))|\bigr),
+\end{equation}
+where $V(M)$ is the set of endpoints of $M$. Consequently the maximum
+complete-sign transferred code has $16\beta(H)$ vectors.
+
+Fix a maximum matching $N$ in $D_H$. For a compatible allowed family,
+let $c_a$ count its source blocks of type $a$. It is optimal if and only if
+\[
+ c_a+c_b=8\quad(a^-b^+\in N),\qquad
+ c_a=8\quad\text{if either copy of $a$ is unmatched by $N$}.
+\]
+In particular, an optimum can always be chosen with every $c_a$ equal
+to zero, four or eight.
+\end{theorem}
+\begin{proof}
+For one type, its four possible left edges each have a right fibre
+of size at most two, so $c_a\le8$. If $a,b$ share a left type, their
+two distinct right types share a coordinate pair. Every right edge
+from these two types meets that pair, so each left fibre has at most
+two edges among them. Hence $c_a+c_b\le8$. The symmetric argument
+applies when they share a right type.
+
+Apply this last inequality to every edge of $N$, and $c_a\le8$ to
+each unmatched vertex copy. Each $c_a$ is counted twice, giving
+\[
+ 2\sum_a c_a\le8|N|+8(2h-2|N|)=16h-8\nu(D_H).
+\]
+Equality holds exactly when all these inequalities are tight, proving
+the asserted equality criterion once attainment is established.
+
+Take a minimum vertex cover $C$ of $D_H$, of size $\nu(D_H)$, and put
+\[
+ s_a=2-\boldsymbol1_{a^-\in C}-\boldsymbol1_{a^+\in C}\in\{0,1,2\}.
+\]
+Both directed copies of each adjacency are covered, so
+$s_a+s_b\le2$ whenever $a,b$ share an endpoint in $H$.
+Thus weight-two types form a matching in $H$ and have only weight-zero
+neighbours. To obtain $C$, follow alternating paths from unmatched minus
+vertices of $N$, then take unreached minus and reached plus vertices.
+Absence of augmenting paths makes this a cover with exactly one endpoint
+of each matching edge.
+
+For each type with $s_a=2$, use the eight source blocks whose four
+binary coordinate choices have even parity. Distinct choices differ
+in at least two positions, so these blocks intersect in at most two
+coordinates. For the types with $s_a=1$, restrict one synchronized
+36-block factorization family from
+Proposition~\ref{prop:local36-paper}. That family has four blocks of
+every type: each of its left fibres is a perfect matching on three
+coordinate pairs, whose three inter-pair edge counts satisfy
+$u+v=u+w=v+w=2$, hence $u=v=w=1$.
+The four possible left edges of a type each contribute one block.
+Weight-one blocks are mutually compatible. A weight-two type and any
+other positive type differ on both sides, so their blocks intersect in
+at most one coordinate per half. The combined compatible family has
+\[
+ 4\sum_a s_a=4(2h-|C|)=8h-4\nu(D_H)
+\]
+blocks, proving attainment.
+
+More generally, for any matching $M$ in $H$, take eight parity blocks
+on each edge of $M$ and four factorization blocks on each edge of
+$H-V(M)$. The same argument proves compatibility. Conversely, in
+the constructed optimum the weight-two types form such an $M$, and
+the weight-one types lie in $H-V(M)$. These two observations prove
+the second expression in~\eqref{eq:type-boundary-capacity}.
+\end{proof}
+
+Thus a fixed twelve-coordinate pairing, a division into two halves,
+and $b$ prescribed old-bundle deletions have exact best gain in this model
+\[
+ 16\beta(H)-128b=64\bigl(2h-\nu(D_H)-2b\bigr).
+\]
+The joint type constraints can be stronger than the fibre-cover bound.
+For example, take the five types
+$H=\{(1,1),(1,2),(1,3),(2,1),(3,1)\}$.
+The two fibre sums are 28 and the best mixed cover gives 24, whereas
+$D_H$ has a matching of size five and the exact capacity is 20.
+The function \texttt{solve\_type\_boundary} in
+\qpath{constructions/codes/hadamard/boundary.py} takes the allowed
+types and returns the exact capacity, an attaining source family,
+and matching and vertex-cover certificates. The independent tests
+check all $2^9$ type relations.
+Restrictions on individual source blocks within a type require the
+finer boundary model of Proposition~\ref{prop:boundary-capacity}.
+
+\begin{corollary}[One forbidden pair type in twelve coordinates]
+\label{cor:forbidden-pair-type}
+Let $t=3$, so that each half consists of three prescribed coordinate
+pairs. A pair type specifies two of these pairs in each half, and
+allows the source edges joining the chosen pairs. If the boundary
+forbids at least one such type, at most 32 source blocks, hence 512
+signed points, are possible. If it forbids exactly one type and allows
+all the others, these bounds are attained.
+\end{corollary}
+\begin{proof}
+There are four left edges joining the two left pairs in the forbidden
+type. For each, all permitted right edges meet the third right pair,
+a two-vertex cover; its fibre has size at most two instead of three.
+The other eight left fibres have size at most three, giving
+$4\cdot2+8\cdot3=32$.
+
+The factorization family has exactly four blocks of each pair type,
+as in the preceding proof. If only one type is forbidden, deleting
+its four blocks leaves 32 compatible, allowed blocks.
 \end{proof}
 
 \begin{proposition}[Sign-extension bound]\label{prop:sign-capacity}
@@ -127,21 +376,16 @@ The two replacement sizes give
 N_{35}&=2^{17}+128(2157-1)+256+4\binom{35}{2}=409676,\\
 N_{36}&=2^{17}+128(2742-3)+576+4\binom{36}{2}=484760.
 \end{align*}
-The preceding lemmas prove compatibility involving the new vectors.
-For completeness, the top layer has inner product at most $32-2\cdot8=16$.
-On one retained middle support, equal parity forces at least two sign flips,
-so the inner product is at most $32-8\cdot2=16$; different supports intersect
-in at most four positions. The bottom layer has maximum inner product 16.
-The remaining cross-layer bounds are 16 for top--middle, 8 for top--bottom,
-and 16 for middle--bottom. All layers have squared norm 32.
-The archived finite data establish every hypothesis of these arguments.
+Proposition~\ref{prop:ers} controls the unchanged pairs;
+Corollary~\ref{lem:isolated-replacement} and
+Lemma~\ref{lem:hadamard-transfer} control the replacements.
+The archived data verify the support, region and transverse-block hypotheses.
 \end{proof}
 
 
 \subsection{A 512-point replacement in dimension 37}
-The replacement argument only needs every new support to intersect every
-retained support in at most four coordinates. It need not impose this
-condition on an entire containing coordinate region. Take the verified
+Proposition~\ref{prop:bundle-boundary} only tests the selected image
+supports, rather than their entire containing region. Take the verified
 2845-word length-37 family and delete three complete sign bundles.
 The replacement consists of 512 signed weight-eight vectors on twelve
 coordinates. In the source's one-based, left-to-right numbering, the
@@ -151,12 +395,11 @@ paired coordinates are
 \]
 Thirty-two transverse four-subsets on the twelve input axes, each with all
 sixteen signs, give the 512 vectors by the preceding Hadamard transfer.
-The four-subsets, coordinate pairs and signed images are supplied in
-\qpath{constructions/codes/data/d37_signed_patch.json}.
-The checker regenerates all $32\cdot16=512$ images and verifies equality
-with the supplied vector set.
-Their internal products are at most four, and every image support meets
-every retained support in at most four coordinates. Hence
+The four-subsets, pairs and signed images in
+\qpath{constructions/codes/data/d37_signed_patch.json} regenerate exactly
+the supplied 512-point set. The checker verifies internal products at
+most four and intersections at most four with every retained support.
+The boundary-adapted transfer therefore gives
 \[
 K(37)\ge2^{17}+128(2845-3)+512+2(37)(36)=498024.
 \]
@@ -164,9 +407,39 @@ Against the 2832-support comparison family, the thirteen extra supports
 contribute $13\cdot128=1664$ points. The signed replacement contributes
 $512-3\cdot128=128$ further points, for a total gain of 1792.
 
-The left-to-right numbering is part of the witness specification.
-Assigning coordinate one to the rightmost bit instead requires the
-reversal $i\mapsto38-i$ for $1\le i\le37$. The independent verifier checks the complete
-support and signed-vector conditions in one consistent convention.
-Equivalently, left-to-right coordinate $i$ is integer bit $37-i$
-when the least significant bit has index zero.
+For a sharp application of Corollary~\ref{cor:forbidden-pair-type},
+label the six displayed coordinate pairs $P_0,\ldots,P_5$ in order.
+Of the fifteen possible
+four-pair image supports, exactly twelve meet every retained old
+support in at most four coordinates. The forbidden three are those
+whose two omitted pair indices are
+\[
+ \{0,2\},\qquad\{0,5\},\qquad\{2,4\}.
+\]
+These three edges form the path $4,2,0,5$. Every division of the six
+pairs into two triples cuts at least one edge of this path, because
+its four vertices cannot all lie in a single triple. Such a crossing
+edge is the omitted pair of a forbidden $2+2$ type, so every division
+has capacity at most 512. The division
+$\{0,2,4\}\mid\{1,3,5\}$ cuts exactly one edge. Deleting the four
+blocks of its forbidden type from a 36-block factorization construction
+therefore supplies an alternative boundary-compatible 512-point code.
+Consequently 512 is the exact capacity among complete-sign $2+2$
+transfers, allowing any division into two triples but keeping these
+six coordinate pairs and these three deleted bundles fixed.
+More precisely, applying Theorem~\ref{thm:type-boundary-capacity}
+to the ten divisions, identifying left--right reversals, gives four
+capacities of 512, four of 448 and two of 384. The finite checker
+constructs an attaining family for every division and verifies each
+transferred code against the complete retained boundary.
+
+The supplied 32-block witness itself fits no such division: its image
+supports use ten different four-pair types, whereas a fixed $2+2$
+division permits only nine. It belongs to the more general model of
+Lemma~\ref{lem:hadamard-transfer}. Neither the restricted capacity
+statement nor the 576-point isolated construction in dimension 36
+proves optimality for arbitrary twelve-coordinate signed codes.
+
+Left-to-right coordinate $i$ corresponds to integer bit $37-i$ (zero-based),
+or coordinate $38-i$ numbered from the right. The verifier uses this
+conversion consistently for supports and signed vectors.

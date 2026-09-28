@@ -7,24 +7,69 @@ configuration supplied in the public
 \href{https://github.com/alexlegeartis/KissingNumbers/tree/cf14c5ef4db6059bbf2e570e3f0ce24edfda243e/verifications/improved/dim25-lens-heads}
 {\texttt{KissingNumbers/dim25-lens-heads}} package.
 The construction moves 552 retained equatorial points, adjoins one point,
-and replaces two cap points. A whole contact layer moves without changing
-its internal products. The following observation describes the geometric
-freedom before any particular coordinates are chosen.
+and replaces two cap points. The motion preserves every internal product
+of the moved layer.
 
 \begin{lemma}[Coordinated chord motion]\label{lem:chord-motion}
-Let $n$ be a unit vector, $a>0$, and $r_i\perp n$ with
-$\|r_i\|^2=\rho-a^2$. Put $u_i=r_i-an$ and $w_i=r_i+an$.
-For $c^2+d^2=a^2$, define $W_i=(r_i+cn,d)$.
+Let $n$ be a unit vector, let $h>0$, and let $r_i\perp n$ satisfy
+$\|r_i\|^2=\rho-h^2$. Put $u_i=r_i-hn$ and $w_i=r_i+hn$.
+For real $c,d$ with $c^2+d^2=h^2$, set $W_i=(r_i+cn,d)$.
 Then $\|W_i\|^2=\rho$ and $W_i\cdot W_j=w_i\cdot w_j$.
 If $z\cdot u_i\le\rho/2$ and $z\cdot w_i\le\rho/2$, then
 $(z,0)\cdot W_i\le\rho/2$.
 \end{lemma}
 \begin{proof}
-Orthogonality gives the norm and product identities. The horizontal
-component is
-$\frac{a-c}{2a}u_i+\frac{a+c}{2a}w_i$, a convex combination since
-$|c|\le a$. Its product with $z$ obeys the same bound as both endpoints.
+The first two claims follow from $r_i\perp n$ and $c^2+d^2=h^2$.
+Since $|c|\le h$, the horizontal component of $W_i$ is
+$\frac{h-c}{2h}u_i+\frac{h+c}{2h}w_i$, a convex combination.
+The last inequality follows by linearity.
 \end{proof}
+
+For an axial candidate $Q=(\alpha n,\beta)$ with
+$\alpha^2+\beta^2=\rho$, every moved point has the same product
+$\alpha c+\beta d$ with $Q$. Simultaneous contact is possible exactly
+when $h^2\ge\rho/4$, at the circle--line intersections
+\begin{equation}\label{eq:chord-contact}
+ (c,d)=\frac12(\alpha,\beta)
+       \mathbin{\pm}\sqrt{\frac{h^2-\rho/4}{\rho}}\,(-\beta,\alpha).
+\end{equation}
+For a finite nonempty moved layer, compatibility with a fixed point
+$(z,s)$ is exactly the half-plane constraint
+\begin{equation}\label{eq:chord-boundary}
+ c\ip nz+ds\le\rho/2-\max_i\ip{r_i}z.
+\end{equation}
+The candidate must also be compatible with the fixed points. In the
+construction below, two cap replacements resolve the remaining conflicts.
+
+\begin{proposition}[Finite boundary test]\label{prop:chord-finite}
+Let $H_1,\ldots,H_m$ be closed half-planes in the $(c,d)$-plane,
+and let $F$ consist of $(h,0)$ together with every intersection of
+the circle $c^2+d^2=h^2$ with their boundary lines. Constant
+inequalities contribute no boundary points. Then $|F|\le2m+1$, and
+the circle meets $\bigcap_jH_j$ if and only if some point of $F$
+belongs to every $H_j$.
+More generally, designate some inequalities as mandatory and assign
+nonnegative deletion costs to the others. The minimum cost of violated
+inequalities, when the mandatory constraints admit a circle point,
+is attained at a feasible point of $F$.
+\end{proposition}
+\begin{proof}
+Remove all boundary intersections from the circle. On each remaining
+open arc, every inequality has constant truth value. At an endpoint,
+every inequality that held on the arc still holds, because its half-plane
+is closed. Moving there preserves mandatory inequalities and cannot
+increase deletion cost. If there are no boundary intersections, all truth
+values are constant on the circle, and $(h,0)$ suffices.
+\end{proof}
+
+For a nonzero normal $A=(A_1,A_2)$, the boundary $A\cdot(c,d)=B$
+contributes points exactly when $B^2\le h^2\|A\|^2$, namely
+\[
+ \frac{BA\pm\sqrt{h^2\|A\|^2-B^2}\,(-A_2,A_1)}{\|A\|^2}.
+\]
+Rational half-plane data and rational $h^2$ therefore give an exact
+test on at most $2m+1$ quadratic-algebraic candidates. This minimizes
+deletions; the existence of replacements is a separate requirement.
 
 \paragraph{Normalization and input.}
 All points have squared norm 4; the kissing condition is an inner product
@@ -40,7 +85,8 @@ The head indices refer to rows of the source \texttt{heads\_X.npy}; the
 mathematical values of its 44 rational heads are preserved as exact
 rational numbers in \texttt{baseline-heads.json}.
 
-Let $v$ be the first complete block's norm-6 lean and put $n=v/\sqrt6=-P/2$.
+Let $v$ be the following squared-norm-six lattice vector associated
+with the first complete block, and put $n=v/\sqrt6=-P/2$.
 An exact integer description of this direction is
 \[
 v=\frac{1}{\sqrt8}(-5,-1,-1,-1,-1,1,-1,1,-1,-1,-1,1,
@@ -60,6 +106,8 @@ r=u+\sqrt{3/2}\,n=w-\sqrt{3/2}\,n,\qquad
 a=\frac{\sqrt3}{2}+\frac{\sqrt2}{4},\qquad
 b=\frac{\sqrt6-2}{4}.
 \]
+The values $(a,b)$ are the positive choice in~\eqref{eq:chord-contact}
+for $h^2=3/2$, $\rho=4$, and $(\alpha,\beta)=(\sqrt3,-1)$.
 Then $r\perp n$, $\|r\|^2=5/2$, and the old cap points over $u$ are
 $(r-n/\sqrt2,\pm1)$. Replace every $(w,0)$ by
 \[
@@ -78,42 +126,50 @@ two integer vectors and defines
  R_+=\frac{2k}{\sqrt{1007176}},\qquad
  R_-=\frac{2\ell}{\sqrt{10209}},
 \]
-where the following integer vectors have squared norms 1007176 and 10209:
-\begin{align*}
-k={}&(-336,-9,-298,286,-17,15,-39,22,277,19,364,304,9,\!\\
- &\phantom{(}-2,-24,-39,4,304,-9,-4,271,-29,9,-2,500),\\
-\ell={}&(-25,-31,-33,4,3,2,36,33,3,-1,-2,-3,-4,\!\\
- &\phantom{(}-1,4,-2,1,2,4,-31,-1,-28,-3,-28,-50).
-\end{align*}
+where $k,\ell$ are the integer rows in
+\texttt{constructions/d25/repair-points.json}, of squared norms
+1007176 and 10209.
 The opposite old cap points $(x_{984},-1)$ and $(x_{1008},1)$ are retained.
-These integer vectors specify the repairs exactly.
 
-\begin{lemma}[Norms and pairs not involving other cap points]
-All the $W(r)$ and $Q$ have squared norm 4. They are mutually compatible,
-and are compatible with all unchanged equatorial points, both poles, and
-$P_0$. Each $W(r)$ is also compatible with the old cap points belonging
-to the complete first block.
-\end{lemma}
-
+\begin{proposition}[Two necessary cap changes]\label{prop:motion-two-repairs}
+Keep $Q$ fixed and move the 552 points by
+$W(r)=(r+cn,d)$, with $c^2+d^2=3/2$.
+Any compatible configuration obtained this way must change at least
+two original cap points. The specified construction attains this minimum.
+\end{proposition}
 \begin{proof}
-The identities
+The exact cap data give $Q\cdot(x_{1008},-1)>231/100>2$,
+so this lower cap must change independently of $(c,d)$.
+If it were the only changed cap, all first-block cap pairs
+$(r-n/\sqrt2,\pm1)$ would remain. Their products with their own
+moved points require $-c/\sqrt2+|d|\le-1/2$.
+Together with the circle equation this gives $c>0$ and $|d|\le1/3$.
+On this interval $c=\sqrt{3/2-d^2}$ and $\sqrt3c-d$ is strictly
+decreasing. Compatibility with $Q$ therefore forces $d\ge b$,
+since $\sqrt3a-b=2$.
+
+Put $\nu=\ip n{x_{984}}$ and $M=\max_r\ip r{x_{984}}$.
+The largest moved-layer product with the upper 984 cap is
+$g(d)=M+\nu\sqrt{3/2-d^2}+d$. Since $\|x_{984}\|=\sqrt3$,
+\[
+ g'(d)=1-\frac{\nu d}{\sqrt{3/2-d^2}}
+ \ge1-\frac{\sqrt6}{5}>0\qquad(b\le d\le1/3).
+\]
+The rational head and shell data, evaluated with outward-rounded
+intervals, give $g(b)>201/100>2$. Thus this upper cap must also
+change, a contradiction. The motion-obstruction checker reproduces
+both strict checks. The subsequent pair verification proves that
+the specified two replacements suffice.
+\end{proof}
+
+\paragraph{Pair verification.}
+Lemma~\ref{lem:chord-motion} gives the moved-point norms, internal products
+and compatibility with the unchanged equator. The identities
 \[
 a^2+b^2=\frac32,\qquad \sqrt3a-b=2,\qquad
 -\frac a{\sqrt2}+b=-\frac34
 \]
-give the norm assertions and $\ip{W(r)}Q=2$.
-For two different block points,
-\[
-\ip{W(r_i)}{W(r_j)}=\ip{r_i}{r_j}+\frac32=\ip{w_i}{w_j}\le2.
-\]
-Since $0<a<\sqrt{3/2}$, the horizontal component of $W(r)$ is
-\[
-r+a n=(1-\lambda)w+\lambda u,\qquad
-\lambda=\frac{\sqrt{3/2}-a}{2\sqrt{3/2}}\in(0,1).
-\]
-An unchanged equatorial point $z$ is different from both $u$ and $w$.
-Both $\ip uz$ and $\ip wz$ are at most 2, so their convex combination is
-at most 2.
+give $Q^2=4$ and $\ip{W(r)}Q=2$.
 
 The shell has integral $\ip vz\in\{-3,-2,-1,0,1,2,3\}$.
 The negative extreme layer is deleted and the positive extreme layer
@@ -121,61 +177,32 @@ is exactly the moved set. Thus every unchanged equatorial point obeys
 \[
  \ip Q{(z,0)}=\frac{\ip vz}{\sqrt2}\le\sqrt2<2.
 \]
-The finite shell data verify these layer identities in integers.
+The shell checker verifies these layer identities in integers.
+Products of $W$ with $(P_0,N,S)$ are $(-2a,2b,-2b)$; those of $Q$
+are $(-2\sqrt3,-2,2)$. Against its own first-block caps, $W(r)$ has
+products $7/4$ and $11/4-\sqrt6/2<2$; different block indices give
+smaller products because $\ip{r_i}{r_j}\le1/2$.
 
-The remaining pure-point products are
-\[
-\ip{W(r)}{P_0}=-2a,\quad
-\ip{W(r)}N=2b,\quad \ip{W(r)}S=-2b,
-\]
-\[
-\ip Q{P_0}=-2\sqrt3,\quad \ip QN=-2,\quad \ip QS=2.
-\]
-All satisfy the required inequality. For the same block index, the
-products with the old upper and lower cap points are, respectively,
-\[
-\frac52-\frac a{\sqrt2}+b=\frac74,
-\qquad
-\frac52-\frac a{\sqrt2}-b=\frac{11}{4}-\frac{\sqrt6}{2}<2.
-\]
-For different block indices, $\ip{r_i}{r_j}\le1/2$, so both products
-are smaller still.
-\end{proof}
-
-\paragraph{The finite certificate.}
-The previous lemma handles every equality created by the modification.
-The remaining products to certify are:
-\begin{enumerate}
-\item the 552 moved points against the 2030 unchanged cap points;
-\item $Q$ against those unchanged cap points;
-\item $R_+$ and $R_-$ against every point retained in the final configuration,
-      including one another, with their own diagonal entries omitted.
-\end{enumerate}
-Outward-rounded rational upper bounds for these four groups are
+The four remaining groups are: moved points against the 2030 unchanged
+caps; $Q$ against those caps; and each of $R_+,R_-$ against all other
+final points. Their outward-rounded rational upper bounds are
 \[
 1.999372,\quad 1.965926,\quad 1.994722,\quad 1.987522.
 \]
-Each is below 2. The checker uses 192-bit outward-rounded Arb intervals
-and integer comparisons, and checks both normalizations exactly.
-Pairs involving only unchanged points retain the inequalities of the
-input configuration.
+The checker uses 192-bit Arb intervals~\cite{johansson-arb} and verifies
+both repair norms exactly. Unchanged pairs retain the input inequalities.
 
-\begin{theorem}
+\begin{theorem}\label{thm:d25}
 The specified configuration consists of 197580 distinct points on
 the radius-2 sphere in $\mathbb R^{25}$ with pairwise inner products at
 most 2. Consequently the kissing number in dimension 25 is at least 197580.
 \end{theorem}
 
 \begin{proof}
-The lemma, the verified finite checks, and the independently checked source
-certificate exhaust all pairs. The baseline checks include every head--shell
-and same-cap head--head inequality, with integer or rational acceptance
-decisions. Compatibility within the Leech shell follows from its lattice
-minimum.
-All squared norms are exactly 4, including those of $R_+$ and $R_-$ by
-definition. The 552 moved points replace 552 existing points and the two
-repairs replace two existing cap points; only $Q$ increases the inventory.
-Thus
+The pair checks above, together with the integer or rational baseline
+checks, exhaust all pairs. All squared norms are exactly 4. The moved
+layer and repairs replace equally many old points; only $Q$ increases
+the count:
 \[
  |C|=197579-552-2+552+2+1=197580.
 \]

@@ -1,20 +1,16 @@
 \section{Layered codes, joint exchanges and signed constructions}
 \label{sec:codes}
 
-These seven results use one geometric construction, with improvements at
-different levels. Dimensions 32, 33 and 34 use larger compatible families of
-eight-element supports; dimension 39 combines such a family with an explicit
-sign code. Dimensions 35, 36 and 37 also change the signs carried by the
-supports. The important transition is from deciding whether to retain a whole
-bundle to replacing it by a different finite set.
+Dimensions 32--34 and 39 enlarge the support family of one layered
+construction; dimensions 35--37 also replace complete sign bundles by
+different finite sets.
 
 \subsection{Compatibility of the layers}
 
 The Edel--Rains--Sloane construction~\cite{ers} places three coordinate patterns
 on the same unit sphere. Let $n\ge m\ge32$, let $T\subset\{0,1\}^m$ be a
 binary code, and let $\mathcal B$ be a family of eight-element subsets of
-$\{0,\ldots,n-1\}$. A support records the nonzero coordinates of a vector;
-the signs specify the vector itself. The dense, middle and root layers are
+$\{0,\ldots,n-1\}$. The dense, middle and root layers are
 \begin{align*}
 X_T&=\left\{\frac{1}{\sqrt m}
  \bigl((-1)^{c_0},\ldots,(-1)^{c_{m-1}},0,\ldots,0\bigr):c\in T\right\},\\
@@ -51,20 +47,11 @@ at most $2/(\sqrt m\sqrt2)=\sqrt{2/m}\le1/2$; middle--root products are
 at most $2/(\sqrt8\sqrt2)=1/2$. These cover all distinct pairs.
 \end{proof}
 
-The geometric problem reduces to finding a large binary code and a large
-support family with intersection at most four. The support indicators have
-constant weight eight and satisfy
-$d_H(1_B,1_{B'})=16-2|B\cap B'|$. Thus the intersection condition is
-minimum distance eight in the constant-weight code. Equation~\eqref{eq:ers-count}
-converts improvements of such codes into kissing-number lower bounds
-\cite{bsss,brouwer,echols}.
+The identity $d_H(1_B,1_{B'})=16-2|B\cap B'|$ makes the support condition
+minimum distance eight in a constant-weight code. Each extra support
+therefore adds 128 spherical points~\cite{bsss,brouwer,echols}.
 
 \subsection{Joint exchanges of supports}
-
-Inserting a new support generally requires removing old supports with large
-intersection. For a single candidate, these deletions may consume the gain.
-Several mutually compatible candidates can instead be obstructed by the
-same old supports. The search therefore selects additions jointly.
 
 For a candidate $b$, put $F(b)=\{B\in\mathcal B:|B\cap b|>4\}$.
 If $Y$ is disjoint from the old family and its internal intersections are
@@ -91,13 +78,18 @@ for incompatible candidates and $z_b\le u_B$ for $B\in F(b)$, and maximize
 \[
 \sum_{b\in\mathcal C}z_b-\sum_{B\in\mathcal B}u_B.
 \]
-An optimal choice deletes only supports actually blocking selected
-candidates, so its objective is exactly the gain in
-\eqref{eq:exchange}. This identifies the useful search property:
-concentrate conflicts on shared old supports, rather than minimizing
-each candidate's conflict count separately. Candidate generation and
-joint selection are complementary tasks; changing the candidate family
-changes the constructions available to this finite optimization problem.
+An optimum deletes only actual blockers, so this is exactly the gain
+in~\eqref{eq:exchange}. If the entire pool $\mathcal C$ is compatible,
+let $H$ be its bipartite conflict graph with $\mathcal B$. Then
+\[
+\max_{Y\subseteq\mathcal C}(|Y|-|F(Y)|)=|\mathcal C|-\nu(H),
+\]
+where $\nu(H)$ is the maximum matching size. Any matching leaves at
+least $|Y|-|F(Y)|$ candidates unmatched; alternating paths from the
+unmatched candidates of a maximum matching attain equality. The saved
+33-, 34-, 37-, 38- and 39-dimensional insertion pools have matching
+sizes $9,6,37,6,14$, certifying optimal subexchange gains $1,1,3,1,1$
+within those pools. This does not optimize over all possible supports.
 
 The blocking sets also organize candidate generation. For a chosen integer
 $f$, consider eight-subsets outside $\mathcal B$ with $|F(b)|\le f$.
@@ -113,13 +105,9 @@ Each candidate occupies $\binom85=56$ such subsets, and the constraints are
 \sum_{b\in\mathcal C:\ Q\subset b}z_b\le1
 \qquad\left(Q\in\binom{\{0,\ldots,n-1\}}5\right).
 \]
-They may be added successively: solve the current selection problem,
-inspect the selected five-subsets, and add the constraints at repeated
-subsets. Once none repeats, the selection is compatible and a positive
-objective gives an exchange. The recorded dimension-34 pool contains
-10715 candidates with at most three blockers; this procedure yields the
-seven-for-six exchange above. After each accepted exchange, recomputing
-the blocking sets makes further replacements available.
+Add constraints at repeated five-subsets until the selected family is
+compatible; accept positive gain and recompute blockers. In dimension 34,
+10715 candidates with at most three blockers yield the seven-for-six exchange.
 
 The following parameters give direct three-layer constructions. The
 dimension-37 support family was enlarged from 2843 to 2845 and then
@@ -140,7 +128,7 @@ $n$ & Dense length $m$ & $|T|$ & $|\mathcal B|$ & Points\\
 \end{tabular}
 \end{minipage}
 \end{center}
-Each extra support contributes 128 spherical points. For example,
+For example,
 $131072+128\cdot1676+1984=347584$ in dimension 32.
 The gains of 15 and 24 supports in dimensions 33 and 34 give respectively
 1920 and 3072 points over the comparison constructions.
@@ -160,16 +148,10 @@ the programs compare generator row spaces and check the actual distances.
 
 The listed dimension-39 comparison has the same dense-layer size.
 Increasing its 3324 supports to 3383 adds $128(3383-3324)=7552$ points.
-Recording the support and dense layers separately identifies the finite
-objects and their respective contributions.
 
 \subsection{Hadamard transfer and local replacement}
 
-The support count is not the only variable. Each original support carries
-all 128 even-parity patterns. Removing a few complete bundles and inserting
-a different signed set can fill the affected region more efficiently.
-Both the internal products and products against the retained configuration
-must be controlled.
+Local replacement changes the signs as well as the supports.
 
 \begin{proposition}[Paired Hadamard transfer]
 \label{prop:hadamard}
@@ -180,10 +162,7 @@ gives $16|\mathcal A|$ weight-eight vectors of squared norm eight and
 distinct-pair products at most four.
 \end{proposition}
 \begin{proof}
-Start with four-element supports having pairwise intersections at most
-two, and attach all sixteen sign patterns to each. Pair the coordinates
-and retain supports meeting each pair in at most one coordinate; call them
-transverse. Apply
+Transversality means meeting each coordinate pair at most once. Apply
 \[
 H=\begin{pmatrix}1&1\\1&-1\end{pmatrix}
 \]
@@ -197,27 +176,24 @@ Invertibility preserves their number.
 \end{proof}
 
 After division by $\sqrt8$, these vectors form an internally compatible
-spherical set $Q$. Intersections at most four with each retained support
-ensure compatibility with the retained middle layer. The dense and root
-cross bounds remain $\sqrt{8/32}=1/2$ and $1/2$, independently of the
-parity of the new signs. This is why replacements need not consist of
-complete even-parity bundles.
+spherical set $Q$. Compatibility and disjoint insertion require
+intersections at most four with every retained complete bundle: signs
+on smaller intersections extend to either parity, and equal supports
+give either a duplicate or a product above $1/2$. The dense and root
+cross bounds remain $1/2$, independent of the new signs' parity.
 
 The free-zone replacement principle appears in
 Takhanov--Yun~\cite[Section V, Definition 5 and Lemma 4]{signed-johnson}
 for signed weight-four codes. Here it is applied to weight-eight
-regions inside the ERS middle layer. The choices of region, transverse
-supports and paired transform give the replacements below.
-In dimensions 35 and 36, boundary compatibility can be secured before
+regions inside the ERS middle layer. In dimensions 35 and 36,
+boundary compatibility can be secured before
 choosing $Q$. Take a coordinate region $W$, remove the old supports
 contained in it, and require $|B\cap W|\le4$ for every retained support.
 Any new weight-eight vector on $W$ is then compatible with the retained
 middle layer. Only its local internal products remain to be controlled.
 The regions are $W=\{12,\ldots,22\}$ and $W=\{12,\ldots,23\}$,
 respectively, with zero-based coordinates. They contain one and three
-old supports. The deletion costs are fixed at 128 and 384 points,
-turning a problem involving the whole configuration into a smaller
-independent construction problem.
+old supports, fixing the deletion costs at 128 and 384 points.
 
 Direct search among signed weight-eight vectors in eleven and twelve
 coordinates has respectively $2^8\binom{11}{8}=42240$ and
@@ -267,16 +243,11 @@ They form the same colour in
 the two halves. The direct construction with these pairs regenerates
 exactly the stored 576 vectors. The accompanying program also enumerates
 all 945 and 10395 matchings of the two source codes, recovering the
-256-point and 576-point sets. Thus the existence proof is explicit,
-while the exhaustive calculation records the finite choices available
-in this model.
+256-point and 576-point sets.
 
-The three constructions select 16, 36 and 32 transverse supports,
-producing 256, 576 and 512 new points.
 The compatible region in dimension 35 has eleven coordinates; ten form
 five pairs and the remaining coordinate is zero. Dimensions 36 and 37
-use twelve coordinates each. The explicit pairs and transverse supports
-regenerate all 256, 576 and 512 signed points for comparison with the final sets.
+use twelve coordinates each, with 36 and 32 transverse supports.
 \begin{center}
 \begin{minipage}{\linewidth}\centering
 \captionof{table}{Signed replacements. The support count precedes the deletion of bundles.}
@@ -314,21 +285,42 @@ extensions on its three zero coordinates. Counting gives
 \[
 8|Q|\le2^{11},\qquad M(11)\le256.
 \]
-The 256-point construction attains equality, so $M(11)=256$.
-This explains the complete use of the eleven-coordinate local region.
-In twelve coordinates, two eight-element supports can intersect in
-only four positions, allowing a sign string to extend several vectors;
-this is the geometric opening used by the larger local code in
-dimension 36.
+The construction attains equality, so $M(11)=256$.
+
+The four-colour construction extends to two halves of size $2t$,
+giving $32t^2(t-1)$ points for every $t\ge2$. This is sharp among
+complete-sign transverse $2+2$ transfers: for each edge in one half,
+its partner edges in the other half must form a matching of size at
+most $t$. Since each half has $2t(t-1)$ available edges, there are at
+most $2t^2(t-1)$ source blocks. Equality requires every left and right
+fibre to be perfect, and synchronized one-factorizations attain it.
+
+For twelve coordinates, fixed-pair boundary restrictions have an exact
+capacity. A type chooses two coordinate pairs in each half; let
+$H\subseteq K_{3,3}$ record the allowed types, each allowing all sixteen
+axis choices. Let $D_H$ have two copies of each edge of $H$, joined
+across copies when distinct edges share an endpoint. The maximum
+number of source blocks is
+\[
+\beta(H)=8|E(H)|-4\nu(D_H).
+\]
+A matching in $D_H$ bounds the type counts; a minimum vertex cover
+constructs an attaining family with zero, four or eight blocks per type.
+Thus the maximum transferred size is $16\beta(H)$, verified for all
+$2^9$ type relations. Exactly one forbidden type gives 512 points.
+For the fixed dimension-37 pairing and three deleted bundles, the ten
+divisions into two halves have capacities 512 (four), 448 (four) and
+384 (two). The supplied 512-point witness fits none of these divisions:
+its ten image types exceed the nine available in a $2+2$ division.
+Neither this capacity nor the 576-point construction bounds arbitrary
+twelve-coordinate signed codes.
 
 The finite checks use the coordinate order, pairs and four-subsets
 specified in the data. In dimension 37, a support string numbered from
 one at the left has coordinate $i$ at integer-mask bit $37-i$.
 The program regenerates all 512 points from 32 transverse supports and
 six coordinate pairs, checks equality with the stored replacement, and
-checks intersections with every retained support. The origin, count and
-geometric conditions are thereby connected through the same input.
+checks intersections with every retained support.
 
-These seven results treat the support family and its sign patterns as
-coupled choices. The next construction changes another part of the
-geometry: equatorial directions left available by a large lattice lifting.
+The next construction instead uses equatorial directions left available
+by a large lattice lifting.

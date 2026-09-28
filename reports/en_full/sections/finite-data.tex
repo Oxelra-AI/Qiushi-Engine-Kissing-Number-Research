@@ -19,6 +19,8 @@ dimension. The following paths are relative to \texttt{constructions/}.
 For dimension 25, \qpath{d25/} contains the exact baseline heads, the two
 integer repair vectors, the complete moving-layer proof and the integer,
 rational and Arb verifiers. The interval checks require \texttt{python-flint}.
+The motion-obstruction checker proves that at least two cap changes
+are required for the specified insertion and chord family.
 For dimension 27, \qpath{d27/data/} gives both head layers and their labels;
 the independent checker regenerates the shell and verifies all deletion
 and product conditions. The candidate-graph reconstruction is included.
@@ -34,6 +36,9 @@ records. The local replacements for dimensions 35 and 36 are in
 \qpath{codes/hadamard/data/}; their generator file and the reconstruction
 program reproduce the stored signed vectors exactly. Dimension 37 has
 its own 512-point replacement and coordinate map in \qpath{codes/data/}.
+The solver \qpath{codes/hadamard/boundary.py} returns an optimal source
+family and matching certificate for each complete-type transverse
+$2+2$ boundary in twelve coordinates.
 
 For dimension 38, \qpath{d38/base-data/} specifies the Golay generator,
 Leech line classes, tail triangles and relative rotation defining the
@@ -41,6 +46,8 @@ Leech line classes, tail triangles and relative rotation defining the
 \qpath{d38/added-lines.txt}. The checker reconstructs the shell, verifies
 the base, tests the Leech congruences of every new vector, and checks all
 new mutual and boundary products in exact arithmetic.
+The contact checker also derives the 552 endpoint contacts and the
+46 positive extreme products excluding norm-64 additions to this base.
 
 For dimension 43, \qpath{sections/d43/data/parent-section.txt} gives the
 ambient Gram matrix and the eight rows embedding the numbered $E_8$ roots.
@@ -48,6 +55,9 @@ ambient Gram matrix and the eight rows embedding the numbered $E_8$ roots.
 rational moment matrix and multiplier determining the $D_5$ count.
 One program reconstructs this system from the geometry; another checks
 the rational matrix identity independently.
+The coordinate-family checker reconstructs eight fixed-cut moment
+systems, certifies full column rank and checks their Weyl correspondence
+with the specified $D_5$ section.
 
 For dimension 45, \qpath{sections/qr/} reconstructs the extremal neighbour.
 Within \qpath{sections/d45/data/}, \texttt{record.json} contains the section
@@ -56,6 +66,8 @@ Proposition~\ref{prop:moment45}, and \texttt{parent-vectors.jsonl} the
 2,256-point parent set. The checkers regenerate the moment domain and
 equations, verify lattice membership and inner products, and recover
 the same witnesses from the parent graph.
+The parent checker also verifies the signed Gram identity and determines
+the minimum common-neighbour count over all 428076 nonadjacent pairs.
 
 After extracting the archive, its \texttt{README.md} gives the dependencies
 and commands. Use a Python environment providing SageMath, NumPy, SymPy

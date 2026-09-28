@@ -17,9 +17,87 @@ of this $D_5$ subsystem inside the embedded $E_8$.
 \end{theorem}
 
 The proof uses integrality, the lattice minimum and spherical-design
-moments. It does not require the Weyl group to extend to automorphisms
-of $L$. We first give an explicit realization, then establish the count
-under the hypotheses of the theorem.
+moments, not an extension of the Weyl group to automorphisms of $L$.
+
+\subsection{Signature domains and target statistics}
+The standard design identities~\cite{dgs,nebe-designs} give the following
+principle. The signature domain must be complete, and averaging must
+preserve the target statistic.
+
+\begin{proposition}[Finite-section statistics]\label{prop:section-statistics}
+Let $L\subset\R^n$ be an integral lattice of minimum squared norm $\mu$,
+and suppose its minimal shell $X$ has $N$ points and is a spherical
+$(2s+1)$-design. Choose independent $b_1,\ldots,b_r\in L$ with Gram
+matrix $H$. For $x\in X$ set
+\[
+y(x)=(\ip{x}{b_i})_{i=1}^r,\qquad
+q(y)=y^tH^{-1}y,\qquad f(y)=|\{x\in X:y(x)=y\}|.
+\]
+Choose a finite antipodal set $\mathcal R\subset\Z^r\setminus\{0\}$
+of section-vector coefficients, and put
+\begin{equation}\label{eq:section-domain}
+\begin{split}
+E&=\{Hz:z\in\mathcal R,\ z^tHz=\mu\},\\
+D&=\{y\in\Z^r:q(y)\le\mu,\quad
+             |z^ty|\le z^tHz/2\ \text{for every }z\in\mathcal R\}.
+\end{split}
+\end{equation}
+Then every signature lies in the disjoint union $D\cup E$, and
+$f(e)=1$ for each $e\in E$. No primitivity of the section is required.
+
+For a multi-index $\alpha$ of total degree at most $2s+1$, define
+$M_\alpha=0$ when $|\alpha|$ is odd, and, when $|\alpha|=2m$, define
+\begin{equation}\label{eq:section-moments}
+M_\alpha=
+\frac{N\mu^m}{\prod_{j=0}^{m-1}(n+2j)}
+\sum_P\prod_{(a,b)\in P}H_{i_a i_b},
+\end{equation}
+where the labelled list $(i_1,\ldots,i_{2m})$ contains $\alpha_i$
+copies of $i$, and $P$ runs over its pairings. Empty products give
+$M_0=N$.
+
+Let $\Gamma$ be a finite group of linear transformations preserving
+$q$, $D$ and $E$, and let $\psi:D\cup E\to\R$ be $\Gamma$-invariant.
+For its orbits $O_j$ on $D$, form
+\[
+A_{\alpha j}=\sum_{y\in O_j}y^\alpha,\qquad
+b_\alpha=M_\alpha-\sum_{e\in E}e^\alpha,\qquad
+c_j=\sum_{y\in O_j}\psi(y).
+\]
+Any selected moment rows in the stated degree range may be used. If
+$A^t\lambda\le c$ entrywise, then
+\begin{equation}\label{eq:section-statistic-bound}
+\sum_{x\in X}\psi(y(x))\ \ge\
+\sum_{e\in E}\psi(e)+\lambda^tb.
+\end{equation}
+If $A^t\lambda=c$, equality holds.
+\end{proposition}
+\begin{proof}
+Integrality and orthogonal projection give $y(x)\in\Z^r$ and
+$q(y(x))\le\mu$. For $a=\sum_i z_i b_i$ and $x\ne\pm a$,
+$\|x\pm a\|^2\ge\mu$ gives $|z^ty(x)|\le\|a\|^2/2$.
+The exceptions have $\|a\|^2=\mu$: their full norm lies in the
+section, so each fibre is a singleton and violates its own domain
+inequality. Thus $D\cap E=\varnothing$; positive definiteness of $q$
+makes $D$ finite.
+
+Polarization gives~\eqref{eq:section-moments}. Since every isometry of
+$q$ extends orthogonally to $\R^n$, these moments are $\Gamma$-invariant
+even when $\Gamma$ does not act on $L$. Hence
+\[
+\bar f(y)=\frac1{|\Gamma|}\sum_{g\in\Gamma}f(g^{-1}y).
+\]
+is nonnegative, has the same moments and equals one on $E$.
+Its orbit values satisfy $Av=b$, while invariance of $\psi$ preserves
+$\sum_X\psi=\sum_E\psi+c^tv$. The result follows from
+$(c-A^t\lambda)^tv\ge0$.
+\end{proof}
+
+Antipodality removes odd total-degree rows, not monomials with odd
+individual exponents. Exceptional orbits may instead be retained with
+value one. A noninvariant target is only averaged, not determined for a
+fixed child. In dimension 45, longer section vectors remove all columns
+carrying slack in a one-sided certificate.
 
 \subsection{A realization in \texorpdfstring{$P_{48n}$}{P48n}}
 Take $L=P_{48n}$, whose Gram matrix $G$ is published as CQ48a
@@ -34,39 +112,34 @@ satisfying
 \begin{equation}\label{d43:eq:embedding}
  TGT^t=H=3C(E_8)=BB^t/96.
 \end{equation}
-Thus the rows of $T$, interpreted in the basis of $L$, generate an actual
-$\sqrt3E_8$ sublattice. The catalogue Gram and the certificate Gram agree
-entry by entry. Let $T_5$ consist of the first five rows of $T$. Its Gram is
+The catalogue and certificate Grams agree entry by entry. The first five
+rows $T_5$ have Gram
 \begin{equation}\label{d43:eq:d5}
 H_5=\begin{pmatrix}
 6&0&-3&0&0\\0&6&0&-3&0\\-3&0&6&-3&0\\
 0&-3&-3&6&-3\\0&0&0&-3&6
 \end{pmatrix},\qquad \det H_5=972.
 \end{equation}
-This is $3C(D_5)$ in the stated numbering. Both $T$ and $T_5$ have all
-nonzero Smith invariants equal to one. In particular the embedded
-sublattices are primitive. If $U$ is the span of the five rows, then
-$\dim U^\perp=43$.
+This is $3C(D_5)$ in the stated numbering. Both embeddings are primitive
+(all nonzero Smith invariants are one), though the theorem does not
+require this. For $U=\operatorname{span}_{\R}(T_5)$, $\dim U^\perp=43$.
 
 \begin{corollary}\label{d43:thm:main}
 The set $Y=X\cap U^\perp$ has $2,553,792$ elements. Consequently the ordinary
 Euclidean kissing number satisfies $K(43)\ge2,553,792$.
 \end{corollary}
 
-The cardinality follows from Theorem~\ref{d43:thm:structure} and the
-verified embedding~\eqref{d43:eq:embedding}. To verify the
-kissing condition, distinct $x,x'\in Y$ satisfy $x-x'\in L\setminus\{0\}$,
-so $12-2\ip{x}{x'}\ge6$. Hence $Y/\sqrt6$ consists of unit vectors with
-pairwise inner products at most $1/2$.
+Theorem~\ref{d43:thm:structure} gives the cardinality. Since
+$\|x-x'\|^2\ge6$ for distinct shell vectors, $Y/\sqrt6$ is a
+kissing configuration.
 
 The construction is specified without a list of millions of points. In
 integer basis coordinates its defining set is
 \begin{equation}\label{d43:eq:integer}
 \mathcal Z=\{z\in\Z^{48}:zGz^t=6,\ T_5Gz^t=0\}.
 \end{equation}
-For any real $E$ with $EE^t=G$, the points are $zE/\sqrt6$, for
-$z\in\mathcal Z$. All matrices needed for this definition are included in
-the accompanying source certificate.
+For $EE^t=G$, its points are $zE/\sqrt6$ with $z\in\mathcal Z$;
+the certificate supplies $G,T_5$.
 
 \subsection{The complete projection domain}
 Now let $L$ be any lattice satisfying Theorem~\ref{d43:thm:structure},
@@ -114,47 +187,30 @@ Nonexceptional signatures &1&240&2,160&6,720&17,280\\\bottomrule
 There are no other nonexceptional signatures. Including the 240 exceptions
 gives 26,641 signatures in total.
 
-The enumeration has an elementary completeness bound. Pair roots imply
-that the two largest absolute coordinates of $u$ sum to at most 6.
-For the half-integer roots, the largest signed sum with an even number of
-minus signs is $\|u\|_1$, except when all coordinates are nonzero and the
-number of negative coordinates is odd; then it is
-$\|u\|_1-2\min_i|u_i|$. This quantity must be at most 12.
-Since $\min_i|u_i|\le3$, the safe additional bound is $\|u\|_1\le18$.
-The verifier exhausts these integer boxes and applies the parity, norm and
-root bounds exactly. The norm-eight shell loses the 240 doubled roots,
-leaving $17,520-240=17,280$ admissible points.
+For completeness, pair roots bound the two largest absolute coordinates
+of $u$ by a sum of 6. Half-integer roots bound $\|u\|_1$ by 12,
+except when all coordinates are nonzero with odd sign parity, when they
+bound $\|u\|_1-2\min_i|u_i|$ by 12. Thus $\|u\|_1\le18$ is a
+safe enumeration bound. Exact parity, norm and root tests give the table;
+at norm eight they remove the 240 doubled roots from 17,520 points.
 
 \subsection{Moments and the averaging explanation}
-Venkov's theorem, as stated in Nebe~\cite[Theorem 4.1]{nebe-designs}, makes $X$ a
-spherical 11-design. For $2m\le10$ and section vectors
-$b_{i_1},\ldots,b_{i_{2m}}$, its moments therefore satisfy
-\begin{equation}\label{d43:eq:moments}
-\sum_{x\in X}\prod_{j=1}^{2m}\ip{x}{b_{i_j}}
-=\frac{|X|6^m}{48\cdot50\cdots(48+2m-2)}
-\sum_{P}\prod_{(a,b)\in P}H_{i_a i_b},
-\end{equation}
-where $P$ runs over pairings of the $2m$ labelled positions. The empty
-product gives the degree-zero equation.
-
-Average the actual projection multiplicities under the abstract Weyl group
-$W(E_8)$. The nonexceptional domain has one orbit for each of its five
-norms. Let their sizes be $s_j$, projected squared norms be
-$q_j=0,2/3,4/3,2,8/3$, and averaged multiplicities be $a_j$.
-Spherical radial moments give
+Venkov's theorem~\cite[Theorem 4.1]{nebe-designs} makes $X$ an 11-design,
+so~\eqref{eq:section-moments} applies through degree ten. The abstract
+Weyl group has five nonexceptional orbits, with sizes $s_j$ and projected
+squared norms $q_j=0,2/3,4/3,2,8/3$. Their averaged multiplicities $a_j$
+satisfy the radial equations
 \begin{equation}\label{d43:eq:radial}
 \sum_j s_ja_jq_j^k=|X|6^k\frac{(4)_k}{(24)_k}-240\,6^k,
 \qquad 0\le k\le5,
 \end{equation}
-where $(a)_k$ denotes the rising factorial. The ratio is the radial moment
-of an eight-dimensional orthogonal projection of a sphere in dimension 48.
-The subtraction removes the actual section roots. The equations for
-$k=0,\ldots,4$ yield
+where $(a)_k$ is the rising factorial and the subtraction removes the
+240 section roots. The first five equations give
 \[
 (a_0,a_1,a_2,a_3,a_4)
 =(1,092,000,116,235,9,180,495,63/4).
 \]
-The equation for $k=5$ is an additional exact check.
+The equation for $k=5$ also holds.
 
 The roots perpendicular to the first five simple roots form $A_3$.
 The target subspace contains respectively $1,12,6,24,0$ admissible
@@ -163,31 +219,22 @@ contact count over the Weyl images of this $D_5$ child is
 \begin{equation}\label{d43:eq:count}
 1,092,000+12(116,235)+6(9,180)+24(495)+12=2,553,792.
 \end{equation}
-Every such image is an actual child inside the embedded $E_8$. At least
-one child has a count at least as large as the average, proving the lower
-bound. The averaging takes place within the section's Weyl group;
-its transformations need not extend to automorphisms of $L$.
-The $a_j$ are orbit averages of integer fibre multiplicities and can
-therefore be rational, as the value $63/4$ illustrates.
+This proves an average count, not yet the count of a fixed child.
+The $a_j$ need not be integers because they are orbit averages.
 
 \subsection{Exact count for the specified child}
-To prove the stronger cardinality claim for the first five rows, average
-only under the subgroup
+For the fixed child use the target-preserving subgroup
 \[
 \Gamma=\langle W(D_5),W(A_3),-1\rangle.
 \]
-This group preserves both the full admissible domain and the target
-$y_1=\cdots=y_5=0$. Consequently averaging preserves the target count,
-even when the actual multiplicity function has no such symmetry.
-The invariant spherical moment equations remain valid after averaging.
-
-The domain has 43 $\Gamma$-orbits $O_j$. Write $v_j$ for the averaged
-multiplicity of a signature in $O_j$. A monomial moment row has entries
+This group preserves the full domain and the condition
+$y_1=\cdots=y_5=0$, and has 43 orbits $O_j$.
+For averaged multiplicities $v_j$, use rows
 \[
 A_{\alpha,j}=\sum_{y\in O_j}y^\alpha,
 \]
-and right-hand side $b_\alpha$ given by~\eqref{d43:eq:moments}.
-Actual-root orbits supply the additional equations $v_j=1$. The target is
+with right-hand side~\eqref{eq:section-moments}, and fix exceptional
+orbit values to one. The target is
 \[
 c_j=|\{y\in O_j:y_1=\cdots=y_5=0\}|.
 \]
@@ -196,33 +243,137 @@ a rational column vector $w$ such that
 \begin{equation}\label{d43:eq:dual}
 A^tw=c,\qquad w^tb=2,553,792.
 \end{equation}
-Since the actual averaged distribution satisfies $Av=b$, these identities
-give $|X\cap U^\perp|=c^tv=w^tAv=w^tb$. The domain, the matrices $A,c$,
-and the moment vector $b$ depend only on the specified root system
-and the rank-48 spherical moments. Thus the identity holds for every
-$L$ in Theorem~\ref{d43:thm:structure}. Precomposing $\iota$ with any
-$g\in W(E_8)$ proves the assertion for the conjugate subsystems,
-without extending $g$ to $L$.
+Thus $|X\cap U^\perp|=c^tv=w^tb$. All inputs depend only on the
+root system and spherical moments. Precomposing $\iota$ with a Weyl
+element proves the conjugate cases without extending it to $L$.
+The verifier regenerates $A,b,c$ from the coordinate model, taking only
+the row selection and $w$ from the certificate in
+Table~\ref{tab:certificates}.
 
-The full arrays, row labels, orbit representatives and rational $w$
-form the target-count certificate listed in Table~\ref{tab:certificates}.
-The independent verifier reconstructs all orbit entries, all entries of
-$A$, all moment right-hand sides $b$, and the target $c$ from the standard
-coordinate model. Only the row selection and candidate $w$ are taken from
-the certificate before checking~\eqref{d43:eq:dual}. Thus verification does
-not reduce to trusting stored matrix entries.
+\subsection{A nested family of fixed coordinate sections}
+Extend $\iota$ linearly and define the eight fixed coordinate cuts
+\[
+ U_k=\iota\bigl(\sqrt3\operatorname{span}\{e_1,\ldots,e_k\}\bigr),
+ \qquad 1\le k\le8.
+\]
+For $k\ge2$ these are the coordinate $D_k$ spans ($D_2=A_1^2$,
+$D_3=A_3$); $U_1$ is an axis, not a $D_1$ root subsystem, and
+$U_8$ is the whole parent.
+
+\begin{theorem}[Coordinate-section family]\label{thm:e8-coordinate-sections}
+Let $L,X,\iota$ satisfy Theorem~\ref{d43:thm:structure}.
+For $m=8-k$, the number of minimal vectors perpendicular to the fixed
+space $U_k$ is
+\begin{equation}\label{eq:e8-coordinate-count}
+\begin{split}
+ |X\cap U_k^\perp|={}&1092000+18360m+464944\binom m2
+                  +11880\binom m3\\
+                 &+146880\binom m4+2520\binom m5+31680\binom m6.
+\end{split}
+\end{equation}
+The same holds for every Weyl conjugate of this nested family.
+In particular, a Weyl conjugate contains the specified $D_5$ child
+of Theorem~\ref{d43:thm:structure} as its rank-five member.
+\end{theorem}
+
+\begin{proof}
+Use the doubled coordinates $u=2\lambda$ of the complete
+nonexceptional domain $D$ above. Let $\Gamma_k$ consist of coordinate
+permutations within the first $k$ and last $8-k$ positions and sign
+changes in an even number of positions. This subgroup of $W(D_8)$
+preserves $D$ and the target $u_1=\cdots=u_k=0$. Its orbits are
+specified by the two multisets of squared coordinates and $\prod_i u_i$.
+The product distinguishes sign parity when no coordinate is zero;
+a zero coordinate removes that restriction.
+
+For a partition $a$, write $m_a$ for the monomial symmetric polynomial
+whose distinct monomials have coefficient one. Use all rows
+\[
+ F_{a,b}(u)=m_a(u_1^2,\ldots,u_k^2)
+           m_b(u_{k+1}^2,\ldots,u_8^2),\qquad
+ |a|+|b|\le5,
+\]
+where the partition lengths are at most $k$ and $8-k$, respectively.
+For orbit masses $w_j$ set $A_{(a,b),j}=F_{a,b}(u_j)$, with
+$u_j\in O_j$. Subtracting the 240 singleton exceptions gives $Aw=b$
+for the actual masses, without assuming fibre symmetry. The functionals
+$u_i$ have Gram $12I_8$, so for $|a|+|b|=d$ the unadjusted moment is
+\begin{equation}\label{eq:e8-coordinate-moment}
+ \frac{52416000\,72^d}{48\cdot50\cdots(48+2d-2)}
+ \nu_k(a)\nu_{8-k}(b)
+ \prod_i(2a_i-1)!!\prod_j(2b_j-1)!!,
+\end{equation}
+where $\nu_l(a)$ is the number of distinct permutations of $a$
+padded with zeros to length $l$.
+
+All eight matrices have full column rank: regenerated square minors
+have the nonzero residues in Table~\ref{tab:e8-coordinate-family}.
+Thus $w$ is unique over $\Q$. The candidate
+\[
+ w_j=|O_j|a_r,\qquad
+ (a_0,a_2,a_4,a_6,a_8)=(1092000,116235,9180,495,63/4),
+ \quad r=\|u_j\|^2/4,
+\]
+comes from the full Weyl average and satisfies every row exactly.
+It must therefore equal the actual orbit masses. This does not assign
+the fractional value $63/4$ to individual fibres.
+
+It remains to count the target signatures. Since $k\ge1$, a vector
+$\lambda$ perpendicular to $U_k$ has integer coordinates and even
+coordinate sum in the remaining $m\le7$ positions. At norms
+$0,2,4,6,8$, the numbers of admissible signatures are respectively
+\[
+ 1,\quad 4\binom m2,\quad 2m+16\binom m4,\quad
+ 24\binom m3+64\binom m6,\quad 160\binom m5.
+\]
+These come from the signed shapes
+$0$, $(1^2)$, $(2),(1^4)$, $(2,1^2),(1^6)$ and $(2,1^4)$.
+The root bound excludes $(2,2)$, and $(1^8)$ cannot fit in $m\le7$
+coordinates. There are also $4\binom m2$ exceptional roots.
+Multiplication by $a_r$ and addition of the exceptions proves
+\eqref{eq:e8-coordinate-count}. Full column rank, not radial moments
+alone, establishes these counts for the fixed cuts.
+
+For the specified $D_5$ correspondence put $H_4=J_4-2I_4$ and
+let $P_{5,8}$ exchange coordinates five and eight. The map
+\[
+ Q=\tfrac12P_{5,8}\operatorname{diag}(H_4,H_4)
+\]
+permutes the $E_8$ roots; the certificate expresses it as 31 simple
+reflections.
+It sends $\alpha_1,\ldots,\alpha_5$ to
+\[
+ -e_1-e_5,\quad e_3+e_4,\quad e_1-e_2,\quad
+ e_2-e_3,\quad e_3-e_4,
+\]
+which span the first five coordinate directions. Thus $Q^{-1}$ sends
+the rank-five cut to the specified $D_5$. No ambient Weyl action is
+required.
+\end{proof}
+
+\begin{table}[ht]
+\centering
+\caption{Exact fixed coordinate-section counts and rank certificates.
+The minors use every orbit column and the specified subset of moment rows.}
+\label{tab:e8-coordinate-family}
+\begin{tabular}{rrrrr}
+\toprule
+$k$&Moment rows&Orbit columns&Minor modulo $1000003$&$|X\cap U_k^\perp|$\\\midrule
+1&45&25&910777&16815624\\
+2&62&34&790744&10663920\\
+3&70&39&894205&6688960\\
+4&72&41&314211&4149504\\
+5&70&39&401115&2553792\\
+6&62&34&244188&1593664\\
+7&45&25&296071&1110360\\
+8&19&13&272057&1092000\\\bottomrule
+\end{tabular}
+\end{table}
 
 \subsection{What accounts for the improvement}
-The comparison certificate from~\cite{crosssections} records $2,545,056$
-contacts. Its section is also a primitive $\sqrt3D_5$, with determinant
-972, singleton cluster and parameter $\beta=0$. The old and new section
-Grams are permutation-isometric. The improvement therefore concerns the
-embedding of the section, not its intrinsic lattice type or determinant.
-
-The new section is a child of a specified $E_8$ inside $P_{48n}$; the
-comparison uses a $D_5$ in $P_{48p}$. The parent $E_8$ supplies additional
-roots and projection relations that force the larger perpendicular shell
-population. Two isometric sections can have different numbers of ambient
-minimal vectors perpendicular to them. Their extension structure is
-therefore relevant to contact-number optimization even when determinant
-and singleton packing density agree.
+The comparison in~\cite{crosssections} has $2,545,056$ contacts from
+a primitive $\sqrt3D_5$ in $P_{48p}$. Both sections have determinant
+972, singleton cluster, $\beta=0$ and permutation-isometric Grams.
+The gain therefore lies in the embedding: the specified $E_8$ parent
+in $P_{48n}$ forces the larger perpendicular shell, despite identical
+intrinsic section data.

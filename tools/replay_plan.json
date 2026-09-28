@@ -2,6 +2,36 @@
   "schema_version": 1,
   "jobs": [
     {
+      "id": "section43-coordinate-family",
+      "suite": "structure",
+      "description": "Eight fixed E8 coordinate-section counts from exact moment ranks",
+      "requirements": ["sympy"],
+      "command": ["{python}", "{source}/constructions/sections/d43/verify_coordinate_family.py", "--output", "{output}/section43-coordinate-family.json"],
+      "receipt": "section43-coordinate-family.json",
+      "checks": {"passed": true, "cut_count": 8, "nonexceptional_domain_size": 26401},
+      "timeout": 1200
+    },
+    {
+      "id": "motion25-obstructions",
+      "suite": "structure",
+      "description": "Two necessary cap changes in the fixed-insertion chord family",
+      "requirements": ["numpy", "flint"],
+      "command": ["{python}", "{source}/constructions/d25/verify_motion_obstructions.py", "--output", "{output}/motion25-obstructions.json"],
+      "receipt": "motion25-obstructions.json",
+      "checks": {"passed": true, "minimum_cap_changes": 2},
+      "timeout": 1200
+    },
+    {
+      "id": "shell38-contacts",
+      "suite": "structure",
+      "description": "All endpoint contacts and the next-shell moment obstruction",
+      "requirements": ["numpy"],
+      "command": ["{python}", "{source}/constructions/d38/verify_contacts.py", "--output", "{output}/shell38-contacts.json"],
+      "receipt": "shell38-contacts.json",
+      "checks": {"passed": true, "checked_lines": 144, "contact_heads_per_oriented_line": 552, "old_cap_contacts_per_added_point": 1656, "norm64_obstruction.positive_extreme_heads": 46, "norm64_obstruction.old_cap_conflicts_per_endpoint": 138},
+      "timeout": 1200
+    },
+    {
       "id": "dimension25",
       "suite": "current",
       "description": "25-dimensional coordinated motion and exact cap repairs",
@@ -308,14 +338,18 @@
       "checks": {
         "verified": true,
         "bound": 7380090,
-        "stored_dual_checked": true
+        "stored_dual_checked": true,
+        "norm_eight_constraints_checked": true,
+        "refined_signature_count": 209,
+        "refined_free_antipodal_orbits": 101,
+        "exact_identity": "f(e1)+f(e2)+f(e3)=7377408+9*f(-2,-2,3)"
       },
       "timeout": 1200
     },
     {
       "id": "section45-parent",
       "suite": "historical",
-      "description": "Recover the 298-vector fibre from the parent graph",
+      "description": "Exact signed anchor graph, complete fibre and fixed-anchor optimum",
       "requirements": [
         "numpy"
       ],
@@ -332,7 +366,41 @@
         "section_matches": true,
         "final_witness_set_matches": true,
         "recovered_witness_count": 298,
-        "projection_lower_bound": 7380090
+        "graph_degree_certified_by_tenth_moment": true,
+        "fibre_complete": true,
+        "exact_fibre_count": 298,
+        "projection_lower_bound": 7380090,
+        "physical_tight_frame_checked": true,
+        "one_endpoint_frame_constant": 96,
+        "graph_structure.nonadjacent_pairs": 428076,
+        "graph_structure.nonadjacent_codegree_minimum": 70,
+        "graph_structure.nonadjacent_codegree_minimum_multiplicity": 1,
+        "graph_structure.negative_four_cliques": 0,
+        "fixed_anchor_maximum_projected_count": 7380090,
+        "all_section_counts_divisible_by": 18
+      },
+      "timeout": 1200
+    },
+    {
+      "id": "section45-statistics",
+      "suite": "current",
+      "description": "Exact refined section-count identity and universal anchor moments",
+      "requirements": [],
+      "command": [
+        "{python}",
+        "{source}/constructions/sections/d45/verify_statistics.py",
+        "--output",
+        "{output}/section45-statistics.json"
+      ],
+      "receipt": "section45-statistics.json",
+      "checks": {
+        "passed": true,
+        "refined_signatures": 209,
+        "refined_free_orbits": 101,
+        "exact_constant": 7377408,
+        "anchor_endpoint_count": 2256,
+        "anchor_second_moment": 768,
+        "anchor_degree": 368
       },
       "timeout": 1200
     },

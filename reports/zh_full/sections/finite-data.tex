@@ -14,6 +14,7 @@
 
 25维的\qpath{d25/}保存精确原始头数据、两个整数修复向量、完整移动层证明，
 以及整数、有理数与Arb检查程序；区间检查需要\texttt{python-flint}。
+运动障碍检查器证明：对于指定插入点与弦运动族，至少需要改变两个原提升点。
 27维的\qpath{d27/data/}保存两层头及其标签，独立检查器重建格壳，核对删除集
 与全部内积条件，并附有候选图重建程序。
 49至55维的\qpath{p48/data/}保存目录基、生成元、扩大母类及七组像族。
@@ -25,18 +26,24 @@
 35、36维的局部替换保存在 \qpath{codes/hadamard/data/}；
 生成文件与重建程序精确恢复全部已存符号向量。
 37维的512点替换及坐标对应另存于 \qpath{codes/data/}。
+\qpath{codes/hadamard/boundary.py} 为十二坐标中每个按完整配对类型给出的
+横截 $2+2$ 边界返回最优源支持族及匹配证书。
 
 38维的 \qpath{d38/base-data/} 给出 Golay 生成矩阵、Leech 直线类、
 尾三角形及相对旋转，完整确定591612点母构型。
 144个新增代表保存在 \qpath{d38/added-lines.txt}。
 检查程序重建母壳、验证母构型，逐一检查新增向量的 Leech 同余条件，
 并精确核对新增点之间及其与原层之间的全部相关内积。
+接触检查器另行推导552个端点接触，以及排除该母构型中范数64新增方向的
+46个正极端内积。
 
 43维的 \qpath{sections/d43/data/parent-section.txt} 给出母格 Gram 矩阵
 及嵌入已编号 $E_8$ 根的八行坐标。
 \qpath{sections/d43/data/certificate.json} 给出轨道数据、有理矩阵和
 确定 $D_5$ 计数的乘子。
 一个程序从几何数据重建方程，另一个程序独立检查有理矩阵恒等式。
+坐标截面检查器重建八个固定截面的矩系统，认证满列秩，并检查其中指定截面
+与原 $D_5$ 的 Weyl 对应。
 
 45维的 \qpath{sections/qr/} 重建所用极值邻格。
 在 \qpath{sections/d45/data/} 中，\texttt{record.json} 保存截面和298个见证，
@@ -44,6 +51,8 @@
 \texttt{parent-vectors.jsonl} 保存2256点母集。
 程序重新生成矩方程的定义域与系数，验证格成员关系和内积，
 并由母图恢复同一见证集合。
+母图检查器同时验证带符号 Gram 恒等式，并遍历全部428076对非邻接顶点，
+确定共同邻点数的最小值。
 
 解压后的 \texttt{README.md} 列出依赖和命令。
 准备含有 SageMath、NumPy、SymPy 和 \texttt{python-flint} 的 Python 环境，

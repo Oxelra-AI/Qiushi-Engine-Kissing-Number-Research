@@ -181,61 +181,64 @@ The 1667-word code of Echols~\cite{echols} was the seed for our support search.
 
 \subsection{Structural consequences}
 
-The constructions yield statements about compatibility, capacity and
-counting beyond their individual point counts.
+Four structural principles connect the nineteen constructions.
 
 \paragraph{Motion and lifting.}
-Lemma~\ref{lem:chord-motion} specifies a Gram-preserving motion whose
-interaction with a fixed equator is controlled by convexity. The
-dimension-25 construction combines this motion with two cap repairs
-(Theorem~\ref{thm:d25}).
-The labelled criterion in Theorem~\ref{lem:lift} separates the number of
-lifted copies from the number of deleted mother directions.
-Proposition~\ref{prop:weighted} bounds the gain through cliques in a reuse
-graph, and Proposition~\ref{prop:capacity} gives an attaining
-four-triangle arrangement in the twelve-label, 496-point-capacity model.
-The final dimension-27 construction instead improves a larger two-layer
-input by selecting 311 second-layer owners in place of 310
-(Theorem~\ref{thm:d27}).
+A contact layer can move while preserving its Gram matrix; convexity
+controls its interaction with the fixed equator
+(Lemma~\ref{lem:chord-motion}). The remaining boundary constraints have
+a finite exact test, and two cap changes are necessary and sufficient
+for the specified dimension-25 insertion
+(Propositions~\ref{prop:chord-finite} and~\ref{prop:motion-two-repairs}).
+For labelled liftings, counting copies separately from deleted directions
+exposes a reuse problem (Theorem~\ref{lem:lift}). Weighted incidence
+bounds and the sharp simplex criterion relate its capacity to head
+separation and tail dimension (Propositions~\ref{prop:weighted}
+and~\ref{prop:simplex}).
 
-\paragraph{Exchange, transfer and completion.}
-For an inserted family $Y$, let $F(Y)$ be the union of its old conflicts.
-The objective $|Y|-|F(Y)|$ accounts for shared deletions
-(Section~\ref{sec:codes} and Theorem~\ref{thm:supports}).
-Paired Hadamard transfer preserves normalized products
-(Lemma~\ref{lem:hadamard-transfer}) and gives signed replacements of
-sizes 256, 576 and 512 in dimensions 35--37. The first attains an
-eleven-coordinate capacity bound; the second has a direct construction
-from four colours of two one-factorizations
-(Propositions~\ref{prop:sign-capacity} and~\ref{prop:local36-paper}).
-For dimension 38, the lattice minimum alone bounds every product
-between the selected norm-48 directions and the norm-32 minimal shell
-(Lemma~\ref{lem:cross-shell}). In dimensions 49--55,
-Theorem~\ref{thm:block-lift} converts an image union of $S$ minimal lines
-and $t$ antipodal tail lines into $52416000+2S+2t$ points.
-The gain from enlarging the source class and the gain from choosing
-its images are separated in Section~\ref{sec:p48-update}.
+\paragraph{Exchange and signed designs.}
+The gain from an internally compatible insertion $Y$ is
+$|Y|-|F(Y)|$, where $F(Y)$ is the union of its old conflicts.
+This shared-deletion objective governs the support exchanges; for a
+compatible candidate pool, its maximum is determined by a matching
+(Propositions~\ref{prop:exchange} and~\ref{prop:exchange-deficiency}).
+Complete sign bundles admit an exact boundary criterion, allowing
+paired Hadamard transfer to replace a global compatibility problem by
+a local design problem. The resulting codes include a sharp
+eleven-coordinate construction and a family of $32t^2(t-1)$ vectors
+in $4t$ coordinates attaining its transverse $2+2$ model capacity.
+For twelve coordinates, arbitrary restrictions by complete pair types
+also have an exact capacity formula
+(Section~\ref{sec:signed}, Theorem~\ref{thm:type-boundary-capacity}).
 
-\paragraph{Counts forced by an embedded parent.}
-For every extremal even unimodular lattice of rank 48 containing
-$\sqrt3E_8$, a rational identity determines exactly 2553792 minimal
-vectors perpendicular to the specified $D_5$ child and each of its
-Weyl conjugates (Theorem~\ref{d43:thm:structure}). A verified embedding
-in $P_{48n}$ realizes this count (Corollary~\ref{d43:thm:main}).
-The $D_5$ Gram alone does not determine the perpendicular shell:
-the extension to $E_8$ supplies the additional constraints.
-In dimension 45, let $f(y)$ count minimal-shell vectors with
-inner-product signature $y$ relative to the section basis, as defined
-in Section~\ref{sec:projection45}. For the standard basis vectors
-$e_1,e_2,e_3$ of $\R^3$, the moments give
-\[
- f(e_1)+f(e_2)+f(e_3)\ge7377408+9f(-2,-2,3).
-\]
-Finding 298 vectors in the last fibre proves a lower bound of 7380090
-for the projected configuration (Theorem~\ref{thm:d45}).
-A neighbourhood-difference calculation makes this fibre searchable.
-The same moment framework thus supports an exact target count in one
-case and a witness-driven lower bound in the other.
+\paragraph{Shell completion and image unions.}
+The lattice minimum guarantees all new--old products in a shell-norm
+window, leaving only the compatibility of the added directions to
+be arranged (Corollary~\ref{cor:completion-window}). A multi-shell
+criterion and a next-shell obstruction locate the remaining freedom
+for the dimension-38 base (Propositions~\ref{prop:multi-shell}
+and~\ref{prop:no-norm64}). In dimensions 49--55, retaining pure tails
+forces the paired lifting heights and disjoint head assignment.
+Thus the optimization in this model is exactly that of an image union,
+not a sum of image sizes (Proposition~\ref{prop:paired-rigidity}).
+Orbitwise and finite-pool bounds provide deterministic selection
+guarantees (Propositions~\ref{prop:orbit-union} and~\ref{prop:finite-pool}).
+
+\paragraph{Moment-certified section statistics.}
+Complete signature domains and design moments can determine a target
+statistic without determining every fibre multiplicity
+(Proposition~\ref{prop:section-statistics}). For an extremal even
+unimodular lattice of rank 48, an embedded $\sqrt3E_8$ forces eight
+fixed coordinate-section counts, including the specified $D_5$ count
+2553792 (Theorems~\ref{d43:thm:structure}
+and~\ref{thm:e8-coordinate-sections}). The parent embedding supplies
+information absent from the child's Gram matrix alone.
+For rank-three sections of Gram $8I_3-2J_3$, the projected count is
+exactly $7380720-9c$, where $c$ is the common-neighbour count of a
+nonadjacent pair in a 1128-vertex anchor graph
+(Theorem~\ref{thm:45-transfer}, Proposition~\ref{prop:45-anchor-graph}).
+Its signed Gram identities restrict $c$; exhaustive counting gives
+$\min c=70$ for the supplied anchor, yielding 7380090 points.
 
 \subsection{Relation to earlier constructions}
 
@@ -296,10 +299,11 @@ Dimension-45 projected fibres & $23/4$ & $23/8$\\\bottomrule
 \end{table}
 
 The paper first treats lifting and motion, then support and signed-code
-replacement, second-shell completion, and the seven Pless-shell lifts.
+replacement, second-shell completion, and the seven block lifts from $P_{48p}$.
 The final construction sections develop the two moment arguments.
-Appendices specify the Leech coordinates, dense codes, even-neighbour
-premise and deformation estimates. Section~\ref{sec:certificates} connects
+Appendices specify the Leech coordinates, dense codes, an explicit Pless
+neighbour, the common theta-series shell count, and deformation estimates.
+Section~\ref{sec:certificates} connects
 the proofs to the finite inputs and independent checking programs.
 The accompanying catalogue records dated public comparisons separately
 from the existence statements of Theorem~\ref{thm:main}.

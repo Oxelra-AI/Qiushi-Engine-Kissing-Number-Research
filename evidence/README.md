@@ -1,6 +1,7 @@
 # Verification
 
-The geometric proofs are developed in the [reports](../reports/README.md).
+The geometric proofs are developed in the [paper](../paper/main.pdf) and
+[reports](../reports/README.md).
 The [proof map](proof-map.md) connects each dimension to its counting formula,
 finite inputs and verification tasks.
 The [result catalogue](../constructions/catalog/results.json) identifies each

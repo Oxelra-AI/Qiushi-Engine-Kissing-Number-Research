@@ -17,7 +17,7 @@ the [reproduction guide](../reproducibility/README.md) explains how to run the t
 | 38 | `591612 + 2*144 = 591900` | `dimension38` |
 | 39 | `327680 + 128*3383 + 2*39*38 = 763668` | `codes-primary`, `codes-independent`, `code-lineage` |
 | 43 | `1092000 + 116235*12 + 9180*6 + 495*24 + 12 = 2553792` | `section43`, `section43-matrix` |
-| 45 | `7377408 + 9*298 = 7380090` | `qr-ambient`, `section45`, `section45-parent` |
+| 45 | `7377408 + 9*298 = 7380090` | `qr-ambient`, `section45`, `section45-parent`, `section45-statistics` |
 | 49 | `52416000 + 2*7077 + 2 = 52430156` | `p48-current` |
 | 50 | `52416000 + 2*21231 + 6 = 52458468` | `p48-current` |
 | 51 | `52416000 + 2*42459 + 12 = 52500930` | `p48-current` |
@@ -25,6 +25,23 @@ the [reproduction guide](../reproducibility/README.md) explains how to run the t
 | 53 | `52416000 + 2*141328 + 40 = 52698696` | `p48-current` |
 | 54 | `52416000 + 2*253851 + 72 = 52923774` | `p48-current` |
 | 55 | `52416000 + 2*442507 + 126 = 53301140` | `p48-current` |
+
+## Structural calculations
+
+The paper proves the parameterized statements and their equality cases.
+These programs reconstruct the finite inputs, compute exact certificates,
+and test the associated selection rules.
+
+| Mathematical result | Program or independent checks |
+|---|---|
+| Two necessary repairs in the specified 25-dimensional motion | [Motion obstructions](../constructions/d25/verify_motion_obstructions.py); replay `motion25-obstructions` |
+| Sharp reuse and finite chord-boundary criteria | [Rational and algebraic tests](../tests/test_motion_lifting_structure.py) |
+| Matching-optimal compatible subexchanges and sharp transverse transfer | [Replacement checks](../tests/test_replacement_principles.py) |
+| Exact capacities for all twelve-coordinate complete-type boundaries | [Reusable solver](../constructions/codes/hadamard/boundary.py), [all 512 type relations and the ten 37-dimensional divisions](../tests/test_transverse_type_capacity.py) |
+| Endpoint contacts and next-shell obstruction in the fixed 38-dimensional base | [Shell contacts](../constructions/d38/verify_contacts.py); replay `shell38-contacts` |
+| Eight fixed coordinate-section counts from an embedded E8 | [Exact moment ranks and Weyl correspondence](../constructions/sections/d43/verify_coordinate_family.py); replay `section43-coordinate-family`; [independent determinant and rejection tests](../tests/test_e8_coordinate_sections.py) |
+| Signed anchor identities and the fixed-anchor optimum | [Parent graph](../constructions/sections/d45/verify_parent.py), [independent codegrees and corruption tests](../tests/test_anchor_graph.py) |
+| Exact conditional-expectation selection from finite image pools | [Coverage algorithm](../constructions/p48/coverage.py), [exhaustive small-pool tests](../tests/test_finite_coverage.py) |
 
 ## Defining inputs
 
@@ -167,7 +184,9 @@ Choose a different embedded D5 section; its orbit and design-moment identities d
 
 ### Dimension 45
 
-Change the parent anchor sector in the QR neighbour, obtain 298 finite witnesses, and transfer them through an exact moment inequality.
+Change the parent anchor sector in the QR neighbour and recover its complete
+298-point target fibre. Norm-eight signature restrictions sharpen the moment
+certificate to an identity, determining the projected count exactly.
 
 - [sections/qr/data/gram.json](../constructions/sections/qr/data/gram.json)
 - [sections/d45/data/compact.json](../constructions/sections/d45/data/compact.json)
@@ -180,6 +199,7 @@ Change the parent anchor sector in the QR neighbour, obtain 298 finite witnesses
 - [sections/d45/data/parent.json](../constructions/sections/d45/data/parent.json)
 - [sections/d45/data/parent-vectors.jsonl](../constructions/sections/d45/data/parent-vectors.jsonl)
 - [sections/d45/verify_parent.py](../constructions/sections/d45/verify_parent.py)
+- [sections/d45/verify_statistics.py](../constructions/sections/d45/verify_statistics.py)
 
 ### Dimension 49
 

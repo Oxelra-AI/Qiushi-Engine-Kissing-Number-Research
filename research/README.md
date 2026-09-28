@@ -73,10 +73,11 @@ problem among the new directions themselves.
 
 **A large count can be controlled by the right small object.** In dimension
 43, parent-section moments determine the orthogonal shell of a selected
-subsection. In dimension 45, the moments instead give an inequality with a
-positive coefficient on a searchable fibre. The first route extracts a
-count from an embedding; the second turns explicit witnesses into a lower
-bound and common-neighbour graphs into a discovery tool.
+subsection. In dimension 45, an initial moment inequality assigns a positive
+coefficient to a searchable fibre. Longer section vectors then eliminate
+every signature carrying nonzero slack, making the count exact. The anchor
+graph identifies the complete fibre and reduces selection of the section
+to a common-neighbour problem.
 
 **An enlargement can propagate across dimensions.** Eight new $P_{48p}$ lines
 enlarge the common class for dimensions 49–55. Selecting images for their exact

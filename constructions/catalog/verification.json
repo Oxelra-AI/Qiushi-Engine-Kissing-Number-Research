@@ -243,9 +243,9 @@
       "lower_bounds": [
         7380090
       ],
-      "last_replay_date": "2026-09-25",
+      "last_replay_date": "2026-09-28",
       "status": "passed",
-      "scope": "Check 298 witnesses and the supplied rational dual against the regenerated complete signature domain and moment system."
+      "scope": "Check 298 witnesses, regenerate the signature domain and moments, and verify that the supplied dual is an exact identity after the norm-eight anchor constraints."
     },
     {
       "id": "p48-original",
@@ -377,9 +377,24 @@
       "lower_bounds": [
         7380090
       ],
-      "last_replay_date": "2026-09-25",
+      "last_replay_date": "2026-09-28",
       "status": "passed",
-      "scope": "Verify the physical coordinates and complete 2256-endpoint parent, form its 1128-pair graph, and recover the section and all 298 final witnesses."
+      "scope": "Verify the complete 2256-endpoint parent and its 1128-vertex graph, certify degree 368 from mixed moments, and identify the entire 298-vector section fibre."
+    },
+    {
+      "id": "section45-statistics",
+      "entry_point": "constructions/sections/d45/verify_statistics.py",
+      "arguments": [
+        "--output",
+        "OUTPUT.json"
+      ],
+      "dimensions": [
+        45
+      ],
+      "lower_bounds": [],
+      "last_replay_date": "2026-09-28",
+      "status": "passed",
+      "scope": "Independently regenerate the signature constraints and design moments with rational arithmetic; check the exact section-count identity and the universal anchor-graph vertex count and degree."
     },
     {
       "id": "d25",

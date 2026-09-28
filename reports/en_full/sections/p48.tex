@@ -75,6 +75,27 @@ most $1/2$. The retained equator and pure tails already satisfy the
 kissing condition. Thus the construction and its count are established
 by the class inequalities and the lattice minimum.
 
+The latitude $1/2$ and disjoint assignment are necessary in this paired
+model, not only sufficient. Retained pure endpoints bound both heights
+$h_\pm=\sin\theta_\pm$ by $1/2$. The paired-head product
+$\cos(\theta_++\theta_-)$ can be at most $1/2$ only when both
+$\theta_\pm=\pi/6$. A head assigned to two tail pairs would then
+give a product at least $3/4$. Thus, for a fixed pool of compatible
+classes, maximizing the lifted count is exactly maximizing their union.
+
+This also gives a computable selection guarantee. If a line $x$ occurs
+in $a_x$ of $m$ candidate classes, a uniform $t$-subset ($0\le t\le m$) misses it with
+probability $\binom{m-a_x}{t}/\binom mt$. Some selection therefore covers at least
+\[
+\left\lceil\sum_x\left(1-\frac{\binom{m-a_x}{t}}{\binom mt}\right)\right\rceil
+\]
+lines. The method of conditional expectations~\cite{raghavan1988} makes
+the choice deterministic: maximizing the conditional expected final union
+at each step never decreases this expectation and attains the guarantee.
+\texttt{constructions/p48/coverage.py} implements this with exact
+integer scores grouped by incidence pattern; the saved bounds above
+are determined by their explicit image unions.
+
 \subsection{Separating the two sources of gain}
 
 The gain over the public 7,069-line class~\cite{kissingnumbers} has two

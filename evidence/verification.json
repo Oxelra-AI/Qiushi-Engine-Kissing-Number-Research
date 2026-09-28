@@ -1,5 +1,5 @@
 {
-  "started_at_utc": "2026-09-27T09:21:37.839020+00:00",
+  "started_at_utc": "2026-09-28T04:48:20.038327+00:00",
   "suite": "all",
   "versions": {
     "python": "3.12.14",
@@ -10,7 +10,7 @@
   },
   "scope": "exact verification of the supplied finite constructions",
   "input_digest": {
-    "sha256": "dad7dcfaff432ff5a8624be8a98a2a6c17bfeb6cd091b825acb8999921133932",
+    "sha256": "95fdbac36f60ca01b089312a90f08ac6c7c179b94958b0cdc0a387f4adf45179",
     "format": "SHA-256 of UTF-8 records sorted by path, each path + space + file SHA-256 + newline",
     "files": [
       {
@@ -126,6 +126,10 @@
         "sha256": "6ba63d775fe3d64a16bde022599781078a4eb2ad8b8ca4791c94dc33c1234f2b"
       },
       {
+        "path": "constructions/codes/hadamard/boundary.py",
+        "sha256": "a5da49a7c5328d1fa41868a49ca9d314d8bafd2b70cf706008353749b6a1af6b"
+      },
+      {
         "path": "constructions/codes/hadamard/data/d35_construction.json",
         "sha256": "c117fff5dc73728b711ca3c7070d34c24b0524482d13a287b69270996aa702a0"
       },
@@ -230,6 +234,10 @@
         "sha256": "72b130d75de17640e32525b9d50b6610de9d30b5e9287424f5f68775afae999b"
       },
       {
+        "path": "constructions/d25/verify_motion_obstructions.py",
+        "sha256": "81131510d474ba2849593bc44bee7d823911cd0900d5c02f63f3f0c3ff871119"
+      },
+      {
         "path": "constructions/d27/data/heads27_Y.npy",
         "sha256": "e137a6e3b11e6f70a0bc631b474f4ea340078f453893c56d5452513da5264bd1"
       },
@@ -290,6 +298,10 @@
         "sha256": "b67b833445611220b3e70dd9af7dba42f028bf09771efef09d77501761302914"
       },
       {
+        "path": "constructions/d38/verify_contacts.py",
+        "sha256": "ea80a78ed55975ee72c778b89132725bd29e51f38c7eaeb38018ab1be617d9ae"
+      },
+      {
         "path": "constructions/leech/check_tails.py",
         "sha256": "961812be0e87ca786e2db47b2bf5dd629347a2b584a6245b867bf8d3e15a79ec"
       },
@@ -336,6 +348,10 @@
       {
         "path": "constructions/leech/verify_independent.py",
         "sha256": "b0c61eddddd43c64a2b1e5f1f235e22a456bbbad2f3ae9ba8c92edc9bf491229"
+      },
+      {
+        "path": "constructions/p48/coverage.py",
+        "sha256": "6d6e0f57fe5725e78e751eadbd95b3f04a027115d8eb433b9e41571e4db95f6b"
       },
       {
         "path": "constructions/p48/data/P48p.html",
@@ -434,6 +450,10 @@
         "sha256": "7029cbad9ae9c15cf347c33ba6e769650fdf12c84d4568298dec7e9f15e0d98e"
       },
       {
+        "path": "constructions/sections/d43/verify_coordinate_family.py",
+        "sha256": "fb7df58b531442144d14687b1540cd11165d746eecead3d1cfc40142f456d701"
+      },
+      {
         "path": "constructions/sections/d43/verify_matrix.py",
         "sha256": "dcc4076522ac9ff98dc4455ec637955110a85c09b00e4a8d07b9c5be0a9400c1"
       },
@@ -463,11 +483,15 @@
       },
       {
         "path": "constructions/sections/d45/verify.py",
-        "sha256": "d296340f9a6eb7f0b5e0869cef0e648c4a739f7152046b9b2c008c3d39237794"
+        "sha256": "0a6b0f0e477817ccdfea5a095dc693e0a2711eff08ec3c17691de64d0fcbe7ba"
       },
       {
         "path": "constructions/sections/d45/verify_parent.py",
-        "sha256": "acddf827bf7e97a29257d0b0f438986c3030e96624fcf783cf8884284865811c"
+        "sha256": "2163454f9019006b367949c7a939f5897c24f2f18b7bd8992e3139c9d337e289"
+      },
+      {
+        "path": "constructions/sections/d45/verify_statistics.py",
+        "sha256": "639385c15621a71f1aa574b99609f10d1f54bd53dad10bdd68c3ad1a00a7b58b"
       },
       {
         "path": "constructions/sections/qr/data/gram.json",
@@ -502,12 +526,16 @@
         "sha256": "ba168d7797d5ca5b009d7ab0ba1e62c54b37c4722af4c7b41cefd6102c3b2d72"
       },
       {
+        "path": "tools/package_paper.py",
+        "sha256": "82d47272576158cf0061dee27e60eea72cca8cf57313e029754db33c0e5d63f6"
+      },
+      {
         "path": "tools/package_reports.py",
         "sha256": "8a4ce4846978c4b55bb4b1230b713fb73747564ded9fed0ba6fb31612bae7235"
       },
       {
         "path": "tools/replay_plan.json",
-        "sha256": "0ea34af87d9fd599f2debbcb0b7b95868f0c37f38248aa24449aca0fb5e59c7d"
+        "sha256": "020ddb7fafc416e146dcc0ac06401e49a88ada6a97386cb53ae5e7a88dea9c50"
       },
       {
         "path": "tools/report_editions.py",
@@ -542,34 +570,52 @@
   "passed": true,
   "checks": [
     {
+      "id": "section43-coordinate-family",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.369
+    },
+    {
+      "id": "motion25-obstructions",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.715
+    },
+    {
+      "id": "shell38-contacts",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 2.668
+    },
+    {
       "id": "dimension25",
       "exit_code": 0,
       "passed": true,
-      "seconds": 26.857
+      "seconds": 26.901
     },
     {
       "id": "leech-primary",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.267
+      "seconds": 1.317
     },
     {
       "id": "leech-independent",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.519
+      "seconds": 2.569
     },
     {
       "id": "leech-tails",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.768
+      "seconds": 1.818
     },
     {
       "id": "codes-primary",
       "exit_code": 0,
       "passed": true,
-      "seconds": 3.922
+      "seconds": 4.021
     },
     {
       "id": "dimension32",
@@ -593,13 +639,13 @@
       "id": "support-exchanges",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.168
+      "seconds": 2.218
     },
     {
       "id": "supports32-37",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.066
+      "seconds": 1.067
     },
     {
       "id": "hadamard35-36",
@@ -611,63 +657,69 @@
       "id": "residual18",
       "exit_code": 0,
       "passed": true,
-      "seconds": 3.921
+      "seconds": 4.07
     },
     {
       "id": "section43",
       "exit_code": 0,
       "passed": true,
-      "seconds": 2.818
+      "seconds": 2.869
     },
     {
       "id": "section43-matrix",
       "exit_code": 0,
       "passed": true,
-      "seconds": 0.064
+      "seconds": 0.065
     },
     {
       "id": "qr-ambient",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.066
+      "seconds": 1.117
     },
     {
       "id": "section45",
       "exit_code": 0,
       "passed": true,
-      "seconds": 1.167
+      "seconds": 1.267
     },
     {
       "id": "section45-parent",
       "exit_code": 0,
       "passed": true,
-      "seconds": 0.265
+      "seconds": 3.57
+    },
+    {
+      "id": "section45-statistics",
+      "exit_code": 0,
+      "passed": true,
+      "seconds": 0.115
     },
     {
       "id": "p48-legacy",
       "exit_code": 0,
       "passed": true,
-      "seconds": 9.229
+      "seconds": 9.127
     },
     {
       "id": "dimension27",
       "exit_code": 0,
       "passed": true,
-      "seconds": 13.083
+      "seconds": 13.184
     },
     {
       "id": "dimension38",
       "exit_code": 0,
       "passed": true,
-      "seconds": 4.621
+      "seconds": 4.671
     },
     {
       "id": "p48-current",
       "exit_code": 0,
       "passed": true,
-      "seconds": 8.678
+      "seconds": 8.427
     }
   ],
   "inputs_unchanged": true,
-  "finished_at_utc": "2026-09-27T09:23:05.047898+00:00"
+  "finished_at_utc": "2026-09-28T04:49:56.919567+00:00"
 }

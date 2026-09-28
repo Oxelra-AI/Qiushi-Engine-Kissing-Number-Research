@@ -60,10 +60,21 @@ assert saved['constant']==7377408 and saved['target']=='sum_i f(e_i) - 9 f(-2,-2
 assert len(saved['dual'])==A.nrows()
 dual=vector(QQ,[QQ(x) for x in saved['dual']])
 assert sum(x!=0 for x in dual)==107
-assert all(x>=0 for x in c-A.transpose()*dual) and dual*b==7377408
+slack=c-A.transpose()*dual
+assert all(x>=0 for x in slack) and dual*b==7377408
+# t_i+t_j has squared norm eight. Minimum six bounds its product with
+# every minimal vector by four, eliminating all positive reduced costs.
+admissible=lambda y:all(abs(y[i]+y[j])<=4 for i,j in combinations(range(3),2))
+assert all(admissible(y) for y in exceptional)
+active=[j for j,y in enumerate(free) if admissible(y)]
+assert sum(admissible(y) for y in domain)==209 and len(active)==101
+assert sum(x>0 for x in slack)==7 and all(slack[j]==0 for j in active)
 report['d45']={'verified':True,'witnesses':298,'bound':7377408+9*298,'section_gram':[list(map(int,r)) for r in H.rows()],
                'signature_count':len(domain),'free_antipodal_orbits':len(free),'moment_rows':len(alphas),
                'exact_bound':'f(e1)+f(e2)+f(e3)-9*f(-2,-2,3)>=7377408',
+               'refined_signature_count':209,'refined_free_antipodal_orbits':101,
+               'exact_identity':'f(e1)+f(e2)+f(e3)=7377408+9*f(-2,-2,3)',
+               'norm_eight_constraints_checked':True,
                'dual_nonzero':sum(x!=0 for x in dual),'ambient_minimum_verifier':'../qr/verify.py',
                'stored_dual_checked':True,'dual_sha256':hashlib.sha256(dual_path.read_bytes()).hexdigest()}
 certificate={'signature_representatives':free,'moment_multi_indices':alphas,'dual':[str(x) for x in dual],'constant':7377408,'target':'sum_i f(e_i) - 9 f(-2,-2,3)'}

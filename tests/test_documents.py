@@ -1,4 +1,5 @@
 """Consistency of the bilingual reports, result tables and public links."""
+import csv
 import json
 from pathlib import Path
 import re
@@ -110,6 +111,24 @@ class Documents(unittest.TestCase):
             self.assertEqual([tuple(int(n.replace(",", "")) for n in row) for row in rows], expected)
         for _, bound, comparator, gain in expected:
             self.assertEqual(bound - comparator, gain)
+
+    def test_current_csv_and_complete_supplements_match_catalogue(self):
+        catalog = json.loads((ROOT / "constructions/catalog/results.json").read_text())
+        expected = [(r["dimension"], r["lower_bound"], r["comparison"]["lower_bound"],
+                     r["comparison"]["gain"]) for r in catalog["results"]]
+        fields = ["dimension", "lower_bound", "public_comparison", "increase"]
+        name = "constructions/catalog/results.csv"
+        tables = [(name, (ROOT / name).read_text())]
+        for language in ("en", "zh"):
+            path = ROOT / "reports" / (language + "_full") / "certificates.zip"
+            with zipfile.ZipFile(path) as archive:
+                tables.append((str(path.relative_to(ROOT)), archive.read(name).decode()))
+        for source, text in tables:
+            with self.subTest(source=source):
+                rows = csv.DictReader(text.splitlines())
+                self.assertEqual(rows.fieldnames, fields)
+                self.assertEqual([tuple(int(row[key]) for key in fields) for row in rows],
+                                 expected)
 
     def test_bilingual_structure_matches(self):
         for suffix in ('', '_full'):
@@ -333,7 +352,8 @@ class Documents(unittest.TestCase):
         english = (ROOT / 'reports/en_full/sections/abstract.tex').read_text()
         paper_abstract = paper.split(r'\begin{abstract}', 1)[1].split(r'\end{abstract}', 1)[0]
         report_abstract = english.split(r'\begin{abstract}', 1)[1].split(r'\par\smallskip', 1)[0]
-        self.assertEqual(paper_abstract.strip(), report_abstract.strip())
+        normalize = lambda text: ' '.join(text.split())
+        self.assertEqual(normalize(paper_abstract), normalize(report_abstract))
         for path in ('paper/sections/introduction.tex',
                      'reports/en_full/sections/introduction.tex'):
             text = (ROOT / path).read_text()
@@ -349,6 +369,8 @@ class Documents(unittest.TestCase):
             section = (ROOT / f'reports/{language}/sections/sections.tex').read_text()
             self.assertIn(r'|X_L\cap U_L^\perp|=2553792', section)
             self.assertIn(r'W(E_8)', section)
+            coverage = (ROOT / f'reports/{language}/sections/p48.tex').read_text()
+            self.assertIn(r'\cite{raghavan1988}', coverage)
 
     def test_related_work_versions_remain_distinct(self):
         for path in ('paper/references.bib', 'reports/en_full/refs.bib',
@@ -391,7 +413,7 @@ class Documents(unittest.TestCase):
         keys = ('packingstar', 'packingstar-data', 'brouwer', 'echols', 'antipode',
                 'dorofeev', 'qiushi-optics', 'latticecatalogue', 'nebe-designs',
                 'crosssections', 'takhanov-yun', 'kissingnumbers', 'lindow27',
-                'p48p-catalogue', 'signed-johnson')
+                'p48p-catalogue', 'signed-johnson', 'raghavan1988')
         for key in keys:
             self.assertEqual(bibliographies[0][key], bibliographies[1][key], key)
             self.assertEqual(bibliographies[1][key], bibliographies[2][key], key)
@@ -424,13 +446,18 @@ class Documents(unittest.TestCase):
         source = (ROOT / 'reports/zh_full/sections/equatorial.tex').read_text()
         self.assertIn(r'K(38)\ge591612+2\cdot144=591900.\qedhere', source)
 
-    def test_section_statistic_is_explained_at_its_first_display(self):
+    def test_section_count_parameter_is_explained_in_the_overview(self):
         source = (ROOT / 'paper/sections/introduction.tex').read_text()
-        explanation = source.index(r'let $f(y)$ count')
-        inequality = source.index(r'f(e_1)+f(e_2)+f(e_3)')
-        self.assertLess(explanation, inequality)
-        self.assertIn('inner-product signature', source[explanation:inequality])
-        self.assertIn(r'\ref{sec:projection45}', source[explanation:inequality])
+        count = source.index(r'$7380720-9c$')
+        explanation = source[count:].split('\n\n', 1)[0]
+        self.assertIn(r'where $c$ is the common-neighbour count', explanation)
+        self.assertIn('nonadjacent pair', explanation)
+        self.assertIn(r'\ref{prop:45-anchor-graph}', explanation)
+        self.assertIn('for the supplied anchor', explanation)
+        for language in ('en_full', 'zh_full'):
+            overview = (ROOT / 'reports' / language / 'sections/introduction.tex').read_text()
+            self.assertIn(r'f(e_1)+f(e_2)+f(e_3)=7377408+9f(-2,-2,3)', overview)
+            self.assertNotIn(r'f(e_1)+f(e_2)+f(e_3)\ge7377408+9f(-2,-2,3)', overview)
 
     def test_leech_checkers_are_identified_in_verification_section(self):
         source = (ROOT / 'paper/sections/verification.tex').read_text()

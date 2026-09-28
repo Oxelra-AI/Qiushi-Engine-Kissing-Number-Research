@@ -1,11 +1,86 @@
 \section{Layered binary codes and joint support exchanges}\label{sec:codes}
 
-The Leech lift gains points by changing how its finite blocks are used.
-The next construction instead keeps the layer geometry fixed and
-improves its binary ingredients. We first give the common geometric
-argument, then specify the support families and the dense sign codes.
-This order separates the dimension-independent proof from the finite
-objects that determine the cardinalities.
+We now keep the layer geometry fixed and improve its binary ingredients,
+using replacements whose cost is the union of their old conflicts.
+
+\subsection{Compatible replacements and shared deletion costs}
+Let $X\subset S^{d-1}$ be a kissing configuration and let
+$C\subset S^{d-1}\setminus X$ be a finite candidate set. For $c\in C$,
+put $F(c)=\{x\in X:\ip{c}{x}>1/2\}$, and join two candidates in a
+graph when their inner product exceeds $1/2$. For $I\subseteq C$,
+write $F(I)=\bigcup_{c\in I}F(c)$.
+
+\begin{proposition}[Shared-deletion replacement]\label{prop:exchange}
+For $D\subseteq X$ and $I\subseteq C$, the set $(X\setminus D)\cup I$
+is a kissing configuration if and only if $I$ is independent and
+$F(I)\subseteq D$. In particular, for independent $I$, the largest
+configuration with inserted set $I$ retains $X\setminus F(I)$ and
+has net gain
+\begin{equation}\label{eq:general-exchange}
+ X_I=(X\setminus F(I))\cup I,\qquad
+ |X_I|-|X|=|I|-|F(I)|.
+\end{equation}
+More generally, for a positive weight function $w$ on $X\cup C$,
+the greatest weight gain with inserted set $I$ is
+$w(I)-w(F(I))$, where $w(A)=\sum_{a\in A}w(a)$.
+\end{proposition}
+\begin{proof}
+Old--old pairs are compatible; new--new pairs require independence of
+$I$; old--new pairs require $F(I)\subseteq D$. Disjointness of $C$ and
+$X$ gives the count, and positive weights penalize additional deletions.
+\end{proof}
+
+The same count applies to disjoint bundles of points. Partition the
+deletable old points into nonempty groups $X_j$, and let $Q_i$ be
+pairwise disjoint, internally compatible candidate bundles outside $X$.
+Require each $Q_i$ to be compatible with the old points held fixed.
+Join two bundles when some cross pair is incompatible, and let $F(i)$
+index the old groups containing a conflict with $Q_i$. Put
+$a_i=|Q_i|$ and $b_j=|X_j|$. Among replacements that retain or delete
+each old group as a whole, the exact optimization problem is
+\begin{equation}\label{eq:bundle-exchange}
+ \max\left(\sum_i a_i z_i-\sum_j b_j r_j\right),\qquad
+ z_i+z_{i'}\le1\ (ii'\in E),\quad
+ r_j\ge z_i\ (j\in F(i)),\quad z_i,r_j\in\{0,1\}.
+\end{equation}
+At an optimum only conflicting groups are removed, each charged once.
+Single-point groups recover Proposition~\ref{prop:exchange}; internally
+compatible pools admit the following exact matching certificate.
+\begin{proposition}[Optimal subexchange in a compatible pool]
+\label{prop:exchange-deficiency}
+Suppose the entire candidate set $C$ is internally compatible. Let
+$H$ be the bipartite conflict graph on $C$ and $X$, with
+$cx\in E(H)$ exactly when $x\in F(c)$, and let $\nu(H)$ be its
+maximum matching size. Then
+\begin{equation}\label{eq:exchange-deficiency}
+ \max_{I\subseteq C}\bigl(|I|-|F(I)|\bigr)=|C|-\nu(H).
+\end{equation}
+An optimal $I$ is the set of candidate vertices reachable from the
+unmatched candidates by alternating paths of a maximum matching.
+In particular no positive subexchange exists if and only if a matching
+assigns every candidate a distinct old conflict.
+The same formula, multiplied by the common bundle size, applies to
+internally compatible candidates and old groups of equal cardinality.
+\end{proposition}
+\begin{proof}
+A matching meets at most $|F(I)|$ candidates in $I$, so
+$\nu(H)\le |F(I)|+|C\setminus I|$, giving the upper bound in
+\eqref{eq:exchange-deficiency}.
+
+From the unmatched candidates of a maximum matching, traverse unmatched
+edges toward $X$ and matched edges toward $C$. For the reached sets
+$I\subseteq C$ and $J\subseteq X$, every edge out of $I$ reaches $J$
+or is the matched edge by which its endpoint in $I$ was reached;
+hence $J=F(I)$. No vertex of $J$ is unmatched, since that would
+give an augmenting path. Matching edges biject $J$ with the matched
+vertices of $I$, leaving exactly $|C|-\nu(H)$ unmatched vertices in
+$I$. This proves equality.
+\end{proof}
+
+Internal compatibility of the pool is essential: otherwise an
+alternating-path set can contain conflicting new candidates, and the
+matching deficiency is only an upper bound. The certificate concerns
+the specified candidate pool, not all possible replacements.
 
 \subsection{The three-layer construction}
 Let $n\ge m\ge32$. Choose a binary code $T\subset\F_2^m$ with minimum
@@ -35,11 +110,9 @@ The union $X_T\cup X_M\cup X_R$ is a kissing configuration with
 \end{equation}
 \end{proposition}
 \begin{proof}
-All points are unit vectors. Their support sizes $m$, eight, and two
-distinguish the layers. Within each layer, the signs and support recover
-the parameters uniquely. On an eight-element support there are $2^7$
-even sign patterns; on a two-element support there are four sign
-patterns. This proves the count.
+All points have norm one. Support sizes $m$, eight, and two distinguish
+the layers, whose sizes are $|T|$, $2^7|\mathcal B|$, and
+$4\binom n2$.
 
 In the dense layer, two codewords at distance $d$ have inner product
 $1-2d/m\le1/2$. On one middle support, two distinct even sign patterns
@@ -56,17 +129,13 @@ give respectively
  \ip{X_T}{X_R}\le\sqrt{2/m},\qquad
  \ip{X_M}{X_R}\le\frac{2}{\sqrt8\sqrt2}=\frac12.
 \end{equation}
-Here the notation denotes the maximum over the indicated two layers.
-The first two bounds are at most $1/2$ because $m\ge32$.
-If a middle support extends beyond the first $m$ coordinates, the
-overlap is smaller. Thus every pair satisfies~\eqref{eq:kissing}.
+Here each expression bounds all pairs from the indicated layers,
+even when a middle support extends beyond the first $m$ coordinates.
+Since $m\ge32$, all bounds are at most $1/2$.
 \end{proof}
 
-The proof imposes no coupling between particular support words and
-particular sign words. Any inputs with the stated parameters can be
-combined. In particular, one additional support contributes $128$
-points, and an increase in the sign-code size contributes its full
-cardinality increment.
+The inputs are uncoupled: one additional support contributes $128$
+points, and each additional sign word contributes one.
 
 \subsection{The support families}
 For eight-element supports the identity
@@ -86,17 +155,13 @@ The following constant-weight-code lower bounds hold:
 \]
 \end{theorem}
 \begin{proof}[Finite verification]
-The complete binary-mask lists $\mathcal B_n$ are specified in
-Table~\ref{tab:certificates}.
-For the list of length $n$, every mask is nonnegative and less
-than $2^n$, has exactly eight set bits, and occurs once. Every unordered
-pair has an intersection of size at most four. Direct pairwise checks
-give the distributions in Table~\ref{tab:support-histograms}.
-An independent equivalent check enumerates all five-element subsets of
-each support: no such subset occurs in two supports. This equivalence
-holds because an intersection has size at least five exactly when it
-contains a five-subset. In total $56|\mathcal B_n|$ distinct keys are
-obtained. These finite checks establish the stated codes.
+In each complete binary-mask list $\mathcal B_n$ of
+Table~\ref{tab:certificates}, every mask lies in $[0,2^n)$, has eight
+set bits, and occurs once. Pairwise checks give the intersection
+distributions in Table~\ref{tab:support-histograms}, all at most four.
+Independently, enumerating the five-subsets gives $56|\mathcal B_n|$
+distinct keys: a repeated key is equivalent to an intersection of
+size at least five. These checks establish the codes.
 \end{proof}
 
 \begin{table}[ht]
@@ -117,11 +182,9 @@ then
  \qquad F(Y)=\bigcup_{c\in Y}F(c),
  \qquad |\mathcal B'|-|\mathcal B|=|Y|-|F(Y)|.
 \end{equation}
-The old--old and new--new pairs are compatible by assumption; all
-incompatible old--new pairs have been removed. The union in $F(Y)$
-is essential: several inserted words may share deletion costs, allowing
-a positive joint exchange even when no single insertion improves the
-cardinality.
+This specializes~\eqref{eq:bundle-exchange} to 128-point bundles;
+shared deletions can make a joint exchange profitable when no single
+insertion is.
 
 The final transitions are
 \[
@@ -133,12 +196,17 @@ n&33&34&37&38&39\\\hline
 \text{final size}&1803&1960&2843&3077&3383.
 \end{array}
 \]
-The certificate includes each complete parent and its inserted and
-removed sets.
-The checker recomputes each conflict union $F(Y)$ and reconstructs
-the final family by~\eqref{eq:exchange}. The theorem itself uses the final complete
-witnesses, so its verification is independent of choices made during
-the search.
+The certificates include complete parents, insertions and deletions.
+The checker recomputes $F(Y)$ and reconstructs each final family by
+\eqref{eq:exchange}; the complete witnesses independently prove the theorem.
+
+The conflict graphs of these five candidate pools have maximum matching
+sizes $9,6,37,6,14$, respectively: in each case all removed supports
+can be matched to distinct inserted supports. By
+Proposition~\ref{prop:exchange-deficiency}, the best subexchange using
+only the supplied inserted supports therefore has gain $1,1,3,1,1$.
+The displayed exchanges attain these values within the supplied pools,
+not necessarily among all replacements.
 
 \subsection{Dense layers from coset unions}
 Let $H\subset\F_2^m$ be linear and let $r_0,\ldots,r_{q-1}$ be coset
@@ -147,11 +215,10 @@ representatives. Define
  T=\bigcup_{a=0}^{q-1}(r_a+H),\qquad
  \delta_{ab}=\min_{h\in H}\wt(r_a+r_b+h)\quad(a\ne b).
 \end{equation}
-Within one coset, distances between distinct words are the nonzero
-weights of $H$. Between two cosets, the difference set is exactly
-$r_a+r_b+H$. Thus the $\delta_{ab}$ determine all cross-coset minimum
-distances. Positive $\delta_{ab}$ also prove that the cosets are
-disjoint, giving $|T|=q2^{\dim H}$.
+Within a coset, distances are the nonzero weights of $H$; between
+cosets, the difference set is $r_a+r_b+H$. Thus the $\delta_{ab}$
+are their minimum distances, and positivity makes the cosets disjoint,
+giving $|T|=q2^{\dim H}$.
 
 \begin{proposition}\label{prop:signs}
 The generators and representatives in Appendix~\ref{app:codes} define
@@ -205,9 +272,8 @@ identities and, in the displayed retained-coordinate conventions,
 \begin{equation}\label{eq:nesting}
  H_{38}=\{(h_0,\ldots,h_{37}):(h_0,\ldots,h_{37},0)\in H_{39}\}.
 \end{equation}
-These reconstructions give both kernels a precise common source.
-The distance proof uses their explicit generators and the affine
-representatives rather than an assumed distance of a named mother code.
+The distance proof uses the explicit generators and representatives,
+not an assumed distance of the mother code.
 
 \begin{proof}[The five layered-code constructions]
 For each $n\in\{33,34,37,38,39\}$, combine the support family of
@@ -238,10 +304,6 @@ At the first three lengths, the increase relative to the cited
 comparison is $128$ times the increase in support size, respectively
 $15$, $24$, and $11$. At the last two lengths, both the larger support
 families and the explicit coset unions enter the final count.
-The same geometric argument accommodates all five inputs, while
-their different dense-layer distances lead to the different local
-geometries considered next.
-
 \subsection{A new length-32 support family}
 The same construction applies to a verified family of 1676 eight-subsets
 of $[32]$. There are $1,403,650$ unordered support pairs. Their intersection

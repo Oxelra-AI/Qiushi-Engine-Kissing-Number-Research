@@ -20,7 +20,7 @@ Dimensions & Mathematical input & Location\\\midrule
 35--37 & Signed local codes and their boundary embeddings & \qpath{codes/}\\
 38 & Shell partition, tail rotation and 144 added lines & \qpath{d38/}\\
 49--55 & The 7077-line class, isometries and tail assignments & \qpath{p48/}\\
-43 & Parent embedding, orbit data and target-count certificate & \qpath{sections/d43/}\\
+43 & Parent embedding, orbit moments and fixed-cut rank certificates & \qpath{sections/d43/}\\
 45 & QR-neighbour basis, moment multipliers, parent graph and 298 witnesses
    & \qpath{sections/qr/}, \qpath{sections/d45/}\\\bottomrule
 \end{tabular}
@@ -71,13 +71,25 @@ regenerates the 26641-signature domain, subgroup action, moment matrix
 and target vector from standard $E_8$ coordinates. It checks the supplied
 rational multiplier against this regenerated system. These latter steps
 use only the hypotheses of Theorem~\ref{d43:thm:structure}.
+The coordinate-family checker additionally constructs all eight
+fixed-cut moment systems and their full-rank minors. Independent integer
+determinants and the explicit Weyl map check the rank certificates and
+the correspondence with the original $D_5$.
 The dimension-45 checks reconstruct the
 specified QR neighbour, verify its exact basis Gram, establish the
 norm-four parity obstruction, and check all 298 fibre witnesses.
 The parent-graph calculation checks all 2256 endpoints, their pairing
-about $p/2$, and the extraction of the same 298 witnesses.
+about $p/2$, the universal degree from the tenth moments, and equality
+between the complete target fibre and the 298 witnesses.
+It also verifies the signed-frame identity and enumerates all 428076
+nonadjacent pairs to determine the optimum for this fixed anchor.
 A separate rational calculation regenerates the 161-row moment system
 and checks the supplied multiplier in~\eqref{eq:45dual} directly.
+The norm-eight restrictions reduce the 239-signature domain to 209
+signatures; on its 101 nonexceptional antipodal orbits the multiplier
+has zero slack. The independent standard-library checker
+\qpath{sections/d45/verify_statistics.py} reconstructs this equality
+and the anchor moments over the rationals.
 
 \subsection{Autonomous mathematical research}\label{sec:autonomous-research}
 The nineteen constructions arose from Qiushi Engine's autonomous

@@ -344,7 +344,8 @@
         "constructions/sections/d45/data/dual.json",
         "constructions/sections/d45/data/parent.json",
         "constructions/sections/d45/data/parent-vectors.jsonl",
-        "constructions/sections/d45/verify_parent.py"
+        "constructions/sections/d45/verify_parent.py",
+        "constructions/sections/d45/verify_statistics.py"
       ]
     },
     {

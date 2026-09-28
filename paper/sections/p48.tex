@@ -1,10 +1,7 @@
 \section{Seven lifts from a compatible line class}\label{app:p48}
 
-The antipodal block lift amplifies improvements to a single compatible
-class. Two choices determine the gain: the size of the class and the
-overlap among its selected images. This section makes both choices
-explicit for $P_{48p}$ and obtains seven configurations from one
-geometric argument.
+One compatible $P_{48p}$ line class gives seven antipodal block lifts.
+Their gains depend on both the class size and the union of its selected images.
 
 \subsection{The tail configurations}
 For dimensions $k=1,\ldots,7$, use respectively the normalized root
@@ -16,16 +13,13 @@ $(e_i-e_j)/\sqrt2$ in the plane $x_1+x_2+x_3=0$. The $D_k$ roots
 are $(\eps e_i+\eps'e_j)/\sqrt2$, with $i<j$. Their kissing
 conditions follow directly from their coordinate overlaps.
 
-For completeness the last two codes can be specified together in
-an integer model. Let
+The last two codes come from the integer $E_8$ model
 \begin{equation}\label{eq:E8}
  W=\{\pm2e_i\pm2e_j:i<j\}
   \cup\{(\eps_0,\ldots,\eps_7):\eps_i\in\{\pm1\},\ \prod_i\eps_i=1\}.
 \end{equation}
-Every row has squared norm eight and distinct rows have inner product
-at most four: this follows from support overlap for the first family,
-at most two signed contributions for cross-family pairs, and an even
-positive sign distance within the second family. The subsets
+Coordinate overlaps and even sign distance give squared norm eight
+and distinct-row products at most four. The subsets
 \[
  W_7=\{w\in W:w_6+w_7=0\},\qquad
  W_6=\{w\in W:w_5=w_6=-w_7\}
@@ -38,6 +32,131 @@ have respectively $62+64=126$ and $40+32=72$ rows. The maps
 are isometries on the indicated subspaces. Dividing by $\sqrt8$
 therefore gives the required $7$- and $6$-dimensional antipodal codes.
 
+\subsection{Rigidity of antipodal lifts with pure tails}
+Pure tails fix the lifting geometry even when paired heights may differ
+and depend on the head.
+
+\begin{proposition}[Paired-lift rigidity]\label{prop:paired-rigidity}
+Let $C\subset S^{D-1}$ and $Y\subset S^{k-1}$ be kissing
+configurations, with $Y$ containing distinct antipodal pairs
+$\{\pm u_i\}$, $1\le i\le t$. Choose $B_i\subseteq C$ and, for
+each $x\in B_i$, heights $0<h_{i,x}^+,h_{i,x}^-<1$. Retain
+$C\setminus\bigcup_iB_i$ at the equator, retain all of $Y$ as pure
+tails, and insert
+\[
+ \left(\sqrt{1-(h_{i,x}^{\pm})^2}\,x,
+                         \ \pm h_{i,x}^{\pm}u_i\right).
+\]
+The resulting set is a kissing configuration if and only if every
+height is $1/2$, the sets $B_i$ are pairwise disjoint, and distinct
+heads in each $B_i$ have inner product at most $1/3$.
+\end{proposition}
+\begin{proof}
+The pure tail of the same sign requires $h_{i,x}^{\pm}\le1/2$.
+Write these two heights as $\sin\theta_+$ and $\sin\theta_-$,
+where $0<\theta_{\pm}\le\pi/6$. The inner product of the two
+copies of $x$ is $\cos(\theta_++\theta_-)$. It is at most $1/2$
+only if $\theta_++\theta_-\ge\pi/3$, forcing both heights to
+equal $1/2$.
+
+If the same head belongs to two blocks, choose the signs of its tails
+to make their product nonnegative. The two corresponding points have
+inner product $3/4+|\langle u_i,u_j\rangle|/4\ge3/4$, a
+contradiction. Within one block, the same-tail condition is exactly
+$(3/4)\langle x,x'\rangle+1/4\le1/2$. These prove necessity;
+Theorem~\ref{thm:block-lift} proves sufficiency.
+\end{proof}
+
+Now suppose $C$ is antipodal. For a pool
+of compatible antipodal line classes $\mathcal B_1,\ldots,\mathcal B_m$ of $C$,
+suppose each of $t\le m$ tail pairs is assigned a subset of one selected
+class. The largest configuration obtainable in this model has exactly
+\begin{equation}\label{eq:pool-optimum}
+ |C|+|Y|+2\max_{|I|=t}\left|\bigcup_{i\in I}\mathcal B_i\right|
+\end{equation}
+points: disjointness gives the upper bound, and assigning each line,
+with both signs, to its first selected class attains it.
+
+\subsection{An orbitwise image-union guarantee}
+Standard averaging and conditional expectations~\cite{raghavan1988}
+give the following bound without assuming transitivity.
+
+\begin{proposition}[Orbitwise image union]\label{prop:orbit-union}
+Let a finite group $\mathcal G$ act on a finite set $\Omega$, with
+orbits $O_j$ of sizes $N_j$. For $\mathcal B\subseteq\Omega$, put
+$b_j=|\mathcal B\cap O_j|$ and $q_j=1-b_j/N_j$. For every integer
+$t\ge1$, there are $g_1,\ldots,g_t\in\mathcal G$ such that
+\begin{equation}\label{eq:orbit-union}
+ \left|\bigcup_{i=1}^t\mathcal B g_i\right|
+ \ge\left\lceil\sum_jN_j(1-q_j^t)\right\rceil.
+\end{equation}
+They can be selected deterministically: if $U_r$ is the union after
+$r<t$ choices, choose $g_{r+1}\in\mathcal G$ to maximize
+\begin{equation}\label{eq:orbit-selection}
+ \sum_jq_j^{\,t-r-1}
+       |(\mathcal B g_{r+1}\setminus U_r)\cap O_j|.
+\end{equation}
+Here $q_j^0=1$, including when $q_j=0$.
+\end{proposition}
+\begin{proof}
+Each point of $O_j$ is missed by a uniform image with probability $q_j$,
+and by $t$ independent images with probability $q_j^t$. After $r$ choices
+the conditional expected union size is
+\[
+ \Phi_r=\sum_j\bigl[N_j-q_j^{\,t-r}(N_j-|U_r\cap O_j|)\bigr].
+\]
+Rule~\eqref{eq:orbit-selection} maximizes $\Phi_{r+1}$, whose average
+over the next image is $\Phi_r$. Hence $|U_t|=\Phi_t\ge\Phi_0$;
+integrality gives the ceiling.
+\end{proof}
+
+For compatible line classes, each covered line contributes two points
+to the lift. A transitive action gives the expected union
+$N[1-(1-b/N)^t]$ for $N$ lines and a $b$-line class. The seven bounds
+below use certified image unions, not this average.
+
+\subsection{Selection from a finite image pool}
+For a directly computable guarantee, let $B_1,\ldots,B_m$ be a finite
+pool of supplied line classes, put $\Omega=\bigcup_iB_i$, and let
+$a_x=|\{i:x\in B_i\}|$. Distinct indices are selected without
+replacement; the classes themselves may overlap.
+
+\begin{proposition}[Finite-pool selection]\label{prop:finite-pool}
+For $0\le t\le m$, some $t$ classes have union size at least
+\begin{equation}\label{eq:finite-pool-bound}
+ \left\lceil\sum_{x\in\Omega}
+ \left(1-\frac{\binom{m-a_x}{t}}{\binom mt}\right)\right\rceil.
+\end{equation}
+Such a selection can be obtained using integer scores. At a stage with
+$M$ classes remaining and $h$ choices still to make, let $U$ be the
+current union and $a_x$ the number of remaining classes containing
+$x\notin U$. Choose a remaining class $B_i$ maximizing
+\begin{equation}\label{eq:finite-pool-score}
+ \sum_{x\in B_i\setminus U}\binom{M-1-a_x}{h-1}.
+\end{equation}
+Here a binomial coefficient is zero if its upper index is negative
+or smaller than its lower index.
+\end{proposition}
+\begin{proof}
+A uniform $t$-subset of the $m$ indices misses $x$ with probability
+$\binom{m-a_x}{t}/\binom mt$, giving~\eqref{eq:finite-pool-bound}
+by averaging. Conditional on the choices already made, the expected
+final size after choosing $i$ is
+\[
+ |\Omega|-\frac{1}{\binom{M-1}{h-1}}
+       \sum_{x\notin U\cup B_i}\binom{M-1-a_x}{h-1}.
+\]
+Thus maximizing~\eqref{eq:finite-pool-score} maximizes this
+conditional expectation. Points in every remaining class contribute
+equally for every choice and are covered at this step; the stated
+zero convention handles them. The average over the next choice is
+the current expectation, so it never decreases. At the final step
+it equals the actual union size, proving the bound.
+\end{proof}
+
+The implementation in \texttt{constructions/p48/coverage.py} collects
+equal incidence sets $\{i:x\in B_i\}$ with their multiplicities.
+Its subsequent exchanges use exact union gains, preserving the guarantee.
 
 \subsection{The 7077-line class and its automorphism images}
 \label{sec:p48-update}
@@ -45,11 +164,8 @@ We use the catalogue lattice $P_{48p}$ in its published
 integral Gram basis $G$~\cite{p48p-catalogue}. Its minimum squared norm
 is six. Since it is even unimodular of rank 48, the theta-series
 calculation in~\eqref{eq:theta48} gives 52416000 minimal vectors.
-The witnesses use this catalogue basis directly. The quadratic-residue
-neighbour used in dimension 45 is constructed in
-Section~\ref{sec:qr-neighbour}. The theta-series calculation in
-Appendix~\ref{app:pless-neighbour} applies to every extremal even
-unimodular lattice of rank 48.
+The witnesses use this basis directly, not the quadratic-residue
+neighbour of Section~\ref{sec:qr-neighbour}.
 
 Represent a minimal line by an integer row $c$ satisfying
 $cGc^t=6$, identifying $c$ and $-c$. The new mother class
@@ -79,13 +195,6 @@ Theorem~\ref{thm:block-lift} gives
  K(48+k)\ge52416000+2S+\tau_k,
  \qquad \tau_k=2t.
 \end{equation}
-
-The injective assignment is part of the construction. For two
-different assigned classes, the minimal-norm bound gives a normalized
-head product at most $1/2$, and distinct tail lines give a tail
-product at most $1/2$. Their cap product is therefore at most
-$(3/4)(1/2)+(1/4)(1/2)=1/2$. Reusing a tail line for arbitrary
-different classes would instead give $5/8$ and is not permitted.
 
 \begin{theorem}\label{thm:p48-update}
 The class and image matrices in the supplementary data give the
@@ -131,9 +240,8 @@ The increase in the final point count splits exactly as
 \begin{equation}\label{eq:p48-gain}
  2(S-S_{\rm ref})=2(S-S_0)+2(S_0-S_{\rm ref}).
 \end{equation}
-The first term measures the effect of enlarging the class with these
-images fixed; the second measures the effect of changing the images
-with the original class fixed. Both are obtained by exact union counts.
+The terms measure class enlargement with images fixed and image selection
+with the original class fixed, respectively.
 
 \begin{table}[ht]
 \centering
@@ -156,5 +264,4 @@ The three selected images in dimension 50 are disjoint. Larger image
 families overlap, so an eight-line enlargement need not supply eight
 new lines per image. In dimension 55 it contributes 498 distinct lines,
 rather than $8\cdot63=504$. The image choice contributes a further
-207 lines. Thus the two improvements reinforce one another through
-the union, rather than through a sum of independently optimized class sizes.
+207 lines.

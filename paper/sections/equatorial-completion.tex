@@ -6,28 +6,25 @@ decomposition has an unoccupied equator. This permits the addition
 of directions from a different Leech shell.
 
 \begin{lemma}[Equatorial completion]\label{lem:completion}
-Suppose $X\subset S^{D+k-1}$ is a kissing configuration consisting
+Let $q,b>0$. Suppose $X\subset S^{D+k-1}$ is a kissing configuration consisting
 of points $(u/\sqrt q,t)$ and pure-tail points $(0,p)$.
 Let $V\subset\R^D$ be a set of representatives of distinct
-antipodal lines, all of squared norm $q$, such that
+antipodal lines, all of squared norm $b$, such that
 \begin{align}
- |\ip{v}{v'}|&\le q/2&&
+ |\ip{v}{v'}|&\le b/2&&
        (v,v'\in V,\ v\ne v'),\label{eq:completion-new}\\
- |\ip{v}{u}|&\le q/2&&
+ |\ip{v}{u}|&\le\sqrt{bq}/2&&
        (v\in V,\ (u/\sqrt q,t)\in X).\label{eq:completion-old}
 \end{align}
 Assume every $t$ in a point with nonzero head is nonzero.
-Then adjoining all $(\pm v/\sqrt q,0)$ gives a kissing configuration
+Then adjoining all $(\pm v/\sqrt b,0)$ gives a kissing configuration
 with $|X|+2|V|$ points.
 \end{lemma}
 \begin{proof}
-New points are unit vectors and their products with old pure-tail
-points vanish. Their products with old points having a head equal
-$\pm\ip{v}{u}/q$, so~\eqref{eq:completion-old} gives the required
-bound. Products between different new lines are bounded by
-\eqref{eq:completion-new}; the opposite points on one line have
-product $-1$. The nonzero-tail assumption and distinctness of the
-new lines prove that the added points are all new.
+New points have norm one. Their products with pure tails vanish,
+with caps are $\pm\ip vu/\sqrt{bq}$, and with other new lines
+are $\pm\ip v{v'}/b$; opposite points have product $-1$.
+The nonzero tails separate old and new points.
 \end{proof}
 
 \subsection{The base configuration}
@@ -51,8 +48,7 @@ tail have product at most $8/48+8/24=1/2$. Repeated heads
 at different tails in their triple have product
 $32/48-4/24=1/2$. Different heads and different tails have product
 at most $16/48+4/24=1/2$.
-The cases with an opposite head have a smaller head contribution
-or are antipodal.
+Opposite heads give smaller products.
 
 There are also 1932 pure-tail points. Write the tail vectors as the
 rows of an integer matrix $F$, and the stored rational rotation as
@@ -77,45 +73,90 @@ inherited data from the public construction; the completion below
 is the additional part.
 
 \subsection{The 144 added lines}
-The use of another shell removes the old shell from the selection
-constraints through a general minimum-norm argument.
-
 \begin{lemma}[Cross-shell compatibility]\label{lem:cross-shell}
 Let $\mathcal L$ be a lattice of minimum squared norm $m$.
 If $u,v\in\mathcal L$ have distinct squared norms $a,b$, then
 $|u\cdot v|\le(a+b-m)/2$.
-In the integer Leech model, $a=32$, $b=48$ and $m=32$ give
-$|u\cdot v|\le24$.
 \end{lemma}
 \begin{proof}
 The distinct norms imply $u\pm v\ne0$. Applying the minimum bound
 to these two lattice vectors gives $a+b\pm2u\cdot v\ge m$.
 \end{proof}
 
+\begin{corollary}[An automatic shell window]\label{cor:completion-window}
+In Lemma~\ref{lem:completion}, suppose all nonzero heads $u$ are
+minimal vectors of one lattice of minimum squared norm $m$, and
+$q>m$. For any shell norm $b$ with $m<b\le q$, every lattice vector
+$v$ of squared norm $b$ satisfies~\eqref{eq:completion-old}.
+Hence any set of lines from that shell satisfying
+\eqref{eq:completion-new} gives an equatorial completion.
+\end{corollary}
+\begin{proof}
+Lemma~\ref{lem:cross-shell} gives $|v\cdot u|\le b/2$, so each new--old
+product is at most $\frac12\sqrt{b/q}\le1/2$. It is strictly below
+$1/2$ when $b<q$. The head norm $\sqrt{m/q}<1$ ensures nonzero cap tails.
+\end{proof}
+
+In the integer Leech model, $m=32$ and $q=b=48$ use the endpoint of
+this window, giving $|v\cdot u|\le24$ against every minimal vector.
 The new certificate lists 144 integer rows $v$ of squared norm
 48. They are distinct modulo sign and satisfy
 \begin{equation}\label{eq:d38-witness}
  |v\cdot v'|\le24\quad(v\ne v'),\qquad
  \max_{u\in\Sigma}|v\cdot u|\le24.
 \end{equation}
-Each row also belongs to the Leech lattice. In the Golay convention
-used for these arrays, membership means that for some
+Each row belongs to the same Leech lattice: for some
 $\varepsilon\in\{0,1\}$ all coordinates have parity $\varepsilon$,
 $((v_i-\varepsilon)/2\bmod2)_i$ is a Golay word, and
 $\sum_i v_i\equiv4\varepsilon\pmod8$.
-The cross-shell inequality therefore follows from
-Lemma~\ref{lem:cross-shell}; the mutual products are the remaining
-selection constraint. The checker verifies these congruences and
-also recomputes every cross product as an independent finite check.
-The shell $\Sigma$ is generated from the same Golay basis as the
-base construction; a change of coordinate convention must be
-applied to both arrays.
+Thus only mutual products constrain selection. The checker verifies
+membership and recomputes cross products independently. Both arrays
+use the base construction's Golay basis.
+
+\begin{proposition}[Contacts at the shell-window endpoint]
+\label{prop:shell-endpoint-contacts}
+Let $\mathcal L$ have minimum squared norm $m$, and let $v\in\mathcal L$
+have squared norm $b$, where $m<b<4m$. At $q=b$, a cap with a minimal
+head $u$ is in contact with the equatorial point $v/\sqrt b$ exactly when
+$u$ belongs to
+\[
+ C_v=\{u\in\mathcal L:u^2=(v-u)^2=m\}.
+\]
+They are paired without fixed points by $u\mapsto v-u$.
+For the Leech lattice with $(m,b)=(32,48)$, every such $C_v$ has
+552 elements. Each added point in the dimension-38 construction
+therefore has exactly 1656 contacts with the old cap layer.
+\end{proposition}
+\begin{proof}
+A minimal head is in contact precisely when $v\cdot u=b/2$,
+equivalently $(v-u)^2=m$. The map is an involution; a fixed point
+would give $v=2u$ and $b=4m$.
+
+Rescale to minimum four. The Leech minimal shell $L$ is an
+11-design~\cite[Theorem 4.1]{nebe-designs}, so for $v^2=s$,
+\begin{equation}\label{eq:leech-shell-moments}
+ M_{2j}(s):=\sum_{x\in L}(v\cdot x)^{2j}
+ =\frac{196560(4s)^j(2j-1)!!}{24\cdot26\cdots(24+2j-2)}
+ \quad(1\le j\le5).
+\end{equation}
+For $s=6$, integrality and the minimum give $|v\cdot x|\le3$.
+The polynomial $a^2(a^2-1)(a^2-4)$ isolates the extremes; antipodality gives
+\[
+ |C_v|=\frac{M_6(6)-5M_4(6)+4M_2(6)}{720}=552.
+\]
+Each oriented minimal head in~\eqref{eq:d38-base-caps} occurs at
+three tails, giving $3(552)=1656$ old cap contacts. Pure-tail points
+are orthogonal to the added equatorial point.
+\end{proof}
+
+The contact checker verifies the count and involution in integers
+for all 144 stored lines.
 
 \begin{theorem}\label{thm:d38}
 There is a kissing configuration of 591900 points in dimension 38.
 \end{theorem}
 \begin{proof}
-Apply Lemma~\ref{lem:completion} with $q=48$ to the base
+Apply Lemma~\ref{lem:completion} with $q=b=48$ to the base
 configuration~\eqref{eq:d38-base-caps} and the 144-line witness.
 Its hypotheses are exactly~\eqref{eq:d38-witness}. The new points
 have zero tail, while every old cap has tail norm $1/\sqrt3$;
@@ -123,13 +164,62 @@ the old pure-tail points have zero head. Thus the count is
 $591612+2(144)=591900$.
 \end{proof}
 
-The completion changes the shell used for new equatorial points.
-All minimal directions have already been used in the cap layer,
-but that does not exhaust the admissible directions of the
-equatorial sphere. The norm-48 shell supplies a separate finite
-search space with compatible cap products. Searching in that
-space produced a 142-line witness and then the 144-line witness.
-The latter, including its complete base checks, is the input
-to Theorem~\ref{thm:d38}. The second-shell choice is useful because
-it has the normalization of the cap heads and its entire interaction
-with the first shell is controlled by the lattice minimum.
+The norm-48 search produced a 142-line witness and then the 144-line
+witness used here. All minimal directions occur in the caps, but
+they do not exhaust the admissible equatorial directions.
+
+\subsection{Multiple shells and the next-shell obstruction}
+The automatic window controls new--old pairs, not pairs between
+different added shells. The distinction has an exact formulation.
+
+\begin{proposition}[Multi-shell completion]\label{prop:multi-shell}
+Under the hypotheses of Corollary~\ref{cor:completion-window}, let
+$V_i\subset\mathcal L$ represent distinct antipodal lines of squared norm $b_i$, where
+$m<b_i\le q$. Adjoining $(\pm v/\sqrt{b_i},0)$ for every $v\in V_i$
+gives $|X|+2\sum_i|V_i|$ distinct kissing points if and only if
+\begin{equation}\label{eq:multi-shell-separation}
+ |v\cdot w|\le\frac{\sqrt{b_i b_j}}2
+ \quad\Longleftrightarrow\quad
+ \min\{\|v-w\|^2,\|v+w\|^2\}\ge b_i+b_j-\sqrt{b_i b_j}
+\end{equation}
+for every two distinct labelled representatives $(v,i),(w,j)$.
+\end{proposition}
+\begin{proof}
+All new--old products satisfy the automatic shell bound. Products
+between the two signs of one new line equal $-1$, while the largest
+product between two labelled lines is $|v\cdot w|/\sqrt{b_i b_j}$.
+This proves necessity, sufficiency and distinctness. The equivalence
+follows from $\|v\pm w\|^2=b_i+b_j\pm2v\cdot w$.
+\end{proof}
+
+The ambient minimum bound is weaker than the required separation:
+for $b,c>m$,
+\[
+ b+c-\sqrt{bc}\ge\sqrt{bc}>m.
+\]
+In the current Leech normalization, evenness makes every squared norm
+a multiple of 16. The automatic interval $32<b\le48$ therefore contains
+only the norm-48 shell. The next shell is excluded more strongly:
+
+\begin{proposition}[No norm-64 equatorial addition]\label{prop:no-norm64}
+Every norm-64 Leech vector has exactly 46 minimal vectors $u$ with
+$v\cdot u=32$, and 46 with $v\cdot u=-32$.
+Neither $v/8$ nor $-v/8$ can be adjoined at the equator of the
+unchanged base configuration~\eqref{eq:d38-base-caps}.
+\end{proposition}
+\begin{proof}
+Rescale to minimum four and $v^2=8$. For $a_x=v\cdot x$ on the
+minimal shell, integrality and the minimum give $|a_x|\le4$.
+Using~\eqref{eq:leech-shell-moments} and the extreme-value polynomial
+$P(a)=a^2(a^2-1)(a^2-4)(a^2-9)$ gives
+\[
+ |\{x:a_x=4\}|=
+ \frac{M_8(8)-14M_6(8)+49M_4(8)-36M_2(8)}{40320}=46.
+\]
+The negative count is the same. Returning to integer coordinates,
+each of these positive heads gives the forbidden product
+$32/\sqrt{64\cdot48}=1/\sqrt3>1/2$ with $v/8$.
+Only this extreme positive product violates the bound. Every oriented
+minimal head appears at three tails, so each proposed endpoint has
+exactly 138 conflicts with the old cap layer.
+\end{proof}
