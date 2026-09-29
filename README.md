@@ -1,5 +1,7 @@
 # Qiushi Engine: Large-Scale Autonomous Discovery of Kissing Number Constructions
 
+**Preprint:** [arXiv:2609.35051](https://arxiv.org/abs/2609.35051) · [arXiv PDF](https://arxiv.org/pdf/2609.35051) · [BibTeX](CITATION.bib). Version 1 submitted on 28 September 2026, under Information Theory (cs.IT).
+
 [中文](README.zh-CN.md) · [Paper](paper/main.pdf) · [English report](reports/en_full/main.pdf) · [中文报告](reports/zh_full/main.pdf) · [Results](research/results.md) · [Research](research/README.md) · [Reproduce](reproducibility/README.md)
 
 [Download the complete project](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28.1/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [Third release: structural results and research materials](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28.1)
@@ -236,4 +238,5 @@ College of Information Science and Electronic Engineering, Zhejiang University �
 For Qiushi Engine's autonomous experimental research, see the
 [optical-platform study](https://arxiv.org/abs/2604.27092).
 
-[Citation](CITATION.cff) · [License](LICENSE) · [Third-party materials](constructions/third-party.md)
+Please cite the [arXiv preprint](https://arxiv.org/abs/2609.35051) when using this study.
+[BibTeX](CITATION.bib) · [Citation metadata](CITATION.cff) · [License](LICENSE) · [Third-party materials](constructions/third-party.md)

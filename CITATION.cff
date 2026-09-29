@@ -1,7 +1,7 @@
 cff-version: 1.2.0
-message: "Please cite this research collection and its reports."
+message: "Please cite the arXiv preprint when using this research collection."
 type: software
-title: "Qiushi Engine: Autonomous Discovery of New Lower Bounds for Kissing Numbers"
+title: "Qiushi Engine: Large-Scale Autonomous Discovery of Kissing Number Constructions"
 repository-code: "https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research"
 abstract: "Qiushi Engine's autonomous mathematical research develops new kissing-number constructions through connections between coding theory, lattice geometry and combinatorics. The collection includes bilingual research reports, mathematical arguments, exact construction data and reproducible verification programs."
 authors:
@@ -39,6 +39,46 @@ authors:
   - family-names: Yang
     given-names: Yihao
     email: yangyihao@zju.edu.cn
+preferred-citation:
+  type: article
+  title: "Large-Scale Autonomous Discovery of Kissing Number Constructions"
+  authors:
+    - family-names: Yang
+      given-names: Shuxing
+    - family-names: Zhao
+      given-names: Rui
+    - family-names: Wu
+      given-names: Junyao
+    - family-names: Wang
+      given-names: Yize
+    - family-names: Chen
+      given-names: Fujia
+    - family-names: Zhu
+      given-names: Kaihao
+    - family-names: Li
+      given-names: Wenhao
+    - family-names: Li
+      given-names: Zichen
+    - family-names: Li
+      given-names: Yaqi
+    - family-names: Hong
+      given-names: Shenzhan
+    - family-names: Pan
+      given-names: Yuang
+    - family-names: Yang
+      given-names: Junjie
+    - family-names: Deng
+      given-names: Taowen
+    - family-names: Mi
+      given-names: Jincheng
+    - family-names: Chen
+      given-names: Hongsheng
+    - family-names: Yang
+      given-names: Yihao
+  year: 2026
+  journal: arXiv
+  doi: "10.48550/arXiv.2609.35051"
+  url: "https://arxiv.org/abs/2609.35051"
 keywords:
   - kissing number
   - Leech lattice

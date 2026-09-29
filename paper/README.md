@@ -2,6 +2,9 @@
 
 **Large-Scale Autonomous Discovery of Kissing Number Constructions**
 
+Preprint: [arXiv:2609.35051](https://arxiv.org/abs/2609.35051) · [arXiv PDF](https://arxiv.org/pdf/2609.35051) · [BibTeX](../CITATION.bib).
+Version 1 was submitted on 28 September 2026, under Information Theory (cs.IT).
+
 [Read the paper (PDF)](main.pdf) · [LaTeX source](main.tex)
 
 The paper presents Qiushi Engine's autonomous investigation of kissing

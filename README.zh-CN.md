@@ -1,5 +1,7 @@
 # Qiushi Engine：接吻数构造的大规模自主发现
 
+**预印本：**[arXiv:2609.35051](https://arxiv.org/abs/2609.35051) · [arXiv PDF](https://arxiv.org/pdf/2609.35051) · [BibTeX](CITATION.bib)。第 1 版于 2026 年 9 月 28 日提交，分类为信息论（cs.IT）。
+
 [English](README.md) · [论文](paper/main.pdf) · [中文报告](reports/zh_full/main.pdf) · [英文报告](reports/en_full/main.pdf) · [成果](research/results.md) · [研究脉络](research/README.zh-CN.md) · [复现](reproducibility/README.md)
 
 [下载完整工程](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28.1/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [第三次发布：结构性结果与完整研究材料](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28.1)
@@ -197,4 +199,5 @@ tests/             数据与文档一致性测试
 Qiushi Engine 的自主实验研究见
 [自主光学实验平台论文](https://arxiv.org/abs/2604.27092)。
 
-[引用](CITATION.cff) · [许可](LICENSE) · [第三方材料](constructions/third-party.md)
+使用本研究时，请引用 [arXiv 预印本](https://arxiv.org/abs/2609.35051)。
+[BibTeX](CITATION.bib) · [引用元数据](CITATION.cff) · [许可](LICENSE) · [第三方材料](constructions/third-party.md)
