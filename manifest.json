@@ -694,8 +694,13 @@
     },
     {
       "path": "constructions/sections/README.md",
-      "sha256": "0bfff769c434f616c60c04d5cf4a476538200484f65a65929efaf53d311af65a",
-      "bytes": 3655
+      "sha256": "875b789f8d98a11f159025eccf638507add6685e8769ae115e4bff9568c3f4bd",
+      "bytes": 3879
+    },
+    {
+      "path": "constructions/sections/VECTORS.md",
+      "sha256": "977d4e9b288a7ed26000a1254ffa067734dee2b743c606ce270de2c56791749f",
+      "bytes": 5381
     },
     {
       "path": "constructions/sections/d43/data/CQ48a.html",
@@ -711,6 +716,11 @@
       "path": "constructions/sections/d43/data/comparison-section.txt",
       "sha256": "367d36d072bd208190cdabcdb20390084c506bb8add06ec5a0e78916fbf71123",
       "bytes": 18632
+    },
+    {
+      "path": "constructions/sections/d43/data/euclidean-basis.json",
+      "sha256": "5881f02bf48c859dc2b54f5df76756b84d9546c3892be9be3d9cc9cee5803d06",
+      "bytes": 10621
     },
     {
       "path": "constructions/sections/d43/data/parent-section.txt",
@@ -776,6 +786,11 @@
       "path": "constructions/sections/d45/verify_statistics.py",
       "sha256": "639385c15621a71f1aa574b99609f10d1f54bd53dad10bdd68c3ad1a00a7b58b",
       "bytes": 6540
+    },
+    {
+      "path": "constructions/sections/export_vectors.py",
+      "sha256": "ddd3d7fe0cfcd908e1ff3a24451bfa8e9703a2e44f904c76f4d66626cfa52090",
+      "bytes": 10647
     },
     {
       "path": "constructions/sections/qr/data/gram.json",
@@ -1781,6 +1796,11 @@
       "path": "tests/test_section_statistics.py",
       "sha256": "38fefbadd703a74480f3f2fdb465b9d8ebbe436a428f1d0b01e09a24f3bb2669",
       "bytes": 4102
+    },
+    {
+      "path": "tests/test_section_vector_export.py",
+      "sha256": "bfb3c63677de0b1628872e8b5a796e2d811ded8de457720bb05197bbbab1612f",
+      "bytes": 5320
     },
     {
       "path": "tests/test_transverse_type_capacity.py",

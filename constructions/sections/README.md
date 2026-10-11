@@ -1,5 +1,9 @@
 # Lattice sections and moment certificates
 
+For explicit Cartesian coordinates and independent pairwise checking, see
+[Exact coordinate export](VECTORS.md). The supplied reference exporter uses
+the same Gram matrices and section embeddings as the certificates below.
+
 The 43-dimensional package regenerates the projection domain, root orbits,
 moment matrix and rational identity from standard $E_8$ coordinates. Its four
 inputs specify the ambient Gram matrix, parent section, comparison section
