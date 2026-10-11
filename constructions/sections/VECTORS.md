@@ -1,8 +1,8 @@
 # Exact coordinates for independent verification
 
-[`export_vectors.py`](export_vectors.py) enumerates the 43-dimensional section
-and the three fibres defining the 45-dimensional projection. It writes ordinary
-Cartesian coordinates, not just lattice coefficients. Both exports use **48
+The [complete coordinate release](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/section-vectors-2026-10-11)
+contains both full point sets, in gzip CSV and compact binary form. These are
+ordinary Cartesian coordinates, not lattice coefficients. Both exports use **48
 integer columns**: the points lie in specified subspaces of dimensions 43 and
 45, respectively. An orthonormal change of basis is unnecessary for checking
 norms and pairwise inner products.
@@ -12,7 +12,52 @@ norms and pairwise inner products.
 | 43D | 2,553,792 | 576 | 288 | divide by 24 |
 | 45D | 7,380,090 | 4,416 | 2,208 | divide by $8\sqrt{69}$ |
 
-## Running the exporter
+## Downloads
+
+- **43D:** [CSV](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/section-vectors-2026-10-11/section43.csv.gz),
+  [binary](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/section-vectors-2026-10-11/section43.i8.gz).
+- **45D:** [CSV](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/section-vectors-2026-10-11/section45.csv.gz),
+  [binary](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/section-vectors-2026-10-11/section45.i8.gz).
+
+CSV has 48 comma-separated integers per line and no header. Binary has the
+same rows in the same order, as 48 signed 8-bit integers per row, with no header.
+All points were checked for their exact norms, subspace and lattice/fibre
+membership, and distinctness. The three positive fibres in 45D each contain
+2,460,030 points. The release includes the per-dimension verification results.
+
+These files support an independent all-pairs check. Our export validation
+checks membership in the proved construction, rather than rerunning all pairs.
+
+## Reproducing the complete exports
+
+The fast implementation needs SageMath with fpylll, NumPy, a C++17 compiler,
+Boost headers, OpenMP, and gzip (or pigz). From the repository root:
+
+```sh
+g++ -O3 -std=c++17 -fopenmp constructions/sections/export_vectors_native.cpp -o export-vectors
+g++ -O3 -std=c++17 constructions/sections/vector_data_csv.cpp -o vector-data-csv
+sage -python constructions/sections/prepare_fast.py --dimension 43 --output geometry43.json
+./export-vectors geometry43.json vectors43 16 8
+cat vectors43/part-*.i8 > section43.i8
+sage -python constructions/sections/verify_vector_binary.py \
+  --dimension 43 --input section43.i8 --output section43-verification.json
+./vector-data-csv section43.i8 | gzip > section43.csv.gz
+```
+
+Replace 43 by 45 for the second construction. The last two native arguments
+are the worker count and the number of tail coordinates used to split the
+enumeration. Row order may vary; the mathematical point set does not.
+
+The native search uses long-double bounds to generate candidates and integer
+arithmetic to retain the required norm. The separate checker establishes exact
+lattice/fibre membership and uniqueness for every row. Together with the proved
+cardinalities, this certifies that the exports contain the complete point sets.
+
+## Exact-rational reference implementation
+
+[`export_vectors.py`](export_vectors.py) also gives a slower, entirely rational
+enumeration of the same sets. It is useful for checking the enumeration logic
+and for small trials.
 
 Use a Python interpreter with SageMath available. From the repository root:
 
@@ -35,13 +80,6 @@ For a bounded first run, use a different output name:
 sage -python constructions/sections/export_vectors.py \
   --dimension 45 --output section45-sample.csv.gz --limit 16 --max-nodes 10000
 ```
-
-This is a reference implementation of exact enumeration, not a precomputed
-coordinate archive or an optimized large-dimensional lattice enumerator. Full
-43D and 45D exports have **not** been completed with this program. Preparation,
-bounded exports and small-form exhaustive cross-checks have been tested;
-full-enumeration runtime is not yet measured. The existing cardinality proofs
-remain in the [moment-certificate package](README.md).
 
 `--limit` and `--max-nodes` produce partial files. A result is marked
 `complete: true` only after exhausting the search tree and obtaining the

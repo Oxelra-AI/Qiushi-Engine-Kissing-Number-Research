@@ -699,8 +699,8 @@
     },
     {
       "path": "constructions/sections/VECTORS.md",
-      "sha256": "977d4e9b288a7ed26000a1254ffa067734dee2b743c606ce270de2c56791749f",
-      "bytes": 5381
+      "sha256": "b00726409681033071701781637377b1528606885e4287d88782ff0cc1ada67a",
+      "bytes": 7622
     },
     {
       "path": "constructions/sections/d43/data/CQ48a.html",
@@ -793,6 +793,16 @@
       "bytes": 10647
     },
     {
+      "path": "constructions/sections/export_vectors_native.cpp",
+      "sha256": "4bb315efb95835b4fcfcdb4972b63469b1020e1f2885a1a14667fc85336e6f9d",
+      "bytes": 10106
+    },
+    {
+      "path": "constructions/sections/prepare_fast.py",
+      "sha256": "bdbcb00cb314b3c631f1d88f86a500872721f98a676373f124f3406368774f9b",
+      "bytes": 6046
+    },
+    {
       "path": "constructions/sections/qr/data/gram.json",
       "sha256": "c9a02fb8eefe3422bb6a0b4b4bfc550325c79f85d5ac8b6086b87e6b7d98d18d",
       "bytes": 22128
@@ -811,6 +821,16 @@
       "path": "constructions/sections/source-manifest.json",
       "sha256": "24be37f2eedebd5ac5113ca15cab610e0cb2164929ef6d13bb425382f43a318b",
       "bytes": 3971
+    },
+    {
+      "path": "constructions/sections/vector_data_csv.cpp",
+      "sha256": "9ecb05a76d0f7f6c9222082d728ca5e6134f78de9cb4b79c3966cdb145392784",
+      "bytes": 1393
+    },
+    {
+      "path": "constructions/sections/verify_vector_binary.py",
+      "sha256": "4df10f699bd9e321243e2867fd27c057593e653d1571f28ff24ff2f670c4ef22",
+      "bytes": 8475
     },
     {
       "path": "constructions/third-party.md",
@@ -1793,9 +1813,19 @@
       "bytes": 7627
     },
     {
+      "path": "tests/test_section_basis_preparation.py",
+      "sha256": "16f7807925d8b1c4918abd8ef0f0ce65e98ec10c20d4b9ef8d8ac61dafe2fe8a",
+      "bytes": 2685
+    },
+    {
       "path": "tests/test_section_statistics.py",
       "sha256": "38fefbadd703a74480f3f2fdb465b9d8ebbe436a428f1d0b01e09a24f3bb2669",
       "bytes": 4102
+    },
+    {
+      "path": "tests/test_section_vector_binary.py",
+      "sha256": "291834cf1a70aecb8891509136838c95d6051de54b32999de354f0d3286f336f",
+      "bytes": 5523
     },
     {
       "path": "tests/test_section_vector_export.py",

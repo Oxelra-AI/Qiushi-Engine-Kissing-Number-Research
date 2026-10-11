@@ -143,7 +143,7 @@ def verify(input_path, checks, chunk_rows=65536):
     return {
         "passed": all(results.values()), "checks": results,
         "dimension": checks["dimension"], "format": "raw signed int8; 48 columns; no header",
-        "input": str(input_path.resolve()), "input_bytes": before.st_size,
+        "input": input_path.name, "input_bytes": before.st_size,
         "sha256": digest.hexdigest(), "rows": count, "unique_rows": unique_count,
         "expected_rows": checks["expected_rows"], "squared_norm": checks["squared_norm"],
         "invalid_norm_rows": bad_norm, "nonorthogonal_rows": bad_orthogonal,
