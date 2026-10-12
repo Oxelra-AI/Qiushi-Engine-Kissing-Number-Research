@@ -40,6 +40,9 @@ struct Geometry {
     std::array<RealRow, 48> lower{};
     RealRow diagonal{};
     std::array<Row, 48> transform{};
+    std::array<Row, 48> output_gram{};
+    bool coefficient_output = false;
+    bool antipodal_output = false;
     std::vector<Component> components;
     explicit Geometry(const std::string& name) {
         pt::ptree tree;
@@ -47,6 +50,8 @@ struct Geometry {
         n = tree.get<int>("dimension");
         norm = tree.get<int>("squared_norm");
         expected = tree.get<std::uint64_t>("expected_rows");
+        coefficient_output = tree.get<bool>("coefficient_output", false);
+        antipodal_output = tree.get<bool>("antipodal_output", false);
         if (n <= 0 || n > 48 || norm <= 0 || norm > 127 * 127)
             throw std::runtime_error("Invalid geometry dimensions or norm");
         std::array<RealRow, 48> gram{};
@@ -79,6 +84,16 @@ struct Geometry {
             ++i;
         }
         if (i != n) throw std::runtime_error("Invalid transform size");
+        if (coefficient_output) {
+            i = 0;
+            for (const auto& r : tree.get_child("output_gram")) {
+                int j = 0;
+                for (const auto& x : r.second) output_gram.at(i).at(j++) = x.second.get_value<int>();
+                if (j != 48) throw std::runtime_error("Invalid output Gram row");
+                ++i;
+            }
+            if (i != 48) throw std::runtime_error("Invalid output Gram size");
+        }
         for (const auto& item : tree.get_child("components")) {
             Component c;
             i = 0;
@@ -88,8 +103,16 @@ struct Geometry {
             for (const auto& x : item.second.get_child("offset")) c.offset.at(i++) = x.second.get_value<int>();
             if (i != 48) throw std::runtime_error("Invalid offset");
             c.radius = rational(item.second.get<std::string>("radius_squared"));
+            if (antipodal_output) {
+                for (int j = 0; j < n; ++j)
+                    if (c.center[j] != 0) throw std::runtime_error("Antipodal search requires zero centre");
+                for (auto x : c.offset)
+                    if (x) throw std::runtime_error("Antipodal search requires zero offset");
+            }
             components.push_back(c);
         }
+        if (antipodal_output && components.size() != 1)
+            throw std::runtime_error("Antipodal search requires one component");
     }
 };
 struct Task { Row row{}; long double remaining; int component; };
@@ -111,13 +134,34 @@ struct Search {
             for (int j = 0; j < 48; ++j)
                 point[j] += static_cast<std::int64_t>(row[i]) * g.transform[i][j];
         std::int64_t norm = 0;
-        for (auto x : point) norm += x * x;
+        if (g.coefficient_output) {
+            for (int i = 0; i < 48; ++i) {
+                norm += point[i] * point[i] * g.output_gram[i][i];
+                for (int j = 0; j < i; ++j)
+                    norm += 2 * point[i] * point[j] * g.output_gram[i][j];
+            }
+        } else {
+            for (auto x : point) norm += x * x;
+        }
         if (norm != g.norm) return;
         std::array<std::int8_t, 48> packed;
-        for (int j = 0; j < 48; ++j) packed[j] = static_cast<std::int8_t>(point[j]);
+        for (int j = 0; j < 48; ++j) {
+            if (point[j] < -128 || point[j] > 127)
+                throw std::runtime_error("Coordinate exceeds signed int8");
+            packed[j] = static_cast<std::int8_t>(point[j]);
+        }
         output->write(reinterpret_cast<const char*>(packed.data()), 48);
         if (!*output) throw std::runtime_error("Coordinate write failed");
         ++rows;
+        if (g.antipodal_output) {
+            for (int j = 0; j < 48; ++j) {
+                if (point[j] == -128) throw std::runtime_error("Antipode exceeds signed int8");
+                packed[j] = static_cast<std::int8_t>(-point[j]);
+            }
+            output->write(reinterpret_cast<const char*>(packed.data()), 48);
+            if (!*output) throw std::runtime_error("Antipodal coordinate write failed");
+            ++rows;
+        }
     }
 
     void walk(int level, long double remaining, int split,
@@ -137,8 +181,15 @@ struct Search {
         long double middle = c.center[level];
         for (int j = level + 1; j < g.n; ++j) middle -= g.lower[j][level] * shifted[j];
         const long double extent = std::sqrt(remaining / g.diagonal[level]);
-        const int first = static_cast<int>(std::ceil(middle - extent));
+        int first = static_cast<int>(std::ceil(middle - extent));
         const int last = static_cast<int>(std::floor(middle + extent));
+        // For a zero-centred shell, choose the unique representative whose
+        // highest nonzero coefficient is positive, then emit both signs.
+        if (g.antipodal_output) {
+            bool zero_prefix = true;
+            for (int j = level + 1; j < g.n; ++j) zero_prefix &= row[j] == 0;
+            if (zero_prefix) first = std::max(first, 0);
+        }
         for (int x = first; x <= last; ++x) {
             row[level] = x;
             shifted[level] = x - c.center[level];
@@ -206,6 +257,8 @@ int main(int argc, char** argv) {
         report.put("rows", total_rows.load());
         report.put("nodes", total_nodes.load());
         report.put("expected_rows", g.expected);
+        report.put("coefficient_output", g.coefficient_output);
+        report.put("antipodal_output", g.antipodal_output);
         report.put("stopped", stopped.load());
         report.put("elapsed_seconds", std::chrono::duration<double>(Clock::now() - start).count());
         report.put("navigation", "long-double LDL; enlarged radius; exact integer output norms");
