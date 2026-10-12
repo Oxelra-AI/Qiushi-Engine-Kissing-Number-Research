@@ -14,7 +14,7 @@ import time
 
 import numpy as np
 
-from verify import canon, tail_roots, LAMBDAS, TAIL_SIZES
+from verify import canon, tail_roots, rank_q, LAMBDAS, TAIL_SIZES
 
 ROOT = Path(__file__).resolve().parent
 COUNTS = {49: 52430156, 50: 52458468, 51: 52500930, 52: 52585772,
@@ -51,6 +51,7 @@ def load_basis(path):
 
 def prepare_dimension(dimension, head_scale):
     from sage.arith.misc import four_squares
+    from sage.all import ZZ, matrix
     k = dimension - 48
     roots, root_norm, name = tail_roots(k)
     representatives = np.asarray(sorted(set(map(tuple, canon(roots).tolist()))), dtype=np.int64)
@@ -63,7 +64,11 @@ def prepare_dimension(dimension, head_scale):
     tails = np.concatenate([factor * representatives for factor in factors], axis=1)
     if not np.all(np.sum(tails * tails, axis=1) == 2 * head_scale):
         raise ValueError("Incorrect embedded tail norm")
+    if rank_q(tails) != k:
+        raise ValueError("Incorrect exact tail rank")
     c = np.load(ROOT / "data/class_p48_7077.npy", allow_pickle=False).astype(np.int64)
+    if matrix(ZZ, c.tolist()).rank() != 48:
+        raise ValueError("The first assigned class does not span the head space")
     g = np.load(ROOT / "data/p48p_gram.npy", allow_pickle=False).astype(np.int64)
     matrices = ([np.eye(48, dtype=np.int64)] if dimension == 49 else
                 np.load(ROOT / f"data/dim{dimension}_group_elems.npy", allow_pickle=False).astype(np.int64))
@@ -180,7 +185,9 @@ def export(shell_path, basis_path, output_directory, dimensions=range(49, 56), c
                 raise ValueError("Incorrect final coordinate count")
             report = {
                 "passed": True, "dimension": state["dimension"], "rows": state["rows"],
-                "columns": state["columns"], "format": f"raw {dtype.name}; little-endian; no header",
+                "columns": state["columns"], "rank": state["dimension"],
+                "rank_verification": "first assigned cap-head class spans rank48; pure tails have exact rank dimension-48",
+                "format": f"raw {dtype.name}; little-endian; no header",
                 "file": state["path"].name, "sha256": state["digest"].hexdigest(),
                 "normalization": "Divide EACH ROW by its own Euclidean length",
                 "head_columns": int(basis.shape[1]), "head_gram_scale": scale,

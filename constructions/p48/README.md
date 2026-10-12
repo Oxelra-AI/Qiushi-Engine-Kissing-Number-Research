@@ -32,6 +32,10 @@ tail ranks and pair inequalities. It retains the published P48p minimum 6 and
 entire shell. `verification.json` records the recomputation for the supplied
 inputs.
 
+The [complete Cartesian coordinate guide](VECTORS.md) gives the full-data
+format and reproduction commands. Those exports include every retained
+mother-shell point, not just the 7,077-line class and its images.
+
 The [shared derivation](../../research/trajectory/p48.md) includes the
 complete pair classification and class-extension search. The seven
 [dimensional accounts](../../research/README.md) describe the individual
