@@ -1,5 +1,7 @@
 # Complete Cartesian directions in dimensions 49–55
 
+[Download the complete files](../VECTORS.md#dimensions-49--55).
+
 The complete files contain ordinary integer Cartesian coordinates, including
 the retained equator, all cap points and all pure tails. **Normalize each row
 by its own Euclidean length.** Unlike the 43D/45D section files, these files
@@ -26,9 +28,9 @@ have the intrinsic dimensions in the table.
 The supplied [`cartesian-basis.json`](data/cartesian-basis.json) contains
 integer matrices `F,B` satisfying
 
-\[
+$$
 FGF^t=6I_{48},\qquad B=GF^t,\qquad BB^t=6G.
-\]
+$$
 
 Thus a norm-six catalogue coefficient row `z` has Cartesian head `h=2zB`
 of squared norm 144. For each tail root `r`, use these concatenated blocks:

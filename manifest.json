@@ -54,8 +54,8 @@
     },
     {
       "path": "constructions/VECTORS.md",
-      "sha256": "fe69006c3cd5a4019800a8c16867f244fa973676de5e695a0ba9b62cf85f9479",
-      "bytes": 5656
+      "sha256": "536d2a63cd5c4faf8f163424f75de3296336d43d3a1e81dcabf0fbec9ed8a351",
+      "bytes": 9560
     },
     {
       "path": "constructions/catalog/README.md",
@@ -579,8 +579,13 @@
     },
     {
       "path": "constructions/p48/README.md",
-      "sha256": "2fa32ce30023cfb1c1c498804434613ba0fa3327668ffbe4f2c76369f62cb397",
-      "bytes": 1643
+      "sha256": "2a31d86dd692aad7ed9a4be2be79002a8fcb5a78b4e53bd8650ae66d3c01664d",
+      "bytes": 1855
+    },
+    {
+      "path": "constructions/p48/VECTORS.md",
+      "sha256": "c7e0d15361a9fe8d32823793576ec037390af6f121076f4ace17e448aaf5954b",
+      "bytes": 3360
     },
     {
       "path": "constructions/p48/coverage.py",
@@ -591,6 +596,11 @@
       "path": "constructions/p48/data/P48p.html",
       "sha256": "eaec7003064f5a0ed7c0cb96dd37374fe6ef51e086f40422ec8422df9cf6111a",
       "bytes": 28591
+    },
+    {
+      "path": "constructions/p48/data/cartesian-basis.json",
+      "sha256": "f458ebd11493a8173e2d51aadf56dd95b951634578184cd141e8d45ca08ba615",
+      "bytes": 44338
     },
     {
       "path": "constructions/p48/data/class_p48_7077.npy",
@@ -638,6 +648,16 @@
       "bytes": 18560
     },
     {
+      "path": "constructions/p48/export_vectors.py",
+      "sha256": "c2bd24b7e7dd0594b5c747eec96a12d6879ed3dca3331b73748294cf79c7ac0d",
+      "bytes": 12680
+    },
+    {
+      "path": "constructions/p48/index_shell.py",
+      "sha256": "8c60582924e5b34061c546cfc57304647b3d888f134937de7de1905e30d8f0fc",
+      "bytes": 6926
+    },
+    {
       "path": "constructions/p48/legacy/README.md",
       "sha256": "d2504b41af6e36c6e61bf31a845d977291f67b6f34877148e301a8ace999a255",
       "bytes": 920
@@ -671,6 +691,11 @@
       "path": "constructions/p48/legacy/verify_ambient.py",
       "sha256": "e6303e171ec3a43982f8c123497ff21b04a3e5916b6aff050607b24f1c247fd8",
       "bytes": 6526
+    },
+    {
+      "path": "constructions/p48/prepare_shell.py",
+      "sha256": "005bcb22c3ad680a04c6c4c6a3a78c14f3be59b0a1d9922427d144f8450488bc",
+      "bytes": 3544
     },
     {
       "path": "constructions/p48/search.py",
@@ -809,8 +834,8 @@
     },
     {
       "path": "constructions/sections/export_vectors_native.cpp",
-      "sha256": "4bb315efb95835b4fcfcdb4972b63469b1020e1f2885a1a14667fc85336e6f9d",
-      "bytes": 10106
+      "sha256": "4573cdb5f05790ce027bf9059779220fa92f9b63bf051e85e670ac0c4e14b1c0",
+      "bytes": 12682
     },
     {
       "path": "constructions/sections/prepare_fast.py",
@@ -839,8 +864,8 @@
     },
     {
       "path": "constructions/sections/vector_data_csv.cpp",
-      "sha256": "9ecb05a76d0f7f6c9222082d728ca5e6134f78de9cb4b79c3966cdb145392784",
-      "bytes": 1393
+      "sha256": "5b8b6d8b0bd900bda00968a3cf9a1fe5327777c625efbe0b6c7053dadce30253",
+      "bytes": 1638
     },
     {
       "path": "constructions/sections/verify_vector_binary.py",
@@ -1818,6 +1843,11 @@
       "bytes": 6170
     },
     {
+      "path": "tests/test_p48_vector_export.py",
+      "sha256": "c0445b1cb1c24119b4fa4587851543022ea41d5ee04d037dde047c7d16942373",
+      "bytes": 7458
+    },
+    {
       "path": "tests/test_replacement_principles.py",
       "sha256": "67407f1fd1e1c1b8cfb4fb044bd21147603c5ee55bd19889c8d5259be59528b8",
       "bytes": 20812
@@ -1861,6 +1891,11 @@
       "path": "tests/test_transverse_type_capacity.py",
       "sha256": "68cd384b516c8aa2f788d1cc765ad9bd9dad0df76f8d05a942dc78d6d544e671",
       "bytes": 10695
+    },
+    {
+      "path": "tests/test_vector_data_csv.py",
+      "sha256": "703b432c9509cfb28f874ea6e966ca731834770537c3f67441e1c5fd6ea65801",
+      "bytes": 1453
     },
     {
       "path": "tools/build_reports.py",

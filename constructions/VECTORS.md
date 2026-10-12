@@ -79,3 +79,66 @@ python constructions/d38/export_vectors.py --output-dir vectors38
 Replace 39 by any dimension from 32 through 37 for the other code constructions.
 The 38D exporter uses its own lattice construction, not the historical ERS
 intermediate construction.
+
+## Dimensions 49--55
+
+Each binary file contains the **entire configuration**, including the retained
+mother-shell points, all lifted points and the pure tails. Files are gzip-compressed
+row-major signed int8, without a header. Their three layers have squared norms
+144, 192 and 48, respectively; normalize every row individually.
+
+| Dimension | Complete rows | Coordinate columns | Download |
+| ---: | ---: | ---: | --- |
+| 49 | 52,430,156 | 51 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration49.i8.gz) |
+| 50 | 52,458,468 | 57 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration50.i8.gz) |
+| 51 | 52,500,930 | 57 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration51.i8.gz) |
+| 52 | 52,585,772 | 60 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration52.i8.gz) |
+| 53 | 52,698,696 | 63 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration53.i8.gz) |
+| 54 | 52,923,774 | 72 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration54.i8.gz) |
+| 55 | 53,301,140 | 72 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration55.i8.gz) |
+
+The ambient column counts exceed the intrinsic dimensions because some root
+systems and integer tail embeddings use additional coordinates. The files are
+ordinary Cartesian directions, **not coefficients in a nonorthogonal basis**.
+Their exact ranks are the dimensions in the first column.
+
+For a catalogue coefficient row $z$, the supplied
+[`cartesian-basis.json`](p48/data/cartesian-basis.json) gives an integer matrix
+$B$ with $BB^{\mathsf T}=6G$. Thus $zB$ is an integer Cartesian row of squared
+norm 36. Its identity is independently checkable from the catalogue Gram matrix.
+
+The export uses the head $h=2zB$, of squared norm 144. A root $r$ of squared
+norm $q\in\{1,2,8\}$ is mapped into three proportional coordinate blocks
+to form a tail $t$ of squared norm 48. The exact block factors are recorded
+in each `configurationN.json`. The normalized rows are
+
+$$
+ (h,0)/12,\qquad (h,t)/\sqrt{192},\qquad (0,t)/\sqrt{48}.
+$$
+
+In the middle expression the head and tail lengths are $\sqrt3/2$ and $1/2$,
+exactly as in the published block lift. Distinct selected mother lines are
+assigned to their first containing image, so overlaps are removed before the
+four sign choices are formed. The metadata records each layer's range and size.
+
+The complete 52,416,000-point mother shell is enumerated once. Every catalogue
+row has exact Gram norm 6, and its 26,208,000 antipodal lines are distinct.
+Each final export checks that all removed and lifted lines belong to that
+shell, that every Cartesian norm is correct, and that the total equals the
+published count. These full-set checks use the same exact catalogue and finite
+image data as the construction.
+
+The release distributes these large configurations in binary form. To obtain
+integer CSV locally, without any new search:
+
+```sh
+gzip -dk configuration55.i8.gz
+g++ -O3 -std=c++17 constructions/sections/vector_data_csv.cpp -o vector-data-csv
+./vector-data-csv configuration55.i8 72 | gzip > configuration55.csv.gz
+```
+
+Use the column count in the table for the other dimensions. The converter's
+default remains 48 columns for the earlier 43D and 45D files.
+
+The [P48p export guide](p48/VECTORS.md#reproduction) gives the commands to
+reproduce the full mother-shell enumeration and all seven liftings.
