@@ -45,3 +45,16 @@ The Python checks require the standard library; the independent check also
 requires a C++17 compiler. `generate.py` streams the original three-layer
 coordinates from the claims file. Coordinate order and sign conventions are
 specified by the checked finite inputs.
+
+`export_vectors.py` writes the complete final integer Cartesian rows for
+32--37 and 39, including the signed replacements, as signed-int8 gzip and
+optionally integer CSV gzip. It requires NumPy. From the repository root:
+
+```bash
+python constructions/codes/export_vectors.py --dimension 37 --output-dir OUTPUT --csv
+```
+
+Normalize each row by its own Euclidean norm. All rows in 32--37 have squared
+norm 32; in 39 the top layer has squared norm 39 and the other layers have
+squared norm 32. The JSON receipt records exact membership, norm, uniqueness,
+layer counts and file hashes; it does not claim a full all-pairs calculation.
