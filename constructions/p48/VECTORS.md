@@ -62,6 +62,10 @@ sage -python constructions/p48/index_shell.py \
 sage -python constructions/p48/export_vectors.py \
   --shell p48p-canonical-lines.i8 \
   --basis constructions/p48/data/cartesian-basis.json --output full
+python constructions/p48/verify_vector_binary.py \
+  --shell p48p-canonical-lines.i8 \
+  --basis constructions/p48/data/cartesian-basis.json \
+  --directory full --report full-coordinate-verification.json
 ```
 
 The native search proposes candidates using long-double bounds, retains only
@@ -71,5 +75,6 @@ lines. Their 52,416,000 vectors match the proved complete mother-shell size.
 The Cartesian exporter checks every used line against that complete index,
 the exact basis identity, every generated norm, all block counts and the
 published totals. Distinctness follows from the injective head map, disjoint
-assigned classes and the three distinct point types. No exhaustive all-pairs
-test of the 49D–55D files is claimed.
+assigned classes and the three distinct point types. The separate checker
+requires NumPy and SymPy and reconstructs every exported row from the finite
+inputs, also checking the exact intrinsic ranks.

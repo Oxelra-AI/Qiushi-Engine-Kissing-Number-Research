@@ -1,8 +1,9 @@
 # Complete point configurations
 
 These files contain complete configurations, not just seeds or witness subsets.
-The [coordinate release](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/configuration-vectors-2026-10-12)
-provides the additional datasets requested for independent verification.
+The [32--39D release](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/configuration-vectors-2026-10-12)
+and [49--55D release](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/lifting-vectors-2026-10-12)
+provide the additional datasets requested for independent verification.
 The [43D and 45D guide](sections/VECTORS.md) links the earlier complete exports.
 
 ## Dimensions 32--39
@@ -89,13 +90,13 @@ row-major signed int8, without a header. Their three layers have squared norms
 
 | Dimension | Complete rows | Coordinate columns | Download |
 | ---: | ---: | ---: | --- |
-| 49 | 52,430,156 | 51 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration49.i8.gz) |
-| 50 | 52,458,468 | 57 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration50.i8.gz) |
-| 51 | 52,500,930 | 57 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration51.i8.gz) |
-| 52 | 52,585,772 | 60 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration52.i8.gz) |
-| 53 | 52,698,696 | 63 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration53.i8.gz) |
-| 54 | 52,923,774 | 72 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration54.i8.gz) |
-| 55 | 53,301,140 | 72 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/configuration-vectors-2026-10-12/configuration55.i8.gz) |
+| 49 | 52,430,156 | 51 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration49.i8.gz) |
+| 50 | 52,458,468 | 57 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration50.i8.gz) |
+| 51 | 52,500,930 | 57 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration51.i8.gz) |
+| 52 | 52,585,772 | 60 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration52.i8.gz) |
+| 53 | 52,698,696 | 63 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration53.i8.gz) |
+| 54 | 52,923,774 | 72 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration54.i8.gz) |
+| 55 | 53,301,140 | 72 | [int8](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/configuration55.i8.gz) |
 
 The ambient column counts exceed the intrinsic dimensions because some root
 systems and integer tail embeddings use additional coordinates. The files are

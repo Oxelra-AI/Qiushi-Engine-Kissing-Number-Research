@@ -54,8 +54,8 @@
     },
     {
       "path": "constructions/VECTORS.md",
-      "sha256": "536d2a63cd5c4faf8f163424f75de3296336d43d3a1e81dcabf0fbec9ed8a351",
-      "bytes": 9560
+      "sha256": "44669544780dbad5cb3bb5a5769897e3fe31f4b945762264e240a5f864f95867",
+      "bytes": 9644
     },
     {
       "path": "constructions/catalog/README.md",
@@ -584,8 +584,8 @@
     },
     {
       "path": "constructions/p48/VECTORS.md",
-      "sha256": "c7e0d15361a9fe8d32823793576ec037390af6f121076f4ace17e448aaf5954b",
-      "bytes": 3360
+      "sha256": "e40950b84a51ea1acc2d5d3392a3de594c94eaf2315211b57a48f28e985a7332",
+      "bytes": 3648
     },
     {
       "path": "constructions/p48/coverage.py",
@@ -703,6 +703,11 @@
       "bytes": 5643
     },
     {
+      "path": "constructions/p48/test_vector_binary.py",
+      "sha256": "6eeaebe3bef46dd6b7eb75d62c1fddabfec80413c060da2d1f35c7ebb6866e51",
+      "bytes": 3316
+    },
+    {
       "path": "constructions/p48/verification.json",
       "sha256": "1dba6f1d256061baec7ea29668e2287cbf4011489483f5e250728ee7d4e3ef10",
       "bytes": 13638
@@ -711,6 +716,11 @@
       "path": "constructions/p48/verify.py",
       "sha256": "f1f05bab0988666938bc4814eb0ba0bfba3d0fd516a42d7db5a17695a05cf96d",
       "bytes": 23264
+    },
+    {
+      "path": "constructions/p48/verify_vector_binary.py",
+      "sha256": "c584fa1178d2753eee29229020c572bca4672c61acf2bede8b4b535d62a1d28a",
+      "bytes": 13877
     },
     {
       "path": "constructions/residual/README.md",
