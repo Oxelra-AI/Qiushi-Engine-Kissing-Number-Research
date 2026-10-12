@@ -103,7 +103,7 @@ systems and integer tail embeddings use additional coordinates. The files are
 ordinary Cartesian directions, **not coefficients in a nonorthogonal basis**.
 Their exact ranks are the dimensions in the first column.
 
-For a catalogue coefficient row $z$, the supplied
+For a norm-six catalogue coefficient row $z$, the supplied
 [`cartesian-basis.json`](p48/data/cartesian-basis.json) gives an integer matrix
 $B$ with $BB^{\mathsf T}=6G$. Thus $zB$ is an integer Cartesian row of squared
 norm 36. Its identity is independently checkable from the catalogue Gram matrix.
