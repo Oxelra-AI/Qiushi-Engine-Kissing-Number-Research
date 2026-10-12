@@ -189,6 +189,7 @@ def export(shell_path, basis_path, output_directory, dimensions=range(49, 56), c
                 "rank_verification": "first assigned cap-head class spans rank48; pure tails have exact rank dimension-48",
                 "format": f"raw {dtype.name}; little-endian; no header",
                 "file": state["path"].name, "sha256": state["digest"].hexdigest(),
+                "source_chunk_lines": chunk_lines,
                 "normalization": "Divide EACH ROW by its own Euclidean length",
                 "head_columns": int(basis.shape[1]), "head_gram_scale": scale,
                 "blocks": [{"kind": "equatorial", "first_row": 0, "rows": equatorial_rows,
