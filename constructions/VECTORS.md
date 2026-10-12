@@ -129,6 +129,10 @@ shell, that every Cartesian norm is correct, and that the total equals the
 published count. These full-set checks use the same exact catalogue and finite
 image data as the construction.
 
+A separate program reconstructs every exported row and checks the exact ranks;
+its [complete results](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/lifting-vectors-2026-10-12/lifting-verification.json)
+accompany the files. This checks the full coordinate exports, not all point pairs.
+
 The release distributes these large configurations in binary form. To obtain
 integer CSV locally, without any new search:
 
