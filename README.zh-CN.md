@@ -60,6 +60,13 @@ Qiushi Engine 自主研读文献、提出并检验构造、调整研究方向、
 | 54 | 52,923,774 | 52,922,906 | +868 |
 | 55 | 53,301,140 | 53,299,730 | +1,410 |
 
+Carlos Toledo 独立检查了 **25、27、43、45维**构型，报告全部点对的精确检查通过，
+未发现违反接吻条件的点对。感谢他开展独立复核并公开验证程序：
+[结果与讨论](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/issues/1#issuecomment-6115369960)、
+[验证报告](https://carlostoledo.co/reports/kissing.html)、
+[复现程序](https://github.com/carlostoledo1891/cert-machine)。
+[完整坐标与归一化说明](constructions/VECTORS.md)可用于进一步独立检查。
+
 32维比较值由[Brouwer码表](https://aeb.win.tue.nl/codes/Andw.html#d8.8)所载Lysenstøen的1671字码代入ERS构造得到：
 $2^{17}+128\cdot1671+2\cdot32\cdot31=346944$。
 

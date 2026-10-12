@@ -34,13 +34,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "709a1ee0c6f9dab4e802b488f8c29c8b1589b93914fd1da6d3b55931487d0bfb",
-      "bytes": 14428
+      "sha256": "106cc94a01638b1522b058c7d3f530242d42c1a52ef290ba2f854db17b2144da",
+      "bytes": 15063
     },
     {
       "path": "README.zh-CN.md",
-      "sha256": "7ae1fe2efb87c46f14568c16f6bfa7707b40d9a722357dccce2b0a2151330401",
-      "bytes": 13137
+      "sha256": "0e25101a1e9a8318466a1aceadb94906ea3bd5a4e401b7d9ad79b50d2995ca9a",
+      "bytes": 13681
     },
     {
       "path": "RIGHTS.md",
@@ -49,8 +49,13 @@
     },
     {
       "path": "constructions/README.md",
-      "sha256": "5cb672bf9922724a2e0c9184178678028bde29af06959736e707923e230e97c9",
-      "bytes": 717
+      "sha256": "744226657ca79bde67fb56268f67d37b11c4074d448c52ae4f5b5f9cde959afc",
+      "bytes": 853
+    },
+    {
+      "path": "constructions/VECTORS.md",
+      "sha256": "fe69006c3cd5a4019800a8c16867f244fa973676de5e695a0ba9b62cf85f9479",
+      "bytes": 5656
     },
     {
       "path": "constructions/catalog/README.md",
@@ -84,8 +89,8 @@
     },
     {
       "path": "constructions/codes/README.md",
-      "sha256": "f38860d35749819f9a3c14575105f978d91f536b8e2855362f16d3e020d35240",
-      "bytes": 2507
+      "sha256": "a0c789f8d3fd527588d75891cfd19034fa45f4acb95a1bd29c740c7c283bc521",
+      "bytes": 3138
     },
     {
       "path": "constructions/codes/check_code_lineage.py",
@@ -221,6 +226,11 @@
       "path": "constructions/codes/data/exchanges/exchanges.json",
       "sha256": "c6c8507ea06932f81cc6f39effb57772baaa4cdce60fe55b5d5b89bdbe7b9b5d",
       "bytes": 5716
+    },
+    {
+      "path": "constructions/codes/export_vectors.py",
+      "sha256": "1789e063e40810250df97fc18e7a221be9aec2d36353263cebe291413485a7ae",
+      "bytes": 13086
     },
     {
       "path": "constructions/codes/generate.py",
@@ -481,6 +491,11 @@
       "path": "constructions/d38/base-data/triples.txt",
       "sha256": "b67b833445611220b3e70dd9af7dba42f028bf09771efef09d77501761302914",
       "bytes": 8550
+    },
+    {
+      "path": "constructions/d38/export_vectors.py",
+      "sha256": "053b6db9593611ba591eb14b48cd18f67109a3adc806ac103528bf5b41399512",
+      "bytes": 5354
     },
     {
       "path": "constructions/d38/verification.json",
@@ -1766,6 +1781,16 @@
       "path": "tests/test_archives.py",
       "sha256": "2c85d239513d6de800eca22004049a76ecf9e8c84f93200208ba34322177797a",
       "bytes": 8272
+    },
+    {
+      "path": "tests/test_code_vector_export.py",
+      "sha256": "b5ab5d97fc91cd37b2041d5e78714da2e3f8baf9e68e7ef50b0d91ed6b375742",
+      "bytes": 2540
+    },
+    {
+      "path": "tests/test_d38_export.py",
+      "sha256": "c362ec4bac035437da37c51c8c777e1dc5f4c3717a2aac4617ca831f4ba767ea",
+      "bytes": 2021
     },
     {
       "path": "tests/test_documents.py",

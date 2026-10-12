@@ -72,6 +72,16 @@ Public comparison retrieval dates: 2026-09-24 to 2026-09-27. [Fixed sources](con
 | 54 | 52,923,774 | 52,922,906 | +868 |
 | 55 | 53,301,140 | 53,299,730 | +1,410 |
 
+Carlos Toledo has independently checked the configurations
+in dimensions **25, 27, 43 and 45**, reporting exact checks of every pair
+and no violations of the kissing condition. We thank him for this independent
+verification and for making his programs available:
+[results and discussion](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/issues/1#issuecomment-6115369960),
+[verification report](https://carlostoledo.co/reports/kissing.html),
+[reproduction programs](https://github.com/carlostoledo1891/cert-machine).
+[Complete coordinate files](constructions/VECTORS.md) are available for further
+independent checks.
+
 The dimension-32 comparison is derived by applying the ERS construction to
 Lysenstøen's 1,671-word code listed in [Brouwer's table](https://aeb.win.tue.nl/codes/Andw.html#d8.8):
 $2^{17}+128\cdot1671+2\cdot32\cdot31=346944$.
