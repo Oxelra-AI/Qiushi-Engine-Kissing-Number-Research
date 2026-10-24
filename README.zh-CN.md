@@ -6,7 +6,8 @@
 
 [下载完整工程](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28.1/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [第三次发布：结构性结果与完整研究材料](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28.1)
 
-Qiushi Engine 自主数学研究取得 **19 个维数的接吻数新下界**，覆盖 **25、27、32–39、43、45、49–55维**。
+2026年9月，Qiushi Engine 通过自主数学研究取得 **19 个维数的接吻数下界新纪录**，
+覆盖 **25、27、32–39、43、45、49–55维**。
 本研究的构造搜索、数学分析与计算验证由 Qiushi Engine 自主开展。
 
 [大会直播报告](reports/README.md#apsara-conference-livestream-report)汇集32–39、43、45维的十项成果；
@@ -60,12 +61,14 @@ Qiushi Engine 自主研读文献、提出并检验构造、调整研究方向、
 | 54 | 52,923,774 | 52,922,906 | +868 |
 | 55 | 53,301,140 | 53,299,730 | +1,410 |
 
-Carlos Toledo 独立检查了 **25、27、43、45维**构型，报告全部点对的精确检查通过，
-未发现违反接吻条件的点对。感谢他开展独立复核并公开验证程序：
-[结果与讨论](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/issues/1#issuecomment-6115369960)、
+Carlos Toledo 已对 **全部19个维数的完整构型**完成独立验证，确认点数与实际维数均与论文一致，
+全部点对的精确检查通过，未发现违反接吻条件的点对。感谢他开展独立复核并公开验证程序：
+[结果与讨论](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/issues/1#issuecomment-6133731693)、
 [验证报告](https://carlostoledo.co/reports/kissing.html)、
 [复现程序](https://github.com/carlostoledo1891/cert-machine)。
-[完整坐标与归一化说明](constructions/VECTORS.md)可用于进一步独立检查。
+
+[完整坐标与归一化说明](constructions/VECTORS.md)与证明、有限证书及重建程序一同开放，
+使研究者能够复现全部十九项构造、比较不同方法，并在这些数学对象的基础上继续探索。
 
 32维比较值由[Brouwer码表](https://aeb.win.tue.nl/codes/Andw.html#d8.8)所载Lysenstøen的1671字码代入ERS构造得到：
 $2^{17}+128\cdot1671+2\cdot32\cdot31=346944$。
