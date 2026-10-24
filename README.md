@@ -6,7 +6,8 @@
 
 [Download the complete project](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/download/structural-study-2026-09-28.1/Qiushi-Engine-Kissing-Number-Research-complete.zip) · [Third release: structural results and research materials](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/releases/tag/structural-study-2026-09-28.1)
 
-Qiushi Engine's autonomous mathematical research yields new kissing-number lower bounds in **19 dimensions: 25, 27, 32–39, 43, 45 and 49–55**.
+In September 2026, Qiushi Engine's autonomous mathematical research established
+new kissing-number lower-bound records in **19 dimensions: 25, 27, 32–39, 43, 45 and 49–55**.
 The system carried out the construction searches, mathematical analysis
 and computational verification presented in this study.
 
@@ -72,15 +73,18 @@ Public comparison retrieval dates: 2026-09-24 to 2026-09-27. [Fixed sources](con
 | 54 | 52,923,774 | 52,922,906 | +868 |
 | 55 | 53,301,140 | 53,299,730 | +1,410 |
 
-Carlos Toledo has independently checked the configurations
-in dimensions **25, 27, 43 and 45**, reporting exact checks of every pair
-and no violations of the kissing condition. We thank him for this independent
-verification and for making his programs available:
-[results and discussion](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/issues/1#issuecomment-6115369960),
+Carlos Toledo has independently verified the complete configurations in
+**all 19 dimensions**, confirming their point counts and exact dimensions.
+His exact checks of every pair found no violations of the kissing condition.
+We thank him for this independent verification and for making his programs available:
+[results and discussion](https://github.com/Oxelra-AI/Qiushi-Engine-Kissing-Number-Research/issues/1#issuecomment-6133731693),
 [verification report](https://carlostoledo.co/reports/kissing.html),
 [reproduction programs](https://github.com/carlostoledo1891/cert-machine).
-[Complete coordinate files](constructions/VECTORS.md) are available for further
-independent checks.
+
+The [complete coordinate files and normalization conventions](constructions/VECTORS.md)
+complement the proofs, finite certificates and reconstruction programs.
+These open materials allow researchers to reproduce all nineteen constructions,
+compare methods and develop further configurations.
 
 The dimension-32 comparison is derived by applying the ERS construction to
 Lysenstøen's 1,671-word code listed in [Brouwer's table](https://aeb.win.tue.nl/codes/Andw.html#d8.8):
