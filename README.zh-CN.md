@@ -67,8 +67,10 @@ Carlos Toledo 已对 **全部19个维数的完整构型**完成独立验证，�
 [验证报告](https://carlostoledo.co/reports/kissing.html)、
 [复现程序](https://github.com/carlostoledo1891/cert-machine)。
 
-[完整坐标与归一化说明](constructions/VECTORS.md)与证明、有限证书及重建程序一同开放，
-使研究者能够复现全部十九项构造、比较不同方法，并在这些数学对象的基础上继续探索。
+本研究形成了可迁移的构造方法与可复用的数学对象，并开放了相应的证明、
+[完整坐标与归一化说明](constructions/VECTORS.md)、有限证书和验证程序。
+这些方法与资源已被[后续研究采用](https://github.com/QH-Lin/kissing-numbers-33-39/blob/0c4e2bd486061b3fd55e128ac3497bfb12b73f07/certificates/d38/THIRD_PARTY.md)，
+为接吻数及相关球面码与格构造的进一步发展提供了数学与计算基础。
 
 32维比较值由[Brouwer码表](https://aeb.win.tue.nl/codes/Andw.html#d8.8)所载Lysenstøen的1671字码代入ERS构造得到：
 $2^{17}+128\cdot1671+2\cdot32\cdot31=346944$。

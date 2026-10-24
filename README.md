@@ -81,10 +81,13 @@ We thank him for this independent verification and for making his programs avail
 [verification report](https://carlostoledo.co/reports/kissing.html),
 [reproduction programs](https://github.com/carlostoledo1891/cert-machine).
 
-The [complete coordinate files and normalization conventions](constructions/VECTORS.md)
-complement the proofs, finite certificates and reconstruction programs.
-These open materials allow researchers to reproduce all nineteen constructions,
-compare methods and develop further configurations.
+The study contributes transferable construction principles and reusable
+mathematical objects, accompanied by open proofs,
+[complete coordinate data and normalization conventions](constructions/VECTORS.md),
+finite certificates and verification programs. These methods and resources have
+already been [adopted in subsequent research](https://github.com/QH-Lin/kissing-numbers-33-39/blob/0c4e2bd486061b3fd55e128ac3497bfb12b73f07/certificates/d38/THIRD_PARTY.md),
+providing a mathematical and computational foundation for further advances in
+kissing numbers, spherical codes and lattice constructions.
 
 The dimension-32 comparison is derived by applying the ERS construction to
 Lysenstøen's 1,671-word code listed in [Brouwer's table](https://aeb.win.tue.nl/codes/Andw.html#d8.8):
